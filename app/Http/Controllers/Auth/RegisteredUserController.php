@@ -176,9 +176,9 @@ class RegisteredUserController extends Controller
             $phone_number= "+" .$full_phone_number;
         }
       
-       
+
         //   return response()->json([
-        //     'message' =>  $request->fullphonenumber,
+        //     'message' =>  $phone_number,
 
         // ]);
         // check whether phone number exist in the system or not
@@ -196,14 +196,20 @@ class RegisteredUserController extends Controller
             ]);
         }
 
+//
+
+
+
         /* Get credentials from .env */
 
       
+        // VA7a6cd0db15a89b504fe8c02ef6f0d34f
+        // ACdf8314a9e2769a09b75d8ffa95a5affd
+        // b939ed58da9be1407bb06576c59042e1
 
-
-        $token = "1210c32b8698cf85d8e766751ee408f2";
-        $twilio_sid = "AC7f4815ae3c0f4dfb0a07da5de073cf9d";
-        $twilio_verify_sid = "VAb2d5cf69aced326a8e50e97c3dbeffaa";
+        $token = "695c18d11dbf8b984aa977ea87f618bd";
+        $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
+        $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             
 
             // if phone number is not valid 
@@ -248,9 +254,9 @@ class RegisteredUserController extends Controller
             //     'message' =>  $phone_number,
             // ]);
 
-            $token = "1210c32b8698cf85d8e766751ee408f2";
-            $twilio_sid = "AC7f4815ae3c0f4dfb0a07da5de073cf9d";
-            $twilio_verify_sid = "VAb2d5cf69aced326a8e50e97c3dbeffaa";
+            $token = "695c18d11dbf8b984aa977ea87f618bd";
+        $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
+        $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             $twilio = new Client($twilio_sid, $token);
             $verification = $twilio->verify->v2->services($twilio_verify_sid)
         ->verificationChecks
@@ -427,9 +433,9 @@ $response = $client->request('POST', 'https://app.addresstwo.com/ContactForm', [
 
 
         /* Get credentials from .env */
-        $token = "1210c32b8698cf85d8e766751ee408f2";
-        $twilio_sid = "AC7f4815ae3c0f4dfb0a07da5de073cf9d";
-        $twilio_verify_sid = "VAb2d5cf69aced326a8e50e97c3dbeffaa";
+        $token = "b939ed58da9be1407bb06576c59042e1";
+        $twilio_sid = "ACdf8314a9e2769a09b75d8ffa95a5affd";
+        $twilio_verify_sid = "VA7a6cd0db15a89b504fe8c02ef6f0d34f";
         $twilio = new Client($twilio_sid, $token);
 
         try {

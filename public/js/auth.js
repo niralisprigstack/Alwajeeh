@@ -321,6 +321,7 @@ $(function (){
                   $('.step-1-btn').removeClass('bg-btn');
                   $('.step-2-btn').addClass('bg-btn');
                   $('.auth-pagination').css('position','initial');
+                  $('.register_cont').removeClass('full_logo2');
               }
               loader.addClass('d-none');
              
@@ -348,7 +349,7 @@ $(function (){
     var str_pos = phone_number1.indexOf("+");
     if (str_pos > -1) {
        
-        var phone_number = $('#phone_number').val();
+        var phone_number = phone_number1;
     } else {
 
         // var str=phone_number;
@@ -387,8 +388,10 @@ $('.otpLoader').removeClass('d-none');
             if(response.message === 'valid'){
             $('.step-4').addClass('d-none');
             $('.step-5').removeClass('d-none');
+            $('.register_cont').removeClass('full_logo2');
             $('.step-4-btn').removeClass('bg-btn');
             $('.step-5-btn').addClass('bg-btn');
+            $('.register_cont').addClass('full_logo2');
 
             }
             else{
@@ -397,6 +400,7 @@ $('.otpLoader').removeClass('d-none');
                 $('.otpMessage').text('Please enter valid OTP');
                 $('.step-4').addClass('d-none');
                 $('.step-8').removeClass('d-none');
+                $('.register_cont').removeClass('full_logo2');
             }
             $('.otpLoader').addClass('d-none');
            
@@ -576,6 +580,7 @@ $('.otpLoader').removeClass('d-none');
               $('.step-3-btn').removeClass('bg-btn');
               $('.step-4-btn').addClass('bg-btn');
               $('.auth-pagination').removeAttr('style');
+              $('.register_cont').removeClass('full_logo2');
               }
               else{
                   alert('Something went wrong please try again');
@@ -620,6 +625,7 @@ $('.otpLoader').removeClass('d-none');
              $('.step-2-btn').removeClass('bg-btn');
              $('.step-3-btn').addClass('bg-btn');
              $('.auth-pagination').removeAttr('style');
+             $('.register_cont').removeClass('full_logo2');
              }
              else{
                  alert('Something went wrong please try again');
@@ -818,7 +824,8 @@ $('.otpLoader').removeClass('d-none');
               $('.step-1').removeClass('d-none');
               $('.step-1-btn').removeClass('bg-btn');
               $('.step-2-btn').addClass('bg-btn');
-  
+              $('.register_cont').removeClass('full_logo2');
+
               var pageWidth = $(window).width(); 
       
               if( pageWidth< 992){
@@ -855,14 +862,17 @@ $('.otpLoader').removeClass('d-none');
     $('.step-4').addClass('d-none');
     $('.step-8').addClass('d-none');
     $('.step-2').removeClass('d-none');
+    $('.register_cont').removeClass('full_logo2');
   }
 function goTostep3(element){
     $('.step-4').addClass('d-none');
     $('.step-3').removeClass('d-none');
+    $('.register_cont').removeClass('full_logo2');
   }
   function goTostep4(element){
     $('.step-5').addClass('d-none');
     $('.step-4').removeClass('d-none');
+    $('.register_cont').removeClass('full_logo2');
   }
   function goTostep5(element){
     $('.step-6').addClass('d-none');
@@ -872,4 +882,5 @@ function goTostep3(element){
   function goTostep6(element){
     $('.step-5').addClass('d-none');
     $('.step-6').removeClass('d-none');
+    $('.register_cont').removeClass('full_logo2');
   }

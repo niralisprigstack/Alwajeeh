@@ -179,7 +179,7 @@
                                     <select class=" form-control auth-input shadow-none" id="nationality" name="nationality" required>
                                         <option value="" disabled selected>Nationality</option>
 
-                                        <option value='1'>India</option>
+                                        <option value='1'>Indian</option>
 
                                     </select>
                                 </div>
@@ -401,8 +401,8 @@
                     </h3>
                 </div>
 
-                <div class="sucessfull-msg" style="height: 40vh;">
-                    Verification
+                <div class="sucessfull-msg justify-content-center" style="height: 40vh;">
+                    Verification<br> 
                     Succesfull
                 </div>
 
@@ -437,8 +437,8 @@
                     </h3>
                 </div>
 
-                <div class="sucessfull-msg" style="height: 40vh;">
-                    Verification
+                <div class="sucessfull-msg justify-content-center " style="height: 40vh;">
+                    Verification<br>
                     Unsuccesfull
                 </div>
 

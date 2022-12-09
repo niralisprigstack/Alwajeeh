@@ -12,8 +12,35 @@ input[type=number]::-webkit-outer-spin-button {
 body{
   color: #000000;
   background: #FCFCFC;
-  font-family: 'Lato', sans-serif !important;
+  /* font-family: 'Montserrat' !important; */
+  font-family: 'Montserrat', sans-serif !important;
+  /* font-family: 'Lato', sans-serif !important; */
 }
+select{
+ 
+}
+.authselect select:invalid {
+    color: #B7B7B7;
+    font-family: 'Montserrat' !important;
+    font-weight: 400;
+  
+    
+    background: url("/assests/images/downarrow.png") #E2E2E2  no-repeat 95.5% !important;
+    /* background-image:url(/assests/images/downarrow.svg);
+    background: url(/assests/images/downarrow.svg) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+  }
+  .authselect option[value=""][disabled] {
+    display: none;
+  }
+  a:hover {
+    color: none;
+    text-decoration: auto;
+}
+ .authselect option {
+    color: black;
+  }
 
 .welocomeLeftDiv{
     min-height: 100%;
@@ -391,7 +418,7 @@ color: #000000;
 
 .welcome_head{
    
-    padding-top: 90px; 
+    padding-top: 110px; 
 
 }
 
@@ -409,7 +436,6 @@ color: #000000;
     height: 208.79px;
   }
   .headtext{
-    font-family: inherit;
 font-style: normal;
 font-weight: 800;
 font-size: 48px;
@@ -473,6 +499,16 @@ color: #000000;
 }
 .mt-40{
     margin-top: 40px;
+}
+.mobileauthfont{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center; 
+    color: #000000 !important;
 }
 
 @media (max-width:768px) {
@@ -681,15 +717,7 @@ color: #A4894B;
         margin-top: -500px;
       } */
 
-    .mobileauthfont{
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
-        display: flex;
-        align-items: center; 
-        color: #000000 !important;
-    }
+    
     
     .auth-pagination{
       position: initial !important;

@@ -9,8 +9,8 @@
 
     <div class="screen_bg">
         <div class="col-12 col-lg-12 col-md-12 welcome_head">
-            <div class="col-9 col-lg-9 col-md-9 headtext pl-0">
-                Get closer to the family
+            <div class="col-12 col-lg-12 col-md-12 headtext pl-0">
+                Get closer<br> to the<br> family
             </div>
             <p class="sub_headtext">Heritage . Family . Business</p>
 

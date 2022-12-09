@@ -151,15 +151,15 @@
 
                         <div class="col-md-12">
                             <div class="">
-                                <div class="input-group-prepend">
+                                <div class="input-group-prepend authselect">
                                     <select class=" form-control auth-input shadow-none" id="country_code" name="country_code" required>
                                         <option value="" disabled selected>Country</option>
 
                                         <option value='1'>UAE</option>
-                                        <option value="2">INDIA</option>
+                                        <option value="2">India</option>
                                         <option value="3">USA</option>
-                                        <option value="4">CANADA</option>
-                                        <option value="5">PAKISTAN</option>
+                                        <option value="4">Canada</option>
+                                        <option value="5">Pakistan</option>
 
                                     </select>
 
@@ -175,11 +175,15 @@
 
                         <div class="col-md-12">
                             <div class=" ">
-                                <div class="input-group-prepend">
+                                <div class="input-group-prepend authselect">
                                     <select class=" form-control auth-input shadow-none" id="nationality" name="nationality" required>
                                         <option value="" disabled selected>Nationality</option>
 
-                                        <option value='1'>Indian</option>
+                                        <option value='Emirati'>Emirati</option>
+                                        <option value='Indian'>Indian</option>
+                                        <option value='American'>American</option>
+                                        <option value='Canadian'>Canadian</option>
+                                        <option value='Pakistani'>Pakistani</option>
 
                                     </select>
                                 </div>
@@ -191,7 +195,7 @@
                     <div class="date align-items-center datetimepickerforfiles" id="">
                         <input type="text" class="form-control auth-input shadow-none" autocomplete="false" value="" id="birth_date" name="birth_date" style="" placeholder="Birth Date DD/MM/YY" required>
                         <span class="input-group-addon  birthdatepicker">
-                            <i class="far fa-calendar calendar" style="font-size: 20px;"></i>
+                            <!-- <i class="far fa-calendar calendar" style="font-size: 20px;"></i> -->
                         </span>
                     </div>
                     <!-- <div class="form-group row">
@@ -298,7 +302,7 @@
 
                     <div class="form-group row ">
                         <div class="col-4 pr-0">
-                            <input id="wp_number_code" type="text" class="form-control auth-input shadow-none " name="user_number" value="" required placeholder="Code">
+                            <input id="wp_number_code" type="text" class="form-control auth-input shadow-none " name="wpuser_number" value="" required placeholder="Code">
                         </div>
 
                         <div class="col-8">
@@ -368,7 +372,7 @@
 
                     </div>
                     <input type="hidden" id='resendOtpurl' value="{{url('resendOtp')}}">
-                    <p id='resendOtp' class='text-center mt-4 c-light-black global-font-color' style='    font-size: 16px;'>Resending in <span id="timer"></span> </p>
+                    <p id='resendOtp' class='text-center mt-4 c-light-black global-font-color' style='    font-size: 20px;'>Resending in <span id="timer"></span> </p>
                     <!-- <p class='text-center mt-4 c-light-black global-font-color' style='    font-size: 16px;'>Entered wrong number ? <span class='text-center loginback c-pointer f-s-17 f-w-600 global-font-color'> Go Back </p> -->
 
                     <div class="col-md-12 row justify-content-between p-0 m-0 mt-5 mb-4">
@@ -494,21 +498,21 @@
                     <div class="form-group row  ">
 
                         <div class="col-md-12">
-                            <input id="company_name" type="text" class="form-control auth-input shadow-none " name="city" value="{{ old('city') }}" required autocomplete="company_name" placeholder="Company Name">
+                            <input id="company_name" type="text" class="form-control auth-input shadow-none " name="company" value="{{ old('company') }}" required autocomplete="company_name" placeholder="Company Name">
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="role" type="text" class="form-control auth-input shadow-none " name="company" value="{{ old('comapny') }}" autocomplete="role" placeholder="Role">
+                            <input id="role" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}" autocomplete="role" placeholder="Role">
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="city" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}" required autocomplete="city" placeholder="City">
+                            <input id="city" type="text" class="form-control auth-input shadow-none " name="city" value="{{ old('city') }}" required autocomplete="city" placeholder="City">
                         </div>
                     </div>
 
@@ -517,15 +521,15 @@
 
                         <div class="col-md-12">
                             <div class="">
-                                <div class="input-group-prepend">
-                                    <select class=" form-control auth-input shadow-none" id="country_code1" name="country_code" required>
+                                <div class="input-group-prepend authselect">
+                                    <select class=" form-control auth-input shadow-none" id="bcountry_code" name="business_country_code" required>
                                         <option value="" disabled selected>Country</option>
 
                                         <option value='1'>UAE</option>
-                                        <option value="2">INDIA</option>
+                                        <option value="2">India</option>
                                         <option value="3">USA</option>
-                                        <option value="4">CANADA</option>
-                                        <option value="5">PAKISTAN</option>
+                                        <option value="4">Canada</option>
+                                        <option value="5">Pakistan</option>
 
                                     </select>
 
@@ -533,6 +537,17 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="form-group row mt-5">
+                        <div class="col-4 pr-0">
+                            <input id="business_number_code" type="text" class="form-control auth-input shadow-none " name="business_number_code" value="" required placeholder="Code">
+                        </div>
+
+                        <div class="col-8">
+                            <input id="business_user_number" type="number" class="form-control auth-input shadow-none " name="business_user_number" value="{{ old('business_number') }}" required placeholder="Mobile">
+                        </div>
+                        <span class='validPhoneNum text-danger col-12'></span>
                     </div>
 
 
@@ -549,10 +564,10 @@
                             </button>
                         </div>
                         <div class="col-6 row justify-content-end  p-0 m-0">
-                            <button type='submit' class="   pr-0 centerloader nextbackbtn ">
+                            <!-- <button type='submit' class="   pr-0 centerloader nextbackbtn ">
                                 Next
                                 <img class="img-fluid" style="width: 40px;" src="{{ asset('assests/images/rightarrow.svg') }}" alt="">
-                            </button>
+                            </button> -->
 
                         </div>
                     </div>
@@ -560,11 +575,12 @@
 
                 </form>
             </div>
-            <!-- step 5 ends -->
+            <!-- step 6 ends -->
 
             <div class="step-7 d-none text-center step respstep7" style="">
                 <input type="hidden" class="dashboardurl" value="{{url('dashboard')}}">
-                <h2 class='sucessfull-msg justify-content-center'>Account Created !</h2>
+                <h2 class='sucessfull-msg justify-content-center' style="font-size: 36px;
+    line-height: 44px;">Account<br>Created !</h2>
                 <p class='lastpagetext mt-2 p-0 mb-0 justify-content-center'> Welcome to</p>
                 <p class='lastpagetext justify-content-center p-0'>Alwajeeh</p>
                 <p class='lastpagetext mt-5 mb-4'>The Sheikh Mostafa Bin Abdullatif Foundation Application</p>

@@ -1,0 +1,110 @@
+html,
+body {
+
+ overflow: hidden !important;
+ background: #F3F4F6;
+}
+.profile_container{
+    background: #F3F4F6;
+}
+.profile-head-text{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+
+color: #A4894B;
+}
+/* .static-black-bg{
+    position: fixed;
+    width: 100%;
+    height: 180px;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+}
+.static-bottom-bg{
+    position: fixed;
+width: 428px;
+height: 70px;
+left: 0px;
+bottom:0px;
+
+background: rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(5px);
+} */
+.detailwholesection{
+    overflow-y: scroll !important;
+    /* inset: 0; */
+    position: absolute;
+    /* overflow-x: hidden; */
+    /* height: 227px; */
+    width: 90%;
+    z-index: 1;
+}
+.padd-right-30{
+    /* padding-right: 30px; */
+}
+.profile_headerimg{
+    position: fixed;
+    top:0;
+}
+.profile_footerimg{
+    position: fixed;
+    bottom: 0;
+    z-index: 0;
+}
+.profile-section{
+    padding-top: 240px;
+}
+.profile-card{
+    /* position: absolute; */
+width: 100px;
+height: 100px;
+background: #B7B7B7;
+border-radius: 10px;
+border: none;
+text-align: center;
+justify-content: center;
+}
+.img-profile-card{
+    width: 100px;
+height: 100px;
+border-radius: 10px;
+border: none;
+}
+.Setprofile{
+width: 300px;
+height: 300px;
+background: #B7B7B7;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+margin: auto;
+}
+.setprofiledef{
+    width: 300px;
+height: 300px;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+margin: auto;
+}
+.edit-text{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+color: #A4894B;
+}
+.setprofImg{
+width: 300px;
+height: 300px;
+border-radius: 10px;
+}

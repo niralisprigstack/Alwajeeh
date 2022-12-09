@@ -27,7 +27,7 @@
     </div>
     <div class="col-lg-10 col-10 centerBoth mobilestepdiv flex-column pr-0 mb-4  m-auto">
         
-            <h2 class='mb-4 font-weight-bold  auth-title col-12'>Let’s sign you in</h2>
+            <h2 class='mb-4 font-weight-bold  auth-title col-12 pr-0'>Let’s sign you in</h2>
 
 
             <form method="POST" class="form-div-post col-12 pr-0" action="{{ url('/login') }}">

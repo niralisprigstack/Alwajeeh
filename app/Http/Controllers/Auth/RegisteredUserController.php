@@ -101,6 +101,22 @@ class RegisteredUserController extends Controller
     public function checkUsernameEmailDuplicate(Request $request){
         $userName = false;
         $email = false;
+        $phnumber=false;
+        $wphnumber=false;
+        $full_phone_number=$request->phone_number_code .'-'.$request->user_number;
+        $full_wp_number=$request->wpphone_number_code .'-'.$request->wp_user_number;
+      
+        if (str_contains($full_phone_number, '+')) {
+            $phone_number=  $full_phone_number;
+        }else{
+            $phone_number= "+" .$full_phone_number;
+        }
+
+        if (str_contains($full_wp_number, '+')) {
+            $wpphone_number=  $full_wp_number;
+        }else{
+            $wpphone_number= "+" .$full_wp_number;
+        }
         if (!empty($request->user_name)) {
             // $user = User::where(['user_name', '=', $request->user_name],['id','<>',$request->id])->first();
             $user = User::where('user_name', '=', $request->user_name)->where('id','<>',$request->id)->first();
@@ -115,9 +131,26 @@ class RegisteredUserController extends Controller
                 $email = true;
             }
         }
+
+        if(!empty($request->user_number)){
+            $user = User::where('phone_number', '=', $phone_number)->where('id','<>',$request->id)->first();
+            if ($user != null) {
+                $phnumber=true;
+            }
+        }
+        if(!empty($request->wp_user_number)){
+            $user = User::where('whatsapp_number', '=', $wpphone_number)->where('id','<>',$request->id)->first();
+            if ($user != null) {
+                $wphnumber=true;
+            }
+        }
+       
+       
         return response()->json([
             'userName' => $userName,
-            'email' => $email
+            'email' => $email,
+            'phonexist'=>$phnumber,
+            'wpphonexist'=>$wphnumber
         ]);
     }
 
@@ -207,7 +240,7 @@ class RegisteredUserController extends Controller
         // ACdf8314a9e2769a09b75d8ffa95a5affd
         // b939ed58da9be1407bb06576c59042e1
 
-        $token = "695c18d11dbf8b984aa977ea87f618bd";
+        $token = "0e1f58d0b295e405a01780de9f349930";
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             
@@ -254,7 +287,7 @@ class RegisteredUserController extends Controller
             //     'message' =>  $phone_number,
             // ]);
 
-            $token = "695c18d11dbf8b984aa977ea87f618bd";
+            $token = "0e1f58d0b295e405a01780de9f349930";
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             $twilio = new Client($twilio_sid, $token);
@@ -302,6 +335,7 @@ class RegisteredUserController extends Controller
             'email' =>['required','string'],
             'user_name'=>['required','string'],
             'countryCode'=>['required'],
+            'business_country_code'=>['required'],
             'city' =>['required','string'],
             'company' =>['required','string'],
             'role' =>['required','string'],
@@ -311,6 +345,7 @@ class RegisteredUserController extends Controller
 
         $full_phone_number=$request->phone_number_code . "-" .$request->phone_number;
         $full_wp_number=$request->wpphone_number_code . "-" .$request->wpphone_number;
+        $full_business_number=$request->business_number_code . "-" .$request->business_user_number;
       
         if (str_contains($full_phone_number, '+')) {
             $phone_number=  $full_phone_number;
@@ -324,6 +359,13 @@ class RegisteredUserController extends Controller
             $wpphone_number= "+" .$full_wp_number;
         }
 
+
+       
+        if (str_contains($full_business_number, '+')) {
+            $business_number=  $full_business_number;
+        }else{
+            $business_number= "+" .$full_business_number;
+        }
         
         /* Get credentials from .env */
         // $token = getenv("TWILIO_AUTH_TOKEN");
@@ -349,11 +391,13 @@ class RegisteredUserController extends Controller
             $user->middle_name = $request->middle_name;
            }
             $user->last_name = $data['last_name'];
-            $user->phone_number = $phone_number;   
+            $user->phone_number = $phone_number;  
+            $user->business_number = $business_number;   
             $user->whatsapp_number =$wpphone_number;   
             $user->email =$data['email'];   
             $user->user_name =$data['user_name'];   
             $user->country_id =$data['countryCode'];  
+            $user->business_country_id=$data['business_country_code'];
             
             //adding bday
             $var =  $request->birth_date;
@@ -433,7 +477,7 @@ $response = $client->request('POST', 'https://app.addresstwo.com/ContactForm', [
 
 
         /* Get credentials from .env */
-        $token = "b939ed58da9be1407bb06576c59042e1";
+        $token = "0e1f58d0b295e405a01780de9f349930";
         $twilio_sid = "ACdf8314a9e2769a09b75d8ffa95a5affd";
         $twilio_verify_sid = "VA7a6cd0db15a89b504fe8c02ef6f0d34f";
         $twilio = new Client($twilio_sid, $token);

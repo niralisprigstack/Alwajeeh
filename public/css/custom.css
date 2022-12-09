@@ -1,0 +1,104 @@
+
+.mobileauthtext{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    display: flex;
+    align-items: center; 
+    color: #000000 !important;
+}
+.auth-input{
+    height: 58.95px;
+    background: #E2E2E2 !important;
+    border-radius: 10px;
+    /* border: 1px solid #DCDCDC !important; */
+    border: none !important;
+}
+.auth-input::placeholder {
+    color: red;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #B7B7B7;
+}
+.authselect1 select {
+    color: black;
+    font-family: 'Montserrat' !important;
+    font-weight: 400;
+
+    
+    background: url("/assests/images/downarrow.png") #E2E2E2  no-repeat 95.5% !important;
+    /* background-image:url(/assests/images/downarrow.svg);
+    background: url(/assests/images/downarrow.svg) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+  }
+  .authselect1 option[value=""][disabled] {
+    display: none;
+  }
+  a:hover {
+    color: none;
+    text-decoration: auto;
+}
+ .authselect1 option {
+    color: black;
+  }
+
+
+  .authselect2 select{
+    color: black;
+    font-family: 'Montserrat' !important;
+    font-weight: 400;
+
+    
+    background: url("/assests/images/downarrow.png") #E2E2E2  no-repeat 95.5% !important;
+    /* background-image:url(/assests/images/downarrow.svg);
+    background: url(/assests/images/downarrow.svg) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+  }
+  .authselect2 option[value=""][disabled] {
+    display: none;
+  }
+ .authselect2 option {
+    color: black;
+  }
+
+  .authselect3 select{
+    color: black;
+    font-family: 'Montserrat' !important;
+    font-weight: 400;
+
+    
+    background: url("/assests/images/downarrow.png") #E2E2E2  no-repeat 95.5% !important;
+    /* background-image:url(/assests/images/downarrow.svg);
+    background: url(/assests/images/downarrow.svg) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+  }
+  .authselect3 option[value=""][disabled] {
+    display: none;
+  }
+ .authselect3 option {
+    color: black;
+  }
+
+
+  .authButton{
+    background: #A4894B;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    height: 55px;
+    /* width: 162px; */
+    /* padding: 24px; */
+    justify-content: center;
+    outline: none !important;
+}

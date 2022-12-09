@@ -330,7 +330,7 @@ $(function (){
           error: function (err) {
               console.log(err);
               loader.addClass('d-none');
-              alert('Something went wrong please try again');
+            //   alert('Something went wrong please try again');
           }
       });
   

@@ -6,10 +6,13 @@ $(function (){
     var headerimgh=$('.profile_headerimg').height();
     console.log(detailheight);
     console.log(headerimgh);
-    var totalheight=detailheight-headerimgh-20;
+    var halfheaderimg=headerimgh/2;
+    var profilepaddtop=halfheaderimg+35;
+    var totalheight=detailheight-headerimgh-30;
     console.log(totalheight);
     $('.detailwholesection').css("height",totalheight+"px");
-    $('.detailwholesection').css("top",headerimgh+"px")
+    $('.detailwholesection').css("top",headerimgh+"px");
+    $('.profile-section').css("padding-top",profilepaddtop+"px");
     //   $('#user_profile').change(function(){
     //     const file = this.files[0];
     //     console.log(file);
@@ -44,7 +47,7 @@ $('.savepersonaldet').on('click', function (){
 });
 
 $('.savecontact').on('click', function (){
-    $('.savecontactloader').removeClass('d-none');
+    $('.savecontactLoader').removeClass('d-none');
 });
 $('.saveprofbtn').on('click', function (){
     $('.profbtnLoader').removeClass('d-none');
@@ -56,6 +59,19 @@ $('.profile-click').on('click', function (){
     $('.contactdet').addClass('d-none');
     $('.profdet').addClass('d-none');
     $('.edit-div').removeClass('d-none');
+    $(".detailwholesection").css("z-index","0");
+    $(".detailwholesection").addClass("d-none");
+
+
+    var detailheight = window.innerHeight;
+    var headerimgh=$('.profile_headerimg').height();
+    var totalheight=detailheight-headerimgh-30;
+    console.log(totalheight);
+    $('.edit-profile-div').css("height",totalheight+"px");
+
+    var headerimgheighht=$('.profile_headerimg').height();
+    var editsectiontop=headerimgheighht-120;
+    $('.edit-profile-div').css("top",editsectiontop+"px");
 });
 $('.discardbtn').on('click', function (){
     // $('.edit-profile-div').removeClass('d-none');
@@ -64,11 +80,20 @@ $('.discardbtn').on('click', function (){
     $('.editcontactset').addClass('d-none');
     $('.editprofdet').addClass('d-none');
     $('.edit-div').addClass('d-none');
+    $(".detailwholesection").css("z-index","1");
+   
+
+    
+    var headerimgh=$('.profile_headerimg').height();
+    
+    $('.detailwholesection').css("top",headerimgh+"px");
+ 
 
     $('.profile-div').removeClass('d-none');
     $('.personaldet').removeClass('d-none');
     $('.contactdet').removeClass('d-none');
     $('.profdet').removeClass('d-none');
+    $(".detailwholesection").removeClass("d-none");
 });
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -82,10 +107,42 @@ function readURL(input) {
             // $(".removesel-img").click(function(){
             //     $(this).parent(".pip").remove();
             //   });
+            $(".Setprofile img").removeClass("d-none");
             $('.showpreview').attr('src', e.target.result);
         }       
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+
+function removeProfile(element){
+    var url = $('.removeSelectedphoto').val();
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
+    var getImg=$("#user_profile").val(); 
+   
+    if(getImg==""){
+        var getImg=$("#profile_img").attr("src");   
+        $("#user_profile").val("");
+        $(".profildef1").addClass("d-none");
+        $(".profildef").removeClass("d-none");
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: {_token: CSRF_TOKEN,getImg:getImg},
+        success: function (response) {
+                $(".Setprofile img").addClass("d-none");
+                $("#user_profile").val("");
+                $(".profildef1").addClass("d-none");
+                $(".profildef").removeClass("d-none");
+                $(".img-profile-card").addClass("d-none");
+                $(".profile-card").removeClass("d-none");
+            
+        }, error: function (err) {
+            console.log(err);            
+            
+        }
+    });
 }
 function checkUniqueUsernameEmail(element) {
     $('.checkloader').removeClass("d-none");
@@ -163,6 +220,12 @@ function editpersonalDetail() {
         $('.contactdet').addClass('d-none');
         $('.profdet').addClass('d-none');
         $('.edit-div').removeClass('d-none');
+        $(".detailwholesection").css("z-index","0");
+
+
+        var headerimgheighht=$('.profile_headerimg').height();
+        var editsectiontop=headerimgheighht-110;
+        $('.detailwholesection').css("top",editsectiontop+"px");
     } else {
         $(".personaldet ").removeClass("d-none");
         $('.editpersonaldet').addClass('d-none');
@@ -181,6 +244,11 @@ function editcontactDetail(){
     $('.contactdet').addClass('d-none');
     $('.profdet').addClass('d-none');
     $('.edit-div').removeClass('d-none');
+    $(".detailwholesection").css("z-index","0");
+
+    var headerimgheighht=$('.profile_headerimg').height();
+        var editsectiontop=headerimgheighht-110;
+        $('.detailwholesection').css("top",editsectiontop+"px");
     } else {
         $(".selectedManager ").removeClass("d-none");
         $('.contactdet').addClass('d-none');
@@ -194,6 +262,10 @@ function editprofDetail() {
     $('.contactdet').addClass('d-none');
     $('.profdet').addClass('d-none');
     $('.edit-div').removeClass('d-none');
+    $(".detailwholesection").css("z-index","0");
+    var headerimgheighht=$('.profile_headerimg').height();
+        var editsectiontop=headerimgheighht-110;
+        $('.detailwholesection').css("top",editsectiontop+"px");
     } else {
         $(".profdet ").removeClass("d-none");
         $('.editprofdet').addClass('d-none');
@@ -203,14 +275,3 @@ function editprofDetail() {
 $('.editpicClick').click(function () {
     $('.updatepropic').removeClass("d-none");
 });
-
-
-
-
-
-
-
-
-
-     
-

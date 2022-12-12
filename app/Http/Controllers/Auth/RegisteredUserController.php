@@ -240,7 +240,7 @@ class RegisteredUserController extends Controller
         // ACdf8314a9e2769a09b75d8ffa95a5affd
         // b939ed58da9be1407bb06576c59042e1
 
-        $token = "0e1f58d0b295e405a01780de9f349930";
+        $token = "c65e191727731874366fa9d3c34f9c28";
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             
@@ -287,8 +287,9 @@ class RegisteredUserController extends Controller
             //     'message' =>  $phone_number,
             // ]);
 
-            $token = "0e1f58d0b295e405a01780de9f349930";
+            $token = "c65e191727731874366fa9d3c34f9c28";
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
+        
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
             $twilio = new Client($twilio_sid, $token);
             $verification = $twilio->verify->v2->services($twilio_verify_sid)

@@ -66,7 +66,7 @@ select{
     line-height: 29px;
     width: 464px;
     height: 60px;
-    border-radius: 0px;
+    border-radius: 10px;
 }
 .dearmembersMobile{
     margin-bottom: 18px;
@@ -233,7 +233,7 @@ border-color:#00bb09;
 	margin-top:30px;
 	padding:10px 15px;
 
-	border-radius: 3px;
+	border-radius: 10px;
 	letter-spacing:1px;
 	font-weight:500;
 	cursor: pointer;
@@ -400,20 +400,6 @@ color: #000000;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%; */
-}
-.authButton{
-    background: #A4894B;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    text-align: center;
-    align-items: center;
-    margin: auto;
-    height: 55px;
-    /* width: 162px; */
-    /* padding: 24px; */
-    justify-content: center;
-    outline: none !important;
 }
 
 .welcome_head{
@@ -734,6 +720,7 @@ color: #A4894B;
         font-size: 24px;
         line-height: 29px;
         width: 100%;
+        border-radius: 10px;
         
         /* height: 55px !important;
     font-size: 18px;

@@ -42,10 +42,12 @@ backdrop-filter: blur(5px);
     overflow-y: scroll !important;
     /* inset: 0; */
     position: absolute;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     /* height: 227px; */
-    width: 90%;
+    width: 100%;
     z-index: 1;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 .padd-right-30{
     /* padding-right: 30px; */
@@ -60,7 +62,8 @@ backdrop-filter: blur(5px);
     z-index: 0;
 }
 .profile-section{
-    padding-top: 240px;
+    /* padding-top: 240px; */
+    
 }
 .profile-card{
     /* position: absolute; */
@@ -77,9 +80,36 @@ justify-content: center;
 height: 100px;
 border-radius: 10px;
 border: none;
+object-fit: cover;
+max-width: fit-content;
+display: flex;
+justify-content: center;
+margin: auto;
+background: transparent;
+}
+.defprofiletext{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: auto;
+}
+.edit-profile-div{
+    overflow-y: scroll !important;
+    position: absolute;
+    overflow-x: hidden;
+    width: 100%;
+    z-index: 0;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 .Setprofile{
-width: 300px;
+/* width: 300px; */
 height: 300px;
 background: #B7B7B7;
 border-radius: 10px;
@@ -88,12 +118,14 @@ justify-content: center;
 margin: auto;
 }
 .setprofiledef{
-    width: 300px;
+    width: 100%;
 height: 300px;
 border-radius: 10px;
 display: flex;
 justify-content: center;
 margin: auto;
+object-fit:cover;
+max-width: fit-content;
 }
 .edit-text{
     font-family: 'Montserrat';
@@ -104,7 +136,30 @@ line-height: 44px;
 color: #A4894B;
 }
 .setprofImg{
-width: 300px;
+width: 100%;
 height: 300px;
 border-radius: 10px;
+object-fit: cover;
+max-width: fit-content;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    background: #000000; 
+    -webkit-overflow-scrolling: touch;
 }

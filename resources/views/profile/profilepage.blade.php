@@ -1,10 +1,10 @@
 @extends('layouts.app')
-<?php $v = "1.0.22" ?>
+<?php  $v = "1.2" ?>
 <title>My Profile</title>
 @section('content')
 @section('css')
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+<link href="{{ asset('css/profile.css?v='.$v) }}" rel="stylesheet">
 @endsection
 <div class="fluid-container profile_container " style="">
     <!-- <div class="static-black-bg">
@@ -12,7 +12,7 @@
     </div> -->
     <img class="img-fluid profile_headerimg" style="" src="{{ asset('assests/images/profile/profile_header.svg') }}" alt="">
 
-    <div class="profile-section pl-4 pr-4">
+    <div class="profile-section ">
         
         <!--profile pic sec  -->
         <div class="profilewholesec">
@@ -25,13 +25,16 @@
             $imgUrl =  Auth::user()->profile_pic;
 
             if (!empty($imgUrl)) { ?>
-                <span class="img-profile-card card profile-click mb-3" style="float: right;margin-right: 30px;"><img class="text-center img-profile-card" id="" alt="{{Auth::user()->first_name}}" src="{{Storage::disk('s3')->url($imgUrl)}}" data-holder-rendered="true">
+                <span class="img-profile-card card profile-click mb-3" style="float: right;margin-right: 40px;"><img class="text-center img-profile-card" id="" alt="{{Auth::user()->first_name}}" src="{{Storage::disk('s3')->url($imgUrl)}}" data-holder-rendered="true">
 
+                </span>
+                <span class="profile-card card profile-click mb-3 d-none" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
+                    Pic</span>
                 </span>
 
             <?php } else { ?>
-                <span class="profile-card card profile-click mb-3" style="float: right;margin-right: 30px;">Profile<br>
-                    Pic
+                <span class="profile-card card profile-click mb-3" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
+                    Pic</span>
                 </span>
 
             <?php } ?>
@@ -39,8 +42,8 @@
 
 
 
-        <div class="edit-profile-div d-none">
-            <span class="profile-head-text col-12 mb-25">My Profile Photo</span>
+        <div class="edit-profile-div  mb-5 pb-5 d-none">
+            <span class="profile-head-text col-12 mb-25 p-0">My Profile Photo</span>
             <form class="" id="profilepicedit" action="{{url('editProfilePic')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <span class="show-profile ">
@@ -67,14 +70,15 @@
 
                 </span>
 
-                <label for="user_profile" class="profile-head-text select-image col-12 mb-25 mt-20">Replace Photo</label>
-                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg" onchange="readURL(this);">
-                <span class="profile-head-text col-12 mb-25 removesel-img">Remove Photo</span>
-                <button type="submit" class="updatepropic  profile-head-text col-12 font-weight-bold smbalglobal-color  bg-white border-0 clickable mb-25" value="updatepropic" style="outline: none;">Upload Photo
+                <label for="user_profile" class="profile-head-text p-0 select-image col-12 mb-25 mt-20">Replace Photo</label>
+                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg, image/svg" onchange="readURL(this);">
+                <input type="hidden" class="removeSelectedphoto" value="{{url('removeprofilepic')}}">
+                <span class="profile-head-text p-0 col-12 mb-25 " onclick="removeProfile(this);">Remove Photo</span>
+                <button type="submit" class="updatepropic  profile-head-text  p-0 col-12 font-weight-bold smbalglobal-color  bg-grey border-0 clickable mb-25" value="updatepropic" style="outline: none;">Upload Photo
                     <!-- <i class="fa fa-spinner fa-spin d-none savepicloader profileLoader"></i> -->
                 </button>
 
-                <div class="col-12 col-lg-12 col-md-12">
+                <div class="col-12 col-lg-12 col-md-12 p-0">
                     <button type="button" class="discardbtn authButton button_text col-12 p-0">Back to profile
                     </button>
                 </div>
@@ -120,7 +124,7 @@
 
 
 
-            <div class="d-none editpersonaldet ">
+            <div class="d-none editpersonaldet mb-5 pb-5">
                 <form class="" id="saveperdetail" action="{{url('personaldetails')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" class="form-control email shadow-none " name="email" value="">
@@ -184,13 +188,35 @@
                             <div class=" ">
                                 <div class="input-group-prepend authselect2">
                                     <select class=" form-control auth-input shadow-none" id="nationality" name="nationality" required>
-                                        <option value="{{Auth::user()->nationality}}" disabled selected>{{Auth::user()->nationality}}</option>
-
-                                        <option value='Emirati'>Emirati</option>
-                                        <option value='Indian'>Indian</option>
-                                        <option value='American'>American</option>
-                                        <option value='Canadian'>Canadian</option>
-                                        <option value='Pakistani'>Pakistani</option>
+                                        <!-- <option value="{{Auth::user()->nationality}}" disabled selected>{{Auth::user()->nationality}}</option> -->
+                                        
+                                            <?php $selected1="";
+                                            $selected2="";
+                                            $selected3="";
+                                            $selected4="";
+                                            $selected5="";
+                                            if(isset(Auth::user()->nationality)){
+                                               if(Auth::user()->nationality=="Emirati"){
+                                                $selected1="selected";
+                                               }
+                                               if(Auth::user()->nationality=="Indian"){
+                                                $selected2="selected";
+                                               }
+                                               if(Auth::user()->nationality=="American"){
+                                                $selected3="selected";
+                                               }
+                                               if(Auth::user()->nationality=="Canadian"){
+                                                $selected4="selected";
+                                               }
+                                               if(Auth::user()->nationality=="Pakistani"){
+                                                $selected5="selected";
+                                               }
+                                            }?>
+                                        <option value='Emirati' {{$selected1}}>Emirati</option>
+                                        <option value='Indian' {{$selected2}}>Indian</option>
+                                        <option value='American' {{$selected3}}>American</option>
+                                        <option value='Canadian' {{$selected4}}>Canadian</option>
+                                        <option value='Pakistani' {{$selected5}}>Pakistani</option>
 
                                     </select>
                                 </div>
@@ -220,7 +246,8 @@
 
                             <div class="col-6 col-lg-6 col-md-6">
                                 <button type="submit" class="mt-4 savepersonaldet authButton button_text col-12 p-0" value="personalDetail">Save
-                                    <i class="fa fa-spinner fa-spin d-none ml-2 personaldetloader checkloader"></i>
+                                <span class="loadingspinner  d-none loader ml-2 personaldetloader checkloader " role="status" aria-hidden="true"></span>   
+                                <!-- <i class="fa fa-spinner fa-spin d-none ml-2 personaldetloader checkloader"></i> -->
                                 </button>
 
 
@@ -263,7 +290,7 @@
 
 
 
-            <div class="editcontactset d-none">
+            <div class="editcontactset d-none mb-5 pb-5">
                 <div style="margin-bottom: 30px;">
                     <h3 class="smbalglobal-color font-weight-bold mt-2 stepnumber" style="margin: auto;">Contact Info</h3>
                 </div>
@@ -356,7 +383,8 @@
 
                             <div class="col-6 col-lg-6 col-md-6">
                                 <button type="submit" class="mt-4 savecontact authButton button_text col-12 p-0" value="contactDetail">Save
-                                    <i class="fa fa-spinner fa-spin d-none ml-2 savecontactLoader checkloader"></i>
+                                <span class="loadingspinner  d-none loader ml-2 savecontactLoader checkloader " role="status" aria-hidden="true"></span>      
+                                <!-- <i class="fa fa-spinner fa-spin d-none ml-2 savecontactLoader checkloader"></i> -->
                                 </button>
 
 
@@ -394,7 +422,7 @@
 
 
 
-            <div class="editprofdet d-none">
+            <div class="editprofdet d-none mb-5 pb-5">
                 <div style="margin-bottom: 35px;">
                     <h3 class="smbalglobal-color font-weight-bold mt-2 stepnumber" style="margin: auto;">Business info</h3>
                 </div>
@@ -472,7 +500,8 @@
 
                             <div class="col-6 col-lg-6 col-md-6">
                                 <button type="submit" class="mt-4 saveprofbtn authButton button_text col-12 p-0" value="professionalDetail">Save
-                                    <i class="fa fa-spinner fa-spin d-none ml-2 profbtnLoader checkloader"></i>
+                                <span class="loadingspinner  d-none loader ml-2 profbtnLoader checkloader " role="status" aria-hidden="true"></span>     
+                                <!-- <i class="fa fa-spinner fa-spin d-none ml-2 profbtnLoader checkloader"></i> -->
                                 </button>
 
 

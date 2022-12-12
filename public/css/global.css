@@ -756,6 +756,9 @@ font-weight: 400;
   .bg-white{
     background: white;
   }
+  .bg-grey{
+    background: #F3F4F6;
+  }
   .mb-25{
     margin-bottom: 25px;
   }
@@ -1084,6 +1087,7 @@ line-height: 15px;
         height: 55px !important;
         font-size: 18px;
         line-height: 22px;
+        border-radius: 10px;
     }
     .titleFont {
         font-size: 14px;

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Country;
 use App\Models\User;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -147,7 +148,7 @@ class ProfileController extends Controller
         // $user->postal_address = $request->postal_address;
       
        
-          // return $user;
+          // return  $request->nationality;
           try {
             $user->save(); 
           } catch (\Throwable $th) {
@@ -215,6 +216,23 @@ class ProfileController extends Controller
           $user->whatsapp_number =$wpphone_number;
           $user->save(); 
           return redirect('profile');   
+        }
+
+        public function deleteProfilePic(Request $request){
+          $userId = Auth::id(); 
+            if(isset($request->getImg) && !empty($request->getImg)){        
+                 try {
+                    $user = User::findOrFail($userId);
+                    if(Storage::disk('s3')->exists($user->profile_pic)){
+                        Storage::disk('s3')->delete($user->profile_pic);
+                       }
+
+                    User::where('id',$userId)->update(['profile_pic' => null]);
+                 } catch (\Throwable $th) {
+                     //throw $th;
+                 } 
+            }    
+          // return "Success";   
         }
 
 }

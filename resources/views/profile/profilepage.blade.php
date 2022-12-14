@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php  $v = "1.2" ?>
+<?php  $v = "5.5" ?>
 <title>My Profile</title>
 @section('content')
 @section('css')
@@ -7,10 +7,11 @@
 <link href="{{ asset('css/profile.css?v='.$v) }}" rel="stylesheet">
 @endsection
 <div class="fluid-container profile_container " style="">
-    <!-- <div class="static-black-bg">
-
-    </div> -->
-    <img class="img-fluid profile_headerimg" style="" src="{{ asset('assests/images/profile/profile_header.svg') }}" alt="">
+    <div class="static-black-bg">
+    <img class="img-fluid " style="width: 100px;height: 104.39px;float: right;" src="{{ asset('assests/images/register_logo.svg') }}" alt="">
+    <span class="myprofiletext">My Profile</span>    
+</div>
+    <img class="img-fluid profile_headerimg" style="" src="{{ asset('assests/images/profile/bgimg.png') }}" alt="">
 
     <div class="profile-section ">
         
@@ -25,15 +26,15 @@
             $imgUrl =  Auth::user()->profile_pic;
 
             if (!empty($imgUrl)) { ?>
-                <span class="img-profile-card card profile-click mb-3" style="float: right;margin-right: 40px;"><img class="text-center img-profile-card" id="" alt="{{Auth::user()->first_name}}" src="{{Storage::disk('s3')->url($imgUrl)}}" data-holder-rendered="true">
+                <span class="img-profile-card card profile-click mb-3 profileback profabsolute" style="float: right;margin-right: 40px;"><img class="text-center img-profile-card profilecardimg" id="" alt="{{Auth::user()->first_name}}" src="{{Storage::disk('s3')->url($imgUrl)}}" data-holder-rendered="true">
 
                 </span>
-                <span class="profile-card card profile-click mb-3 d-none" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
+                <span class="profile-card card profile-click mb-3 d-none profileback profabsolute" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
                     Pic</span>
                 </span>
 
             <?php } else { ?>
-                <span class="profile-card card profile-click mb-3" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
+                <span class="profile-card card profile-click mb-3 profileback profabsolute" style="float: right;margin-right: 40px;"><span class="defprofiletext">Profile<br>
                     Pic</span>
                 </span>
 
@@ -42,7 +43,7 @@
 
 
 
-        <div class="edit-profile-div  mb-5 pb-5 d-none">
+        <div class="edit-profile-div  mb-5  d-none">
             <span class="profile-head-text col-12 mb-25 p-0">My Profile Photo</span>
             <form class="" id="profilepicedit" action="{{url('editProfilePic')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -71,7 +72,7 @@
                 </span>
 
                 <label for="user_profile" class="profile-head-text p-0 select-image col-12 mb-25 mt-20">Replace Photo</label>
-                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg, image/svg" onchange="readURL(this);">
+                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg" onchange="readURL(this);">
                 <input type="hidden" class="removeSelectedphoto" value="{{url('removeprofilepic')}}">
                 <span class="profile-head-text p-0 col-12 mb-25 " onclick="removeProfile(this);">Remove Photo</span>
                 <button type="submit" class="updatepropic  profile-head-text  p-0 col-12 font-weight-bold smbalglobal-color  bg-grey border-0 clickable mb-25" value="updatepropic" style="outline: none;">Upload Photo
@@ -91,7 +92,7 @@
 
 
 
-        <div class="detailwholesection ">
+        <div class="detailwholesection h-45 ">
         <div class="edit-div d-none">
             <span class="edit-text">Edit Profile</span>
         </div>
@@ -538,6 +539,21 @@
 <script src="{{asset('/js/profile.js?v='.$v) }}" defer></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        setTimeout(function () {
+    //         var detailheight = window.innerHeight;
+    // var headerimgh=$('.profile_headerimg').height();
+    // console.log(detailheight);
+    // console.log(headerimgh);
+    // var halfheaderimg=headerimgh/2;
+    // var profilepaddtop=halfheaderimg+35;
+    // var totalheight=detailheight-headerimgh-30;
+    // console.log(totalheight);
+    // $('.detailwholesection').css("height",totalheight+"px");
+    // $('.detailwholesection').css("top",headerimgh+"px");
+    // $('.profile-section').css("padding-top",profilepaddtop+"px");
+                 }, 1300);
+             
+      
 
 
         $('.datetimepickerforfiles').datepicker({

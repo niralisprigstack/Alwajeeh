@@ -1,5 +1,5 @@
 <!doctype html>
-<?php  $v = "1.2" ?>
+<?php   $v = "5.5"?>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="{{ asset('css/app.css?v='.$v) }}" rel="stylesheet"> -->
     <link href="{{ asset('css/custom.css?v='.$v) }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css?v='.$v) }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/style.css?v='.$v) }}" rel="stylesheet"> -->
     <link href="{{ asset('css/global.css?v='.$v) }}" rel="stylesheet">
     <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
 
@@ -54,13 +54,13 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <!-- <script src="https://js.pusher.com/7.0.3/pusher.min.js"></script> -->
-    <script src="{{ asset('js/auth.js?v='.$v) }}" defer></script>
-    <script src="{{ asset('js/custom.js?v='.$v) }}" defer></script>
+    <!-- <script src="{{ asset('js/auth.js?v='.$v) }}" defer></script> -->
+    <!-- <script src="{{ asset('js/custom.js?v='.$v) }}" defer></script> -->
 
-    <script src="{{asset('/js/global.js?v='.$v)}}" type="text/javascript"></script>
+    <!-- <script src="{{asset('/js/global.js?v='.$v)}}" type="text/javascript"></script> -->
     @yield('script')
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
  <!-- laravelPWA -->
 
 </head>

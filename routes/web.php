@@ -40,6 +40,9 @@ Route::get('/announcement', function () {
 Route::get('/showannouncements', function () { 
     return view('announcements.allannouncement');
 });
+Route::get('/announcementList', function () { 
+    return view('announcements.announcementList');
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

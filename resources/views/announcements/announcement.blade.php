@@ -10,8 +10,6 @@
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
 <div class="fluid-container announcementContainer">
     
-    
-    
     <!--<div>-->
         <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
             <div class="announcementDiv mb-4 mt-4">

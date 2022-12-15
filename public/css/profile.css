@@ -21,7 +21,7 @@ color: #A4894B;
 .static-black-bg{
     position: fixed;
     width: 100%;
-    height: 25%;
+    height: 18%;
     left: 0px;
     top: 0px;
     background: rgba(0, 0, 0, 0.6);
@@ -46,7 +46,7 @@ backdrop-filter: blur(5px);
     height: 60%;
 } */
 .topSet{
-    top: 30%;
+    top: 25%;
 }
 .detailwholesection{
     overflow-y: scroll !important;
@@ -68,6 +68,8 @@ backdrop-filter: blur(5px);
 .profile_headerimg{
     /* position: fixed; */
     top:0;
+    height: 250px;
+    width: 100%;
 }
 .profile_footerimg{
     position: fixed;
@@ -131,9 +133,9 @@ position: absolute;
     top: 35%;
 }
 .profabsolute{
-    top: 27%;
+    top: 19%;
     position: absolute;
-    right: 20px;
+    right: 25px;
 }
 .defprofiletext{
     font-family: 'Montserrat';

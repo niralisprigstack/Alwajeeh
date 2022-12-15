@@ -766,6 +766,17 @@ font-weight: 400;
     margin-top:20px;
   }
 @media (max-width:768px) {
+    .bottomsmbalheader{
+        position: fixed !important;
+          width: 100%;
+      }
+      .site-footer{
+        display: block;
+        position: absolute;
+        height: 70px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+    }
     .z-index-1{
         z-index: 1;
     }
@@ -858,9 +869,7 @@ line-height: 15px;
         width: 100% !important;
         height:100%;
     }
-    .site-footer{
-        display: block;
-    }
+  
     .TrengoWidgetLauncher__iframe{
         bottom:75px !important;
     }

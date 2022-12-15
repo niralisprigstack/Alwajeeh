@@ -1,45 +1,45 @@
 html,
 body {
- overflow: hidden !important;
- background: #F3F4F6;
-}
-.announcementContainer{
+    overflow: hidden !important;
     background: #F3F4F6;
-    /*background-image: url(/assests/images/announcement/announcementBgImg.svg);*/
+    font-family: 'Montserrat';
+    font-style: normal; 
+}
+.announcementbody{
+    background-image: url(/assests/images/announcement/announcementBgImg.jpg);
+    width: 100%;
+    height: 100%;
+}
+.top-zero{
+    top:0;
 }
 .staticBlackBg{
-    position: absolute;
     width: 100%;
-    height: 210px;
+    height: auto;
     background: rgba(0, 0, 0, 0.6);
     box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);
     backdrop-filter: blur(5px);
 }
-.announcementText{
-    position: absolute;
-    font-family: 'Montserrat';
-    font-style: normal;
+.commonheadertext{
+    padding-left: 10px;
+    padding-bottom: 30px;
+    padding-top: 65px;
+}
+.announcementText{    
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
     display: flex;
     align-items: center;
     color: #A4894B;
-    top: 50%;
-    left: 3%;
 }
-.createAnnouncementText{
-    position: absolute;
-    font-family: 'Montserrat';
-    font-style: normal;
+.createAnnouncementText{    
     font-weight: 700;
     font-size: 30px;
     line-height: 37px;
     display: flex;
     align-items: center;
     color: #A4894B;
-    top: 70%;
-    left: 3%;
 }
 .announcementSection{
     overflow-y: scroll !important;
@@ -50,14 +50,14 @@ body {
     z-index: 1;
     padding-left: 20px;
     padding-right: 20px;
-    max-height: -webkit-fill-available;
+    /*max-height: -webkit-fill-available;*/
+    max-height: 60vh;
+    bottom: 12%;
     background: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
-.inputSpanText{
-    font-family: 'Montserrat';
-    font-style: normal;
+.inputSpanText{    
     font-weight: 800;
     font-size: 22px;
     line-height: 27px;
@@ -85,4 +85,60 @@ body {
     color: white;
     font-size: 24px;
     border-color: inherit;
+}
+
+/*announcement list ui*/
+.announcementListPageSection{
+    overflow-y: scroll !important;
+    position: absolute;
+    overflow-x: hidden;   
+    /*max-height: -webkit-fill-available;*/
+    max-height: 60vh;
+    bottom: 12%;
+}
+.announcementListMainDiv{    
+    padding-left: 20px;
+    padding-right: 20px;
+    max-height: -webkit-fill-available;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.announcementList{    
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.remainingDiv{
+    border: 1px solid #FF0101;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+.remainingText{    
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #FF0000;
+}
+.announcementDesc{    
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.viewersSpan{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #918B89;
 }

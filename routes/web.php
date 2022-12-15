@@ -33,5 +33,9 @@ Route::get('/announcement', function () {
     return view('announcements.announcement');
 });
 
+Route::get('/announcementList', function () { 
+    return view('announcements.announcementList');
+});
+
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

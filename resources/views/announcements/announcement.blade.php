@@ -6,13 +6,9 @@
 <!--<link href="{{ asset('css/loader.css') }}" rel="stylesheet">-->
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
+<div class="announcementbody">
+@include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
 <div class="fluid-container announcementContainer">
-    <div class="staticBlackBg">
-    <img class="img-fluid" style="width: 100px;height: 104.39px;float: right;" src="{{ asset('assests/images/register_logo.svg') }}" alt="">
-    <span class="announcementText">ANNOUNCEMENTS</span>
-    <span class="createAnnouncementText">Create Announcement</span>
-</div>
-    <img class="img-fluid profile_headerimg w-100" style="height: 25%;" src="{{ asset('assests/images/profile/bgimg.png') }}" alt="">
     
     <!--<div>-->
         <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
@@ -76,6 +72,8 @@
     
 
     <!--<img class="img-fluid profile_footerimg" style="" src="{{ asset('assests/images/profile/profile_footer.svg') }}" alt="">-->
+</div>
+
 </div>
 
 

@@ -3,10 +3,35 @@
 <title>Announcement List</title>
 @section('content')
 @section('css')
+<style>
+  .commonheadertext {
+    padding-left: 10px !important;
+    padding-bottom: 30px !important;
+    padding-top: 80px !important;
+}
+.announcementListPageSection{
+    overflow-y: scroll !important;
+    position: absolute;
+    overflow-x: hidden;
+    /* max-height: -webkit-fill-available; */
+    max-height: 50vh;
+    bottom: 12%;
+}
+.createAnnouncementText{    
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    color: #A4894B;
+    width:auto !important;
+}
+  </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
 <div class="announcementbody">
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
+    @include('layouts.announcementFilter')
     <div class="fluid-container announcementListPageSection">
 
         <div class="announcementListMainDiv mt-3 mb-3 ml-2 mr-2">
@@ -81,6 +106,7 @@
     </div>
 
 </div>
+@include('layouts.announcementFooterFilter')
 @endsection
 @section('script')
 @endsection

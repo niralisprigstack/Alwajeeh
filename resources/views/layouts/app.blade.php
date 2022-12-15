@@ -67,6 +67,7 @@
 
 <body>
     <div class="loading d-none"></div>
+    
     @yield('content')
 
     

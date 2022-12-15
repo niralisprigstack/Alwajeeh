@@ -3,7 +3,7 @@
 <title>Announcements</title>
 @section('content')
 @section('css')
-<!--<link href="{{ asset('css/loader.css') }}" rel="stylesheet">-->
+<link href="{{ asset('css/loader.css') }}" rel="stylesheet">
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
 <div class="announcementbody">
@@ -83,4 +83,12 @@
 
 
 @section('script')
+<script type="text/javascript">
+    $(document).ready(function() {
+      
+    });
+</script>
+
+
+
 @endsection

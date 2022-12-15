@@ -29,8 +29,16 @@ Route::get('/dashboard', function () {
 
 Route::post('/checkuniqueness', [RegisteredUserController::class, 'checkUsernameEmailDuplicate']);
 
+
+
+//announcements
 Route::get('/announcement', function () { 
     return view('announcements.announcement');
+});
+
+
+Route::get('/showannouncements', function () { 
+    return view('announcements.allannouncement');
 });
 
 require __DIR__.'/auth.php';

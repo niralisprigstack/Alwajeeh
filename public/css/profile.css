@@ -57,8 +57,11 @@ backdrop-filter: blur(5px);
     z-index: 1;
     padding-left: 35px;
     padding-right: 35px;
-
     max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    max-height: stretch;
+    max-height: -webkit-fill-available;
+    height: 70%;
 }
 
 

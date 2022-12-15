@@ -23,13 +23,26 @@ $(function (){
                     alert(
                         "File too Big, please select a file less than 5mb");
                     $('#user_profile').val('');
-                    $(".showpreview").attr("src","");
+                    $(".showpreview").addClass("d-none");
                     // $("img").src("");
                 }
 
             }
         }
-
+        // var files = $('#user_profile')[0].files;
+        // var len = $('#user_profile').get(0).files.length;
+    
+        // for (var i = 0; i < len; i++) {
+    
+        //     f = files[i];
+    
+        //     var ext = f.name.split('.').pop().toLowerCase();
+        //     if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg','svg']) == -1) {
+        //         alert('invalid extension!');
+        //           $(".showpreview").addClass("d-none");
+    
+        //     }
+        // }
         var ext = this.value.match(/\.(.+)$/)[1];
         switch (ext) {
             case 'png':
@@ -37,13 +50,15 @@ $(function (){
             case 'svg':
             case 'gif':
             case 'jpg':
-            
+                // readURL(this);
                 break;
                 this.value = '';
-                $(".showpreview").attr("src","");
+                $('#user_profile').val('');
+                $(".showpreview").addClass("d-none");
             default:
                 this.value = '';
-                $(".showpreview").attr("src","");
+                $('#user_profile').val('');
+                $(".showpreview").addClass("d-none");
                 alert('Not suitable file for upload');
 
                 return;

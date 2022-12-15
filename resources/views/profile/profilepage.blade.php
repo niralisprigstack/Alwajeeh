@@ -92,7 +92,7 @@
 
 
 
-        <div class="detailwholesection mt-3 ">
+        <div class="detailwholesection mt-3 pb-5">
         <div class="edit-div d-none">
             <span class="edit-text">Edit Profile</span>
         </div>

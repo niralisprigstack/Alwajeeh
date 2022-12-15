@@ -6,9 +6,9 @@
 <!--<link href="{{ asset('css/loader.css') }}" rel="stylesheet">-->
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
-<div class="announcementContainer">
+<div class="announcementbody">
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
-<div class="fluid-container ">
+<div class="fluid-container announcementContainer">
     
     
     

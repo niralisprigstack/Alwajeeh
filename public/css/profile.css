@@ -125,12 +125,14 @@ border-radius: 10px; */
     font-family: 'Montserrat';
 font-style: normal;
 font-weight: 700;
-font-size: 36px;
+font-size: 25px;
 line-height: 44px;
 display: flex;
 align-items: center;
 
 color: #A4894B;
+padding-left: 10px;
+padding-top: 30px;
 
 position: absolute;
     top: 35%;

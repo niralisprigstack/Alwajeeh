@@ -1,19 +1,27 @@
 html,
 body {
-    overflow: hidden !important;
-    background: #F3F4F6;
+/*    overflow: hidden !important;*/
+    /*background: #F3F4F6;*/
     font-family: 'Montserrat';
     font-style: normal; 
+    padding-top: 70px;
+}
+.fixed-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.fixed-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
 .announcementbody{
     background-image: url(/assests/images/announcement/announcementBgImg.jpg);
     width: 100%;
     height: 100%;
-}
-.announcementContainer{
-    /* background: #F3F4F6; */
-    /* background: url("/assests/images/downarrow.png") #E2E2E2  no-repeat 95.5% !important; */
-  
 }
 .filterblackbg{
     /* position: absolute; */
@@ -34,12 +42,17 @@ color: #A4894B;
 
 }
 .filtersection{
-    top: 10px;
+    /*top: 10px;*/
     padding-left: 10px;
     padding-right: 10px;
 }
 .footerfiltersection{
-    bottom: 150px;
+    bottom: 70px;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+
 }
 .footerfilterblackbg{
     background: rgba(0, 0, 0, 0.7);
@@ -58,12 +71,12 @@ border-radius: 10px;
 }
 .commonheadertext{
     padding-left: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     padding-top: 65px;
 }
 .announcementText{    
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
     display: flex;
     align-items: center;
@@ -71,7 +84,7 @@ border-radius: 10px;
 }
 .createAnnouncementText{    
     font-weight: 700;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 37px;
     display: flex;
     align-items: center;
@@ -79,24 +92,26 @@ border-radius: 10px;
     width:100%;
 }
 .announcementSection{
-    overflow-y: scroll !important;
+/*    overflow-y: scroll !important;
     position: absolute;
-    overflow-x: hidden;
+    overflow-x: hidden;*/
     width: 95%;
     max-width: 100%;
     z-index: 1;
     padding-left: 20px;
     padding-right: 20px;
     /*max-height: -webkit-fill-available;*/
-    max-height: 60vh;
-    bottom: 12%;
+/*    max-height: 60vh;
+    bottom: 12%;*/
+    /*max-height: 65vh;*/
+    bottom: 10%;
     background: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
 .inputSpanText{    
     font-weight: 800;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     display: flex;
     align-items: center;
@@ -108,33 +123,33 @@ border-radius: 10px;
     height: 70px;
     width: 100%;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
 }
 .inputTextAreaClass{
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     height: 190px !important;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
 }
 .inputTextClass:focus, .inputTextAreaClass:focus{
     background: black;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     border-color: inherit;
 }
 
 /*announcement list ui*/
-.announcementListPageSection{
+/*.announcementListPageSection{
     overflow-y: scroll !important;
     position: absolute;
     overflow-x: hidden;   
-    /*max-height: -webkit-fill-available;*/
+    max-height: -webkit-fill-available;
     max-height: 35vh;
-    bottom: 24%;
-    /* max-height: 45vh;
-    bottom: 12%; */
-}
+    bottom: 24%;    
+    max-height: 50vh;
+    bottom: 22%;
+}*/
 .announcementListMainDiv{    
     padding-left: 20px;
     padding-right: 20px;
@@ -145,7 +160,7 @@ border-radius: 10px;
 }
 .announcementList{    
     font-weight: 800;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     display: flex;
     align-items: center;
@@ -166,7 +181,7 @@ border-radius: 10px;
 }
 .announcementDesc{    
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     display: flex;
     align-items: center;
@@ -174,10 +189,32 @@ border-radius: 10px;
 }
 .viewersSpan{
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     display: flex;
     align-items: center;
     text-align: right;
     color: #918B89;
+}
+
+/*announcement detail ui*/
+.detailScrollableDiv{
+    overflow-y: scroll !important;
+    overflow-x: hidden;   
+    /*max-height: -webkit-fill-available;*/
+    max-height: 25vh;
+}
+.submissionDiv{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.submissionDiv h4{
+    font-weight: 700;    
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #A4894B;
 }

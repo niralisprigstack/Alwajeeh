@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <?php  $v = "5.5" ?>
-<title>Announcements</title>
+<title>Create Announcement</title>
 @section('content')
 @section('css')
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
@@ -8,12 +8,12 @@
 @endsection
 <div class="announcementbody">
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
-<div class="fluid-container announcementContainer">
+<div class="fluid-container announcementContainer" style="padding-bottom: 45px;">
     
     <!--<div>-->
         <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
             <div class="announcementDiv mb-4 mt-4">
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Title</span>                  
                 </div>
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pb-3">
                     <button type="button" class="mt-4 buttonCss deleteBtnCss button_text col-12 p-0" value="">Delete</button>
                 </div>
             </div>

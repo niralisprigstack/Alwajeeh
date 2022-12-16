@@ -37,10 +37,12 @@ Route::get('/announcement', function () {
     return view('announcements.announcement');
 });
 
-
-
 Route::get('/announcementList', function () { 
     return view('announcements.announcementList');
+});
+
+Route::get('/announcementDetail', function () { 
+    return view('announcements.announcementDetail');
 });
 
 require __DIR__.'/auth.php';

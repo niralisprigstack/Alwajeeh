@@ -8,7 +8,7 @@
   
             <a style="display: grid;" class="mt-2 mb-2" >
                 <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/unreadmsg.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto">Newsfeed</span> </i>
+                <span class="fonthead filtertext navText m-auto">Unread</span> </i>
             </a>
 
             <a style="display: grid;" class="mt-2 mb-2" >

@@ -37,11 +37,14 @@ Route::get('/announcement', function () {
     return view('announcements.announcement');
 });
 
+// Route::get('/announcementList', function () { 
+//     return view('announcements.announcementList');
+// });
+Route::get('/announcementList', [AnnouncementController::class, 'showAnnouncement']);
 
 
-Route::get('/announcementList', function () { 
-    return view('announcements.announcementList');
-});
+Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addAnnouncement']);
+Route::post('/createannouncement/{id?}', [AnnouncementController::class, 'createAnnouncement']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

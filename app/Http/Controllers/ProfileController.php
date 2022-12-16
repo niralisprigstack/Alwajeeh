@@ -91,7 +91,7 @@ class ProfileController extends Controller
             $file = $request->file('profilepic');
             $name=time().$file->getClientOriginalName();
             $name = str_replace(" ","-",$name);
-            $filePath = 'profile_/' . $user->id . '/' . $name;
+            $filePath = 'userprofile_/' . $user->id . '/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file) , 'public');
             $user->profile_pic = $filePath;
          }

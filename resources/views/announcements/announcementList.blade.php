@@ -27,7 +27,7 @@
     width:auto !important;
 }
 .announcementText{
-    display: none;
+    display: none !important;
 }
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
@@ -37,11 +37,26 @@
     @include('layouts.announcementFilter')
     <div class="fluid-container announcementListPageSection">
 
+
+    @foreach($announcementlists as $announcementlist)
         <div class="announcementListMainDiv mt-3 mb-3 ml-2 mr-2">
             <div class="announcementDiv pt-3 pb-3">
                 <div class="row">
-                    <div class="col-4">
-                        <span class="announcementList">NOV 14 <br /> 22</span>
+                    <div class="col-3 pr-0">
+                    <?php
+                    $carbon_date = \Carbon\Carbon::parse($announcementlist->created_at);
+                    $carbon_date = $carbon_date->addHours(4);
+                    $date =  $carbon_date->format('M d');
+                    $year =  $carbon_date->format('y');
+                    // $object->created_at->format('d')
+                    ?>
+                     </span>
+                     
+                        <span class="announcementList">{{$date}} <br/> {{$year}}</span>
+                       
+                    </div>
+                    <div class="col-1 mt-2">
+                    <span class="ongoingdot"></span>
                     </div>
                     <div class="col-8">
                         <div class="remainingDiv">
@@ -51,7 +66,7 @@
                 </div>
 
                 <div class="col-12 mt-2 pl-0 pr-0">                   
-                    <span class="announcementDesc">Example of investement project to show interest</span>                                       
+                    <span class="announcementDesc">{{$announcementlist->title}}</span>                                       
                 </div>
 
                 <div class="col-12 mt-2 d-flex justify-content-end pl-0 pr-0">                   
@@ -60,51 +75,8 @@
             </div>            
         </div>
 
-        <div class="announcementListMainDiv mt-3 mb-3 ml-2 mr-2">
-            <div class="announcementDiv pt-3 pb-3">
-                <div class="row">
-                    <div class="col-4">
-                        <span class="announcementList">OCT 23 <br /> 22</span>
-                    </div>
-                    <div class="col-8">
-                        <div class="remainingDiv">
-                            <span class="remainingText justify-content-center">Remaining 3d 23h</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 mt-2 pl-0 pr-0">                   
-                    <span class="announcementDesc">Example of investement project to show interest</span>                                       
-                </div>
-
-                <div class="col-12 mt-2 d-flex justify-content-end pl-0 pr-0">                   
-                    <span class="viewersSpan">Viewers</span>                                         
-                </div>
-            </div>
-        </div>
-        
-        <div class="announcementListMainDiv mt-3 mb-3 ml-2 mr-2">
-            <div class="announcementDiv pt-3 pb-3">
-                <div class="row">
-                    <div class="col-4">
-                        <span class="announcementList">SEP 14 <br /> 22</span>
-                    </div>
-<!--                    <div class="col-8">
-                        <div class="remainingDiv">
-                            <span class="remainingText justify-content-center">Remaining 3d 23h</span>
-                        </div>
-                    </div>-->
-                </div>
-
-                <div class="col-12 mt-2 pl-0 pr-0">                   
-                    <span class="announcementDesc">Example of investement project to show interest</span>                                       
-                </div>
-
-                <div class="col-12 mt-2 d-flex justify-content-end pl-0 pr-0">                   
-                    <span class="viewersSpan">Viewers</span>                                         
-                </div>
-            </div>
-        </div>
+        @endforeach
+  
 
     </div>
 

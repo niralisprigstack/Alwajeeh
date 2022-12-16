@@ -124,8 +124,20 @@ border-radius: 10px;
     border-color: inherit;
 }
 
+
+/* datetimepicker */
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-bottom{
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+}
+.datepicker th,td,tr{
+    color:white;
+}
+
 /*announcement list ui*/
 .announcementListPageSection{
+    width:100%; 
     overflow-y: scroll !important;
     position: absolute;
     overflow-x: hidden;   
@@ -180,4 +192,11 @@ border-radius: 10px;
     align-items: center;
     text-align: right;
     color: #918B89;
+}
+.ongoingdot{
+    height: 10px;
+  width: 10px;
+  background-color: #2fdf4d;
+  border-radius: 50%;
+  display: inline-block;
 }

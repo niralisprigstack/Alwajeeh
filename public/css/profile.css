@@ -224,6 +224,9 @@ max-width: fit-content; */
 
 
 }
+.site-footer{
+    display: none;
+}
 .profildef1{
     width: 100%;
     display: flex;

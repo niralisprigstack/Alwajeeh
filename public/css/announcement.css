@@ -130,8 +130,10 @@ border-radius: 10px;
     position: absolute;
     overflow-x: hidden;   
     /*max-height: -webkit-fill-available;*/
-    max-height: 45vh;
-    bottom: 12%;
+    max-height: 35vh;
+    bottom: 24%;
+    /* max-height: 45vh;
+    bottom: 12%; */
 }
 .announcementListMainDiv{    
     padding-left: 20px;

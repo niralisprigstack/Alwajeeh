@@ -26,6 +26,9 @@
     color: #A4894B;
     width:auto !important;
 }
+.announcementText{
+    display: none;
+}
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection

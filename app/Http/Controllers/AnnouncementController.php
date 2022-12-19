@@ -176,7 +176,7 @@ class AnnouncementController extends Controller
 
   public function announcementViewed(Request $request){
     $userid=Auth::id();
-    $user = AnnouncementView::where('user_id', '=', $userid)->first();
+    $user = AnnouncementView::where('user_id', '=', $userid)->where('announcement_id', '=', $request->entity_id)->first();
     if ($user === null) {
       // user doesn't exist
       $viewedannouncement = new AnnouncementView;
@@ -194,7 +194,7 @@ class AnnouncementController extends Controller
     // return $viewers;
     foreach($viewers as $viewer){
       
-      $showList .='<span class="announcementDesc">'.  $viewer->user->first_name . ' ' . $viewer->user->last_name .'</span>';
+      $showList .='<span class="announcementDesc pb-1">'.  $viewer->user->first_name . ' ' . $viewer->user->last_name .'</span>';
     }
     return $showList;
 

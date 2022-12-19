@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <?php  $v = "5.5" ?>
-<title>Announcements</title>
+<title>Create Announcement</title>
 @section('content')
 @section('css')
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@ if($usertype=="4"){
 
 <div class="announcementbody">
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
-<div class="fluid-container announcementContainer">
+<div class="fluid-container announcementContainer" style="padding-bottom: 45px;">
     
     <!--<div>-->
         <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
@@ -41,17 +41,17 @@ if($usertype=="4"){
              <input type="hidden" name="status" class='statuscheck' value="">
 
              
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+             <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Title</span>                  
                 </div>
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <input type="text" class="inputTextClass form-control" name="annTitle" value="" {{$required}}/>
                 </div>
                 
-                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Details</span>                  
                 </div>
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <textarea class="w-100 inputTextAreaClass form-control" name="annDetail" {{$required}}></textarea>
                 </div>
                 
@@ -61,7 +61,7 @@ if($usertype=="4"){
                       <label for="announcementmedia" class="m-auto">Upload Media</label>
                     </span>    
                     <!-- <input type="file" name="file[]" multiple /> -->
-                    <input class="inputfile c-pointer d-none" type="file" id="announcementmedia" style="" name="announcementmedia[]" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg"  multiple>                               
+                    <input class="inputfile c-pointer d-none" type="file" id="announcementmedia" style="" name="announcementmedia[]" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg,video/mp4"  multiple>                               
                 </div>
                 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
@@ -77,7 +77,7 @@ if($usertype=="4"){
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
 
                 <!-- <input type="text" name="autocomplete" id="autocomplete" class="form-control postLocationinput pac-target-input" placeholder="Find a location..." autocomplete="off"> -->
-                    <input type="text" id="locationsearch"  class="inputTextClass form-control Locationinput" name="location" value=""  placeholder="" {{$otherrequired}}/>
+                    <input type="text" id="locationsearch"  class="inputTextClass form-control Locationinput" name="location" value=""  placeholder="" {{$otherrequired}} />
                 </div>
 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0  {{$showdiv}}">
@@ -103,12 +103,14 @@ if($usertype=="4"){
                         <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus btnpublish" value="2">Publish</button>
                     </div>
 
-                    <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0">
+                    <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 pb-3">
                         <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus btndraft" value="1">Save Draft</button>
                     </div>
                 </div>
                 
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 d-none">
+               
+                
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pb-3 d-none">
                     <button type="submit" class="mt-4 buttonCss deleteBtnCss button_text col-12 p-0 btnstatus btndelete" value="3">Delete</button>
                 </div>
             </div>

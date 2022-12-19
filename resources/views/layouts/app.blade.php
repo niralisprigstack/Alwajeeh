@@ -65,7 +65,7 @@
 
 </head>
 
-<body>
+<body style="">
     <div class="loading d-none"></div>
     
     @yield('content')
@@ -76,7 +76,7 @@
 
 
     <!-- common footer -->
-    <footer class="site-footer bottomsmbalheader" id="footer">
+    <footer class="site-footer bottomsmbalheader fixed-footer" id="footer">
         <nav class="mobileview-mainheader navbar navbar-expand-md navbar-light shadow-sm headercol pl-2" style="height: 60px;display:flex">
             <div class=" col-md-12 ">
                 <div class="row">

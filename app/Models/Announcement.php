@@ -18,4 +18,8 @@ class Announcement extends Model
     public function announcementfiles(){
         return $this->hasMany('App\Models\AnnouncementFiles','announcement_id');
     }
+
+    public function announcement_views(){
+        return $this->hasMany('App\Models\AnnouncementView','announcement_id');
+    }
 }

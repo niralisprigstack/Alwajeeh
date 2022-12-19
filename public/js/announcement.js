@@ -12,21 +12,7 @@ $(document).ready(function() {
         });
 
 
-        //map location call
-        google.maps.event.addDomListener(window, 'load', initialize);
-  
-        function initialize() {
-            var input = document.getElementById('locationsearch');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-
-            autocomplete.addListener('place_changed', function () {
-                var selectedLocation=$('.Locationinput').val();
-                $('.ifAddedloaction').text(selectedLocation); 
-                $('.post_location').val(selectedLocation);      
-                var place = autocomplete.getPlace();
-            
-            });
-        }  
+        
 });
 
 function createannouncement() {
@@ -58,4 +44,25 @@ function createannouncement() {
   
   
     
+  }
+
+
+  function checkedAnnouncement(element){   
+    // let parent = findParent(this);
+    let entity_id = $(element).data('id');
+    var CSRF_TOKEN = $('.csrf-token').val();
+    let url= $('.checkedAnnouncement').val();
+    // let entity_id=$(element).val();
+    $.ajax({
+        url: url,
+        type: "post",
+        data: {_token: CSRF_TOKEN, entity_id: entity_id},
+        success: function (response) {
+           console.log(response);
+           window.location.href="../announcementDetail/"+ entity_id;
+            // location.reload();
+        },error: function (err) {
+            console.log(err);
+        }
+    });
   }

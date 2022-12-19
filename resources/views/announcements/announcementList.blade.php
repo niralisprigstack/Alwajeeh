@@ -6,16 +6,13 @@
 <style>
   .commonheadertext {
     padding-left: 10px !important;
-    padding-bottom: 30px !important;
+    padding-bottom: 10px !important;
     padding-top: 80px !important;
 }
 .announcementListPageSection{
-    overflow-y: scroll !important;
-    position: absolute;
-    overflow-x: hidden;
-    /* max-height: -webkit-fill-available; */
-    max-height: 50vh;
-    bottom: 12%;
+    /*padding-top: 20px;*/
+    max-height: 60%;
+    overflow: auto;
 }
 .createAnnouncementText{    
     font-weight: 700;
@@ -39,8 +36,11 @@
 
 
     @foreach($announcementlists as $announcementlist)
-        <div class="announcementListMainDiv mt-3 mb-3 ml-2 mr-2">
-            <div class="announcementDiv pt-3 pb-3">
+    <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
+    <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
+    <!-- <a href="{{url('announcementDetail/'. $announcementlist->id)}}" target="_blank" class='' > -->
+        <div class="announcementListMainDiv m-2" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}">
+            <div class="announcementDiv pt-2 pb-2">
                 <div class="row">
                     <div class="col-3 pr-0">
                     <?php
@@ -65,16 +65,16 @@
                     </div>
                 </div>
 
-                <div class="col-12 mt-2 pl-0 pr-0">                   
+                <div class="col-12 mt-1 pl-0 pr-0">                   
                     <span class="announcementDesc">{{$announcementlist->title}}</span>                                       
                 </div>
 
-                <div class="col-12 mt-2 d-flex justify-content-end pl-0 pr-0">                   
+                <div class="col-12 d-flex justify-content-end pl-0 pr-0">                   
                     <span class="viewersSpan">Viewers</span>                                         
                 </div>
             </div>            
         </div>
-
+    <!-- </a> -->
         @endforeach
   
 
@@ -84,4 +84,8 @@
 @include('layouts.announcementFooterFilter')
 @endsection
 @section('script')
+
+<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAjWotF6wKKrsQHC18xo0E-W77YpoOY8b8&libraries=places" ></script> -->
+<script src="{{asset('/js/announcement.js?v='.$v) }}" ></script>
+
 @endsection

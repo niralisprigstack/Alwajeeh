@@ -83,6 +83,45 @@ class ProfileController extends Controller
       }
     }
 
+    // public function saveProfilePic(Request $request){
+    
+    //   $user = Auth::user();  
+    //   if($request->hasfile('profilepic'))
+    //      {
+        
+    //         $file = $request->file('profilepic');        
+    //         $name=time().$file->getClientOriginalName();
+    //         $name = str_replace(" ","-",$name);
+    //         $filePath = 'userprofile_/' . $user->id . '/' . $name;
+    //         Storage::disk('s3')->put($filePath, file_get_contents($file) , 'public');
+    //         $user->profile_pic = $filePath;
+    //      }
+     
+    //   // if(isset($request->profile_pic_base64) && !empty($request->profile_pic_base64))
+    //   //    {
+    //   //     $image_64 = $request->profile_pic_base64;
+
+        
+
+    //   //     $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];
+
+    //   //       $name=time().$extension;
+    //   //       $name = str_replace(" ","-",$name);
+
+    //   //       $replace = substr($image_64, 0, strpos($image_64, ',')+1); 
+    //   //       $image = str_replace($replace, '', $image_64); 
+    //   //       $image = str_replace(' ', '+', $image);
+
+    //   //       $filePath = 'profile_/' . $user->id . '/' . $name;
+    //   //       Storage::disk('s3')->put($filePath,  base64_decode($image) , 'public');
+    //   //       $user->profile_pic = $filePath;
+    //   //    }
+    //     //  return $user->profile_pic;
+
+    //      $user->save();         
+    //     return redirect('profile');
+
+    // }
     public function saveProfilePic(Request $request){
     
       $user = Auth::user();
@@ -94,6 +133,15 @@ class ProfileController extends Controller
             $filePath = 'userprofile_/' . $user->id . '/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file) , 'public');
             $user->profile_pic = $filePath;
+         }else{
+          $userId=Auth::id();
+            $user = User::findOrFail($userId);
+            if(Storage::disk('s3')->exists($user->profile_pic)){
+                Storage::disk('s3')->delete($user->profile_pic);
+               }
+
+            User::where('id',$userId)->update(['profile_pic' => null]);
+         
          }
      
       // if(isset($request->profile_pic_base64) && !empty($request->profile_pic_base64))

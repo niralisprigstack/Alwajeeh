@@ -1,8 +1,8 @@
 
-<div class="col-10 m-auto footerfiltersection" style="">
+<div class="col-12 m-auto footerfiltersection" style="">
 
 
-<div class="footerfilterblackbg col-12 justify-content-center ">
+<div class="footerfilterblackbg col-10 justify-content-center ">
         <!-- <img class="img-fluid" style="width: 100px;height: 104.39px;float: right;" src="{{ asset('assests/images/register_logo.svg') }}" alt=""> -->
         <div class="d-flex justify-content-between align-items-center w-100 ">
   

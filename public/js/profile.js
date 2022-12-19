@@ -15,56 +15,37 @@ $(document).ready(function() {
 });
 $(function (){
     $('#user_profile').on('change', function() {
-        if (this.files.length > 0) {
-            for (let i = 0; i <= this.files.length - 1; i++) {
-                let fsize = this.files.item(i).size;
+       
+        var files = $('#user_profile')[0].files;
+        var len = $('#user_profile').get(0).files.length;
+    
+        for (var i = 0; i < len; i++) {
+            f = files[i];
+    
+            var ext = f.name.split('.').pop().toLowerCase();
+            let fsize = files[i].size;
                 let file = Math.round((fsize / 1024));
-                if (file >= 5000) {
-                    alert(
-                        "File too Big, please select a file less than 5mb");
-                    $('#user_profile').val('');
-                    $(".showpreview").addClass("d-none");
-                    // $("img").src("");
-                }
-
+            if (file >  5000) {
+                alert(
+                    "File too Big, please select a file less than 5mb");
+                $('#user_profile').val('');
+                $(".showpreview").addClass("d-none");
+                // $("img").src("");
             }
-        }
-        // var files = $('#user_profile')[0].files;
-        // var len = $('#user_profile').get(0).files.length;
-    
-        // for (var i = 0; i < len; i++) {
-    
-        //     f = files[i];
-    
-        //     var ext = f.name.split('.').pop().toLowerCase();
-        //     if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg','svg']) == -1) {
-        //         alert('invalid extension!');
-        //           $(".showpreview").addClass("d-none");
-    
-        //     }
-        // }
-        var ext = this.value.match(/\.(.+)$/)[1];
-        switch (ext) {
-            case 'png':
-            case 'jpeg':
-            case 'svg':
-            case 'gif':
-            case 'jpg':
-                // readURL(this);
-                break;
-                this.value = '';
-                $('#user_profile').val('');
-                $(".showpreview").addClass("d-none");
-            default:
-                this.value = '';
-                $('#user_profile').val('');
-                $(".showpreview").addClass("d-none");
+            else if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg','svg']) == -1) {
                 alert('Not suitable file for upload');
-
-                return;
-
-                break;
+                $('#user_profile').val('');
+                  $(".showpreview").addClass("d-none");
+    
+            }
+            else{
+                readURL(this);
+            }
+    
+            
+            
         }
+    
 
     });
    

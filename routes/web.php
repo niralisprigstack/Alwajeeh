@@ -48,6 +48,7 @@ Route::post('/createannouncement/{id?}', [AnnouncementController::class, 'create
 
 Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announcementDetail']);
 Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcementViewed']);
+Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

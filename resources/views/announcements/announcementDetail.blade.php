@@ -50,9 +50,116 @@
                         <span class="announcementDesc">{{$announcementdetail->description}}</span>                                       
                     </div>
 
-                    <div class="col-12 mt-3 pl-0 pr-0">                   
-                        <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/sampleImage.svg') }}" alt="" />
+                    <div class="row mt-3 announcementMediaDiv">
+                        @if(count($announcementImages) > 0)
+                        <div class="col-6 col-lg-6">
+                            <img class="img-fluid m-auto announcementPhoto" src="{{Storage::disk('s3')->url($announcementImages[0]->media_location)}}" alt="" />
+                            <span>Photos</span>
+                        </div>
+                        @endif
+                        
+                        @if(count($announcementVideos) > 0)
+                        <div class="col-6 col-lg-6">
+                            <video class="announcementVideo">
+                                <source src="{{Storage::disk('s3')->url($announcementVideos[0]->media_location)}}" type="video/mp4">
+                                <source src="{{Storage::disk('s3')->url($announcementVideos[0]->media_location)}}" type="video/ogg">                                
+                            </video>
+                            <span>Videos</span>
+                        </div>
+                        @endif                        
                     </div>
+                    
+                    <!--image slider div-->
+                    <div class="col-12 mt-3 pl-0 pr-0 imageSliderDiv">
+                        <div id="imageCarouselSlider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @php $cnt = 0; @endphp
+                                @foreach($announcementImages as $announcementImage)
+                                    @if($cnt == 0)
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100 sliderImg" src="{{Storage::disk('s3')->url($announcementImage->media_location)}}" />
+                                        </div>
+                                        @php $cnt++; @endphp
+                                    @else
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100 sliderImg" src="{{Storage::disk('s3')->url($announcementImage->media_location)}}" />
+                                        </div>
+                                        @php $cnt++; @endphp
+                                    @endif                                    
+                                @endforeach                                
+                            </div>
+                            
+                            <div class="row mt-2">
+                                <div class="col-4 col-lg-4">
+                                    <a href="#imageCarouselSlider" role="button" data-slide="prev">
+                                        <span class="sliderBtn">Back</span>                                
+                                    </a>
+                                </div>
+                                
+                                <div class="col-4 col-lg-4">
+                                    <a href="#">
+                                        <span class="sliderBtn">Expand</span>                                
+                                    </a>
+                                </div>
+                                
+                                <div class="col-4 col-lg-4">
+                                    <a class="float-right" href="#imageCarouselSlider" role="button" data-slide="next">
+                                        <span class="sliderBtn">Next</span>                                
+                                    </a>
+                                </div>                                
+                            </div>                           
+                        </div>
+                    </div>
+                    <!--image slider div-->
+                    
+                    <!--video slider div-->
+                    <div class="col-12 mt-3 pl-0 pr-0 videoSliderDiv">
+                        <div id="videoCarouselSlider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @php $cnt = 0; @endphp
+                                @foreach($announcementVideos as $announcementVideo)
+                                    @if($cnt == 0)
+                                        <div class="carousel-item active">
+                                            <video class="sliderVideo w-100">
+                                                <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
+                                                <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
+                                            </video>
+                                        </div>
+                                        @php $cnt++; @endphp
+                                    @else
+                                        <div class="carousel-item">
+                                            <video class="sliderVideo w-100">
+                                                <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
+                                                <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
+                                            </video>
+                                        </div>
+                                        @php $cnt++; @endphp
+                                    @endif                                    
+                                @endforeach                                
+                            </div>
+                            
+                            <div class="row mt-2">
+                                <div class="col-4 col-lg-4">
+                                    <a href="#videoCarouselSlider" role="button" data-slide="prev">
+                                        <span class="sliderBtn">Back</span>                                
+                                    </a>
+                                </div>
+                                
+                                <div class="col-4 col-lg-4">
+                                    <a href="#">
+                                        <span class="sliderBtn">Expand</span>                                
+                                    </a>
+                                </div>
+                                
+                                <div class="col-4 col-lg-4">
+                                    <a class="float-right" href="#videoCarouselSlider" role="button" data-slide="next">
+                                        <span class="sliderBtn">Next</span>                                
+                                    </a>
+                                </div>                                
+                            </div>                           
+                        </div>
+                    </div>
+                    <!--video slider div-->
                     
                     <div class="col-12 mt-3 pl-0 pr-0">                   
                         <span class="announcementList">Project Data</span>                                      
@@ -105,24 +212,22 @@
 <script src="{{asset('/js/announcement.js?v='.$v) }}" ></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        $('.carousel'). carousel({ interval: false, });
       
-//map location call
-google.maps.event.addDomListener(window, 'load', initialize);
+        //map location call
+        google.maps.event.addDomListener(window, 'load', initialize);
   
-  function initialize() {
-      var input = document.getElementById('locationsearch');
-      var autocomplete = new google.maps.places.Autocomplete(input);
+        function initialize() {
+            var input = document.getElementById('locationsearch');
+            var autocomplete = new google.maps.places.Autocomplete(input);
 
-      autocomplete.addListener('place_changed', function () {
-          var selectedLocation=$('.Locationinput').val();
-          $('.ifAddedloaction').text(selectedLocation); 
-          $('.post_location').val(selectedLocation);      
-          var place = autocomplete.getPlace();
-      
-      });
-  }  
-       
-
+            autocomplete.addListener('place_changed', function () {
+                var selectedLocation=$('.Locationinput').val();
+                $('.ifAddedloaction').text(selectedLocation); 
+                $('.post_location').val(selectedLocation);      
+                var place = autocomplete.getPlace();      
+            });
+        }      
     });
 </script>
 @endsection

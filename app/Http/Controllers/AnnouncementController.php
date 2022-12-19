@@ -160,9 +160,11 @@ class AnnouncementController extends Controller
 
   public function announcementDetail(Request $request, $id = NULL)
   {
-
     $announcementdetail = Announcement::where('id', $id)->first();
-    return view('announcements.announcementDetail', compact('announcementdetail'));
+    $announcementImages = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 1)->get();
+    $announcementVideos = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 2)->get();
+    
+    return view('announcements.announcementDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
   }
 
 

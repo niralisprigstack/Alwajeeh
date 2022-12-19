@@ -72,7 +72,7 @@
                 </span>
 
                 <label for="user_profile" class="profile-head-text p-0 select-image col-12 mb-25 mt-20">Replace Photo</label>
-                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg" onchange="readURL(this);">
+                <input class="inputfile c-pointer d-none" type="file" id="user_profile" style="" name="profilepic" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg" >
                 <input type="hidden" class="removeSelectedphoto" value="{{url('removeprofilepic')}}">
                 <span class="profile-head-text p-0 col-12 mb-25 " onclick="removeProfile(this);">Remove Photo</span>
                 <button type="submit" class="updatepropic  profile-head-text  p-0 col-12 font-weight-bold smbalglobal-color  bg-grey border-0 clickable mb-25" value="updatepropic" style="outline: none;">Upload Photo

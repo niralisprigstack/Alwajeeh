@@ -47,7 +47,7 @@ Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addAnno
 Route::post('/createannouncement/{id?}', [AnnouncementController::class, 'createAnnouncement']);
 
 Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announcementDetail']);
-Route::get('/announcementBusinessDetail/{id?}', [AnnouncementController::class, 'announcementBusinessDetail']);
+//Route::get('/announcementBusinessDetail/{id?}', [AnnouncementController::class, 'announcementBusinessDetail']);
 Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcementViewed']);
 Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 

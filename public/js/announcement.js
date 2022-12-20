@@ -190,6 +190,7 @@ function createannouncement() {
 function showMediaSlider(element){
     var checkMediaShow = $(element).attr("data-show");
     $('.detailScrollableDiv').scrollTop(0);
+    $(".closeBtn").removeClass("d-none");
     $(".mediaSpan").removeClass("d-none");
     $(".descriptionSec").addClass("d-none");
     $(".announcementMediaDiv").addClass("d-none");
@@ -204,4 +205,18 @@ function showMediaSlider(element){
         $(".imageSliderDiv").addClass("d-none");
         $(".videoSliderDiv").removeClass("d-none");
     }
+}
+
+function backToDetailSection(){
+    $(".closeBtn").addClass("d-none");
+    $(".mediaSpan").addClass("d-none");
+    $(".descriptionSec").removeClass("d-none");
+    $(".announcementMediaDiv").removeClass("d-none");
+    $(".imageSliderDiv").addClass("d-none");
+    $(".videoSliderDiv").addClass("d-none");
+}
+
+function checkSelectedFile(element){    
+    var fileCount = $(element)[0].files.length;
+    $(".uploadMediaLabel").text(fileCount + " file(s) selected");
 }

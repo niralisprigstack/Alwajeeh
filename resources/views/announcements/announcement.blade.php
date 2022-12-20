@@ -45,24 +45,24 @@ if($usertype=="4"){
              <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Title</span>                  
                 </div>
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
                     <input type="text" class="inputTextClass form-control" name="annTitle" value="" {{$required}}/>
                 </div>
                 
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Details</span>                  
                 </div>
-                <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
+                <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
                     <textarea class="w-100 inputTextAreaClass form-control" name="annDetail" {{$required}}></textarea>
                 </div>
                 
                  <div class="row col-12 justify-content-between mb-3">                     
                      <span class="inputSpanText" style="font-weight: 600;">
                      <img class="c-pointer global-font-color mr-2" src="{{ asset('assests/images/announcement/uploadMediaIcon.svg') }}" alt="" style="">
-                      <label for="announcementmedia" class="m-auto">Upload Media</label>
+                        <label for="announcementmedia" class="m-auto uploadMediaLabel">Upload Media</label>
                     </span>    
                     <!-- <input type="file" name="file[]" multiple /> -->
-                    <input class="inputfile c-pointer d-none" type="file" id="announcementmedia" style="" name="announcementmedia[]" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg,video/mp4"  multiple>                               
+                    <input onchange="checkSelectedFile(this);"  class="inputfile c-pointer d-none" type="file" id="announcementmedia" style="" name="announcementmedia[]" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg,video/mp4"  multiple>                               
                 </div>
                 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">

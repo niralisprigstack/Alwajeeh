@@ -23,9 +23,11 @@
                     ?>
                         <span class="announcementList">{{ $date}} <br /> {{$year}}</span>
                     </div>
-                    <div class="col-7 row pl-0 pr-0">                                          
-                        <a onclick="showMediaSlider(this);" data-show="photos"><span class="mediaSpan photoSec ml-3 d-none">Photos</span></a>
-                        <a onclick="showMediaSlider(this);" data-show="videos"><span class="mediaSpan videoSec ml-3 d-none" style="color: #B7B7B7;">Videos</span></a>
+                    <div class="col-7 row pl-0 pr-0">
+                        @if(count($announcementImages) > 0 && count($announcementVideos) > 0)
+                            <a onclick="showMediaSlider(this);" data-show="photos"><span class="mediaSpan photoSec ml-3 d-none">Photos</span></a>                       
+                            <a onclick="showMediaSlider(this);" data-show="videos"><span class="mediaSpan videoSec ml-3 d-none" style="color: #B7B7B7;">Videos</span></a>
+                        @endif
                     </div>
                     </div>
                 </div>
@@ -38,7 +40,7 @@
 
         <div class="announcementListMainDiv mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
-                <div class="closeBtn text-right">
+                <div class="closeBtn text-right d-none">
                     <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" />
                 </div>
                 

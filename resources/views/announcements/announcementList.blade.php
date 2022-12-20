@@ -42,7 +42,7 @@
     if($created_by=="4"){
         $showdotandtime="";
         if(isset($announcementlist->closing_date)){
-            
+
         }
     }
     ?>
@@ -115,6 +115,38 @@
 
     </div>
 
+
+    <!-- sort div -->
+    <div class="col-12 m-auto footerfiltersortdiv d-none" style="">
+
+
+<div class="footersortbg col-10 justify-content-center ">
+       
+        <div class="d-flex justify-content-between align-items-center w-100 ">
+  
+            <a style="display: grid;" class="mt-2 mb-2" >
+                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/sortby.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto">Sort by</span> </i>
+            </a>
+
+            <a style="display: grid;" class="mt-2 mb-2" >
+                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/filter.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto">Filter</span> </i>
+            </a>
+
+
+            <a style="display: grid;" class="mt-2 mb-2" >
+                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto">Business Profile</span> </i>
+            </a>
+
+         
+        </div>
+        
+    </div>
+
+    </div>
+    <!-- end -->
 
 
 <!-- <div class="" id="nav-upcoming" role="tabpanel"> -->

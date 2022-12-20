@@ -179,7 +179,7 @@ class AnnouncementController extends Controller
 
   public function showAnnouncement()
   {
-    $announcementlists = Announcement::orderBy('id', 'DESC')->get();
+    $announcementlists = Announcement::where("status",'2')->orderBy('id', 'DESC')->get();
     return view('announcements.announcementList', compact('announcementlists'));
   }
 

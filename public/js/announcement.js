@@ -14,7 +14,11 @@ $(document).ready(function() {
         $('.closeviewersBtn').click(function() {
             closeViewers(this);
         });
-        
+        // $('.nav-text').click(function() {
+        //     $(this).css('color', '#AA8840');
+        //     $(this).parent().find('.navSvg path').css('stroke' , '#AA8840');
+            
+        // });
         
 });
 
@@ -124,12 +128,42 @@ function createannouncement() {
     $(".userlist").addClass("d-none");
     $(".nouserlist").addClass("d-none");
     $(".footerfiltersection").removeClass("d-none");
+    var activesel=$(".active").data('click');
+    // showFilteredresult(this);
+    $('.announcementListMainDiv').each(function (){
+        var selectedVal=$(this).data('user'); 
+        if(activesel == "3"){
+            if(activesel==selectedVal){
+                $(this).removeClass("d-none");      
+            }else{
+                $(this).addClass("d-none");      
+            }
+                   
+        } 
+       else if(activesel == "4"){
+            if(activesel==selectedVal){
+                $(this).removeClass("d-none");      
+            }else{
+                $(this).addClass("d-none");      
+            }
+                   
+        } else{
+            $(this).removeClass("d-none"); 
+        }
+    });
   }
 
 
   function showFilteredresult(element){
+    $(".filtered").removeClass("active");
+    $('.nav-img').removeClass("show");
+    $('.nav-text').removeClass("showtext");
+
     var data_click=$(element).data('click');
     $(element).addClass("active");
+    $(element).closest(".parent").find('.nav-img').addClass("show");
+    $(element).closest(".parent").find('.nav-text').addClass("showtext");
+
     $('.announcementListMainDiv').each(function (){
         var selectedVal=$(this).data('user'); 
         if(data_click == "3"){

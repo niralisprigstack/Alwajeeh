@@ -200,6 +200,29 @@ body {
     justify-content: center;
     display: flex;
 }
+.parent .active .showtext {
+    color: #FF0000;
+    border-bottom: 2px solid var(--theme-color);
+}
+.parent .active .show {
+    filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%);
+}
+.datepicker {
+    top:100% !important;
+}
+.footerfiltersortdiv{
+    bottom: 140px;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.footersortbg{
+    background: rgba(0, 0, 0, 0.9);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
 
 /*announcement detail ui*/
 .detailScrollableDiv{

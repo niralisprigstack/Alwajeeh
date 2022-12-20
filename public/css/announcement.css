@@ -256,3 +256,10 @@ body {
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
 }
+.mediaSpan{
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;    
+    text-align: center;
+    color: #A4894B;
+}

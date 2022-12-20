@@ -41,7 +41,7 @@
         <div class="announcementListMainDiv mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
                 <div class="closeBtn text-right d-none">
-                    <a onchange="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
+                    <a onclick="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
                 </div>
                 
                 <div class="detailScrollableDiv">

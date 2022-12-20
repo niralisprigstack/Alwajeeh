@@ -222,8 +222,29 @@ body {
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 }
+.rotate.down {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
 
+.rotate {
+    /* width:20px; */
+height:20px;
+color:white;
+    -moz-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.footerfilteredtext{
+    font-weight: 500;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: center;
 
+color: #F5F5F5;
+}
 /*announcement detail ui*/
 .detailScrollableDiv{
     overflow-y: scroll !important;

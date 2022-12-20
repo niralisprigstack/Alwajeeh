@@ -49,6 +49,10 @@
     <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
     <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
     <!-- <a href="{{url('announcementDetail/'. $announcementlist->id)}}" target="_blank" class='' > -->
+    <div class="announcementListMainDiv ">
+    </div>
+
+
         <div class="announcementListMainDiv parent m-2 announcementlisting announcement_{{$announcementlist->id}}" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}" data-user="{{$created_by}}">
             <div class="announcementDiv pt-2 pb-2">
                 <div class="d-flex justify-content-between">
@@ -120,26 +124,19 @@
     <div class="col-12 m-auto footerfiltersortdiv d-none" style="">
 
 
-<div class="footersortbg col-10 justify-content-center ">
+<div class="footersortbg col-10 justify-content-center pt-3 pb-3 ">
        
-        <div class="d-flex justify-content-between align-items-center w-100 ">
+        <div class="d-flex  w-100 ascdiv pb-3" >
   
-            <a style="display: grid;" class="mt-2 mb-2" >
-                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/sortby.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto">Sort by</span> </i>
-            </a>
+        <i class="fas fa-arrow-up rotate c-pointer"  onclick="ascdesclick(this);" data-attr="asc"></i>
+        <span class="footerfilteredtext pl-3">Sort Date Ascending</span>
+         
+        </div>
 
-            <a style="display: grid;" class="mt-2 mb-2" >
-                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/filter.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto">Filter</span> </i>
-            </a>
-
-
-            <a style="display: grid;" class="mt-2 mb-2" >
-                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto">Business Profile</span> </i>
-            </a>
-
+        <div class="d-flex  w-100 desdiv" >
+  
+        <i class="fas fa-arrow-up rotate c-pointer down" onclick="ascdesclick(this);" data-attr="desc" disabled ></i>
+        <span class="footerfilteredtext pl-3">Sort Date Descending</span>
          
         </div>
         

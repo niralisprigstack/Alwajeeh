@@ -186,6 +186,18 @@ function createannouncement() {
         }
     });
   }
+
+  function showfooterfilterresult(element){
+    $(".filtered").removeClass("active");
+    $('.nav-img').removeClass("show");
+    $('.nav-text').removeClass("showtext");
+    $(".footerfiltersortdiv").toggleClass("d-none");
+
+    $(element).addClass("active");
+    $(element).closest(".parent").find('.nav-img').addClass("show");
+    $(element).closest(".parent").find('.nav-text').addClass("showtext");
+  
+  }
   
 function showMediaSlider(element){
     var checkMediaShow = $(element).attr("data-show");
@@ -220,3 +232,27 @@ function checkSelectedFile(element){
     var fileCount = $(element)[0].files.length;
     $(".uploadMediaLabel").text(fileCount + " file(s) selected");
 }
+
+
+function ascdesclick(element){
+    var click=$(element).data("attr");
+    if(click=="asc"){
+        $(".desdiv").removeAttr("disabled");
+    }
+    var table = $('.announcementListPageSection');
+    var rows = table.find('.announcementListMainDiv');
+    
+    
+    $('.announcementListMainDiv:first').before(rows.get().reverse());
+    // var click=$(element).data("attr");
+    if(click=="asc"){
+        $(element).attr("disabled","disabled");
+       
+    }else if(click=="desc"){
+        $(element).attr("disabled","disabled");
+    }else{
+        $(element).removeAttr("disabled");
+    }
+}
+
+

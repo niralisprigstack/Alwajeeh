@@ -57,7 +57,7 @@
     <!-- <script src="{{ asset('js/auth.js?v='.$v) }}" defer></script> -->
     <!-- <script src="{{ asset('js/custom.js?v='.$v) }}" defer></script> -->
 
-    <!-- <script src="{{asset('/js/global.js?v='.$v)}}" type="text/javascript"></script> -->
+    <script src="{{asset('/js/global.js?v='.$v)}}" type="text/javascript"></script>
     @yield('script')
 
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->

@@ -35,48 +35,16 @@
     <div class="fluid-container announcementListPageSection">
 
 
-    @foreach($announcementlists as $announcementlist)
-    <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
-    <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
-    <!-- <a href="{{url('announcementDetail/'. $announcementlist->id)}}" target="_blank" class='' > -->
-        <div class="announcementListMainDiv m-2" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}">
-            <div class="announcementDiv pt-2 pb-2">
-                <div class="row">
-                    <div class="col-3 pr-0">
-                    <?php
-                    $carbon_date = \Carbon\Carbon::parse($announcementlist->created_at);
-                    $carbon_date = $carbon_date->addHours(4);
-                    $date =  $carbon_date->format('M d');
-                    $year =  $carbon_date->format('y');
-                    // $object->created_at->format('d')
-                    ?>
-                     </span>
-                     
-                        <span class="announcementList">{{$date}} <br/> {{$year}}</span>
-                       
-                    </div>
-                    <div class="col-1 mt-2">
-                    <span class="ongoingdot"></span>
-                    </div>
-                    <div class="col-8">
-                        <div class="remainingDiv">
-                            <span class="remainingText justify-content-center">Remaining 3d 23h</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-12 mt-1 pl-0 pr-0">                   
-                    <span class="announcementDesc">{{$announcementlist->title}}</span>                                       
-                </div>
+    <div class="{{$defaultSelectd}}" id="nav-upcoming" role="tabpanel">
+    @include('announcementFilterpages.familyAnnouncement' , ['announcementlists' => $announcementlists ])
+    </div>
 
-                <div class="col-12 d-flex justify-content-end pl-0 pr-0">                   
-                    <span class="viewersSpan">Viewers</span>                                         
-                </div>
-            </div>            
-        </div>
-    <!-- </a> -->
-        @endforeach
+
   
+        <div class="closeviewerlist d-none downstaticbtn col-12 m-auto">
+         <button type="button" class="mt-4 buttonCss buttonCss button_text col-6 p-0 closeviewersBtn">Close</button>
+        </div>
 
     </div>
 
@@ -87,5 +55,15 @@
 
 <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAjWotF6wKKrsQHC18xo0E-W77YpoOY8b8&libraries=places" ></script> -->
 <script src="{{asset('/js/announcement.js?v='.$v) }}" ></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.viewersClick').click(function(e){ 
+     
+     // Do something
+     e.stopImmediatePropagation();
+     checkViewers(this);
+  });
+    });
+</script>
 
 @endsection

@@ -184,11 +184,28 @@ class AnnouncementController extends Controller
   }
 
   public function announcementViewed(Request $request){
-    $user = Auth::user();
-    $viewedannouncement = new AnnouncementView;
-    $viewedannouncement->announcement_id = $request->entity_id;
-    $viewedannouncement->user_id = $user->id;
-    // return $viewedUpdate;
-    // $viewedannouncement->save();
+    $userid=Auth::id();
+    $user = AnnouncementView::where('user_id', '=', $userid)->where('announcement_id', '=', $request->entity_id)->first();
+    if ($user === null) {
+      // user doesn't exist
+      $viewedannouncement = new AnnouncementView;
+      $viewedannouncement->announcement_id = $request->entity_id;
+      $viewedannouncement->user_id = $userid;
+      $viewedannouncement->save();
+    }
+   
+  }
+
+  public function checkAnnouncementViewers(Request $request){
+
+    $showList="";
+    $viewers=AnnouncementView::where('announcement_id', '=', $request->entity_id)->get();
+    // return $viewers;
+    foreach($viewers as $viewer){
+      
+      $showList .='<span class="announcementDesc pb-1">'.  $viewer->user->first_name . ' ' . $viewer->user->last_name .'</span>';
+    }
+    return $showList;
+
   }
 }

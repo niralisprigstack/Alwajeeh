@@ -240,3 +240,10 @@ body {
 .sliderVideo{
     height: 135px;
 }
+.mediaSpan{
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;    
+    text-align: center;
+    color: #A4894B;
+}

@@ -66,3 +66,22 @@ function createannouncement() {
         }
     });
   }
+  
+function showMediaSlider(element){
+    var checkMediaShow = $(element).attr("data-show");
+    $('.detailScrollableDiv').scrollTop(0);
+    $(".mediaSpan").removeClass("d-none");
+    $(".descriptionSec").addClass("d-none");
+    $(".announcementMediaDiv").addClass("d-none");
+    if(checkMediaShow === "photos"){
+        $(".photoSec").css("color" , "#A4894B");
+        $(".videoSec").css("color" , "#B7B7B7");
+        $(".imageSliderDiv").removeClass("d-none");
+        $(".videoSliderDiv").addClass("d-none");
+    } else {
+        $(".photoSec").css("color" , "#B7B7B7");
+        $(".videoSec").css("color" , "#A4894B");
+        $(".imageSliderDiv").addClass("d-none");
+        $(".videoSliderDiv").removeClass("d-none");
+    }
+}

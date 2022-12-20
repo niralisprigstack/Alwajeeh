@@ -166,6 +166,15 @@ class AnnouncementController extends Controller
     
     return view('announcements.announcementDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
   }
+  
+   public function announcementBusinessDetail(Request $request, $id = NULL)
+  {
+    $announcementdetail = Announcement::where('id', $id)->first();
+    $announcementImages = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 1)->get();
+    $announcementVideos = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 2)->get();
+    
+    return view('announcements.announcementBusinessDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
+  }
 
 
   public function showAnnouncement()

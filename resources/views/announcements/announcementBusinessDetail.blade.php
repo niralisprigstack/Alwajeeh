@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <?php $v = "5.5" ?>
-<title>Announcement Detail</title>
+<title>Announcement Business Detail</title>
 @section('content')
 @section('css')
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
@@ -43,6 +43,10 @@
                 </div>
                 
                 <div class="detailScrollableDiv">
+                    <div class="col-12 pl-0 pr-0 descriptionSec">                   
+                        <span class="announcementList">Introduction</span>                                      
+                    </div>
+                    
                     <div class="col-12 mt-2 pl-0 pr-0 descriptionSec">                   
                         <span class="announcementDesc">{{$announcementdetail->description}}</span>                                       
                     </div>
@@ -170,24 +174,48 @@
                             </div>                           
                         </div>
                     </div>
-                    <!--video slider div-->
+                    <!--video slider div-->                                       
                     
-                    <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
-                        <textarea style="height: auto !important;" placeholder="Comments" class="w-100 inputTextAreaClass form-control" name="annDetail"></textarea>
-                    </div>                                        
-                                        
+                    <div class="col-12 mt-3 pl-0 pr-0">                   
+                        <span class="announcementList">Project Data</span>                                      
+                    </div>
+                    
+                    <div class="col-12 mt-1 pl-0 pr-0">                   
+                        <span class="announcementDesc">{{$announcementdetail->project_value}}</span>             
+                    </div>
+                    
+                    <div class="col-12 mt-3 pl-0 pr-0">                   
+                        <span class="announcementList">Project Location</span>                                      
+                    </div>
+                    
+                    <div class="col-12 mt-1 pl-0 pr-0">                   
+                        <span class="announcementDesc">{{$announcementdetail->announcement_location}}</span> 
+                        <?php  $location = str_replace(", ","+",$announcementdetail->announcement_location); ?>
+                         <iframe width="100%" height="300" class="mb-4 mb-lg-0" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{$location}}&key=AIzaSyDuE8EjBUwioEucWmYupCzboXrSry8F2aw
+                        &q={{$location}}">
+                    </iframe> 
+
+
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 col-lg-6">
-                        <button style="height: 40px;" type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Post</button>
+                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Submit your interest</button>
                     </div>
                     <div class="col-6 col-lg-6">
+                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Need more details</button>
                     </div>
                 </div>
                
             </div>
-        </div>                
+        </div>
+        
+        <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 d-none">
+            <h4 class="p-3">Your Interest in the Project has been succesfully Submitted <br /><br />
+                We will contact you soon for more details
+            </h4>
+        </div>
 
     </div>
 

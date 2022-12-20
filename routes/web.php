@@ -50,5 +50,9 @@ Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announc
 Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcementViewed']);
 Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 
+Route::get('/test', function () { 
+    return view('test');
+});
+
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

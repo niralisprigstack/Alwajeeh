@@ -16,23 +16,24 @@
                 <span class="fonthead filtertext navText m-auto">Unread</span> </i>
             </a>
 
-            <a style="display: grid;" class="mt-2 mb-2 active show"  id="nav-upcming-tab" aria-selected="{{$defaultSelectd ? 'true' : 'false'}}">
-                <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/emails.svg') }}" alt="">
+            <!-- <a style="display: grid;" class="mt-2 mb-2 active show"  id="nav-upcming-tab" aria-selected="{{$defaultSelectd ? 'true' : 'false'}}"> -->
+            <a style="display: grid;" class="mt-2 mb-2 " onclick="showFilteredresult(this);" data-click="1">   
+            <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/emails.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto">All</span> </i>
             </a>
 
 
-            <a style="display: grid;" class="mt-2 mb-2" >
+            <a style="display: grid;" class="mt-2 mb-2" onclick="showFilteredresult(this);" data-click="4">
                 <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/business.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto">Business</span> </i>
             </a>
 
-            <a style="display: grid;" class="mt-2 mb-2" >
+            <a style="display: grid;" class="mt-2 mb-2" onclick="showFilteredresult(this);" data-click="3">
                 <img class="img-fluid m-auto " style="" src="{{ asset('assests/images/announcement/family.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto">Family</span> </i>
             </a>
 
-            <a style="display: grid;" class="mt-2 mb-2 ml-3" >
+            <a style="display: grid;" class="mt-2 mb-2 ml-3"  href="{{url('announcement')}}">
                 <img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/createnew.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto">Create New</span> </i>
             </a>

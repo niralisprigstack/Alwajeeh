@@ -214,20 +214,7 @@
     $(document).ready(function() {
         $('.carousel'). carousel({ interval: false, });
       
-        //map location call
-        google.maps.event.addDomListener(window, 'load', initialize);
-  
-        function initialize() {
-            var input = document.getElementById('locationsearch');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-
-            autocomplete.addListener('place_changed', function () {
-                var selectedLocation=$('.Locationinput').val();
-                $('.ifAddedloaction').text(selectedLocation); 
-                $('.post_location').val(selectedLocation);      
-                var place = autocomplete.getPlace();      
-            });
-        }      
+          
     });
 </script>
 @endsection

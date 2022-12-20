@@ -127,3 +127,29 @@ function createannouncement() {
     $(".nouserlist").addClass("d-none");
     $(".footerfiltersection").removeClass("d-none");
   }
+
+
+  function showFilteredresult(element){
+    var data_click=$(element).data('click');
+    $('.announcementListMainDiv').each(function (){
+        var selectedVal=$(this).data('user'); 
+        if(data_click == "3"){
+            if(data_click==selectedVal){
+                $(this).removeClass("d-none");      
+            }else{
+                $(this).addClass("d-none");      
+            }
+                   
+        } 
+       else if(data_click == "4"){
+            if(data_click==selectedVal){
+                $(this).removeClass("d-none");      
+            }else{
+                $(this).addClass("d-none");      
+            }
+                   
+        } else{
+            $(this).removeClass("d-none"); 
+        }
+    });
+  }

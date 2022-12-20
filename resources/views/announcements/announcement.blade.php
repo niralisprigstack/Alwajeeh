@@ -6,6 +6,7 @@
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/location.css?v='.$v) }}">
+
 @endsection
 
 <?php
@@ -134,7 +135,20 @@ if($usertype=="4"){
 <script src="{{asset('/js/announcement.js?v='.$v) }}" ></script>
 <script type="text/javascript">
     $(document).ready(function() {
-      
+       //map location call
+       google.maps.event.addDomListener(window, 'load', initialize);
+  
+  function initialize() {
+      var input = document.getElementById('locationsearch');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      autocomplete.addListener('place_changed', function () {
+          var selectedLocation=$('.Locationinput').val();
+          $('.ifAddedloaction').text(selectedLocation); 
+          $('.post_location').val(selectedLocation);      
+          var place = autocomplete.getPlace();      
+      });
+  }   
 
         $('.datetimepickerforannouncement').datepicker({
             autoclose: true,

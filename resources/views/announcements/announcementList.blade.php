@@ -6,15 +6,13 @@
 <style>
   .commonheadertext {
     padding-left: 10px !important;
-    padding-bottom: 10px !important;
-    padding-top: 80px !important;
 }
 .filtersection{
-    margin-top: 140px !important;
+    margin-top: 120px !important;
 }
 .announcementListPageSection{
     /* padding-top: 0px; */
-    max-height: 46%;
+    max-height: 50%;
     overflow: auto;
 }
 .createAnnouncementText{    

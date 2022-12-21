@@ -4,8 +4,23 @@
 @section('content')
 @section('css')
 <style>
+      .commonheadertext {
+    padding-left: 10px !important;
+}
+.createAnnouncementText{    
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    color: #A4894B;
+    width:auto !important;
+}
+.announcementText{
+    display: none !important;
+}
 .detailpagecontainer{
- margin-top:170px;
+ margin-top:112px;
 }
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
@@ -26,7 +41,7 @@
                 ?>
     <div class="fluid-container detailpagecontainer">
 
-        <div class="announcementListMainDiv mt-3 mb-2 ml-2 mr-2">
+        <div class="announcementListMainDiv" style="border-radius: 0px;backdrop-filter: blur(5px);background: rgba(0, 0, 0, 0.6);    box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);">
             <div class="announcementDiv pt-3 pb-3">
                 <div class="row">
                     <div class="col-5 pr-0">
@@ -39,10 +54,7 @@
                         <span class="announcementList">{{ $date}} <br /> {{$year}}</span>
                     </div>
                     <div class="col-7 row pl-0 pr-0">                                          
-                        @if(count($announcementImages) > 0 && count($announcementVideos) > 0)
-                            <a onclick="showMediaSlider(this);" data-show="photos"><span class="mediaSpan photoSec ml-3 d-none">Photos</span></a>                        
-                            <a onclick="showMediaSlider(this);" data-show="videos"><span class="mediaSpan videoSec ml-3 d-none" style="color: #B7B7B7;">Videos</span></a>
-                        @endif
+                        
                     </div>
                     </div>
                 </div>
@@ -71,127 +83,41 @@
                     <div class="row mt-3 announcementMediaDiv">
                         @if(count($announcementImages) > 0)
                         <div class="col-6 col-lg-6">
-                            <a onclick="showMediaSlider(this);" data-show="photos"><img class="img-fluid m-auto announcementPhoto" src="{{Storage::disk('s3')->url($announcementImages[0]->media_location)}}" alt="" /></a>
+                            @php $cnt = 0; $showHide = ""; @endphp
+                            @foreach($announcementImages as $announcementImage)
+                                @if($cnt == 0)
+                                    @php $showHide = ""; @endphp
+                                @else
+                                    @php $showHide = "d-none"; @endphp
+                                @endif
+                                <a data-fancybox="images" href="{{Storage::disk('s3')->url($announcementImage->media_location)}}" data-show="photos"><img class="img-fluid m-auto announcementPhoto {{$showHide}}" src="{{Storage::disk('s3')->url($announcementImages[0]->media_location)}}" alt="" /></a>
+                                @php $cnt++; @endphp
+                            @endforeach
                             <span>Photos</span>
                         </div>
                         @endif
                         
                         @if(count($announcementVideos) > 0)
                         <div class="col-6 col-lg-6">
-                            <a onclick="showMediaSlider(this);" data-show="videos">
-                                <video class="announcementVideo">
-                                    <source src="{{Storage::disk('s3')->url($announcementVideos[0]->media_location)}}" type="video/mp4">
-                                    <source src="{{Storage::disk('s3')->url($announcementVideos[0]->media_location)}}" type="video/ogg">                                
-                                </video>
-                            </a>
+                            @php $cnt = 0; $showHide = ""; @endphp
+                            @foreach($announcementVideos as $announcementVideo)
+                                @if($cnt == 0)
+                                    @php $showHide = ""; @endphp
+                                @else
+                                    @php $showHide = "d-none"; @endphp
+                                @endif
+                                <a href="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" data-fancybox="videos">
+                                    <video style="height: 100px;" class="w-100 {{$showHide}}">
+                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
+                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
+                                    </video>
+                                </a>
+                                @php $cnt++; @endphp
+                            @endforeach
                             <span>Videos</span>
                         </div>
                         @endif                        
-                    </div>
-                    
-                    <!--image slider div-->
-                    <div class="col-12 mt-3 pl-0 pr-0 imageSliderDiv d-none">
-                        <div id="imageCarouselSlider" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                @php $cnt = 0; @endphp
-                                @foreach($announcementImages as $announcementImage)
-                                    @if($cnt == 0)
-                                        <div class="carousel-item active">
-                                            <a href="{{Storage::disk('s3')->url($announcementImage->media_location)}}"
-                                                data-fancybox="images">
-                                                <img class="d-block w-100 sliderImg" src="{{Storage::disk('s3')->url($announcementImage->media_location)}}" />
-                                            </a>
-                                        </div>
-                                        @php $cnt++; @endphp
-                                    @else
-                                        <div class="carousel-item">
-                                            <a href="{{Storage::disk('s3')->url($announcementImage->media_location)}}"
-                                                data-fancybox="images">
-                                                <img class="d-block w-100 sliderImg" src="{{Storage::disk('s3')->url($announcementImage->media_location)}}" />
-                                            </a>
-                                        </div>
-                                        @php $cnt++; @endphp
-                                    @endif                                    
-                                @endforeach                                
-                            </div>
-                            
-                            <div class="row mt-2">
-                                <div class="col-4 col-lg-4">
-                                    <a href="#imageCarouselSlider" role="button" data-slide="prev">
-                                        <span class="sliderBtn">Back</span>                                
-                                    </a>
-                                </div>
-                                
-                                <div class="col-4 col-lg-4">
-                                    <a href="#">
-                                        <span class="sliderBtn">Expand</span>                                
-                                    </a>
-                                </div>
-                                
-                                <div class="col-4 col-lg-4">
-                                    <a class="float-right" href="#imageCarouselSlider" role="button" data-slide="next">
-                                        <span class="sliderBtn">Next</span>                                
-                                    </a>
-                                </div>                                
-                            </div>                           
-                        </div>
-                    </div>
-                    <!--image slider div-->
-                    
-                    <!--video slider div-->
-                    <div class="col-12 mt-3 pl-0 pr-0 videoSliderDiv d-none">
-                        <div id="videoCarouselSlider" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                @php $cnt = 0; @endphp
-                                @foreach($announcementVideos as $announcementVideo)
-                                    @if($cnt == 0)
-                                        <div class="carousel-item active">
-                                            <a href="{{Storage::disk('s3')->url($announcementVideo->media_location)}}"
-                                                data-fancybox="videos">
-                                                <video class="sliderVideo w-100">
-                                                    <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
-                                                    <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
-                                                </video>
-                                            </a>
-                                        </div>
-                                        @php $cnt++; @endphp
-                                    @else
-                                        <div class="carousel-item">
-                                            <a href="{{Storage::disk('s3')->url($announcementVideo->media_location)}}"
-                                                data-fancybox="videos">
-                                                <video class="sliderVideo w-100">
-                                                    <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
-                                                    <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
-                                                </video>
-                                            </a>
-                                        </div>
-                                        @php $cnt++; @endphp
-                                    @endif                                    
-                                @endforeach                                
-                            </div>
-                            
-                            <div class="row mt-2">
-                                <div class="col-4 col-lg-4">
-                                    <a href="#videoCarouselSlider" role="button" data-slide="prev">
-                                        <span class="sliderBtn">Back</span>                                
-                                    </a>
-                                </div>
-                                
-                                <div class="col-4 col-lg-4">
-                                    <a href="#">
-                                        <span class="sliderBtn">Expand</span>                                
-                                    </a>
-                                </div>
-                                
-                                <div class="col-4 col-lg-4">
-                                    <a class="float-right" href="#videoCarouselSlider" role="button" data-slide="next">
-                                        <span class="sliderBtn">Next</span>                                
-                                    </a>
-                                </div>                                
-                            </div>                           
-                        </div>
-                    </div>
-                    <!--video slider div-->                                       
+                    </div>                                                                              
                     
                     <div class="col-12 mt-3 pl-0 pr-0">                   
                         <span class="announcementList">Project Data</span>                                      

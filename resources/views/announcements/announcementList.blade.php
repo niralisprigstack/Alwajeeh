@@ -6,15 +6,13 @@
 <style>
   .commonheadertext {
     padding-left: 10px !important;
-    padding-bottom: 10px !important;
-    padding-top: 80px !important;
 }
 .filtersection{
     padding-top: 140px !important;
 }
 .announcementListPageSection{
     /* padding-top: 0px; */
-    max-height: 46%;
+    max-height: 50%;
     overflow: auto;
 }
 .createAnnouncementText{    
@@ -86,21 +84,23 @@
     // echo $announcementlist['announcement_views'];
    
     ?>
-  
     
+    @php
+        $getUnreadCount = $announcementlist->announcement_views->where('user_id' , Auth::id())->where('announcement_id', $announcementlist->id)->count();        
+        $checkUnread = "";         
+    @endphp
     
-    <?php 
-    
-  
-     ?>
+    @if($getUnreadCount == 0)
+        @php $checkUnread = "1"; @endphp
+    @endif
+                 
     <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
-    <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
-    <!-- <a href="{{url('announcementDetail/'. $announcementlist->id)}}" target="_blank" class='' > -->
-    <div class="announcementListMainDiv ">
-    </div>
+    <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">    
+    <div class="announcementListMainDiv "></div>
 
 
-        <div class="announcementListMainDiv parent m-2 announcementlisting announcement_{{$announcementlist->id}}" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}" data-user="{{$created_by}}" data-interested="{{$announcementlist->interested}}">
+        <div class="announcementListMainDiv parent m-2 announcementlisting announcement_{{$announcementlist->id}}" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}" 
+data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$announcementlist->interested}}">
             <div class="announcementDiv pt-2 pb-2">
                 <div class="d-flex justify-content-between">
                     

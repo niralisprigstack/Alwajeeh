@@ -12,7 +12,7 @@
         <div class="d-flex justify-content-between align-items-center w-100 ">
   
         <span class="parent">
-            <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);">
+            <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="2">
                 <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/unreadmsg.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text">Unread</span> </i>
             </a>

@@ -45,7 +45,19 @@
 
         }
     }
+
+
+
+    // echo $announcementlist['announcement_views'];
+   
     ?>
+  
+    
+    
+    <?php 
+    
+  
+     ?>
     <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
     <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
     <!-- <a href="{{url('announcementDetail/'. $announcementlist->id)}}" target="_blank" class='' > -->
@@ -109,6 +121,8 @@
        
      
     <!-- </a> -->
+    
+
         @endforeach
 
 
@@ -124,18 +138,21 @@
     <div class="col-12 m-auto footerfiltersortdiv d-none" style="">
 
 
-<div class="footersortbg col-10 justify-content-center pt-3 pb-3 ">
+<div class="footersortbg col-10 justify-content-center pt-4 pb-4 pl-4">
        
-        <div class="d-flex  w-100 ascdiv pb-3" >
-  
-        <i class="fas fa-arrow-up rotate c-pointer"  onclick="ascdesclick(this);" data-attr="asc"></i>
-        <span class="footerfilteredtext pl-3">Sort Date Ascending</span>
-         
-        </div>
+     
+        <div class="d-flex  w-100 ascdiv " onclick="ascdesclick(this);" data-attr="asc">
+        
+                <i class="fas fa-arrow-up rotate c-pointer"  ></i>
+                <span class="footerfilteredtext pl-3">Sort Date Ascending</span>
+                
+                </div>
+        <span class=" d-block" style="height:25px;"></span>
+                
 
-        <div class="d-flex  w-100 desdiv" >
+        <div class="d-flex  w-100 desdiv" onclick="ascdesclick(this);" data-attr="desc" disabled style="pointer-events:none">
   
-        <i class="fas fa-arrow-up rotate c-pointer down" onclick="ascdesclick(this);" data-attr="desc" disabled ></i>
+        <i class="fas fa-arrow-up rotate c-pointer down" ></i>
         <span class="footerfilteredtext pl-3">Sort Date Descending</span>
          
         </div>

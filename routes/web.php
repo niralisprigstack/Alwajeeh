@@ -51,6 +51,8 @@ Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announc
 Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcementViewed']);
 Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 
+Route::post('/addInterest', [AnnouncementController::class, 'addAnnouncementInterest']);
+
 Route::get('/test', function () { 
     return view('test');
 });

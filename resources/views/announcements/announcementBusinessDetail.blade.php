@@ -202,6 +202,8 @@
                 </div>
 
                 <div class="row">
+                <input type="hidden" name="" class='addInterestclass' value="{{url('addInterest')}}">
+                <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
                     <div class="col-6 col-lg-6">
                         <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Submit your interest</button>
                     </div>

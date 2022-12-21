@@ -74,6 +74,28 @@ function createannouncement() {
     });
   }
 
+
+//   function showAnnouncementInterest(element){   
+//     // let parent = findParent(this);
+//     let entity_id = $(element).data('id');
+//     var CSRF_TOKEN = $('.csrf-token').val();
+//     let url= $('.checkedAnnouncement').val();
+//     // let entity_id=$(element).val();
+//     $.ajax({
+//         url: url,
+//         type: "post",
+//         data: {_token: CSRF_TOKEN, entity_id: entity_id},
+//         success: function (response) {
+//            console.log(response);
+//            window.location.href="../announcementDetail/"+ entity_id;
+//             // location.reload();
+//         },error: function (err) {
+//             console.log(err);
+//         }
+//     });
+//   }
+
+
   function checkViewers(element){
     $('.loading').removeClass('d-none');
     let parent = findParent(element);
@@ -238,6 +260,7 @@ function ascdesclick(element){
     var click=$(element).data("attr");
     if(click=="asc"){
         $(".desdiv").removeAttr("disabled");
+        $(".desdiv").css("pointer-events","initial");
     }
     var table = $('.announcementListPageSection');
     var rows = table.find('.announcementListMainDiv');
@@ -247,11 +270,20 @@ function ascdesclick(element){
     // var click=$(element).data("attr");
     if(click=="asc"){
         $(element).attr("disabled","disabled");
+        $(element).css("pointer-events","none");
+
+        $(".desdiv").removeAttr("disabled");
+        $(".desdiv").css("pointer-events","initial");
        
     }else if(click=="desc"){
         $(element).attr("disabled","disabled");
+        $(element).css("pointer-events","none");
+
+        $(".ascdiv").removeAttr("disabled");
+        $(".ascdiv").css("pointer-events","initial");
     }else{
-        $(element).removeAttr("disabled");
+        // $(element).removeAttr("disabled");
+        // $(element).css("pointer-events","initial");
     }
 }
 

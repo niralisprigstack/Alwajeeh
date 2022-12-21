@@ -164,6 +164,7 @@ class AnnouncementController extends Controller
     $announcementImages = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 1)->get();
     $announcementVideos = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 2)->get();
     
+    
     if($announcementdetail->created_by == 3){ //Family
         return view('announcements.announcementDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
     } else { //Business
@@ -173,7 +174,11 @@ class AnnouncementController extends Controller
 
   public function showAnnouncement()
   {
-    $announcementlists = Announcement::where("status",'2')->orderBy('id', 'DESC')->get();
+    $announcementlists = Announcement::with('announcement_views')   
+    ->where("status",'2')->orderBy('id', 'DESC')->get();
+   
+  //  dd($announcementlists);
+  //  return;
     return view('announcements.announcementList', compact('announcementlists'));
   }
 

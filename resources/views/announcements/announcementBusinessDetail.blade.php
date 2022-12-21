@@ -14,6 +14,16 @@
 @endsection
 
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
+
+    <?php 
+                $showBtn="";
+                $submittedLabel="d-none";
+                if($announcementdetail->interested=="1"){
+                    $showBtn="d-none";
+                    $submittedLabel="";
+                }
+                
+                ?>
     <div class="fluid-container detailpagecontainer">
 
         <div class="announcementListMainDiv mt-3 mb-2 ml-2 mr-2">
@@ -209,7 +219,8 @@
                 <div class="row">
                 <input type="hidden" name="" class='addInterestclass' value="{{url('addInterest')}}">
                 <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
-                    <div class="col-6 col-lg-6">
+                
+                    <div class="col-6 col-lg-6 submitInterestDiv {{$showBtn}}">
                         <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your interest</button>
                     </div>
                     <div class="col-6 col-lg-6">
@@ -221,14 +232,14 @@
         </div>
         
 
-        <section class="interest_submitteddiv d-none">
+        <section class="interest_submitteddiv d-none mb-5 pb-5">
             <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 ">
                 <h4 class="p-4 ">Your Interest in <br>the Project has <br> been succesfully <br> Submitted <br /><br />
                     We will contact<br> you soon for<br> more details
                 </h4>
             </div>
-            <div class="submittedbtnidv col-6 m-auto mb-5 ">
-            <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-2">Back to Announcements</button>
+            <div class="submittedbtnidv col-7 m-auto mb-5 ">
+            <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-2 " onclick="backTowholeDetailSection(this);">Back to Announcements</button>
             </div>
         </section>
         

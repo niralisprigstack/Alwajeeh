@@ -216,14 +216,56 @@ function createannouncement() {
   }
 
   function showfooterfilterresult(element){
-    $(".filtered").removeClass("active");
-    $('.nav-img').removeClass("show");
-    $('.nav-text').removeClass("showtext");
-    $(".footerfiltersortdiv").toggleClass("d-none");
+    if($(element).data("attr")=="sortFilter"){
+        $(".filtered").removeClass("active");
+        $('.nav-img').removeClass("show");
+        $('.nav-text').removeClass("showtext");
+        $(".footerfiltersortdiv").toggleClass("d-none");
+    
+        $(element).addClass("active");
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+    }else if($(element).data("attr")=="businessFilter"){
+        $(".filtered").removeClass("active");
+        $('.nav-img').removeClass("show");
+        $('.nav-text').removeClass("showtext");
 
-    $(element).addClass("active");
-    $(element).closest(".parent").find('.nav-img').addClass("show");
-    $(element).closest(".parent").find('.nav-text').addClass("showtext");
+        $(element).addClass("active");     
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+
+         var data_click=$(element).data("click");
+        $('.announcementListMainDiv').each(function (){
+            var entity_id = $(this).data('id');
+            var selectedVal=$(this).data('interested'); 
+            if(data_click == "1"){
+                if(data_click==selectedVal){
+                    $(this).removeClass("d-none"); 
+                    // $('.announcement_'+entity_id).closest(".announcementDiv").find(".submitDiv").removeClass("d-none");
+                    // $('.announcement_'+entity_id).closest(".announcementDiv").find(".remainingDiv").addClass("d-none");
+                    $(".submitDiv").removeClass("d-none"); 
+                    $(".remainingDiv").addClass("d-none"); 
+                    $(".ongoingdot").addClass("d-none"); 
+                     
+                    // $(this).closest(".announcementDiv").find(".remainingDiv").addClass("d-none");    
+                  
+                    $(".filtersectiondiv").addClass("d-none");   
+                    $(".businessprofiletext").removeClass("d-none"); 
+                }else{
+                    $(this).addClass("d-none");    
+                    // $(this).closest(".announcementDiv").find(".submitDiv").addClass("d-none");  
+                    // $(this).closest(".announcementDiv").find(".remainingDiv").removeClass("d-none");   
+                    // $(".filtersectiondiv").removeClass("d-none");   
+                    // $(".businessprofiletext").addClass("d-none"); 
+                }
+                       
+            } 
+          else{
+                $(this).removeClass("d-none"); 
+            }
+        });
+    }
+    
   
   }
   
@@ -247,13 +289,19 @@ function showMediaSlider(element){
     }
 }
 
-function backToDetailSection(){
+function backToDetailSection(){  
     $(".closeBtn").addClass("d-none");
     $(".mediaSpan").addClass("d-none");
     $(".descriptionSec").removeClass("d-none");
     $(".announcementMediaDiv").removeClass("d-none");
     $(".imageSliderDiv").addClass("d-none");
     $(".videoSliderDiv").addClass("d-none");
+}
+function backTowholeDetailSection(){
+    $(".interest_submitteddiv").addClass("d-none");
+    $(".detailpagecontainer").removeClass("d-none");
+    $(".announcementListMainDiv").removeClass("d-none");
+    $(".submitInterestDiv").addClass("d-none");
 }
 
 function checkSelectedFile(element){    

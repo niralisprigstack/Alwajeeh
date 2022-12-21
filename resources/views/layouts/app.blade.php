@@ -135,7 +135,7 @@
                             </svg>
                         </a>
 
-                        <a class="headfont pageurl " class="navSvg" href="#">
+                        <a class="headfont pageurl " class="navSvg" href="{{url('announcementList')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50" fill="none">
                                 <rect width="50" height="50" fill="url(#pattern4)" />
                                 <defs>

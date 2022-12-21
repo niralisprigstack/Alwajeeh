@@ -10,7 +10,7 @@
     padding-top: 80px !important;
 }
 .filtersection{
-    margin-top: 140px !important;
+    padding-top: 140px !important;
 }
 .announcementListPageSection{
     /* padding-top: 0px; */
@@ -42,12 +42,44 @@
     <?php 
     $created_by=$announcementlist->created_by;
     $showdotandtime="d-none";
+    $remainingTime="";
     if($created_by=="4"){
         $showdotandtime="";
         if(isset($announcementlist->closing_date)){
+            $todaydate = date('Y-m-d H:i:s');
+            if($todaydate<=$announcementlist->closing_date){
+                // echo $todaydate;
+                
+                // echo $announcementlist->closing_date;
+                $today = new DateTime($todaydate);
+                $closedate = new DateTime($announcementlist->closing_date);
 
+                $remainingtime = date_diff($today ,$closedate);
+                $remainingTime=$remainingtime->format('%ad');
+
+
+
+//                 $date1 = new DateTime('2022-12-23T12:00:00');
+// $date2 = new DateTime('2022-12-21T18:30:00');
+
+// // The diff-methods returns a new DateInterval-object...
+// $diff =  $today->diff($date1);
+
+// // Call the format method on the DateInterval-object
+// echo $diff->format('%a Day and %h hours');
+            }
+            else{
+                $showdotandtime="d-none";
+            }
         }
     }
+ 
+        $submittedLabel="d-none";
+        if($announcementlist->interested=="1"){
+                $submittedLabel="";
+         }
+                
+                
 
 
 
@@ -68,7 +100,7 @@
     </div>
 
 
-        <div class="announcementListMainDiv parent m-2 announcementlisting announcement_{{$announcementlist->id}}" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}" data-user="{{$created_by}}">
+        <div class="announcementListMainDiv parent m-2 announcementlisting announcement_{{$announcementlist->id}}" onclick="checkedAnnouncement(this);" data-id="{{$announcementlist->id}}" data-user="{{$created_by}}" data-interested="{{$announcementlist->interested}}">
             <div class="announcementDiv pt-2 pb-2">
                 <div class="d-flex justify-content-between">
                     
@@ -89,8 +121,15 @@
                 
                     
                         <div class="remainingDiv {{$showdotandtime}}">
-                            <span class="remainingText justify-content-center">Remaining 3d 23h</span>
+                            
+                            <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>
+
+
+                        <div class="submitDiv {{$submittedLabel}} d-none">
+                            <span class="submitText justify-content-center">Submitted</span>
+                        </div>
+
                    
                 </div>
 

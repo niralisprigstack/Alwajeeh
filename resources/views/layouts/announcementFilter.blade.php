@@ -7,7 +7,7 @@
  $selectDeicated = app('request')->input('seating-types') == 3 ? 'active show' : '' ;
  $selectMeetingRoom = app('request')->input('seating-types') == 6 ? 'active show' : '';
 @endphp
-<div class="filterblackbg col-12 justify-content-center mb-1">
+<div class="filterblackbg col-12 justify-content-center mb-1 filtersectiondiv">
         <!-- <img class="img-fluid" style="width: 100px;height: 104.39px;float: right;" src="{{ asset('assests/images/register_logo.svg') }}" alt=""> -->
         <div class="d-flex justify-content-between align-items-center w-100 ">
   
@@ -52,6 +52,12 @@
         </div>
         
     </div>
+
+
+
+
+    <span class="businessprofiletext d-none">My Business<br> Profile</span>
+
 
     </div>
     

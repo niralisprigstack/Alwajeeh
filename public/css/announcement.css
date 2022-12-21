@@ -2,7 +2,7 @@ html,
 body {
     font-family: 'Montserrat';
     font-style: normal; 
-    margin-top: 70px;
+    /* margin-top: 70px; */
     background-image: url(/assests/images/announcement/announcementBgImg.jpg);
 }
 .fixed-header{
@@ -257,12 +257,16 @@ color: #F5F5F5;
     border-radius: 10px;
 }
 .submissionDiv h4{
-    font-weight: 700;    
+    font-weight: 700;
+    font-size: 30px;
     line-height: 39px;
     display: flex;
     align-items: center;
     text-align: center;
     color: #A4894B;
+    /* width: 80%; */
+    justify-content: center;
+    margin: auto;
 }
 .announcementPhoto{
     width: 150px;
@@ -306,4 +310,7 @@ color: #F5F5F5;
     line-height: 29px;    
     text-align: center;
     color: #A4894B;
+}
+.interest_submitteddiv{
+    margin-top: 170px !important;
 }

@@ -75,25 +75,31 @@ function createannouncement() {
   }
 
 
-//   function showAnnouncementInterest(element){   
-//     // let parent = findParent(this);
-//     let entity_id = $(element).data('id');
-//     var CSRF_TOKEN = $('.csrf-token').val();
-//     let url= $('.checkedAnnouncement').val();
-//     // let entity_id=$(element).val();
-//     $.ajax({
-//         url: url,
-//         type: "post",
-//         data: {_token: CSRF_TOKEN, entity_id: entity_id},
-//         success: function (response) {
-//            console.log(response);
-//            window.location.href="../announcementDetail/"+ entity_id;
-//             // location.reload();
-//         },error: function (err) {
-//             console.log(err);
-//         }
-//     });
-//   }
+  function showAnnouncementInterest(element){   
+    $('.loading').removeClass('d-none');
+    let entity_id = $(element).data('id');
+    var CSRF_TOKEN = $('.csrf-token').val();
+    let url= $('.addInterestclass').val();
+    // let entity_id=$(element).val();
+    $.ajax({
+        url: url,
+        type: "post",
+        data: {_token: CSRF_TOKEN, entity_id: entity_id},
+        success: function (response) {
+           console.log(response);
+           $(".detailpagecontainer").addClass("d-none");
+           $(".announcementListMainDiv").addClass("d-none");
+           $(".interest_submitteddiv").removeClass("d-none");
+           
+           $('.loading').addClass('d-none');
+        //    window.location.href="../announcementDetail/"+ entity_id;
+            // location.reload();
+        },error: function (err) {
+            $('.loading').addClass('d-none');
+            console.log(err);
+        }
+    });
+  }
 
 
   function checkViewers(element){

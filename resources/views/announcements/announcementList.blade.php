@@ -9,9 +9,12 @@
     padding-bottom: 10px !important;
     padding-top: 80px !important;
 }
+.filtersection{
+    margin-top: 140px !important;
+}
 .announcementListPageSection{
-    /*padding-top: 20px;*/
-    max-height: 60%;
+    /* padding-top: 0px; */
+    max-height: 46%;
     overflow: auto;
 }
 .createAnnouncementText{    

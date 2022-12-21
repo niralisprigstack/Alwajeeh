@@ -3,13 +3,18 @@
 <title>Announcement Detail</title>
 @section('content')
 @section('css')
+<style>
+.detailpagecontainer{
+ margin-top:170px;
+}
+  </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
-    <div class="fluid-container">
+    <div class="fluid-container detailpagecontainer">
 
         <div class="announcementListMainDiv mt-3 mb-2 ml-2 mr-2">
             <div class="announcementDiv pt-3 pb-3">

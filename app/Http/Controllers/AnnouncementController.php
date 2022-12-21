@@ -182,6 +182,11 @@ class AnnouncementController extends Controller
     return view('announcements.announcementList', compact('announcementlists'));
   }
 
+  public function addAnnouncementInterest(Request $request){
+    $userid=Auth::id();
+    Announcement::where('id',$request->entity_id)->where('user_id',$userid)->update(['interested' => '1']);  
+  }
+
   public function announcementViewed(Request $request){
     $userid=Auth::id();
     $user = AnnouncementView::where('user_id', '=', $userid)->where('announcement_id', '=', $request->entity_id)->first();

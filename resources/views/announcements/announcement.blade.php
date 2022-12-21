@@ -3,6 +3,11 @@
 <title>Create Announcement</title>
 @section('content')
 @section('css')
+<style>
+    .announcementContainer{
+        margin-top: 160px;
+    }
+</style>
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/location.css?v='.$v) }}">
@@ -29,7 +34,7 @@ if($usertype=="4"){
 
 
 
-<div class="announcementbody">
+
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
 <div class="fluid-container announcementContainer" style="padding-bottom: 45px;">
     
@@ -124,7 +129,7 @@ if($usertype=="4"){
     <!--<img class="img-fluid profile_footerimg" style="" src="{{ asset('assests/images/profile/profile_footer.svg') }}" alt="">-->
 </div>
 
-</div>
+
 
 
 @endsection

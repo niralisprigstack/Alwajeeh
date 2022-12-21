@@ -3,13 +3,18 @@
 <title>Announcement Business Detail</title>
 @section('content')
 @section('css')
+<style>
+.detailpagecontainer{
+ margin-top:170px;
+}
+  </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
-    <div class="fluid-container">
+    <div class="fluid-container detailpagecontainer">
 
         <div class="announcementListMainDiv mt-3 mb-2 ml-2 mr-2">
             <div class="announcementDiv pt-3 pb-3">
@@ -193,7 +198,7 @@
                     <div class="col-12 mt-1 pl-0 pr-0">                   
                         <span class="announcementDesc">{{$announcementdetail->announcement_location}}</span> 
                         <?php  $location = str_replace(", ","+",$announcementdetail->announcement_location); ?>
-                         <iframe width="100%" height="300" class="mb-4 mb-lg-0" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{$location}}&key=AIzaSyDuE8EjBUwioEucWmYupCzboXrSry8F2aw
+                         <iframe width="100%" height="300" class="mb-4 mb-lg-0" style="border-radius: 10px;border: 0;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{$location}}&key=AIzaSyDuE8EjBUwioEucWmYupCzboXrSry8F2aw
                         &q={{$location}}">
                     </iframe> 
 
@@ -205,7 +210,7 @@
                 <input type="hidden" name="" class='addInterestclass' value="{{url('addInterest')}}">
                 <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
                     <div class="col-6 col-lg-6">
-                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Submit your interest</button>
+                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your interest</button>
                     </div>
                     <div class="col-6 col-lg-6">
                         <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Need more details</button>
@@ -215,11 +220,18 @@
             </div>
         </div>
         
-        <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 d-none">
-            <h4 class="p-3">Your Interest in the Project has been succesfully Submitted <br /><br />
-                We will contact you soon for more details
-            </h4>
-        </div>
+
+        <section class="interest_submitteddiv d-none">
+            <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 ">
+                <h4 class="p-4 ">Your Interest in <br>the Project has <br> been succesfully <br> Submitted <br /><br />
+                    We will contact<br> you soon for<br> more details
+                </h4>
+            </div>
+            <div class="submittedbtnidv col-6 m-auto mb-5 ">
+            <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-2">Back to Announcements</button>
+            </div>
+        </section>
+        
 
     </div>
 

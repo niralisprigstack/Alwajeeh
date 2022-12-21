@@ -203,6 +203,14 @@ function createannouncement() {
                 $(this).addClass("d-none");      
             }
                    
+        } else if(data_click == "2"){
+            var checkUnread = $(this).data('unread');
+            if(checkUnread == "1"){
+                $(this).removeClass("d-none");
+            } else {
+                $(this).addClass("d-none");
+            }
+            
         } else{
             $(this).removeClass("d-none"); 
         }

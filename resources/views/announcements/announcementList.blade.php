@@ -39,12 +39,19 @@
     @foreach($announcementlists as $announcementlist)
     <?php 
     $created_by=$announcementlist->created_by;
-    $showdotandtime="d-none";
+    $showdot="d-none";
+    $showtime="d-none";
     $remainingTime="";
+    $showtimecss="";
     if($created_by=="4"){
-        $showdotandtime="";
+        $showdot="";
+        $showtime="";
         if(isset($announcementlist->closing_date)){
-            $todaydate = date('Y-m-d H:i:s');
+            date_default_timezone_set('Asia/Dubai');
+            $edStamp = strtotime(now());
+            $todaydate = date("Y-m-d H:i:s", $edStamp);
+            // echo $todaydate;
+            // $todaydate = date('Y-m-d H:i:s');
             if($todaydate<=$announcementlist->closing_date){
                 //echo $todaydate;
                 
@@ -70,7 +77,8 @@
 
             }
             else{
-                $showdotandtime="d-none";
+                $showtime="";
+                $showtimecss="visibility:hidden";
             }
         }
     }
@@ -120,10 +128,10 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                        
                     
                     
-                    <span class="ongoingdot mt-2 {{$showdotandtime}}"></span>
+                    <span class="ongoingdot mt-2 {{$showdot}}"></span>
                 
                     
-                        <div class="remainingDiv {{$showdotandtime}}">
+                        <div class="remainingDiv {{$showtime}}" style={{$showtimecss}}>
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>

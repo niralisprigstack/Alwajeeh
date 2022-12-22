@@ -72,7 +72,7 @@
                 </div>
                 
                 <div class="detailScrollableDiv">
-                    <div class="col-12 pl-0 pr-0 descriptionSec">                   
+                    <div class="col-12 pl-0 pr-0 pt-2 descriptionSec">                   
                         <span class="announcementList">Introduction</span>                                      
                     </div>
                     

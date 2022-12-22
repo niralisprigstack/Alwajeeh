@@ -62,7 +62,7 @@
                 </div>
                 
                 <div class="detailScrollableDiv">
-                    <div class="col-12 mt-2 pl-0 pr-0 descriptionSec">                   
+                    <div class="col-12 mt-2 pl-0 pr-0 pt-2 descriptionSec">                   
                         <span class="announcementDesc">{{$announcementdetail->description}}</span>                                       
                     </div>
 
@@ -103,21 +103,32 @@
                             <span>Videos</span>
                         </div>
                         @endif                        
-                    </div>                                       
+                    </div>    
                     
-                    <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
-                        <textarea style="height: auto !important;" placeholder="Comments" class="w-100 inputTextAreaClass form-control" name="annDetail"></textarea>
-                    </div>                                        
-                                        
-                </div>
+                   
+                    
+                    <input type="hidden" name="" class='CommentUrl' value="{{url('announcementcomment')}}">
+                    <input type="hidden" name="" class='currentannounceId' value='{{$announcementdetail->id}}'>
+                    <input type="hidden" name="" class='userName' value='{{Auth::user()->first_name}} {{Auth::user()->last_name}} '>
+                    @include('layouts.announcementComment', ['announcementdetail' => $announcementdetail ])
+                   
+                    </div>
+                   
 
-                <div class="row">
-                    <div class="col-6 col-lg-6">
-                        <button style="height: 40px;" type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Post</button>
-                    </div>
-                    <div class="col-6 col-lg-6">
-                    </div>
-                </div>
+                    <div class="comment-container inputparent mt-4">
+   <div class="row">
+     <div class="col-md-10">
+     <div class="form-group">
+     <textarea style="height: auto !important;" placeholder="Comments" class="w-100 inputTextAreaClass form-control blogCommentInput" name="annDetail"></textarea>
+    <p class='commenterror text-danger'></p>
+  </div>
+     </div>
+     <div class="col-md-12">
+     <button style="height: 40px;float:left" type="button"  data-check='parent'  onclick='addComment(this)'class="buttonCss buttonCss button_text col-5 p-0">Post</button>
+     </div>
+   </div>
+    </div>
+
                
             </div>
         </div>                

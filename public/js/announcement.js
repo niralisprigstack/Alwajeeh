@@ -17,10 +17,11 @@ $(document).ready(function() {
 
 
 
-    var detailheight = window.innerHeight;
+//     var detailheight = window.innerHeight;
 
-var totalheight=detailheight-180-112-80;
-$(".detailScrollableDiv").css("max-height",totalheight+"px");
+// var totalheight=detailheight-180-112-80;
+// $(".detailScrollableDiv").css("max-height",totalheight+"px");
+
     // $('.nav-text').click(function() {
     //     $(this).css('color', '#AA8840');
     //     $(this).parent().find('.navSvg path').css('stroke' , '#AA8840');
@@ -357,3 +358,118 @@ if(click=="asc"){
 }
 
 
+function addComment(element) {
+    // user_id , blog_id , commentStr , 
+    // first will check if comment is from parent or from child  
+    let parent_or_child = $(element).attr('data-check');
+    let parent_id = 0;
+    if(parent_or_child == "child"){
+      parent_id = $(element).closest('.commentbox').attr('data-id');
+    }
+    let CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
+  let url = $('.CommentUrl').val();
+  let comment = $(element).closest('.inputparent').find('.blogCommentInput').val();
+  if (comment == null || comment === undefined){
+  return;
+  }
+  if(comment.length > 250 ){
+    $(element).closest('.inputparent').find('.commenterror').text('Comment must be less than 250 character.');
+   return;
+  }
+  
+  else if (comment == ""){
+    $(element).closest('.inputparent').find('.commenterror').text('This field is Required');
+    return;
+  }
+  else{
+    $(element).closest('.inputparent').find('.commenterror').text('');
+  }
+  
+  let announcement_id = $('.currentannounceId').val();
+  let user_name = $('.userName').val();
+  $('.loading').removeClass('d-none');
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: {_token: CSRF_TOKEN,comment:comment,announcement_id:announcement_id,parent_id:parent_id},
+        success: function (response) {
+          console.log(response);
+          if(parent_id == 0 ){
+            let commentContainer = $('.commentContainer');
+            let defaultComment = $('.defaultComment').clone();
+            $(defaultComment).removeClass('d-none defaultComment');
+            $(defaultComment).addClass('commentbox');
+            $(defaultComment).attr('data-id', response.id);
+            $(defaultComment).find('.published_date').text(response.date);
+            $(defaultComment).find('.comment').text(response.comment);
+            $(commentContainer).prepend(defaultComment);
+            $(element).closest('.inputparent').find('.blogCommentInput').val('');
+         
+          }
+          else{
+            let defaultComment = $('.defaultChildComment').clone();
+            $(defaultComment).removeClass('d-none defaultChildComment');
+            $(defaultComment).attr('data-id', response.id);
+            $(defaultComment).find('.published_date').text(response.date);
+            $(defaultComment).find('.comment').text(response.comment);
+            $($(element).closest('.childCommentDiv').find('.replyEditor')).after(defaultComment);
+           $(element).closest('.replyEditor').addClass('d-none')
+           $(element).closest('.replyEditor').find('.blogCommentInput').val('')
+  
+           //show all comments related to that comment 
+           $(element).closest('.commentbox').find('.childCommentDiv').find('.card-body').each(function () {
+  
+            if($(this).hasClass('replyEditor')){
+              return;
+            }
+            else{
+              $(this).removeClass('d-none');
+            }
+          });
+  
+  
+          }
+          $('.loading').addClass('d-none');
+  
+          $(element).closest('.commentbox').find('.showreplies').removeClass('d-none')
+          $(element).closest('.commentbox').find('.showHide').text('Hide')
+  
+        
+  
+        },error: function (err) {
+            $('.loading').addClass('d-none');
+            console.log(err);
+            alert('Something went wrong.')
+        }
+    });
+    
+       
+           
+  }
+
+  function openReplyEditor(element) {
+    $(element).closest('.commentbox').find('.replyEditor').toggleClass('d-none');
+ }
+ 
+ 
+ function removeReplyEditor(element) {
+   $(element).closest('.commentbox').find('.replyEditor').addClass('d-none');
+ }
+ 
+ function togglecomment(element) {
+   if ($(element).find('.showHide').text() == "Show")
+   $(element).find('.showHide').text("Hide")
+ else
+   $(element).find('.showHide').text("Show");
+   
+  
+ $(element).closest('.commentbox').find('.childCommentDiv').find('.card-body').each(function () {
+ 
+   if($(this).hasClass('replyEditor')){
+     return;
+   }
+   else{
+     $(this).toggleClass('d-none');
+   }
+ });
+ }

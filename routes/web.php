@@ -41,9 +41,10 @@ Route::get('/announcement', function () {
 //     return view('announcements.announcementList');
 // });
 Route::get('/announcementList', [AnnouncementController::class, 'showAnnouncement']);
+Route::get('/myannouncement', [AnnouncementController::class, 'myAnnouncement']);
 
 
-Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addAnnouncement']);
+Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addoreditAnnouncement']);
 Route::post('/createannouncement/{id?}', [AnnouncementController::class, 'createAnnouncement']);
 
 Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announcementDetail']);
@@ -52,6 +53,7 @@ Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcemen
 Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 
 Route::post('/addInterest', [AnnouncementController::class, 'addAnnouncementInterest']);
+Route::post('/announcementcomment', [AnnouncementController::class, 'announcementComment']);
 
 Route::get('/test', function () { 
     return view('test');

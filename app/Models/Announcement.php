@@ -22,4 +22,8 @@ class Announcement extends Model
     public function announcement_views(){
         return $this->hasMany('App\Models\AnnouncementView','announcement_id');
     }
+
+    public function comments(){
+        return $this->hasMany('App\Models\AnnouncementComments','announcement_id')->orderBy('id', 'desc');
+    }
 }

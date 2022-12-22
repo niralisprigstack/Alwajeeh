@@ -28,11 +28,21 @@ if($usertype=="4"){
 }
 
 
+$title="";
+$description="";
+$project_value="";
+$location="";
+$closingdate="";
+
+if(isset($announcement)){
+  $title=$announcement->title;
+  $description=$announcement->description;
+  $project_value=$announcement->project_value;
+  $location=$announcement->announcement_location;
+  $closingdate=$announcement->closing_date;
+}
+
 ?>
-
-
-
-
 
 
 @include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
@@ -51,14 +61,14 @@ if($usertype=="4"){
                     <span class="inputSpanText">Title</span>                  
                 </div>
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
-                    <input type="text" class="inputTextClass form-control" name="annTitle" value="" {{$required}}/>
+                    <input type="text" class="inputTextClass form-control" name="annTitle" value="{{$title}}" {{$required}}/>
                 </div>
                 
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
                     <span class="inputSpanText">Details</span>                  
                 </div>
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0">
-                    <textarea class="w-100 inputTextAreaClass form-control" name="annDetail" {{$required}}></textarea>
+                    <textarea class="w-100 inputTextAreaClass form-control" name="annDetail" value="{{$description}}" {{$required}}>{{$description}}</textarea>
                 </div>
                 
                  <div class="row col-12 justify-content-between mb-3">                     
@@ -74,7 +84,7 @@ if($usertype=="4"){
                     <span class="inputSpanText">Project Value</span>                  
                 </div>
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
-                    <input type="text" class="inputTextClass form-control" name="projectVal" value="" {{$otherrequired}} />
+                    <input type="text" class="inputTextClass form-control" name="projectVal" value="{{$project_value}}" {{$otherrequired}} />
                 </div>
                 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
@@ -83,7 +93,7 @@ if($usertype=="4"){
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
 
                 <!-- <input type="text" name="autocomplete" id="autocomplete" class="form-control postLocationinput pac-target-input" placeholder="Find a location..." autocomplete="off"> -->
-                    <input type="text" id="locationsearch"  class="inputTextClass form-control Locationinput" name="location" value=""  placeholder="" {{$otherrequired}} />
+                    <input type="text" id="locationsearch"  class="inputTextClass form-control Locationinput" name="location" value="{{$location}}"  placeholder="" {{$otherrequired}} />
                 </div>
 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0  {{$showdiv}}">
@@ -98,7 +108,7 @@ if($usertype=="4"){
                     </div> -->
 
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 date datetimepickerforannouncement {{$showdiv}}">
-                    <input type="text" class="inputTextClass form-control" name="closingDate" value="" {{$otherrequired}}/>
+                    <input type="text" class="inputTextClass form-control" name="closingDate" value="{{$closingdate}}" {{$otherrequired}}/>
                     <span class="input-group-addon  birthdatepicker">
                             <!-- <i class="far fa-calendar calendar" style="font-size: 20px;"></i> -->
                         </span>

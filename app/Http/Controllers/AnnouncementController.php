@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Announcement;
 use App\Models\AnnouncementFiles;
 use App\Models\AnnouncementView;
+use App\Models\AnnouncementComments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -20,9 +21,16 @@ class AnnouncementController extends Controller
 
   public function createAnnouncement(Request $request, $id = NULL)
   {
-    $announcement = new Announcement();
     $userId = Auth::id();
     $userType = Auth::User()->user_type;
+    return "here".$id;
+    if (!empty($id)) {
+      $announcement = Announcement::findOrFail($id);
+    }else{
+      $announcement = new Announcement();
+    }
+    
+   
 
 
     if ($userType == 4) {
@@ -51,6 +59,12 @@ class AnnouncementController extends Controller
       $announcement->description = $request->annDetail;
       $announcement->status = $request->status;
     }
+
+    date_default_timezone_set('Asia/Dubai');
+    $edStamp = strtotime(now());
+    $ed = date("Y-m-d H:i:s", $edStamp);
+    $announcement->created_at = $ed;
+    $announcement->updated_at = $ed;
     $announcement->save();   
 
     // $targetDir = "uploads/"; 
@@ -152,15 +166,21 @@ class AnnouncementController extends Controller
     return Redirect::back();
   }
 
-  public function addAnnouncement(Request $request, $id = NULL)
+  public function addoreditAnnouncement(Request $request, $id = NULL)
   {
-    return view('announcements.announcement');
+    if (!empty($id)) {
+      $announcement =  Announcement::where('id', $id)->first();
+      return view('announcements.announcement', compact('announcement'));
+    }else{
+      return view('announcements.announcement');
+    }
+    
   }
 
 
   public function announcementDetail(Request $request, $id = NULL)
   {
-    $announcementdetail = Announcement::where('id', $id)->first();
+    $announcementdetail = Announcement::where('id', $id)->with('comments')->first();
     $announcementImages = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 1)->get();
     $announcementVideos = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 2)->get();
     
@@ -180,6 +200,16 @@ class AnnouncementController extends Controller
   //  dd($announcementlists);
   //  return;
     return view('announcements.announcementList', compact('announcementlists'));
+  }
+
+  public function myAnnouncement(){
+    $userid=Auth::id();
+    $announcementlists = Announcement::with('announcement_views')   
+    ->where("user_id",$userid)->orderBy('id', 'DESC')->get();
+   
+  //  dd($announcementlists);
+  //  return;
+    return view('announcements.myannouncementList', compact('announcementlists'));
   }
 
   public function addAnnouncementInterest(Request $request){
@@ -212,4 +242,27 @@ class AnnouncementController extends Controller
     return $showList;
 
   }
+
+
+  public function announcementComment(Request $request)
+{
+  $authId = Auth::id();
+    if (!empty($request->comment) && !empty($request->announcement_id) ){
+      $announcementComment = new AnnouncementComments;
+      $announcementComment->announcement_id = $request->announcement_id;
+      $announcementComment->comment = $request->comment;
+      $announcementComment->user_id = $authId;
+      if(isset($request->parent_id) && !empty($request->parent_id) && $request->parent_id !=0 ){
+        $announcementComment->parent_comment_id =  $request->parent_id;
+      }
+      $announcementComment->save();
+
+      $carbon_date = \Carbon\Carbon::parse($announcementComment->created_at);
+      $carbon_date = $carbon_date->addHours(4);
+      $carbon_date =  $carbon_date->isoFormat('MMMM Do YYYY');
+      $announcementComment->date =$carbon_date;
+      return  $announcementComment;
+    }
+
+}
 }

@@ -109,7 +109,7 @@ body {
     height: 70px;
     width: 100%;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     border:none;
 }
 .inputTextAreaClass{
@@ -117,13 +117,13 @@ body {
     border-radius: 10px;
     height: 190px !important;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     border: none;
 }
 .inputTextClass:focus, .inputTextAreaClass:focus{
     background: black;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     border-color: inherit;
 }
 
@@ -363,6 +363,7 @@ color: #F5F5F5;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
 }
+.respondcomment{width: 130px;height: 40px;}
 
 /*advance filter page ui*/
 .filterCss{

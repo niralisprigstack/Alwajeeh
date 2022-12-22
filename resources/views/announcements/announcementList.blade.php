@@ -33,9 +33,24 @@
 
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
     @include('layouts.announcementFilter')
+    
+    @if(isset($_GET['k']) || isset($_GET['m']) || isset($_GET['y']))
+    <div class="col-12 row pr-0 resetFilterDiv">
+        <div class="col-6"></div>
+        <div class="col-6 pr-0">
+            <a href="{{url('announcementList')}}"><button type="button" class="buttonCss buttonCss button_text col-12 p-2">Reset Filters</button></a>
+        </div>        
+    </div>
+    @endif
+    
     <div class="fluid-container announcementListPageSection">
 
-
+    @if(count($announcementlists) > 0)
+        @php $showHideSection = "d-none"; @endphp
+    @else
+        @php $showHideSection = ""; @endphp
+    @endif
+    
     @foreach($announcementlists as $announcementlist)
     <?php 
     $created_by=$announcementlist->created_by;
@@ -169,6 +184,11 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
     
 
         @endforeach
+        
+        <!--no records found-->
+        <div class="noRecords m-2 announcementList justify-content-center {{$showHideSection}}" style="min-height: 40vh;">No Records Found!</div>
+        <!--no records found-->
+        
 
 
   
@@ -177,7 +197,55 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
         </div>
 
     </div>
+    
+    <!--advance filter div-->
+    <section class="mb-5 pb-5 advancedFilterDiv d-none">
+        <input type="hidden" class="announcementList" value="{{url('announcementList')}}">
+        <h5 class="ml-3 filterCss">ADVANCED FILTER</h5>
+        <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 pb-3" style="min-height: 50vh;">
+            <div class="row col-12 justify-content-between mb-3">
+                <div class="col-6 col-lg-6 col-md-6 mt-3">
+                    <?php 
+                        $year_start  = 2000;
+                        $year_end = date('Y');
+                        echo '<select class="form-control filterPerYearDropdown" id="filterPerYear" name="filterPerYear">';
+                        echo '<option value="" disabled selected>Filter Per Year</option>';
+                        for ($i_year = $year_start; $i_year <= $year_end; $i_year++) {        
+                            echo '<option value="'.$i_year.'">'.$i_year.'</option>';
+                        }
+                        echo '</select>';
+                    ?>
+                </div>
 
+                <div class="col-6 col-lg-6 col-md-6 pr-0 pb-3 mt-3">
+                    <select class="form-control filterPerMonthDropdown" id="filterPerMonth" name="filterPerMonth">
+                        <option value="" disabled selected>Filter Per Month</option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col-12 justify-content-between mb-3">
+                <input style="font-size: 18px;" type="text" class="inputTextClass form-control keywordInput" name="keywords" placeholder="Keywords" />
+            </div>
+        </div>
+        
+        <div class="submittedbtnidv col-7 m-auto mb-5 ">
+            <button onclick="applyFilter();" type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-2">Apply Filter</button>
+        </div>
+    </section>
+    <!--advance filter div-->
 
     <!-- sort div -->
     <div class="col-12 m-auto footerfiltersortdiv d-none" style="">

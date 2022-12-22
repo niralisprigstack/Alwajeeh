@@ -765,6 +765,9 @@ font-weight: 400;
   .mt-20{
     margin-top:20px;
   }
+  .headfont .active{
+      filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%);
+  }
 @media (max-width:768px) {
     .bottomsmbalheader{
         position: fixed !important;

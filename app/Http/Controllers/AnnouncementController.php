@@ -173,12 +173,24 @@ class AnnouncementController extends Controller
   }
 
   public function showAnnouncement()
-  {
-    $announcementlists = Announcement::with('announcement_views')   
-    ->where("status",'2')->orderBy('id', 'DESC')->get();
-   
-  //  dd($announcementlists);
-  //  return;
+  {    
+    $announcementlistsQuery = Announcement::with('announcement_views')   
+    ->where("status",'2');
+    
+    if(isset($_GET['k']) && $_GET['k'] != ''){
+        $getTitle = $_GET['k'];
+        $announcementlistsQuery->where("title", "LIKE", '%' . $getTitle . '%');
+    }
+    if(isset($_GET['m']) && $_GET['m'] != ''){
+        $getMonth = $_GET['m'];     
+        $announcementlistsQuery->whereMonth("created_at", $getMonth);
+    }
+    if(isset($_GET['y']) && $_GET['y'] != ''){
+        $getYear = $_GET['y'];
+        $announcementlistsQuery->whereYear("created_at", $getYear);
+    }
+    
+    $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();   
     return view('announcements.announcementList', compact('announcementlists'));
   }
 

@@ -33,13 +33,14 @@ $description="";
 $project_value="";
 $location="";
 $closingdate="";
-
+$announcementid="";
 if(isset($announcement)){
   $title=$announcement->title;
   $description=$announcement->description;
   $project_value=$announcement->project_value;
   $location=$announcement->announcement_location;
   $closingdate=$announcement->closing_date;
+  $announcementid=$announcement->id;
 }
 
 ?>
@@ -51,7 +52,7 @@ if(isset($announcement)){
     <!--<div>-->
         <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
             <div class="announcementDiv mb-4 mt-4">
-            <form action="{{url('createannouncement')}}" id="createAnnouncementForm" method="POST" onsubmit="return createannouncement()" enctype="multipart/form-data">
+            <form action="{{url('createannouncement')}}/{{$announcementid}}" id="createAnnouncementForm" method="POST" onsubmit="return createannouncement()" enctype="multipart/form-data">
              @csrf
 
              <input type="hidden" name="status" class='statuscheck' value="">

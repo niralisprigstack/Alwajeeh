@@ -19,11 +19,11 @@ class AnnouncementController extends Controller
 {
   //
 
-  public function createAnnouncement(Request $request, $id = NULL)
+  public function createAnnouncement($id = NULL, Request $request)
   {
     $userId = Auth::id();
     $userType = Auth::User()->user_type;
-    return "here".$id;
+    // return "here".$id;
     if (!empty($id)) {
       $announcement = Announcement::findOrFail($id);
     }else{

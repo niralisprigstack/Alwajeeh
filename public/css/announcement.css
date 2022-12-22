@@ -110,6 +110,7 @@ body {
     width: 100%;
     color: white;
     font-size: 22px;
+    border:none;
 }
 .inputTextAreaClass{
     background: rgba(0, 0, 0, 0.7);

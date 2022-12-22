@@ -394,3 +394,10 @@ color: #F5F5F5;
 .resetFilterDiv button{
     height: 40px;
 }
+.productImage {
+    width: 70px;
+    height: 70px;
+}
+.cancelclick{
+    color:white;
+}

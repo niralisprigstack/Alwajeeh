@@ -334,9 +334,34 @@ $(".announcementListMainDiv").removeClass("d-none");
 $(".submitInterestDiv").addClass("d-none");
 }
 
+
+var  image_count=0;
 function checkSelectedFile(element){    
 var fileCount = $(element)[0].files.length;
 $(".uploadMediaLabel").text(fileCount + " file(s) selected");
+
+
+$(".image_preview").empty();
+var total_file=document.getElementById("announcementmedia").files.length;
+    for(var i=0;i<total_file;i++) {
+        var featuredImage = '';
+        var hiddenClass = '';
+        var hiddenDiv = "hidden";
+        if(i === 0 && $("#image_preview").find("div").length === 0){
+            featuredImage = 'featuredImage';
+            hiddenClass = ' hidden';
+            hiddenDiv = "";
+            $(".updfeatureImageSet").val('newImg');
+        }
+        
+        $('#image_preview').append("<div class='col-4 proImg mb-3'><div class='positioner"+hiddenClass+"'><div class='icon'><i dbid='0' data-image-number='"+image_count+"' class='fa fa-times clickable cancelclick' onclick='deleteProductImage(this);' aria-hidden='true'></i></div></div><a onclick='setFeaturedImage(this);' data-id='"+i+"'><img class='productImage "+featuredImage+"' src='"+URL.createObjectURL(event.target.files[i])+"'></a></div>");
+        image_count++;
+    }
+    if($('#image_preview').find("div").length === 0){
+        document.getElementById("filename").value = "";
+    }
+
+
 }
 
 
@@ -511,3 +536,12 @@ function addComment(element) {
    }
  });
  }
+
+
+
+ //image preview
+ function multipleimageUpload(input,deg){
+    
+}
+
+

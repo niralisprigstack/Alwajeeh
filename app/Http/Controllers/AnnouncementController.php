@@ -169,8 +169,13 @@ class AnnouncementController extends Controller
   public function addoreditAnnouncement(Request $request, $id = NULL)
   {
     if (!empty($id)) {
-      $announcement =  Announcement::where('id', $id)->first();
-      return view('announcements.announcement', compact('announcement'));
+      $announcement =  Announcement::where('id', $id)->with('announcementfiles')->first();
+
+      $announcementfiles=AnnouncementFiles::where("announcement_id",$id)->get();
+      // return $announcementfiles;
+      // $announcement =  Announcement::where('id', $id)->leftJoin('announe', 'users.id', '=', 'notifications.from_id')
+      // ->select('notifications.*', 'users.profile_pic')->orderBy('id', 'DESC')->first();
+      return view('announcements.announcement', compact('announcement','announcementfiles'));
     }else{
       return view('announcements.announcement');
     }

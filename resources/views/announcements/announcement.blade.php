@@ -34,6 +34,7 @@ $project_value="";
 $location="";
 $closingdate="";
 $announcementid="";
+$pagename='Create Announcement';
 if(isset($announcement)){
   $title=$announcement->title;
   $description=$announcement->description;
@@ -41,12 +42,13 @@ if(isset($announcement)){
   $location=$announcement->announcement_location;
   $closingdate=$announcement->closing_date;
   $announcementid=$announcement->id;
+  $pagename='Edit Announcement';
 }
 
 ?>
 
 
-@include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> 'Create Announcement'])
+@include('layouts.header', ['headtext' => 'ANNOUNCEMENTS','subheadtext'=> $pagename])
 <div class="fluid-container announcementContainer" style="padding-bottom: 45px;">
     
     <!--<div>-->
@@ -74,12 +76,42 @@ if(isset($announcement)){
                 
                  <div class="row col-12 justify-content-between mb-3">                     
                      <span class="inputSpanText" style="font-weight: 600;">
+                   
+
                      <img class="c-pointer global-font-color mr-2" src="{{ asset('assests/images/announcement/uploadMediaIcon.svg') }}" alt="" style="">
                         <label for="announcementmedia" class="m-auto uploadMediaLabel">Upload Media</label>
                     </span>    
                     <!-- <input type="file" name="file[]" multiple /> -->
                     <input onchange="checkSelectedFile(this);"  class="inputfile c-pointer d-none" type="file" id="announcementmedia" style="" name="announcementmedia[]" accept="image/png, image/gif, image/jpeg, image/svg, image/jpg,video/mp4"  multiple>                               
                 </div>
+
+
+
+                <!-- preview div -->
+                <div id="image_preview" class="row mb-3">
+                <?php 
+                if(isset($announcement->announcementfiles)){
+                    // echo $announcement->announcementfiles;
+                ?>
+                @foreach($announcement->announcementfiles as $announcementfiles)
+                <?php
+                 $ext = pathinfo($announcementfiles->media_location, PATHINFO_EXTENSION);
+                 ?>
+                                <div class="col-4 proImg mb-3">
+                                <div class="positioner ">
+                                        <div class="icon">
+                                            <i dbid="" class="fa fa-times clickable cancelclick" onclick="deleteProductImage(this);" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                        <a onclick="setFeaturedImage(this);" data-name="updID" data-img-id=""><img class='productImage' src="{{Storage::disk('s3')->url($announcementfiles->media_location)}}"></a>
+                                   
+                                    <!-- <div class="featureText "><span>Featured Image</span><i class="fa fa-check" aria-hidden="true"></i></div> -->
+                                    
+                                </div>
+                                @endforeach
+                                        <?php } ?>
+                            </div>
+                <!-- end -->
                 
                  <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showdiv}}">
                     <span class="inputSpanText">Project Value</span>                  

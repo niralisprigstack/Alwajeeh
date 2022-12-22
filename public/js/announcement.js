@@ -200,35 +200,43 @@ $(element).addClass("active");
 $(element).closest(".parent").find('.nav-img').addClass("show");
 $(element).closest(".parent").find('.nav-text').addClass("showtext");
 
+var cnt = 0;
 $('.announcementListMainDiv').each(function (){
     var selectedVal=$(this).data('user'); 
     if(data_click == "3"){
         if(data_click==selectedVal){
-            $(this).removeClass("d-none");      
+            $(this).removeClass("d-none");
+            cnt++;
         }else{
             $(this).addClass("d-none");      
-        }
-               
+        }              
     } 
    else if(data_click == "4"){
         if(data_click==selectedVal){
-            $(this).removeClass("d-none");      
+            $(this).removeClass("d-none");
+            cnt++;       
         }else{
             $(this).addClass("d-none");      
-        }
-               
+        }        
     } else if(data_click == "2"){
         var checkUnread = $(this).data('unread');
         if(checkUnread == "1"){
             $(this).removeClass("d-none");
+             cnt++;
         } else {
             $(this).addClass("d-none");
-        }
-        
+        }       
     } else{
-        $(this).removeClass("d-none"); 
-    }
+        $(this).removeClass("d-none");
+        cnt++;
+    }        
 });
+console.log(cnt);
+    if(cnt == 0){
+        $(".noRecords").removeClass("d-none");
+    } else {
+        $(".noRecords").addClass("d-none");
+    }
 }
 
 function showfooterfilterresult(element){
@@ -280,6 +288,12 @@ if($(element).data("attr")=="sortFilter"){
             $(this).removeClass("d-none"); 
         }
     });
+}else if($(element).data("attr")=="Filter"){
+    $(".resetFilterDiv").addClass("d-none");
+    $(".announcementListPageSection").addClass("d-none");
+    $(".filtersectiondiv").addClass("d-none");
+    $(".footerfiltersection").addClass("d-none");
+    $(".advancedFilterDiv").removeClass("d-none");
 }
 
 
@@ -355,6 +369,30 @@ if(click=="asc"){
     // $(element).removeAttr("disabled");
     // $(element).css("pointer-events","initial");
 }
+}
+
+function applyFilter(){
+    var announcementList = $(".announcementList").val();
+    var getKeywords = $(".keywordInput").val();
+    var getMonth = $('#filterPerMonth').val();
+    var getYear = $('#filterPerYear').val();
+    
+    if(getKeywords == '' && getMonth == null && getYear == null){
+        alert("Please add one filter");
+        return true;
+    }
+    
+    var url = announcementList + "?k=";
+    if(getKeywords !== ''){
+        url += getKeywords;
+    }
+    if(getMonth !== '' && getMonth !== null){
+        url += "&m=" + getMonth;
+    }
+    if(getYear !== '' && getYear !== null){
+        url += "&y=" + getYear;
+    }
+    window.location.href = url;    
 }
 
 

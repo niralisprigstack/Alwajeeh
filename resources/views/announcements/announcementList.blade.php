@@ -46,25 +46,28 @@
         if(isset($announcementlist->closing_date)){
             $todaydate = date('Y-m-d H:i:s');
             if($todaydate<=$announcementlist->closing_date){
-                // echo $todaydate;
+                //echo $todaydate;
                 
                 // echo $announcementlist->closing_date;
                 $today = new DateTime($todaydate);
                 $closedate = new DateTime($announcementlist->closing_date);
 
-                $remainingtime = date_diff($today ,$closedate);
-                $remainingTime=$remainingtime->format('%ad');
+                // The diff-methods returns a new DateInterval-object...
+                $diff =  $today->diff($closedate);
+
+                // Call the format method on the DateInterval-object
+                $remainingTime= $diff->format('%ad %hh');
+                //remainingtime = date_diff($today ,$closedate);
+                //$remainingTime=$remainingtime->format('%ad');
 
 
+                //                 date_default_timezone_set('UTC');
 
-//                 $date1 = new DateTime('2022-12-23T12:00:00');
-// $date2 = new DateTime('2022-12-21T18:30:00');
+                // $datetime = new DateTime();
+                // echo $datetime->format('Y-m-d H:i:s');
+               
 
-// // The diff-methods returns a new DateInterval-object...
-// $diff =  $today->diff($date1);
 
-// // Call the format method on the DateInterval-object
-// echo $diff->format('%a Day and %h hours');
             }
             else{
                 $showdotandtime="d-none";
@@ -225,5 +228,3 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
   });
     });
 </script>
-
-@endsection

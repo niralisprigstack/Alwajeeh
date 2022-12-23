@@ -180,7 +180,7 @@ class AnnouncementController extends Controller
 
 
 
-    return Redirect::back();
+    return redirect('announcementList');
   }
 
   public function addoreditAnnouncement(Request $request, $id = NULL)

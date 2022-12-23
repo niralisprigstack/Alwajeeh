@@ -16,12 +16,18 @@ $(document).ready(function () {
     });
     //var totalheight=detailheight-126-112-60;
     
-    //height set for scrollable div in business detail, family detail & listing page
+    //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight; //240
     var totalheight = detailheight - 126 - 190 - 120;
     $(".detailScrollableDiv").css("max-height", totalheight + "px");
     $(".detailScrollableDiv").css("overflow-y", "scroll");
     $(".detailScrollableDiv").css("overflow-x", "hidden");
+
+    // height set for scrollable div in family detail
+    var totalheight = detailheight - 126 - 190 - 120 - 81;
+    $(".detailScrollableFamilyDiv").css("max-height", totalheight + "px");
+    $(".detailScrollableFamilyDiv").css("overflow-y", "scroll");
+    $(".detailScrollableFamilyDiv").css("overflow-x", "hidden");
 
     //full section max-height set in listing page - all sections except advanced filter
     var fullCardMaxHeight = detailheight - 216 - 120;

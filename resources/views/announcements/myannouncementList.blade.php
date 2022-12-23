@@ -136,3 +136,4 @@ data-unread="{{$checkUnread}}" data-user="" data-interested="{{$announcementlist
   });
     });
 </script>
+@endsection

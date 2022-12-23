@@ -304,3 +304,4 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
   });
     });
 </script>
+@endsection

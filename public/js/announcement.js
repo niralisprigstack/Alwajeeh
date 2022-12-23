@@ -14,6 +14,14 @@ $(document).ready(function () {
     $('.closeviewersBtn').click(function () {
         closeViewers(this);
     });
+    //var totalheight=detailheight-126-112-60;
+    
+    //height set for scrollable div in business detail, family detail & listing page
+    var detailheight = window.innerHeight; //240
+    var totalheight = detailheight - 126 - 190 - 120;
+    $(".detailScrollableDiv").css("max-height", totalheight + "px");
+    $(".detailScrollableDiv").css("overflow-y", "scroll");
+    $(".detailScrollableDiv").css("overflow-x", "hidden");
 
 
 
@@ -229,6 +237,16 @@ $(document).on("change", ".marketplace_image_input", function () {
     }
     else { }
 
+    //full section max-height set in listing page - all sections except advanced filter
+    var fullCardMaxHeight = detailheight - 216 - 120;
+    $(".listDiv").css("max-height", fullCardMaxHeight + "px");
+    $(".listDiv").css("overflow-y", "scroll");
+    $(".listDiv").css("overflow-x", "hidden");
+    
+    //full section min-height set in business detail, family detail & listing page - advanced filter  
+    var fullCardMinHeight = detailheight - 216 - 120;
+    $(".fullSectionHeight").css("min-height", fullCardMinHeight + "px");    
+    
 });
 
 
@@ -551,17 +569,21 @@ function showfooterfilterresult(element) {
                 }
 
             }
-            else {
-                $(this).removeClass("d-none");
-            }
-        });
-    } else if ($(element).data("attr") == "Filter") {
-        $(".resetFilterDiv").addClass("d-none");
-        $(".announcementListPageSection").addClass("d-none");
-        $(".filtersectiondiv").addClass("d-none");
-        $(".footerfiltersection").addClass("d-none");
-        $(".advancedFilterDiv").removeClass("d-none");
-    }
+                   
+        
+      else{
+            $(this).removeClass("d-none"); 
+        }
+    });
+    
+}else if($(element).data("attr")=="Filter"){
+    $(".businessprofiletext").addClass("d-none");
+    $(".resetFilterDiv").addClass("d-none");
+    $(".announcementListPageSection").addClass("d-none");
+    $(".filtersectiondiv").addClass("d-none");
+    $(".footerfiltersection").addClass("d-none");
+    $(".advancedFilterDiv").removeClass("d-none");
+}
 
 
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "5.5" ?>
+<?php $v = "6.5" ?>
 <title>Create Announcement</title>
 @section('content')
 @section('css')
@@ -35,6 +35,7 @@ $location = "";
 $closingdate = "";
 $announcementid = "";
 $pagename = 'Create Announcement';
+$id = "";
 if (isset($announcement)) {
     $title = $announcement->title;
     $description = $announcement->description;
@@ -47,7 +48,7 @@ if (isset($announcement)) {
    
         $date = $announcement->closing_date;
         $closingdate = date('d/m/Y', strtotime($date));
-
+        $id="/" . $announcementid;
 }
 
 ?>
@@ -59,7 +60,7 @@ if (isset($announcement)) {
     <!--<div>-->
     <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
         <div class="announcementDiv mb-4 mt-4">
-            <form action="{{url('createannouncement')}}/{{$announcementid}}" id="createAnnouncementForm" method="POST" onsubmit="return createannouncement()" enctype="multipart/form-data">
+            <form action="{{url('createannouncement')}}{{$id}}" id="createAnnouncementForm" method="POST" onsubmit="return createannouncement()" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="status" class='statuscheck' value="">

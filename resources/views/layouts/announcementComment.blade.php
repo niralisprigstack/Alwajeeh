@@ -67,7 +67,7 @@
     <div class="card-body  replyEditor pt-0 pr-0 pb-0 d-none">
 <textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply"></textarea>
 <div class="btn-group mt-3">
-<button class="btn sPrimary-btn shadow-none respondcomment" data-check='child' onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
+<button class=" shadow-none respondcomment  buttonCss button_text btn-sm" data-check='child' onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
 </div>
     </div>
 </div> 
@@ -120,7 +120,7 @@ if($comment->children->count()){
 <textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply"></textarea>
 <p class='commenterror text-danger mb-0'></p>
 <div class="btn-group mt-2">
-        <button class="buttonCss shadow-none respondcomment button_text btn-sm" data-check='child'  onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
+        <button class="buttonCss shadow-none respondcomment button_text btn-sm " data-check='child'  onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
 </div>
     </div>
 

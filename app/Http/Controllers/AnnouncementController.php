@@ -19,7 +19,7 @@ class AnnouncementController extends Controller
 {
   //
 
-  public function createAnnouncement($id = NULL, Request $request)
+  public function createAnnouncement( Request $request,$id = NULL)
   {
     $userId = Auth::id();
     $userType = Auth::User()->user_type;

@@ -41,8 +41,12 @@
                 ?>
     <div class="fluid-container detailpagecontainer">
 
-        <div class="announcementListMainDiv" style="border-radius: 0px;backdrop-filter: blur(5px);background: rgba(0, 0, 0, 0.6);    box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);">
-            <div class="announcementDiv pt-3 pb-3">
+        <div class="announcementListMainDiv detailHeader" style="">
+                       
+            </div>
+        
+            <div class="text-without-blurr m-3">
+        <div class="announcementDiv pt-3 pb-3">
                 <div class="row">
                     <div class="col-5 pr-0">
                     <?php
@@ -59,11 +63,15 @@
                     </div>
                 </div>
 
-                <div class="col-12 pl-0 pr-0 pb-3">                   
+                <div class="col-12 pl-0 pr-0">                   
                     <span class="announcementDesc">{{$announcementdetail->title}}</span>                                       
-                </div>               
-            </div>            
+                </div>    
+        
+    </div>
+        
         </div>
+    
+    
 
     <div class="announcementListMainDiv fullSectionHeight mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
@@ -142,22 +150,22 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-3">
                 <input type="hidden" name="" class='addInterestclass' value="{{url('addInterest')}}">
                 <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
                 
                     <div class="col-6 col-lg-6 submitInterestDiv {{$showBtn}}">
-                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your interest</button>
+                        <button type="button" class="mt-2 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your interest</button>
                     </div>
                     <div class="col-6 col-lg-6">
-                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Need more details</button>
+                        <button type="button" class="mt-2 buttonCss buttonCss button_text col-12 p-0">Need more details</button>
                     </div>
                 </div>
                
             </div>
         </div>
         
-
+    
         <section class="interest_submitteddiv d-none mb-5 pb-5">
             <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 ">
                 <h4 class="p-4 ">Your Interest in <br>the Project has <br> been succesfully <br> Submitted <br /><br />

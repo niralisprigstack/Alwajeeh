@@ -26,11 +26,11 @@ class AnnouncementController extends Controller
     // return "here".$id;
     if (!empty($id)) {
       $announcement = Announcement::findOrFail($id);
-    }else{
+    } else {
       $announcement = new Announcement();
     }
-    
-   
+
+
 
 
     if ($userType == 4) {
@@ -46,7 +46,7 @@ class AnnouncementController extends Controller
         $announcement->closing_date = NULL;
       } else {
         $closedate = implode("-", array_reverse(explode("/", $var)));
-        $announcement->closing_date = $closedate;
+        $announcement->closing_date = $closedate." "."00:00:00";
       }
       $closedate = implode("-", array_reverse(explode("/", $var)));
 
@@ -65,7 +65,7 @@ class AnnouncementController extends Controller
     $ed = date("Y-m-d H:i:s", $edStamp);
     $announcement->created_at = $ed;
     $announcement->updated_at = $ed;
-    $announcement->save();   
+    $announcement->save();
 
     // $targetDir = "uploads/"; 
     // $fileNames = array_filter($_FILES['announcementmedia']['name']); 
@@ -79,85 +79,102 @@ class AnnouncementController extends Controller
 
     //         // Check whether file type is valid 
     //         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-          
+
     //     } 
     // }
 
-    $images = array();
- 
-    if ($files = $request->file('announcementmedia')) {
-     
-      foreach ($files as $file) {
-        // return "here";
-        // return $file;
-        $name=time().$file->getClientOriginalName();
-        $name = str_replace(" ","-",$name);
-        // $file->move('image', $name);
-        $images[] = $name;
-        $ext = pathinfo($name, PATHINFO_EXTENSION);
-        // return $ext;
-        $filePath = 'announcement/' . $announcement->id . '/' . $name;
-        // return file_get_contents($file);    
-        // return $filePath;
-        Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
 
-        $announcementfiles = new AnnouncementFiles;
-        $announcementfiles->announcement_id = $announcement->id;
-        $announcementfiles->media_location =  $filePath;
-        if ($ext == "jpeg" ||  $ext == "JPEG" || $ext == "jpg" || $ext == "JPG" || $ext == "bmp" || $ext == "svg" || $ext == "SVG" || $ext == "png" || $ext == "PNG" || $ext == "gif" || $ext == "GIF" || $ext == "avif" ||  $ext == "svg+xml" || $ext == "webp" || $ext == "tiff" || $ext == "bmp" || $ext == "x-icon") {
-          $announcementfiles->media_type = '1';
-        } else if ($ext == "mp4" || $ext == "MP4" || $ext == "mpeg2" || $ext == "mpeg" || $ext == "mpeg4") {
-          $announcementfiles->media_type = '2';
-        } else {
-          $announcementfiles->media_type = '3';
+
+
+
+    if (!empty($id)) {
+      $announcement = Announcement::findOrFail($id);
+      if (isset($request->removedImageIds) && !empty($request->removedImageIds)) {
+        $imageids = substr($request->removedImageIds, 0, -1);
+        $removeImageArray = explode(',',  $imageids);
+        foreach ($removeImageArray as $imageId) {
+          try {
+            $announcementfiles = AnnouncementFiles::findOrFail($imageId);
+            if (Storage::disk('s3')->exists($announcementfiles->media_location)) {
+              Storage::disk('s3')->delete($announcementfiles->media_location);
+            }
+
+            AnnouncementFiles::where('id', $imageId)->delete();
+          } catch (\Throwable $th) {
+            //throw $th;
+          }
         }
-        $announcementfiles->save();
       }
-      
-      // return $images;
+
+      // if (Storage::disk('s3')->exists($announcement->media_location)) {
+      //   Storage::disk('s3')->delete($announcement->media_location);
+      // }
     }
 
-    // if ($request->hasFile('announcementmedia')) {
+    if (isset($request->addedimageArr) && !empty($request->addedimageArr)) {
+      $addedimageArr = explode(',', $request->addedimageArr);
 
-    //   // return $request->file('announcementmedia');
+      foreach ($addedimageArr as $addedImageId) {
+        $announcement_media = "marketplace_image" .  $addedImageId;
+        if ($request->hasfile($announcement_media)) {
+          $product_pic = $request->file($announcement_media);
+          $name = time() . $product_pic->getClientOriginalName();
+          $firstname = substr($product_pic->getClientOriginalName(), 0, strpos($product_pic->getClientOriginalName(), '.'));
+          $ext = pathinfo($product_pic->getClientOriginalName(), PATHINFO_EXTENSION);
+          // $name = str_replace(" ", "-", $name);
+          $filePath ='announcement/' . $announcement->id . '/' . $name;
+          Storage::disk('s3')->put($filePath, file_get_contents($product_pic), 'public');
 
-    //   $files = array_filter($request->file('announcementmedia'));
+          $announcementfiles = new AnnouncementFiles;
+          $announcementfiles->announcement_id = $announcement->id;
+          $announcementfiles->media_location =  $filePath;
+          // $announcementfiles->attachment_name = $firstname;
+          if ($ext == "jpeg" ||  $ext == "JPEG" || $ext == "jpg" || $ext == "JPG" || $ext == "bmp" || $ext == "svg" || $ext == "SVG" || $ext == "png" || $ext == "PNG" || $ext == "gif" || $ext == "GIF" || $ext == "avif" ||  $ext == "svg+xml" || $ext == "webp" || $ext == "tiff" || $ext == "bmp" || $ext == "x-icon") {
+                  $announcementfiles->media_type = '1';
+                } else if ($ext == "mp4" || $ext == "MP4" || $ext == "mpeg2" || $ext == "mpeg" || $ext == "mpeg4") {
+                  $announcementfiles->media_type = '2';
+                } else {
+                  $announcementfiles->media_type = '3';
+                }
+                $announcementfiles->save();
+        }
+      }
+    }
+
+
+    // multiple attribute chng
+    // $images = array();
+
+    // if ($files = $request->file('announcementmedia')) {
+
     //   foreach ($files as $file) {
-    //     $filename = $file->getClientOriginalName();
-    //     echo "here";
-    //     return $file;
-    //   }
-    // }
+    //     // return "here";
+    //     // return $file;
+    //     $name=time().$file->getClientOriginalName();
+    //     $name = str_replace(" ","-",$name);
+    //     // $file->move('image', $name);
+    //     $images[] = $name;
+    //     $ext = pathinfo($name, PATHINFO_EXTENSION);
+    //     // return $ext;
+    //     $filePath = 'announcement/' . $announcement->id . '/' . $name;
+    //     // return file_get_contents($file);    
+    //     // return $filePath;
+    //     Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
 
-    //media save
-    //      if(isset($request->addedimageArr) && !empty($request->addedimageArr)){
-    //         $addedimageArr = explode(',', $request->addedimageArr);
-    //      foreach($addedimageArr as $addedImageId){   
-    //         $product_image = "announcement_files" .  $addedImageId;
-    //         if($request->hasfile($product_image))
-    //         {
-    //             $product_pic = $request->file($product_image);
-    //             $name=time().$product_pic->getClientOriginalName();
-    //             $firstname = substr($product_pic->getClientOriginalName(), 0, strpos($product_pic->getClientOriginalName(), '.'));
-    //             $ext=pathinfo($product_pic->getClientOriginalName(), PATHINFO_EXTENSION);  
-    //             $name = str_replace(" ","-",$name);
-    //             $filePath = 'announcement/' . $announcement->id . '/' . $name;
-    //             Storage::disk('s3')->put($filePath, file_get_contents($product_pic) , 'public');
-
-    //             $announcementfiles = new AnnouncementFiles;
-    //             $announcementfiles->announcement_id = $announcement->id;
-    //             $announcementfiles->media_location =  $filePath;   
-    //             if($ext=="jpeg" || $ext== "jpg" || $ext=="bmp" || $ext=="svg" || $ext=="png" || $ext=="gif" || $ext=="avif" ||  $ext=="svg+xml" || $ext=="webp" || $ext=="tiff" || $ext=="bmp" || $ext=="x-icon"){
-    //                 $announcementfiles->media_type ='1';
-    //             }else if($ext=="mp4" || $ext== "mpeg2" || $ext=="mpeg" || $ext=="mpeg4"){
-    //                 $announcementfiles->media_type ='2';
-    //             }else{
-    //                 $announcementfiles->media_type_type ='3';
-    //             }
-    //             $announcementfiles->save();
-    //         }
-
+    //     $announcementfiles = new AnnouncementFiles;
+    //     $announcementfiles->announcement_id = $announcement->id;
+    //     $announcementfiles->media_location =  $filePath;
+    //     if ($ext == "jpeg" ||  $ext == "JPEG" || $ext == "jpg" || $ext == "JPG" || $ext == "bmp" || $ext == "svg" || $ext == "SVG" || $ext == "png" || $ext == "PNG" || $ext == "gif" || $ext == "GIF" || $ext == "avif" ||  $ext == "svg+xml" || $ext == "webp" || $ext == "tiff" || $ext == "bmp" || $ext == "x-icon") {
+    //       $announcementfiles->media_type = '1';
+    //     } else if ($ext == "mp4" || $ext == "MP4" || $ext == "mpeg2" || $ext == "mpeg" || $ext == "mpeg4") {
+    //       $announcementfiles->media_type = '2';
+    //     } else {
+    //       $announcementfiles->media_type = '3';
     //     }
+    //     $announcementfiles->save();
+    //   }
+
+    //   // return $images;
     // }
 
 
@@ -171,15 +188,14 @@ class AnnouncementController extends Controller
     if (!empty($id)) {
       $announcement =  Announcement::where('id', $id)->with('announcementfiles')->first();
 
-      $announcementfiles=AnnouncementFiles::where("announcement_id",$id)->get();
+      $announcementfiles = AnnouncementFiles::where("announcement_id", $id)->get();
       // return $announcementfiles;
       // $announcement =  Announcement::where('id', $id)->leftJoin('announe', 'users.id', '=', 'notifications.from_id')
       // ->select('notifications.*', 'users.profile_pic')->orderBy('id', 'DESC')->first();
-      return view('announcements.announcement', compact('announcement','announcementfiles'));
-    }else{
+      return view('announcements.announcement', compact('announcement', 'announcementfiles'));
+    } else {
       return view('announcements.announcement');
     }
-    
   }
 
 
@@ -188,54 +204,57 @@ class AnnouncementController extends Controller
     $announcementdetail = Announcement::where('id', $id)->with('comments')->first();
     $announcementImages = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 1)->get();
     $announcementVideos = AnnouncementFiles::where('announcement_id', $id)->where('media_type', 2)->get();
-    
-    
-    if($announcementdetail->created_by == 3){ //Family
-        return view('announcements.announcementDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
+
+
+    if ($announcementdetail->created_by == 3) { //Family
+      return view('announcements.announcementDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
     } else { //Business
-        return view('announcements.announcementBusinessDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
-    }        
+      return view('announcements.announcementBusinessDetail', compact('announcementdetail', 'announcementImages', 'announcementVideos'));
+    }
   }
 
   public function showAnnouncement()
-  {    
-    $announcementlistsQuery = Announcement::with('announcement_views')   
-    ->where("status",'2');
-    
-    if(isset($_GET['k']) && $_GET['k'] != ''){
-        $getTitle = $_GET['k'];
-        $announcementlistsQuery->where("title", "LIKE", '%' . $getTitle . '%');
+  {
+    $announcementlistsQuery = Announcement::with('announcement_views')
+      ->where("status", '2');
+
+    if (isset($_GET['k']) && $_GET['k'] != '') {
+      $getTitle = $_GET['k'];
+      $announcementlistsQuery->where("title", "LIKE", '%' . $getTitle . '%');
     }
-    if(isset($_GET['m']) && $_GET['m'] != ''){
-        $getMonth = $_GET['m'];     
-        $announcementlistsQuery->whereMonth("created_at", $getMonth);
+    if (isset($_GET['m']) && $_GET['m'] != '') {
+      $getMonth = $_GET['m'];
+      $announcementlistsQuery->whereMonth("created_at", $getMonth);
     }
-    if(isset($_GET['y']) && $_GET['y'] != ''){
-        $getYear = $_GET['y'];
-        $announcementlistsQuery->whereYear("created_at", $getYear);
+    if (isset($_GET['y']) && $_GET['y'] != '') {
+      $getYear = $_GET['y'];
+      $announcementlistsQuery->whereYear("created_at", $getYear);
     }
-    
-    $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();   
+
+    $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();
     return view('announcements.announcementList', compact('announcementlists'));
   }
 
-  public function myAnnouncement(){
-    $userid=Auth::id();
-    $announcementlists = Announcement::with('announcement_views')   
-    ->where("user_id",$userid)->orderBy('id', 'DESC')->get();
-   
-  //  dd($announcementlists);
-  //  return;
+  public function myAnnouncement()
+  {
+    $userid = Auth::id();
+    $announcementlists = Announcement::with('announcement_views')
+      ->where("user_id", $userid)->orderBy('id', 'DESC')->get();
+
+    //  dd($announcementlists);
+    //  return;
     return view('announcements.myannouncementList', compact('announcementlists'));
   }
 
-  public function addAnnouncementInterest(Request $request){
-    $userid=Auth::id();
-    Announcement::where('id',$request->entity_id)->where('user_id',$userid)->update(['interested' => '1']);  
+  public function addAnnouncementInterest(Request $request)
+  {
+    $userid = Auth::id();
+    Announcement::where('id', $request->entity_id)->where('user_id', $userid)->update(['interested' => '1']);
   }
 
-  public function announcementViewed(Request $request){
-    $userid=Auth::id();
+  public function announcementViewed(Request $request)
+  {
+    $userid = Auth::id();
     $user = AnnouncementView::where('user_id', '=', $userid)->where('announcement_id', '=', $request->entity_id)->first();
     if ($user === null) {
       // user doesn't exist
@@ -244,32 +263,31 @@ class AnnouncementController extends Controller
       $viewedannouncement->user_id = $userid;
       $viewedannouncement->save();
     }
-   
   }
 
-  public function checkAnnouncementViewers(Request $request){
+  public function checkAnnouncementViewers(Request $request)
+  {
 
-    $showList="";
-    $viewers=AnnouncementView::where('announcement_id', '=', $request->entity_id)->get();
+    $showList = "";
+    $viewers = AnnouncementView::where('announcement_id', '=', $request->entity_id)->get();
     // return $viewers;
-    foreach($viewers as $viewer){
-      
-      $showList .='<span class="announcementDesc pb-1">'.  $viewer->user->first_name . ' ' . $viewer->user->last_name .'</span>';
+    foreach ($viewers as $viewer) {
+
+      $showList .= '<span class="announcementDesc pb-1">' .  $viewer->user->first_name . ' ' . $viewer->user->last_name . '</span>';
     }
     return $showList;
-
   }
 
 
   public function announcementComment(Request $request)
-{
-  $authId = Auth::id();
-    if (!empty($request->comment) && !empty($request->announcement_id) ){
+  {
+    $authId = Auth::id();
+    if (!empty($request->comment) && !empty($request->announcement_id)) {
       $announcementComment = new AnnouncementComments;
       $announcementComment->announcement_id = $request->announcement_id;
       $announcementComment->comment = $request->comment;
       $announcementComment->user_id = $authId;
-      if(isset($request->parent_id) && !empty($request->parent_id) && $request->parent_id !=0 ){
+      if (isset($request->parent_id) && !empty($request->parent_id) && $request->parent_id != 0) {
         $announcementComment->parent_comment_id =  $request->parent_id;
       }
       $announcementComment->save();
@@ -277,9 +295,8 @@ class AnnouncementController extends Controller
       $carbon_date = \Carbon\Carbon::parse($announcementComment->created_at);
       $carbon_date = $carbon_date->addHours(4);
       $carbon_date =  $carbon_date->isoFormat('MMMM Do YYYY');
-      $announcementComment->date =$carbon_date;
+      $announcementComment->date = $carbon_date;
       return  $announcementComment;
     }
-
-}
+  }
 }

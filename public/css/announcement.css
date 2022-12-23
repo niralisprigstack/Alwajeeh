@@ -4,6 +4,17 @@ body {
     font-style: normal; 
     /* margin-top: 70px; */
     background-image: url(/assests/images/announcement/announcementBgImg.jpg);
+
+
+    width: -webkit-fill-available;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* height: 100%; */
+    max-width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .fixed-header{
     width: 100%;
@@ -235,7 +246,7 @@ body {
     filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%);
 }
 .datepicker {
-    top:100% !important;
+    /* top:100% !important; */
 }
 .footerfiltersortdiv{
     bottom: 140px;
@@ -396,12 +407,16 @@ color: #F5F5F5;
 .resetFilterDiv button{
     height: 40px;
 }
-.productImage {
-    width: 70px;
-    height: 70px;
+.announcementImageVid {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
 }
 .cancelclick{
     color:white;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 .applyFilter{
     background: rgba(164, 137, 75, 0.8);

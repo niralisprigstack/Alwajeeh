@@ -23,19 +23,15 @@ $(document).ready(function () {
     $(".detailScrollableDiv").css("overflow-y", "scroll");
     $(".detailScrollableDiv").css("overflow-x", "hidden");
 
-
-
-    //     var detailheight = window.innerHeight;
-
-    // var totalheight=detailheight-180-112-80;
-    // $(".detailScrollableDiv").css("max-height",totalheight+"px");
-
-    // $('.nav-text').click(function() {
-    //     $(this).css('color', '#AA8840');
-    //     $(this).parent().find('.navSvg path').css('stroke' , '#AA8840');
-
-    // });
-
+    //full section max-height set in listing page - all sections except advanced filter
+    var fullCardMaxHeight = detailheight - 216 - 120;
+    $(".listDiv").css("max-height", fullCardMaxHeight + "px");
+    $(".listDiv").css("overflow-y", "scroll");
+    $(".listDiv").css("overflow-x", "hidden");
+    
+    //full section min-height set in business detail, family detail & listing page - advanced filter  
+    var fullCardMinHeight = detailheight - 216 - 120;
+    $(".fullSectionHeight").css("min-height", fullCardMinHeight + "px");    
 
 
 

@@ -14,19 +14,24 @@ $(document).ready(function() {
     $('.closeviewersBtn').click(function() {
         closeViewers(this);
     });
+    //var totalheight=detailheight-126-112-60;
+    
+    //height set for scrollable div in business detail, family detail & listing page
+    var detailheight = window.innerHeight; //240
+    var totalheight = detailheight - 126 - 190 - 120;
+    $(".detailScrollableDiv").css("max-height", totalheight + "px");
+    $(".detailScrollableDiv").css("overflow-y", "scroll");
+    $(".detailScrollableDiv").css("overflow-x", "hidden");
 
-
-
-//     var detailheight = window.innerHeight;
-
-// var totalheight=detailheight-180-112-80;
-// $(".detailScrollableDiv").css("max-height",totalheight+"px");
-
-    // $('.nav-text').click(function() {
-    //     $(this).css('color', '#AA8840');
-    //     $(this).parent().find('.navSvg path').css('stroke' , '#AA8840');
-        
-    // });
+    //full section max-height set in listing page - all sections except advanced filter
+    var fullCardMaxHeight = detailheight - 216 - 120;
+    $(".listDiv").css("max-height", fullCardMaxHeight + "px");
+    $(".listDiv").css("overflow-y", "scroll");
+    $(".listDiv").css("overflow-x", "hidden");
+    
+    //full section min-height set in business detail, family detail & listing page - advanced filter  
+    var fullCardMinHeight = detailheight - 216 - 120;
+    $(".fullSectionHeight").css("min-height", fullCardMinHeight + "px");    
     
 });
 
@@ -289,6 +294,7 @@ if($(element).data("attr")=="sortFilter"){
         }
     });
 }else if($(element).data("attr")=="Filter"){
+    $(".businessprofiletext").addClass("d-none");
     $(".resetFilterDiv").addClass("d-none");
     $(".announcementListPageSection").addClass("d-none");
     $(".filtersectiondiv").addClass("d-none");

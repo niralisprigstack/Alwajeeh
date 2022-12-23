@@ -8,11 +8,11 @@
     padding-left: 10px !important;
 }
 .filtersection{
-    padding-top: 140px !important;
+    padding-top: 120px !important;
 }
 .announcementListPageSection{
     /* padding-top: 0px; */
-    max-height: 50%;
+    /*max-height: 50%;*/
     overflow: auto;
 }
 .createAnnouncementText{    
@@ -43,7 +43,7 @@
     </div>
     @endif
     
-    <div class="fluid-container announcementListPageSection">
+    <div class="fluid-container announcementListPageSection listDiv">
 
     @if(count($announcementlists) > 0)
         @php $showHideSection = "d-none"; @endphp
@@ -207,12 +207,12 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
     </div>
     
     <!--advance filter div-->
-    <section class="mb-5 pb-5 advancedFilterDiv d-none">
+    <section class="mb-5 advancedFilterDiv d-none">
         <input type="hidden" class="announcementList" value="{{url('announcementList')}}">
-        <h5 class="ml-3 filterCss">ADVANCED FILTER</h5>
-        <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 pb-3" style="min-height: 50vh;">
+        <h5 class="ml-3 filterCss mt-4">ADVANCED FILTER</h5>
+        <div class="submissionDiv fullSectionHeight mt-3 mb-3 ml-2 mr-2 pt-5 pb-5">
             <div class="row col-12 justify-content-between mb-3">
-                <div class="col-6 col-lg-6 col-md-6 mt-3">
+                <div class="col-6 col-lg-6 col-md-6 mt-3 pr-0">
                     <?php 
                         $year_start  = 2000;
                         $year_end = date('Y');
@@ -225,8 +225,8 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     ?>
                 </div>
 
-                <div class="col-6 col-lg-6 col-md-6 pr-0 pb-3 mt-3">
-                    <select class="form-control filterPerMonthDropdown" id="filterPerMonth" name="filterPerMonth">
+                <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 pb-3 mt-3">
+                    <select class="form-control filterPerMonthDropdown ml-3" id="filterPerMonth" name="filterPerMonth">
                         <option value="" disabled selected>Filter Per Month</option>
                         <option value="1">Jan</option>
                         <option value="2">Feb</option>
@@ -250,7 +250,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
         </div>
         
         <div class="submittedbtnidv col-7 m-auto mb-5 ">
-            <button onclick="applyFilter();" type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-2">Apply Filter</button>
+            <button onclick="applyFilter();" type="button" class="mt-3 buttonCss button_text col-12 p-2 applyFilter">Apply Filter</button>
         </div>
     </section>
     <!--advance filter div-->
@@ -304,3 +304,4 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
   });
     });
 </script>
+@endsection

@@ -26,7 +26,7 @@
       <img src="{{asset('assests/images/profile/avatar_default.jpg') }}" class='comment_profile mr-2' alt="profile" >
       @endif
      <div class="published_by">
-     <span class='paraFont font-weight-bold'>{{Auth::user()->full_name}}</span>
+     <span class='paraFont font-weight-bold'>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
      <span class='d-block published_date'></span>
      </div>
     </div>
@@ -63,11 +63,9 @@
       </div> 
     </div>
 
-     <div class="childCommentDiv ml-5 p-2">
-    <div class="card-body  replyEditor pt-0 d-none">
-<textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply" style="
-    max-width: 300px;
-"></textarea>
+     <div class="childCommentDiv p-2">
+    <div class="card-body  replyEditor pt-0 pr-0 pb-0 d-none">
+<textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply"></textarea>
 <div class="btn-group mt-3">
 <button class="btn sPrimary-btn shadow-none respondcomment" data-check='child' onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
 </div>
@@ -89,7 +87,7 @@ if($comment->children->count()){
 ?>
 <div class="commentbox inputparent" data-id="{{$comment->id}}">
   <div class="card commentCard">
-    <div class="card-body p-2 pl-5 p-0">
+    <div class="card-body p-2 p-0">
     <div class="user_info d-flex  mb-2 ">
     @if(!empty($comment->user->profile_pic))
       <img src="{{Storage::disk('s3')->url($comment->user->profile_pic)}}" class='comment_profile mr-2' alt="profile" >
@@ -117,11 +115,9 @@ if($comment->children->count()){
     </div>
 
     <!-- if child is present then all child comments  -->
-     <div class="childCommentDiv ml-5 p-2">
-    <div class="card-body  replyEditor pt-0 d-none">
-<textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply" style="
-    max-width: 300px;
-"></textarea>
+     <div class="childCommentDiv p-2">
+    <div class="card-body  replyEditor pt-0 pr-0 pb-0 d-none">
+<textarea type="text" class="form-control shadow-none blogCommentInput inputTextClass" rows="2" col="4" placeholder="Reply"></textarea>
 <p class='commenterror text-danger mb-0'></p>
 <div class="btn-group mt-2">
         <button class="buttonCss shadow-none respondcomment button_text btn-sm" data-check='child'  onclick="addComment(this)">Respond</button><button class="buttonCss shadow-none respondcomment button_text btn-sm ml-3 w-50" onclick='removeReplyEditor(this)'>Cancel</button>
@@ -139,8 +135,17 @@ if($comment->children->count()){
       <img src="{{asset('assests/images/profile/avatar_default.jpg') }}" class='comment_profile mr-2' alt="profile" >
       @endif
      <div class="published_by">
-     <span class='paraFont font-weight-bold'>{{$childComment->user->full_name}}</span>
-
+     <span class='paraFont font-weight-bold'>{{$childComment->user->first_name}} {{$childComment->user->last_name}}</span>
+     <span class='d-block published_date'> 
+     
+     <!-- convert utc to dubai time zone  -->
+     <?php
+     $carbon_date = \Carbon\Carbon::parse($childComment->created_at);
+     $carbon_date = $carbon_date->addHours(4);
+     $carbon_date =  $carbon_date->isoFormat('MMMM Do YYYY');
+     ?>
+     {{$carbon_date}} </span>
+     
      </div>
     </div>
       <p class='mb-0 comment'>{{$childComment->comment}}</p>

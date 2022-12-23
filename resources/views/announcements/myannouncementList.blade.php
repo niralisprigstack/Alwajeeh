@@ -8,12 +8,13 @@
     padding-left: 10px !important;
 }
 .filtersection{
-    padding-top: 140px !important;
+    padding-top: 120px !important;
 }
 .announcementListPageSection{
-    max-height: 85%;
+    /*max-height: 85%;*/
     overflow: auto;
-    padding-top: 140px !important;
+    padding-top: 115px !important;
+    padding-bottom: 60px;
 }
 .createAnnouncementText{    
     font-weight: 700;

@@ -56,7 +56,7 @@
 
 
 
-    <span class="businessprofiletext d-none">My Business<br> Profile</span>
+    <span class="businessprofiletext mt-4 d-none">My Business Profile</span>
 
 
     </div>

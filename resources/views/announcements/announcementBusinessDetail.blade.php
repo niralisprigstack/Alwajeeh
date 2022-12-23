@@ -65,7 +65,7 @@
             </div>            
         </div>
 
-        <div class="announcementListMainDiv mt-2 mb-2 ml-2 mr-2">
+    <div class="announcementListMainDiv fullSectionHeight mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
                 <div class="closeBtn text-right d-none">
                     <a onclick="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
@@ -80,7 +80,7 @@
                         <span class="announcementDesc">{{$announcementdetail->description}}</span>                                       
                     </div>
 
-                    <div class="row mt-3 announcementMediaDiv">
+                    <div class="row mt-3 mb-3 announcementMediaDiv">
                         @if(count($announcementImages) > 0)
                         <div class="col-6 col-lg-6">
                             @php $cnt = 0; $showHide = ""; @endphp

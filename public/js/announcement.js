@@ -1,3 +1,5 @@
+var productImageArr = [];
+var productImageCount = 1;
 $(document).ready(function () {
     $('form .btnpublish').click(function () {
         $('form .statuscheck').val(2);
@@ -13,24 +15,31 @@ $(document).ready(function () {
 
     $('.closeviewersBtn').click(function () {
         closeViewers(this);
-    });
-    //var totalheight=detailheight-126-112-60;
+    });    
     
     //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight; //240
     var totalheight = detailheight - 126 - 190 - 120;
+    
+    if ($(".detailScrollableFamilyDiv").length > 0) {
+        totalheight = fullCardMaxHeight - 81;
+    }
+    
     $(".detailScrollableDiv").css("max-height", totalheight + "px");
     $(".detailScrollableDiv").css("overflow-y", "scroll");
     $(".detailScrollableDiv").css("overflow-x", "hidden");
 
     // height set for scrollable div in family detail
-    var totalheight = detailheight - 126 - 190 - 120 - 81;
-    $(".detailScrollableFamilyDiv").css("max-height", totalheight + "px");
-    $(".detailScrollableFamilyDiv").css("overflow-y", "scroll");
-    $(".detailScrollableFamilyDiv").css("overflow-x", "hidden");
+//    var totalheight = detailheight - 126 - 190 - 120 - 81;
+//    $(".detailScrollableFamilyDiv").css("max-height", totalheight + "px");
+//    $(".detailScrollableFamilyDiv").css("overflow-y", "scroll");
+//    $(".detailScrollableFamilyDiv").css("overflow-x", "hidden");
 
     //full section max-height set in listing page - all sections except advanced filter
     var fullCardMaxHeight = detailheight - 216 - 120;
+    if ($(".resetFilterDiv").length > 0) {
+        fullCardMaxHeight = fullCardMaxHeight - 50;
+    }
     $(".listDiv").css("max-height", fullCardMaxHeight + "px");
     $(".listDiv").css("overflow-y", "scroll");
     $(".listDiv").css("overflow-x", "hidden");
@@ -59,8 +68,6 @@ $(document).ready(function () {
 
 
 
-var productImageArr = [];
-var productImageCount = 1;
 
 
 $(document).on("change", ".marketplace_image_input", function () {
@@ -253,38 +260,10 @@ $(document).on("change", ".marketplace_image_input", function () {
 
 
 
-$(".removeMarketPlaceImage").on('click', function () {
-    if ($(this).hasClass('removedImageId')) {
-      let id = $(this).data('id')
-      $('.removedImageIds').val($('.removedImageIds').val() + id + ',')
-    }
-    else {
-      let currentCount = $(this).data('count');
-      $('.inputDiv').find('input').each(function () {
-        let count = $(this).data('count');
-        count = parseInt(count);
-        if (count == currentCount) {
-          $(this).remove();
-        }
-
-      })
-      currentCount = parseInt(currentCount);
-      const index = productImageArr.indexOf(currentCount);
-      if (index > -1) {
-        productImageArr.splice(index, 1);
-        $('.addedimageArr').val(productImageArr.join());
-      }
-    }
-    var checkremovetype=$(this).attr('value');
-    if(checkremovetype==1){
-      $(this).closest('.ImageDiv').remove();
-    }else if(checkremovetype==2){
-      $(this).closest('.vidDiv').remove();
-    }else{
-      $(this).closest('.docDiv').remove();
-    }
-    
-  });
+//$(".removeMarketPlaceImage").on('click', function () {
+//    
+//    
+//  });
 });
 
 // var  image_count=0;
@@ -480,12 +459,20 @@ function closeViewers(element) {
 function showFilteredresult(element) {
     $(".filtered").removeClass("active");
     $('.nav-img').removeClass("show");
-    $('.nav-text').removeClass("showtext");
+    $('.nav-img').removeClass("d-none");
+    $('.activeImg').addClass("d-none");
+    $('.nav-text').removeClass("showtext");    
 
     var data_click = $(element).data('click');
     $(element).addClass("active");
     $(element).closest(".parent").find('.nav-img').addClass("show");
     $(element).closest(".parent").find('.nav-text').addClass("showtext");
+    
+    var checkActiveClass = $(element).closest(".parent");
+    if($(checkActiveClass).find("img").hasClass("activeImg")){
+        $(element).closest(".parent").find('.nav-img').addClass("d-none");
+        $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+    }    
 
     var cnt = 0;
     $('.announcementListMainDiv').each(function () {
@@ -527,6 +514,9 @@ function showFilteredresult(element) {
 }
 
 function showfooterfilterresult(element) {
+    $('.activeImg').addClass("d-none");
+    $('.nav-img').removeClass("d-none");
+    var checkActiveClass = $(element).closest(".parent");
     if ($(element).data("attr") == "sortFilter") {
         $(".filtered").removeClass("active");
         $('.nav-img').removeClass("show");
@@ -536,6 +526,11 @@ function showfooterfilterresult(element) {
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
         $(element).closest(".parent").find('.nav-text').addClass("showtext");
+                
+        if ($(checkActiveClass).find("img").hasClass("activeImg")) {
+            $(element).closest(".parent").find('.nav-img').addClass("d-none");
+            $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+        }   
     } else if ($(element).data("attr") == "businessFilter") {
         $(".filtered").removeClass("active");
         $('.nav-img').removeClass("show");
@@ -544,6 +539,11 @@ function showfooterfilterresult(element) {
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
         $(element).closest(".parent").find('.nav-text').addClass("showtext");
+        
+        if ($(checkActiveClass).find("img").hasClass("activeImg")) {
+            $(element).closest(".parent").find('.nav-img').addClass("d-none");
+            $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+        }
 
         var data_click = $(element).data("click");
         $('.announcementListMainDiv').each(function () {
@@ -801,7 +801,40 @@ function togglecomment(element) {
     });
 }
 
-
+function removeMarketPlaceImage(element){
+    if ($(element).hasClass('removedImageId')) {
+      let id = $(element).data('id')
+      $('.removedImageIds').val($('.removedImageIds').val() + id + ',')
+    }
+    else {
+      let currentCount = $(element).data('count');
+//      $('.inputDiv').find('input').each(function () {
+//        let count = $(element).data('count');
+//        count = parseInt(count);
+//        if (count == currentCount) {
+//          //$(element).remove();
+//        }
+//
+//      })
+      currentCount = parseInt(currentCount);
+      const index = productImageArr.indexOf(currentCount);
+      if (index > -1) {
+        productImageArr.splice(index, 1);
+        $('.addedimageArr').val(productImageArr.join());
+      }
+    }
+    var checkremovetype=$(element).attr('value');
+    if(checkremovetype==1){
+      $(element).closest('.ImageDiv').remove();
+      $(element).remove();
+    }else if(checkremovetype==2){
+      $(element).closest('.vidDiv').remove();
+      $(element).remove();
+    }else{
+      $(element).closest('.docDiv').remove();
+      $(element).remove();
+    }
+}
 
 //image preview
 function multipleimageUpload(input, deg) {

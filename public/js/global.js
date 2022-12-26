@@ -6,6 +6,8 @@ $(document).ready(function() {
         if (this.href == window.location.href) {
             $(this).find('.nav-img').addClass("active");
             $(this).find('.nav-img').addClass("show");
+            $(this).find('.nav-img').addClass("d-none");
+            $(this).find('.activeImg').removeClass("d-none");
         }
     });
     

@@ -194,7 +194,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
         @endforeach
         
         <!--no records found-->
-        <div class="noRecords m-2 announcementList justify-content-center {{$showHideSection}}" style="min-height: 40vh;">No Records Found!</div>
+        <div class="noRecords m-2 announcementList justify-content-center {{$showHideSection}}" style="min-height: 30vh;">No Records Found!</div>
         <!--no records found-->
         
 

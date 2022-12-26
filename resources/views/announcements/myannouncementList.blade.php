@@ -110,7 +110,7 @@ data-unread="{{$checkUnread}}" data-user="" data-interested="{{$announcementlist
         @endforeach
         <?php  }else{?>
     <!--no records found-->
-    <div class="noRecords m-2 announcementList justify-content-center " style="min-height: 40vh;">No Records Found!</div>
+    <div class="noRecords m-2 announcementList justify-content-center " style="min-height: 30vh;">No Records Found!</div>
         <!--no records found-->
             <?php  }?>
 

@@ -123,7 +123,7 @@ if (isset($announcement)) {
 
                     <div class="row parentImg">
                         <div class="col-md-3 col-4 pt-3 pb-3 d-none defaultImageDiv">
-                            <i class="fa fa-times removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" aria-hidden="true" value="1"></i>
+                            <i onclick="removeMarketPlaceImage(this);" class="fa fa-times removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" aria-hidden="true" value="1"></i>
                             <img src="" alt="" class="img-fluid img1">
                             <!-- <video controls class="img-fluid"  autoplay playsinsline loop muted>
                             <source src="">
@@ -135,7 +135,7 @@ if (isset($announcement)) {
                         $ext =$ext = pathinfo($announcementfiles->media_location, PATHINFO_EXTENSION);
                         if ($ext == "jpeg" || $ext == "jpg" || $ext == "svg" || $ext == "png" || $ext == "gif" ) { ?>
                             <div class="col-md-3 col-4 pt-3 pb-3  ImageDiv MediaSouqPreview">
-                                <i class="fa fa-times removedImageId removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" data-id="{{$announcementfiles->id}}" aria-hidden="true" value="1"></i>
+                                <i onclick="removeMarketPlaceImage(this);" class="fa fa-times removedImageId removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" data-id="{{$announcementfiles->id}}" aria-hidden="true" value="1"></i>
                                 <img src="{{Storage::disk('s3')->url($announcementfiles->media_location)}}" alt="" class="img-fluid img1 announcementImageVid">
                             </div>
                         <?php } ?>
@@ -169,7 +169,7 @@ if (isset($announcement)) {
 
                     <div class="row parentvid">
                         <div class="col-md-3 col-4 pt-3 pb-3 d-none defaultvidDiv ">
-                            <i class="fa fa-times removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" aria-hidden="true" value="2"></i>
+                            <i onclick="removeMarketPlaceImage(this);" class="fa fa-times removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" aria-hidden="true" value="2"></i>
                             <!-- <img src=""   alt="" class="img-fluid vdo1"> -->
                             <video controls class="img-fluid vdo1" autoplay playsinsline loop muted>
                                 <source src="">
@@ -180,7 +180,7 @@ if (isset($announcement)) {
                         <?php $ext = pathinfo($announcementfiles->media_location, PATHINFO_EXTENSION);
                         if ($ext == "mp4" || $ext == "mpeg2" || $ext == "mpeg" || $ext == "mpeg4") { ?>
                             <div class="col-md-3 col-4 pt-3 pb-3  vidDiv MediaSouqPreview">
-                                <i class="fa fa-times removedImageId removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" data-id="{{$announcementfiles->id}}" aria-hidden="true" value="2"></i>
+                                <i onclick="removeMarketPlaceImage(this);" class="fa fa-times removedImageId removeMarketPlaceImage c-pointer pr-3 p-md-0 cancelclick" data-id="{{$announcementfiles->id}}" aria-hidden="true" value="2"></i>
                                 <video controls class="img-fluid vdo1 announcementImageVid" autoplay playsinsline loop muted>
                                     <source src="{{Storage::disk('s3')->url($announcementfiles->media_location)}}">
                                 </video>

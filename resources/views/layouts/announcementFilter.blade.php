@@ -21,7 +21,8 @@
             <!-- <a style="display: grid;" class="mt-2 mb-2 active show"  id="nav-upcming-tab" aria-selected="{{$defaultSelectd ? 'true' : 'false'}}"> -->
             <span class="parent">
             <a style="display: grid;" class="mt-2 mb-2 filtered active" onclick="showFilteredresult(this);" data-click="1">   
-                <img class="img-fluid m-auto nav-img show " style="" src="{{ asset('assests/images/announcement/emails.svg') }}" alt="">
+                <img class="img-fluid m-auto nav-img show d-none" style="" src="{{ asset('assests/images/announcement/emails.svg') }}" alt="">
+                <img class="img-fluid m-auto activeImg" style="" src="{{ asset('assests/images/announcement/emailsActive.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text showtext">All</span> </i>
             </a>
             </span>
@@ -31,6 +32,7 @@
             <span class="parent">
             <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="4">
                 <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/business.svg') }}" alt="">
+                <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/businessActive.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text">Business</span> </i>
             </a>
             </span>

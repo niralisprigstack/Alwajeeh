@@ -766,7 +766,8 @@ font-weight: 400;
     margin-top:20px;
   }
   .headfont .active{
-      filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%);
+      /* filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%); */
+      filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(350deg) brightness(180%) contrast(10000%);
   }
 @media (max-width:768px) {
     .bottomsmbalheader{

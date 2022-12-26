@@ -60,7 +60,7 @@ if (isset($announcement)) {
     <!--<div>-->
     <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
         <div class="announcementDiv mb-4 mt-4">
-            <form action="{{url('createannouncement')}}{{$id}}" id="createAnnouncementForm" method="POST" onsubmit="return createannouncement()" enctype="multipart/form-data">
+            <form action="{{url('createannouncement')}}{{$id}}" id="createAnnouncementForm" method="POST"  onsubmit="return createannouncement(this);" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="status" class='statuscheck' value="">
@@ -115,6 +115,7 @@ if (isset($announcement)) {
                     </div> -->
 
                     <input type="hidden" class="getVidFileSize" value="">
+                    <input type="hidden" class="getImgFileSize" value="">
                     <!-- <div class="inputDiv">
                     <input type="file" accept="image/*"  name="marketplace_image1" class="form-control  marketplace_image_input d-none" data-count='1' data-type="1" /> 
                     </div> -->
@@ -325,8 +326,18 @@ if (isset($announcement)) {
                 format: 'dd/mm/yyyy'
             });
 
+//             $('#createAnnouncementForm').on('submit', function (e) {
+//     e.preventDefault();
+//     saveData(this);
+// });
+
+            //onsubmit call
+          
 
         });
+
+
+  
     </script>
 
 

@@ -44,12 +44,12 @@ $(document).ready(function () {
 
 
     $(".upload_marketplace_image").on('click', function () {
-        $('.marketplace_image_input').attr('accept', 'image/*');
+        $('.marketplace_image_input').attr('accept', 'image/png, image/gif, image/jpeg, image/svg, image/jpg');
         $('.marketplace_image_input').first().trigger('click');
         $('.marketplace_image_input').attr('data-type', '1');
     });
     $(".upload_marketplace_video").on('click', function () {
-        $('.marketplace_image_input').attr('accept', 'video/*');
+        $('.marketplace_image_input').attr('accept', 'video/mp4 ,video/mpeg2 ,video/mpeg ,video/mpeg4');
         $('.marketplace_image_input').first().trigger('click');
         $('.marketplace_image_input').attr('data-type', '2');
     });
@@ -72,10 +72,37 @@ $(document).on("change", ".marketplace_image_input", function () {
     if (attachment_type == "1") {
         var fileType = file["type"];
         var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg", "image/svg"];
-        if ($.inArray(fileType, validImageTypes) < 0) {
+
+        var allowedExtension = ['png', 'jpg', 'jpeg', 'svg','gif'];
+        var fileExtension = $('.marketplace_image_input').val();
+        let extension = fileExtension.split('.').pop().toLowerCase();
+        var isValidFile = false;
+        for (var index in allowedExtension) {
+
+            if (extension === allowedExtension[index]) {
+                isValidFile = true;
+                break;
+            }
+        }
+        if (!isValidFile) {
+            alert('Allowed Extensions are : *.' + allowedExtension.join(', *.'));
             return;
         }
+
+        $(".getImgFileSize").val(file.size);
+
+        var imgFileSize = $(".getImgFileSize").val();
+        if ($(".getImgFileSize").val() > 5242880) {
+            //128 MB to Bytes
+            alert("Image file size must be less than 5MB");
+            return;
+            clearInterval(auto_refresh);
+        }
+  
     }
+
+   
+   
     //end img
     //video 
     else if (attachment_type == "2") {
@@ -98,9 +125,9 @@ $(document).on("change", ".marketplace_image_input", function () {
         $(".getVidFileSize").val(file.size);
 
         var vidFileSize = $(".getVidFileSize").val();
-        if ($(".getVidFileSize").val() > 20971520) {
+        if ($(".getVidFileSize").val() > 10485760) {
             //128 MB to Bytes
-            alert("Video file size must be less than 20MB");
+            alert("Video file size must be less than 10MB");
             return;
             clearInterval(auto_refresh);
         }
@@ -146,14 +173,14 @@ $(document).on("change", ".marketplace_image_input", function () {
         docCount++;
     })
 
-    if (imageCount >= 10 && attachment_type == "1") {
+    if (imageCount >= 5 && attachment_type == "1") {
         $(this).val('');
-        alert('You can upload maximum 10 images per announcement.');
+        alert('You can upload maximum 5 images per announcement.');
         return;
     }
-    else if (videoCount >= 10 && attachment_type == "2") {
+    else if (videoCount >= 5 && attachment_type == "2") {
         $(this).val('');
-        alert('You can upload maximum 10 videos per announcement.');
+        alert('You can upload maximum 5 videos per announcement.');
         return;
     }
 
@@ -315,7 +342,35 @@ $(".removeMarketPlaceImage").on('click', function () {
 
 
 // }
+function saveData(element){
+    event.preventDefault();
+    var form = $(element);
+    var actionUrl = form.attr('action');
+    $('.loading').removeClass('d-none');
 
+    var annoucementstatus = $(".statuscheck").val();
+    $(".statuscheck").val(annoucementstatus);
+    $.ajax({
+        type: "POST",
+        url: actionUrl,
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data)
+        {
+            console.log(data);
+           
+        //     return "sucess";
+        //   alert(data); // show response from the php script.
+
+         window.location.href="../announcementList";
+
+       
+        }, error: function (err) {
+            console.log(err);
+        }
+       
+    });
+    $('.loading').addClass('d-none');
+            }
 
 function createannouncement() {
 

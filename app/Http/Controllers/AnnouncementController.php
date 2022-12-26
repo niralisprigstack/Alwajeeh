@@ -21,10 +21,13 @@ class AnnouncementController extends Controller
 
   public function createAnnouncement( Request $request,$id = NULL)
   {
+
+    // return "here";
     $userId = Auth::id();
     $userType = Auth::User()->user_type;
     // return "here".$id;
     if (!empty($id)) {
+    
       $announcement = Announcement::findOrFail($id);
     } else {
       $announcement = new Announcement();
@@ -90,6 +93,7 @@ class AnnouncementController extends Controller
     if (!empty($id)) {
       $announcement = Announcement::findOrFail($id);
       if (isset($request->removedImageIds) && !empty($request->removedImageIds)) {
+        // return "here";
         $imageids = substr($request->removedImageIds, 0, -1);
         $removeImageArray = explode(',',  $imageids);
         foreach ($removeImageArray as $imageId) {
@@ -115,6 +119,7 @@ class AnnouncementController extends Controller
       $addedimageArr = explode(',', $request->addedimageArr);
 
       foreach ($addedimageArr as $addedImageId) {
+        // return "here img";
         $announcement_media = "marketplace_image" .  $addedImageId;
         if ($request->hasfile($announcement_media)) {
           $product_pic = $request->file($announcement_media);
@@ -178,7 +183,7 @@ class AnnouncementController extends Controller
     // }
 
 
-
+// return 'hereee';
 
     return redirect('announcementList');
   }

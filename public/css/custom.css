@@ -8,6 +8,8 @@
     display: flex;
     align-items: center; 
     color: #000000 !important;
+    
+    word-break: break-word;
 }
 .auth-input{
     height: 58.95px;

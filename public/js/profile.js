@@ -135,8 +135,8 @@ $('.discardbtn').on('click', function (){
     $('.detailwholesection').removeClass('topSet');
     $('.profilewholesec').removeClass('topSet');
 
-    $('.detailwholesection').removeClass('pb-5');
-    $('.profilewholesec').removeClass('pb-5');
+    // $('.detailwholesection').removeClass('pb-5');
+    // $('.profilewholesec').removeClass('pb-5');
  
 
     $('.profile-div').removeClass('d-none');

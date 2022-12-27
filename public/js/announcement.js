@@ -439,8 +439,12 @@ function saveData(element){
             }
 
 function createannouncement(element) {
-    // event.preventDefault();
-
+   event.preventDefault();
+//    setTimeout(function () {
+//        $('#createAnnouncementForm').unbind('submit').submit();
+//        $('.loading').addClass('d-none');
+//    }, 8000);
+       
     // $('.loading').removeClass('d-none');
 
     var annoucementstatus = $(".statuscheck").val();
@@ -457,12 +461,29 @@ if(annoucementstatus=="3"){
 }else{
     $('.loading').removeClass('d-none');
 }
+
+$.ajax({
+        url: $(element).attr("action"),       
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData($('#createAnnouncementForm')[0]),
+        type: 'post',
+        success: function (response) {
+            //console.log("SUCCESS : ", response);
+            window.location.href="../announcementList";
+            $('.loading').addClass('d-none');
+        },
+        error: function (e) {
+            //console.log("ERROR : ", e);
+        }
+    });
    
-  setTimeout(function () {   
-    // document.getElementById("createAnnouncementForm").submit(); 
-    window.location.href="../announcementList";
-    $('.loading').addClass('d-none');
-    }, 8000);
+//  setTimeout(function () {   
+//    // document.getElementById("createAnnouncementForm").submit(); 
+//    window.location.href="../announcementList";
+//    $('.loading').addClass('d-none');
+//    }, 8000);
 
 // event.preventDefault();
 //     var form =new FormData(element);

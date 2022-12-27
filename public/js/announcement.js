@@ -65,7 +65,94 @@ $(document).ready(function () {
 
 
 
+    // var status = $('#status');
 
+
+//     $('#createAnnouncementForm').ajaxForm({
+//         // xhr: function () {
+//         //         var xhr = new window.XMLHttpRequest();
+//         //         xhr.upload.addEventListener("progress",
+//         //             uploadProgressHandler,
+//         //             false
+//         //         );
+
+//         //         return xhr;
+//         //     },
+
+//             contentType: false,
+//             cache: false,
+//             processData: false,
+//       beforeSend: function() {
+//           console.log('before');        
+//             // status.empty();
+           
+//             var annoucementstatus = $(".statuscheck").val();
+//             $(".statuscheck").val(annoucementstatus);
+        
+//         if(annoucementstatus=="3"){
+//             var confirmDelete = confirm("Are you sure you want to delete this announcement?");
+//             if (!confirmDelete) {
+//               $('.loading').addClass('d-none');
+//               return false;
+//             } else {
+//               $('.loading').removeClass('d-none');
+//             }
+//         }else{
+//             $('.loading').removeClass('d-none');
+//         }
+           
+         
+
+                                                        
+//         },     
+//         success: function (response) {
+          
+
+//    // true
+//     console.log('succ');
+//           console.log('succ');  
+//     console.log('succ');
+
+//   console.log(response);
+//   setTimeout(function () {   
+//     // document.getElementById("createAnnouncementForm").submit(); 
+//     window.location.href="../announcementList";
+//     $('.loading').addClass('d-none');
+//     }, 500);
+ 
+//             // bar.width('0%');
+//             // percent.html('0%');
+           
+//         //   window.livewire.emit('post-created');
+          
+
+//     $('.loading').addClass('d-none');
+    
+
+       
+      
+        
+//         },
+//         complete: function(xhr) {
+          
+//           // setTimeout(function() {    $('#memberStatusPopup').modal('hide');
+//           //     $('.imgcontainer').addClass('d-none');
+//           // $('.progressBar').addClass('d-none');
+//           // $('.videocontainer').removeClass('d-none');
+//           // },500);
+//           // $(this).find('.spinner').addClass('d-none');
+//             // status.html(xhr.responseText);
+//             // alert('Uploaded Successfully');
+//             // $('.loading').addClass('d-none');
+//         },
+//         error: function (err) {
+//             console.log(err);
+//           alert('Something went Wrong Please try again or reload the page.')
+//           $(this).find('.spinner').addClass('d-none');
+//         }
+
+  
+//     });
 
 
 

@@ -1,5 +1,5 @@
 @extends('layouts.appauth')
-<?php   $v = "6.5" ?>
+<?php   $v = "7.5" ?>
 <title>SignUp</title>
 @section('content')
 

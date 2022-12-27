@@ -147,6 +147,26 @@ class AnnouncementController extends Controller
     }
 
 
+
+    //delete
+if($request->status=='3'){
+  try {
+        
+    $announcement = Announcement::findOrFail($id);
+   
+ $filePath = 'announcement/'.$id;
+       if(Storage::disk('s3')->exists($filePath) > 0){
+        Storage::disk('s3')->delete($filePath);
+       }
+       AnnouncementFiles::where('announcement_id',$id)->delete();
+        Announcement::where('id',$id )->delete();
+
+} catch (\Throwable $th) {
+    throw $th;
+}
+
+}
+    
     // multiple attribute chng
     // $images = array();
 

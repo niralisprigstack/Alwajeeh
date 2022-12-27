@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "6.5" ?>
+<?php $v = "7.5" ?>
 <title>Create Announcement</title>
 @section('content')
 @section('css')
@@ -36,6 +36,7 @@ $closingdate = "";
 $announcementid = "";
 $pagename = 'Create Announcement';
 $id = "";
+$showThis="d-none";
 if (isset($announcement)) {
     $title = $announcement->title;
     $description = $announcement->description;
@@ -44,6 +45,7 @@ if (isset($announcement)) {
     // $closingdate = $announcement->closing_date;
     $announcementid = $announcement->id;
     $pagename = 'Edit Announcement';
+    $showThis="";
 
    
         $date = $announcement->closing_date;
@@ -59,7 +61,7 @@ if (isset($announcement)) {
 
     <!--<div>-->
     <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
-        <div class="announcementDiv mb-4 mt-4">
+        <div class="announcementDiv mb-4 mt-4 pb-4">
             <form action="{{url('createannouncement')}}{{$id}}" id="createAnnouncementForm" method="POST"  onsubmit="return createannouncement(this);" enctype="multipart/form-data">
                 @csrf
 
@@ -275,14 +277,14 @@ if (isset($announcement)) {
                             <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus btnpublish" value="2">Publish</button>
                         </div>
 
-                        <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 pb-3">
+                        <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 ">
                             <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus btndraft" value="1">Save Draft</button>
                         </div>
                     </div>
 
 
 
-                    <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pb-3 d-none">
+                    <div class="col-12 justify-content-between mb-3 pl-0 pr-0 {{$showThis}}">
                         <button type="submit" class="mt-4 buttonCss deleteBtnCss button_text col-12 p-0 btnstatus btndelete" value="3">Delete</button>
                     </div>
                 </div>

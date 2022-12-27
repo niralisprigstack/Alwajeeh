@@ -353,10 +353,23 @@ function saveData(element){
 
 function createannouncement() {
 
-    $('.loading').removeClass('d-none');
+    // $('.loading').removeClass('d-none');
 
     var annoucementstatus = $(".statuscheck").val();
     $(".statuscheck").val(annoucementstatus);
+
+if(annoucementstatus=="3"){
+    var confirmDelete = confirm("Are you sure you want to delete this announcement?");
+    if (!confirmDelete) {
+      $('.loading').addClass('d-none');
+      return false;
+    } else {
+      $('.loading').removeClass('d-none');
+    }
+}else{
+    $('.loading').removeClass('d-none');
+}
+   
 
     // var checkimages=$('.addedimageArr').val();
     // $('.s_decriptionError').text();
@@ -590,6 +603,8 @@ function showfooterfilterresult(element) {
         $(".filtered").removeClass("active");
         $('.nav-img').removeClass("show");
         $('.nav-text').removeClass("showtext");
+
+        // $(".myanndiv").addClass("d-none");
 
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
@@ -858,10 +873,18 @@ function togglecomment(element) {
 
 function removeMarketPlaceImage(element){
     if ($(element).hasClass('removedImageId')) {
+        var confirmDelete = confirm("Are you sure you want to remove this file?");
+        if (!confirmDelete) {
+          return false;
+        } 
       let id = $(element).data('id')
       $('.removedImageIds').val($('.removedImageIds').val() + id + ',')
     }
     else {
+        var confirmDelete = confirm("Are you sure you want to remove this file?");
+        if (!confirmDelete) {
+          return false;
+        } 
       let currentCount = $(element).data('count');
 //      $('.inputDiv').find('input').each(function () {
 //        let count = $(element).data('count');
@@ -895,5 +918,3 @@ function removeMarketPlaceImage(element){
 function multipleimageUpload(input, deg) {
 
 }
-
-

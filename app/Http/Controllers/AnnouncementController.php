@@ -118,15 +118,19 @@ class AnnouncementController extends Controller
     if (isset($request->addedimageArr) && !empty($request->addedimageArr)) {
       $addedimageArr = explode(',', $request->addedimageArr);
 
-      foreach ($addedimageArr as $addedImageId) {
-        // return $addedImageId;
+      // var_dump($_FILES['marketplace_image1']); return;
+
+      foreach ($addedimageArr as $addedImageId) {        
         $announcement_media = "marketplace_image" .  $addedImageId;
         // return $announcement_media;
-        if ($request->hasfile($announcement_media)) {
-          return "here img";
+        // return $request->$announcement_media;
+        if ($request->hasfile($announcement_media)) {          
+          // return $request->hasfile($announcement_media);
           $product_pic = $request->file($announcement_media);
           $name = time() . $product_pic->getClientOriginalName();
           $firstname = substr($product_pic->getClientOriginalName(), 0, strpos($product_pic->getClientOriginalName(), '.'));
+         
+        //  return $firstname;
           $ext = pathinfo($product_pic->getClientOriginalName(), PATHINFO_EXTENSION);
           // $name = str_replace(" ", "-", $name);
           $filePath ='announcement/' . $announcement->id . '/' . $name;

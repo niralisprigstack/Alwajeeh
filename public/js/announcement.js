@@ -352,6 +352,7 @@ function saveData(element){
             }
 
 function createannouncement(element) {
+    // event.preventDefault();
 
     // $('.loading').removeClass('d-none');
 
@@ -370,33 +371,41 @@ if(annoucementstatus=="3"){
     $('.loading').removeClass('d-none');
 }
    
+  setTimeout(function () {   
+    // document.getElementById("createAnnouncementForm").submit(); 
+    window.location.href="../announcementList";
+    $('.loading').addClass('d-none');
+    }, 8000);
 
-event.preventDefault();
-    var form = $(element);
-    var actionUrl = form.attr('action');
+// event.preventDefault();
+//     var form =new FormData(element);
+//     var actionUrl = $(element).attr('action');
    
-    $.ajax({
-        type: "POST",
-        url: actionUrl,
-        data: form.serialize(), // serializes the form's elements.
-        success: function(data)
-        {
-            console.log(data);
+//     $.ajax({
+//         type: "POST",
+//         url: actionUrl,
+//         data: form, // serializes the form's elements.
+//         cache: false,
+//         contentType: false,
+//         processData: false,
+//         success: function(data)
+//         {
+//             console.log(data);
            
-        //     return "sucess";
-        //   alert(data); // show response from the php script.
+//         //     return "sucess";
+//         //   alert(data); // show response from the php script.
 
          
-//   setTimeout(function () {
-//     window.location.href="../announcementList";
-//     $('.loading').addClass('d-none');
-//     }, 8000);
+// //   setTimeout(function () {
+// //     window.location.href="../announcementList";
+// //     $('.loading').addClass('d-none');
+// //     }, 8000);
        
-        }, error: function (err) {
-            console.log(err);
-        }
+//         }, error: function (err) {
+//             console.log(err);
+//         }
        
-    });
+    // });
    
 
     // var checkimages=$('.addedimageArr').val();

@@ -242,6 +242,10 @@ body {
     color: #FF0000;
     border-bottom: 2px solid var(--theme-color);
 }
+.footerFilterTxt .showtext {
+    color: #FF0000;
+    border-bottom: 2px solid var(--theme-color);
+}
 .parent .active .show {
     /* filter: invert(62%) sepia(76%) saturate(55581%) hue-rotate(350deg) brightness(180%) contrast(1123%); */
     filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(350deg) brightness(180%) contrast(10000%);

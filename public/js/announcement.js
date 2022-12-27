@@ -78,7 +78,7 @@ $(document).on("change", ".marketplace_image_input", function () {
     //img
     if (attachment_type == "1") {
         var fileType = file["type"];
-        var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg", "image/svg"];
+        var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/svg"];
 
         var allowedExtension = ['png', 'jpg', 'jpeg', 'svg','gif'];
         var fileExtension = $('.marketplace_image_input').val();
@@ -351,7 +351,7 @@ function saveData(element){
     $('.loading').addClass('d-none');
             }
 
-function createannouncement() {
+function createannouncement(element) {
 
     // $('.loading').removeClass('d-none');
 
@@ -369,6 +369,34 @@ if(annoucementstatus=="3"){
 }else{
     $('.loading').removeClass('d-none');
 }
+   
+
+event.preventDefault();
+    var form = $(element);
+    var actionUrl = form.attr('action');
+   
+    $.ajax({
+        type: "POST",
+        url: actionUrl,
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data)
+        {
+            console.log(data);
+           
+        //     return "sucess";
+        //   alert(data); // show response from the php script.
+
+         
+//   setTimeout(function () {
+//     window.location.href="../announcementList";
+//     $('.loading').addClass('d-none');
+//     }, 8000);
+       
+        }, error: function (err) {
+            console.log(err);
+        }
+       
+    });
    
 
     // var checkimages=$('.addedimageArr').val();

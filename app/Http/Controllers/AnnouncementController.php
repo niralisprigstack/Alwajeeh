@@ -119,9 +119,11 @@ class AnnouncementController extends Controller
       $addedimageArr = explode(',', $request->addedimageArr);
 
       foreach ($addedimageArr as $addedImageId) {
-        // return "here img";
+        // return $addedImageId;
         $announcement_media = "marketplace_image" .  $addedImageId;
+        // return $announcement_media;
         if ($request->hasfile($announcement_media)) {
+          return "here img";
           $product_pic = $request->file($announcement_media);
           $name = time() . $product_pic->getClientOriginalName();
           $firstname = substr($product_pic->getClientOriginalName(), 0, strpos($product_pic->getClientOriginalName(), '.'));
@@ -148,7 +150,7 @@ class AnnouncementController extends Controller
 
 
 
-    //delete
+    //delete announcement
 if($request->status=='3'){
   try {
         
@@ -205,7 +207,7 @@ if($request->status=='3'){
 
 // return 'hereee';
 
-    return redirect('announcementList');
+    // return redirect('announcementList');
   }
 
   public function addoreditAnnouncement(Request $request, $id = NULL)

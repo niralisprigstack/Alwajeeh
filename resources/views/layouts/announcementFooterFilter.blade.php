@@ -9,9 +9,9 @@
   
         <span class="parent col-4">
             <a style="display: grid;" class="mt-2 mb-2 footerfiltered" onclick="showfooterfilterresult(this)" data-attr="sortFilter">
-                <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/sortby.svg') }}" alt="">
-                <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/sortbyActive.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto nav-text">Sort by</span> </i>
+                <img class="img-fluid m-auto footerFilterImg" style="" src="{{ asset('assests/images/announcement/sortby.svg') }}" alt="">
+                <img class="img-fluid m-auto activeFooterFilterImg d-none" style="" src="{{ asset('assests/images/announcement/sortbyActive.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto footerFilterTxt">Sort by</span> </i>
             </a>
         </span>
             
@@ -26,9 +26,9 @@
 
             <span class="parent col-4 pl-0 pr-0">
             <a style="display: grid;" class="mt-2 mb-2 footerfiltered" onclick="showfooterfilterresult(this)" data-attr="businessFilter" data-click="1">
-                <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
-                <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/businessprofileActive.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto nav-text">Business Profile</span> </i>
+                <img class="img-fluid m-auto footerFilterImg" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
+                <img class="img-fluid m-auto activeFooterFilterImg d-none" style="" src="{{ asset('assests/images/announcement/businessprofileActive.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto footerFilterTxt">Business Profile</span> </i>
             </a>
             </span>
 

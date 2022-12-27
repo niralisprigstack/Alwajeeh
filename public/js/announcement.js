@@ -525,6 +525,11 @@ function closeViewers(element) {
 
 
 function showFilteredresult(element) {
+    $(".activeFooterFilterImg").addClass("d-none");
+    $(".footerFilterImg").removeClass("d-none");
+    $(".footerfiltersortdiv").addClass("d-none");
+    $(".footerfiltered").removeClass("active");
+    
     $(".filtered").removeClass("active");
     $('.nav-img').removeClass("show");
     $('.nav-img').removeClass("d-none");
@@ -572,8 +577,7 @@ function showFilteredresult(element) {
             $(this).removeClass("d-none");
             cnt++;
         }
-    });
-    console.log(cnt);
+    });    
     if (cnt == 0) {
         $(".noRecords").removeClass("d-none");
     } else {
@@ -582,37 +586,41 @@ function showFilteredresult(element) {
 }
 
 function showfooterfilterresult(element) {
-    $('.activeImg').addClass("d-none");
-    $('.nav-img').removeClass("d-none");
+    $(".footerfiltersortdiv").addClass("d-none");
+    $('.activeFooterFilterImg').addClass("d-none");
+    $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
     if ($(element).data("attr") == "sortFilter") {
-        $(".filtered").removeClass("active");
-        $('.nav-img').removeClass("show");
-        $('.nav-text').removeClass("showtext");
+        //$(".filtered").removeClass("active");
+        $(".footerfiltered").removeClass("active");
+        $('.footerFilterImg').removeClass("show");
+        //$('.nav-text').removeClass("showtext");
+        $('.footerFilterTxt').removeClass("showtext");
         $(".footerfiltersortdiv").toggleClass("d-none");
 
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
-        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+        //$(element).closest(".parent").find('.nav-text').addClass("showtext");
+        $(element).closest(".parent").find('.footerFilterTxt').addClass("showtext");        
                 
-        if ($(checkActiveClass).find("img").hasClass("activeImg")) {
-            $(element).closest(".parent").find('.nav-img').addClass("d-none");
-            $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+        if ($(checkActiveClass).find("img").hasClass("activeFooterFilterImg")) {
+            $(element).closest(".parent").find('.footerFilterImg').addClass("d-none");
+            $(element).closest(".parent").find('.activeFooterFilterImg').removeClass("d-none");
         }   
     } else if ($(element).data("attr") == "businessFilter") {
-        $(".filtered").removeClass("active");
+        //$(".filtered").removeClass("active");
+         $(".footerfiltered").removeClass("active");
         $('.nav-img').removeClass("show");
-        $('.nav-text').removeClass("showtext");
-
-        // $(".myanndiv").addClass("d-none");
+        //$('.nav-text').removeClass("showtext");
 
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
-        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+        //$(element).closest(".parent").find('.nav-text').addClass("showtext");
+        $(element).closest(".parent").find('.footerFilterTxt').addClass("showtext"); 
         
-        if ($(checkActiveClass).find("img").hasClass("activeImg")) {
-            $(element).closest(".parent").find('.nav-img').addClass("d-none");
-            $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+        if ($(checkActiveClass).find("img").hasClass("activeFooterFilterImg")) {
+            $(element).closest(".parent").find('.footerFilterImg').addClass("d-none");
+            $(element).closest(".parent").find('.activeFooterFilterImg').removeClass("d-none");
         }
 
         var data_click = $(element).data("click");

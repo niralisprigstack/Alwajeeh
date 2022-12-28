@@ -118,13 +118,20 @@ class AnnouncementController extends Controller
     if (isset($request->addedimageArr) && !empty($request->addedimageArr)) {
       $addedimageArr = explode(',', $request->addedimageArr);
 
-      // var_dump($_FILES['marketplace_image1']); return;
-
-      foreach ($addedimageArr as $addedImageId) {        
+      // var_dump($_FILES['marketplace_image'. $addedImageId]); 
+      // return ; 
+// echo $request;
+      foreach ($addedimageArr as $addedImageId) {   
+        // var_dump($_FILES['marketplace_image'.$addedImageId]); 
+            
         $announcement_media = "marketplace_image" .  $addedImageId;
+        
         // return $announcement_media;
         // return $request->$announcement_media;
-        if ($request->hasfile($announcement_media)) {          
+  // echo "inforeach";
+  // echo $request->hasfile($announcement_media);
+        if ($request->hasfile($announcement_media)) {      
+          // echo "inif";    
           // return $request->hasfile($announcement_media);
           $product_pic = $request->file($announcement_media);
           $name = time() . $product_pic->getClientOriginalName();
@@ -136,6 +143,7 @@ class AnnouncementController extends Controller
           $filePath ='announcement/' . $announcement->id . '/' . $name;
           Storage::disk('s3')->put($filePath, file_get_contents($product_pic), 'public');
 
+          // echo $filePath;   
           $announcementfiles = new AnnouncementFiles;
           $announcementfiles->announcement_id = $announcement->id;
           $announcementfiles->media_location =  $filePath;
@@ -147,9 +155,13 @@ class AnnouncementController extends Controller
                 } else {
                   $announcementfiles->media_type = '3';
                 }
+                // echo $announcementfiles->media_type;  
+                // return;
                 $announcementfiles->save();
         }
+        
       }
+      // return ;
     }
 
 
@@ -211,7 +223,7 @@ if($request->status=='3'){
 
 // return 'hereee';
 
-    // return redirect('announcementList');
+    return redirect('announcementList');
   }
 
   public function addoreditAnnouncement(Request $request, $id = NULL)

@@ -219,9 +219,9 @@ $(document).on("change", ".marketplace_image_input", function () {
         $(".getVidFileSize").val(file.size);
 
         var vidFileSize = $(".getVidFileSize").val();
-        if ($(".getVidFileSize").val() > 10485760) {
+        if ($(".getVidFileSize").val() > 15728640) {
             //128 MB to Bytes
-            alert("Video file size must be less than 10MB");
+            alert("Video file size must be less than 15MB");
             return;
             clearInterval(auto_refresh);
         }
@@ -439,7 +439,7 @@ function saveData(element){
             }
 
 function createannouncement(element) {
-   event.preventDefault();
+//    event.preventDefault();
 //    setTimeout(function () {
 //        $('#createAnnouncementForm').unbind('submit').submit();
 //        $('.loading').addClass('d-none');
@@ -462,22 +462,27 @@ if(annoucementstatus=="3"){
     $('.loading').removeClass('d-none');
 }
 
-$.ajax({
-        url: $(element).attr("action"),       
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: new FormData($('#createAnnouncementForm')[0]),
-        type: 'post',
-        success: function (response) {
-            //console.log("SUCCESS : ", response);
-            window.location.href="../announcementList";
-            $('.loading').addClass('d-none');
-        },
-        error: function (e) {
-            //console.log("ERROR : ", e);
-        }
-    });
+// $.ajax({
+//         url: $(element).attr("action"),       
+//         cache: false,
+//         contentType: false,
+//         processData: false,
+//         async:true,
+//         data: new FormData($('#createAnnouncementForm')[0]),
+//         type: 'post',
+//         enctype: 'multipart/form-data',
+//         success: function (response) {
+//             //console.log("SUCCESS : ", response);
+//             console.log(response);
+//                 window.location.href="../announcementList";
+//                 $('.loading').addClass('d-none');
+           
+            
+//         },
+//         error: function (e) {
+//             console.log("ERROR : ", e);
+//         }
+//     });
    
 //  setTimeout(function () {   
 //    // document.getElementById("createAnnouncementForm").submit(); 

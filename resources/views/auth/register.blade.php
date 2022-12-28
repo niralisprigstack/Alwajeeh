@@ -478,7 +478,7 @@
                     <input type="hidden" class="wpphone_number_code" name="wpphone_number_code" value="">
 
                     <input type="hidden" class="buisnessdetailurl" value="{{url('buisnessDetails')}}">
-                    <input type="hidden" class="dashboardUrl" value="{{url('profile')}}">
+                    <input type="hidden" class="dashboardUrl" value="{{url('home')}}">
                     <input type="hidden" class="newsfeedUrl" value="{{url('newsfeed')}}">
                     <!-- <input type="hidden" id="verification_code" type="number" name="verification_code" class="verification_code" > -->
                     <input type="hidden" id="first_name_save" name="first_name">
@@ -578,7 +578,7 @@
             <!-- step 6 ends -->
 
             <div class="step-7 d-none text-center step respstep7" style="">
-                <input type="hidden" class="dashboardurl" value="{{url('profile')}}">
+                <input type="hidden" class="dashboardurl" value="{{url('home')}}">
                 <h2 class='sucessfull-msg justify-content-center' style="font-size: 36px;
     line-height: 44px;">Account<br>Created !</h2>
                 <p class='lastpagetext mt-2 p-0 mb-0 justify-content-center'> Welcome to</p>

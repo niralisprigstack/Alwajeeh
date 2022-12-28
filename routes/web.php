@@ -24,9 +24,9 @@ Route::get('/signUp', function () {
     return view('auth.register');
    })->middleware('guest');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/checkuniqueness', [RegisteredUserController::class, 'checkUsernameEmailDuplicate']);
 
@@ -57,6 +57,14 @@ Route::post('/announcementcomment', [AnnouncementController::class, 'announcemen
 
 Route::get('/test', function () { 
     return view('test');
+});
+
+Route::get('/home', function () { 
+    return view('landing.home');
+});
+
+Route::get('/dashboard', function () { 
+    return view('landing.dashboard');
 });
 
 require __DIR__.'/auth.php';

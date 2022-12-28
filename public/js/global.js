@@ -1,9 +1,7 @@
-$(document).ready(function() {
-
-
-     //current webpage indication
-     $("[href]").each(function() {
-        if (this.href == window.location.href) {
+$(document).ready(function() {    
+     //current webpage indication     
+     $("[href]").each(function() {        
+        if (this.href == window.location.href.split('?')[0]) {
             $(this).find('.nav-img').addClass("active");
             $(this).find('.nav-img').addClass("show");
             $(this).find('.nav-img').addClass("d-none");

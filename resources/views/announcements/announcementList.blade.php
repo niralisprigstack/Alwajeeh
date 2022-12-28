@@ -30,9 +30,16 @@
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
+    
+    @php $hideSection = ""; $showSection = ""; @endphp
+    @if(isset($_GET['s']))
+        @php $hideSection = "d-none"; @endphp
+    @else
+        @php $showSection = "d-none"; @endphp
+    @endif
 
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
-    @include('layouts.announcementFilter')
+    @include('layouts.announcementFilter', ['hideSection' => $hideSection, 'showSection' => $showSection])
     
     @if(isset($_GET['k']) || isset($_GET['m']) || isset($_GET['y']))
     <div class="col-12 row pr-0 resetFilterDiv">
@@ -153,7 +160,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     <span class="ongoingdot mt-2 {{$showdot}}"></span>
                 
                     
-                        <div class="remainingDiv {{$showtime}}" style={{$showtimecss}}>
+                        <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>
@@ -295,20 +302,33 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
  <!-- 'announcementFilterpages.familyAnnouncement' , ['announcementlists' => $announcementlists ] -->
     <!-- </div> -->
 
-@include('layouts.announcementFooterFilter')
+@include('layouts.announcementFooterFilter', ['hideSection' => $hideSection, 'showSection' => $showSection])
 @endsection
 @section('script')
-
-<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAjWotF6wKKrsQHC18xo0E-W77YpoOY8b8&libraries=places" ></script> -->
 <script src="{{asset('/js/announcement.js?v='.$v) }}" ></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.viewersClick').click(function(e){ 
-     
-     // Do something
-     e.stopImmediatePropagation();
-     checkViewers(this);
-  });
+        if(!$('.businessprofiletext').hasClass("d-none")){
+            $('.announcementListMainDiv').each(function () {
+                var data_click = "1";
+                var selectedVal = $(this).data('interested');                
+                if (data_click == selectedVal) {
+                    $(this).removeClass("d-none");                    
+                    $(".submitDiv").removeClass("d-none");
+                    $(".remainingDiv").addClass("d-none");
+                    $(".ongoingdot").addClass("d-none");
+                    $(".filtersectiondiv").addClass("d-none");
+                    $(".businessprofiletext").removeClass("d-none");
+                } else {
+                    $(this).addClass("d-none"); 
+                }                                
+            });
+        }
+        
+        $('.viewersClick').click(function(e){     
+            e.stopImmediatePropagation();
+            checkViewers(this);
+        });
     });
 </script>
 @endsection

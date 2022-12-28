@@ -25,10 +25,10 @@
 
 
             <span class="parent col-4 pl-0 pr-0">
-            <a style="display: grid;" class="mt-2 mb-2 footerfiltered" onclick="showfooterfilterresult(this)" data-attr="businessFilter" data-click="1">
-                <img class="img-fluid m-auto footerFilterImg" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
-                <img class="img-fluid m-auto activeFooterFilterImg d-none" style="" src="{{ asset('assests/images/announcement/businessprofileActive.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto footerFilterTxt">Business Profile</span> </i>
+            <a style="display: grid;" class="mt-2 mb-2 footerfiltered {{($hideSection == 'd-none') ? 'active' : ''}}" onclick="showfooterfilterresult(this)" data-attr="businessFilter" data-click="1">
+                <img class="img-fluid m-auto footerFilterImg {{$hideSection}}" style="" src="{{ asset('assests/images/announcement/businessprofile.svg') }}" alt="">
+                <img class="img-fluid m-auto activeFooterFilterImg {{$showSection}}" style="" src="{{ asset('assests/images/announcement/businessprofileActive.svg') }}" alt="">
+                <span class="fonthead filtertext navText m-auto footerFilterTxt {{($hideSection == 'd-none') ? 'showtext' : ''}}">Business Profile</span> </i>
             </a>
             </span>
 

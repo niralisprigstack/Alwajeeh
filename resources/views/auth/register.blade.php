@@ -505,7 +505,7 @@
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="role" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}" autocomplete="role" placeholder="Role">
+                            <input id="role" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}" required autocomplete="role" placeholder="Role">
                         </div>
                     </div>
 

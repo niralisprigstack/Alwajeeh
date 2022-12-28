@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,12 @@ Route::post('/announcementcomment', [AnnouncementController::class, 'announcemen
 Route::get('/test', function () { 
     return view('test');
 });
+
+
+
+
+//contacts
+Route::get('/allcontacts', [HomeController::class, 'showAllContacts']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

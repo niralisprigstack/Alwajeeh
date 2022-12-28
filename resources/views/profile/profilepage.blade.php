@@ -408,7 +408,7 @@
             <!-- buisness detail -->
             <div class="profdet mb-5">
                 <div class="row col-12 pr-0 justify-content-between mb-3">
-                    <span class="profile-head-text">Buisness Info</span>
+                    <span class="profile-head-text">Business Info</span>
                     <img class="profilecardhead c-pointer global-font-color" src="{{asset('assests/images/profile/editpen.svg')}}" onclick="editprofDetail();" alt="" style="">
                 </div>
                 <div>

@@ -219,9 +219,9 @@ $(document).on("change", ".marketplace_image_input", function () {
         $(".getVidFileSize").val(file.size);
 
         var vidFileSize = $(".getVidFileSize").val();
-        if ($(".getVidFileSize").val() > 15728640) {
+        if ($(".getVidFileSize").val() > 104857600) {
             //128 MB to Bytes
-            alert("Video file size must be less than 15MB");
+            alert("Video file size must be less than 100MB");
             return;
             clearInterval(auto_refresh);
         }

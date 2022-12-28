@@ -304,12 +304,13 @@ if (isset($announcement)) {
 
 
     @section('script')
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAjWotF6wKKrsQHC18xo0E-W77YpoOY8b8&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAjWotF6wKKrsQHC18xo0E-W77YpoOY8b8&libraries=places&callback=initAutocomplete"></script>
     <script src="{{asset('/js/announcement.js?v='.$v) }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             //map location call
             google.maps.event.addDomListener(window, 'load', initialize);
+            // google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
             function initialize() {
                 var input = document.getElementById('locationsearch');

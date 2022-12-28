@@ -85,21 +85,21 @@
 
 
 
-                        <a class="headfont pageurl " href="#">
+                        <a class="headfont pageurl " >
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/homeIcon.svg') }}" alt="">
                         </a>
 
 
 
-                        <a class="headfont pageurl " class="navSvg" href="#">
+                        <a class="headfont pageurl " class="navSvg" >
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/searchIcon.svg') }}" alt="">
                         </a>
 
-                        <a class="headfont pageurl " class="navSvg" href="#">
+                        <a class="headfont pageurl " class="navSvg" >
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/mobileIcon.svg') }}" alt="">
                         </a>
 
-                        <a class="headfont pageurl " class="navSvg" href="#">
+                        <a class="headfont pageurl " class="navSvg" >
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/msgIcon.svg') }}" alt="">
                             <!--<img class="img-fluid m-auto activeImg nav-img d-none" style="" src="{{ asset('assests/images/msgIcon.svg') }}" alt="">-->
                         </a>

@@ -1,5 +1,5 @@
 @extends('layouts.appauth')
-<?php   $v = "8.5" ?>
+<?php   $v = "9.5" ?>
 <title>SignUp</title>
 @section('content')
 
@@ -407,7 +407,7 @@
 
                 <div class="sucessfull-msg justify-content-center" style="height: 40vh;">
                     Verification<br> 
-                    Succesfull
+                    Successfull
                 </div>
 
                 <div class="col-md-12 row justify-content-between p-0 m-0 mt-5 mb-4">

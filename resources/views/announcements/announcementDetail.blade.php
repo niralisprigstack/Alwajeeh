@@ -61,7 +61,7 @@
                     <a onclick="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
                 </div>
                 
-                <div class="detailScrollableFamilyDiv">
+                <div class="detailScrollableDiv detailScrollableFamilyDiv">
                     <div class="col-12 mt-2 pl-0 pr-0 pt-2 descriptionSec">                   
                         <span class="announcementDesc">{{$announcementdetail->description}}</span>                                       
                     </div>

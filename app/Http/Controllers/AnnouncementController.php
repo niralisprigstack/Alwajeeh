@@ -312,7 +312,8 @@ if($request->status=='3'){
   {
 
     $showList = "";
-    $viewers = AnnouncementView::where('announcement_id', '=', $request->entity_id)->get();
+    $userId = Auth::id();
+    $viewers = AnnouncementView::where('announcement_id', '=', $request->entity_id)->where("user_id","!=",$userId)->get();
     // return $viewers;
     foreach ($viewers as $viewer) {
 

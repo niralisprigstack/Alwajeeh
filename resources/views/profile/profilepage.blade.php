@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php  $v = "7.5" ?>
+<?php  $v = "8.5" ?>
 <title>My Profile</title>
 @section('content')
 @section('css')
@@ -92,7 +92,7 @@
 
 
 
-        <div class="detailwholesection mt-3 pb-5">
+        <div class="detailwholesection mt-3 pb-5 mb-5">
         <div class="edit-div d-none">
             <span class="edit-text">Edit Profile</span>
         </div>
@@ -126,7 +126,7 @@
 
 
             <div class="d-none editpersonaldet mb-5 pb-5">
-                <form class="" id="saveperdetail" action="{{url('personaldetails')}}" method="post" enctype="multipart/form-data">
+                <form class="" id="saveperdetail" action="{{url('personaldetails')}}" method="post" enctype="multipart/form-data" onsubmit="return showCustomLoader();">
                     @csrf
                     <input type="hidden" class="form-control email shadow-none " name="email" value="">
 
@@ -247,7 +247,7 @@
 
                             <div class="col-6 col-lg-6 col-md-6">
                                 <button type="submit" class="mt-4 savepersonaldet authButton button_text col-12 p-0" value="personalDetail">Save
-                                <span class="loadingspinner  d-none loader ml-2 personaldetloader checkloader " role="status" aria-hidden="true"></span>   
+                                <!-- <span class="loadingspinner  d-none loader ml-2 personaldetloader checkloader " role="status" aria-hidden="true"></span>    -->
                                 <!-- <i class="fa fa-spinner fa-spin d-none ml-2 personaldetloader checkloader"></i> -->
                                 </button>
 
@@ -427,7 +427,7 @@
                 <div style="margin-bottom: 35px;">
                     <h3 class="smbalglobal-color font-weight-bold mt-2 stepnumber" style="margin: auto;">Business info</h3>
                 </div>
-                <form class="" id="saveprofdetail" action="{{url('professionaldetails')}}" method="post" enctype="multipart/form-data">
+                <form class="" id="saveprofdetail" action="{{url('professionaldetails')}}" method="post" enctype="multipart/form-data" onsubmit="return showCustomLoader();">
                     @csrf
                     <div class="form-group row  mt-5">
                         <div class="col-md-12">
@@ -501,7 +501,7 @@
 
                             <div class="col-6 col-lg-6 col-md-6">
                                 <button type="submit" class="mt-4 saveprofbtn authButton button_text col-12 p-0" value="professionalDetail">Save
-                                <span class="loadingspinner  d-none loader ml-2 profbtnLoader checkloader " role="status" aria-hidden="true"></span>     
+                                <!-- <span class="loadingspinner  d-none loader ml-2 profbtnLoader checkloader " role="status" aria-hidden="true"></span>      -->
                                 <!-- <i class="fa fa-spinner fa-spin d-none ml-2 profbtnLoader checkloader"></i> -->
                                 </button>
 

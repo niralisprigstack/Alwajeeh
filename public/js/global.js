@@ -23,3 +23,7 @@ function findParent(element) {
         }
     }
 }
+
+function showCustomLoader() {
+    $('.loading').removeClass('d-none');
+}

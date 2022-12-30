@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "7.5" ?>
+<?php $v = "8.5" ?>
 <title>Dashboard</title>
 @section('content')
 @section('css')
@@ -22,10 +22,12 @@
         </div>     
         <div class="col-6 pl-0">
             <div class="dashboardCard m-2">
+            <a href="{{url('allcontacts')}}">
                 <div class="p-1">
                     <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/contacts.svg') }}" alt="">
                     <h4 class="dashboardTitle d-block text-center">Contacts</h4>
-                </div>                
+                </div> 
+            </a>               
             </div>
         </div>
     </div>

@@ -698,6 +698,7 @@ function showFilteredresult(element) {
     }    
 
     var cnt = 0;
+    closeViewers(this);
     $('.announcementListMainDiv').each(function () {
         var selectedVal = $(this).data('user');
         if (data_click == "3") {

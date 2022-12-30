@@ -1,10 +1,10 @@
 <!doctype html>
-<?php $v = "7.5" ?>
+<?php $v = "8.5" ?>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
 
 
     <!-- CSRF Token -->
@@ -24,7 +24,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <!-- <link href="https://fonts.cdnfonts.com/css/el-messiri" rel="stylesheet"> -->
+    <link href="//db.onlinewebfonts.com/c/412e3116dc337076dcca9bf117952b24?family=El+Messiri" rel="stylesheet" type="text/css"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

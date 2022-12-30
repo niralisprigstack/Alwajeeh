@@ -42,7 +42,12 @@
             <li class="showDetails">Sawyer Wakefield</li>
         </ul>
         
-        <ul data-role="none" id="list-navigation">
+        <ul data-role="none" id="list-navigation" style="color: #696969;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 200;
+    position: fixed;">
             <li>
                 <p id="list-1" class="scrollToSelected"><strong>1</strong></p>
                 <p id="list-2" class="scrollToSelected"><strong>2</strong></p>
@@ -93,25 +98,29 @@
         
     </div>
 </div>
-<script>
-    $('.scrollToSelected').bind('click', function() {
-    var view = $(this).attr('id');
-    var list = view.split('-');
-    var elem = $("#"+list[1]);
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+//     $('.scrollToSelected').bind('click', function() {
+//     var view = $(this).attr('id');
+//     var list = view.split('-');
+//     var elem = $("#"+list[1]);
     
-    // not sure if this is offset or position
-    var position = elem.position(); 
-    var offset   = elem.offset();
+//     // not sure if this is offset or position
+//     var position = elem.position(); 
+//     var offset   = elem.offset();
     
-    //alert('left: '+position.left + ", top: " + position.top);
-    //alert('left: '+offset.left + ", top: " + offset.top);
+//     //alert('left: '+position.left + ", top: " + position.top);
+//     //alert('left: '+offset.left + ", top: " + offset.top);
     
-    $.mobile.silentScroll(position.top);
-    //$.mobile.silentScroll(offset.top);
+//     $.mobile.silentScroll(position.top);
+//     //$.mobile.silentScroll(offset.top);
     
-});
+// });
 
-$('.showDetails').bind('click', function() {
-    $.mobile.changePage( "#details", { transition: "slideup"} );
-});
+// $('.showDetails').bind('click', function() {
+//     $.mobile.changePage( "#details", { transition: "slideup"} );
+// });
+
+    });
 </script>

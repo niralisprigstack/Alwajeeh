@@ -87,7 +87,7 @@ $('.savepersonaldet').on('click', function (){
 });
 
 $('.savecontact').on('click', function (){
-    $('.savecontactLoader').removeClass('d-none');
+    // $('.savecontactLoader').removeClass('d-none');
 });
 $('.saveprofbtn').on('click', function (){
     $('.profbtnLoader').removeClass('d-none');
@@ -222,17 +222,22 @@ function checkUniqueUsernameEmail(element) {
             $('.error-email').text('');
             if (response.phonexist === true || response.email === true || response.wpphonexist==true) {
                 if (response.phonexist === true) {
+                    $('.checkloader').addClass("d-none");
                     $('.validPhoneNum').text('Phone number already exists in the system.'); 
                     validatedata = false;  
                 }
                 if (response.email === true) {
+                    $('.checkloader').addClass("d-none");
                     $('.error-email').text('Email address already exists in the system.');
                     validatedata = false;    
                 }
                 if (response.wpphonexist === true) {
+                    $('.checkloader').addClass("d-none");
                     $('.validwpPhoneNum').text('Whatsapp Phone number already exists in the system.'); 
                     validatedata = false;  
                 }
+            }else{
+                $('.loading').removeClass('d-none');
             }
         }, error: function (err) {
             console.log(err);            

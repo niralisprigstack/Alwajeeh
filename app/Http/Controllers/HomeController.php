@@ -10,6 +10,10 @@ use App\Models\User;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Announcement;
+use App\Models\AnnouncementFiles;
+use App\Models\AnnouncementView;
+
 class HomeController extends Controller
 {
     //
@@ -23,6 +27,21 @@ class HomeController extends Controller
         // $allcontacts= User::orderBy('id','desc')->get()->except(Auth::id());
 
         return view('allContacts', compact('allcontacts','contactCount'));
+    
+  }
+
+  public function homepage(Request $request)
+  {
+
+        $userid = Auth::id();
+        // $contactCount = User::count();
+        $annoncementcount=Announcement::count();
+        $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();    
+        $unreadcount= $annoncementcount-$viewcount;
+        // return $co;
+        // $allcontacts= User::orderBy('id','desc')->get()->except(Auth::id());
+
+        return view('landing.home', compact('unreadcount'));
     
   }
 }

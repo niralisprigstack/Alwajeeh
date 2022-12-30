@@ -19,10 +19,10 @@ $(document).ready(function () {
     
     //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight; //240
-    var totalheight = detailheight - 126 - 190 - 120;    
+    var totalheight = detailheight - 126 - 190 - 135;    
     
     if ($(".detailScrollableFamilyDiv").length > 0) {        
-        totalheight = totalheight - 81 + 30;
+        totalheight = totalheight - 81 +30;
     }
     
     $(".detailScrollableDiv").css("max-height", totalheight + "px");
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $(".listDiv").css("overflow-x", "hidden");
     
     //full section min-height set in business detail, family detail & listing page - advanced filter  
-    var fullCardMinHeight = detailheight - 216 - 120;
+    var fullCardMinHeight = detailheight - 216 - 115;
     $(".fullSectionHeight").css("min-height", fullCardMinHeight + "px");    
 
 

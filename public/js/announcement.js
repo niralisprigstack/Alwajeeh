@@ -19,10 +19,10 @@ $(document).ready(function () {
     
     //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight; //240
-    var totalheight = detailheight - 126 - 190 - 120;
+    var totalheight = detailheight - 126 - 190 - 120;    
     
-    if ($(".detailScrollableFamilyDiv").length > 0) {
-        totalheight = fullCardMaxHeight - 81;
+    if ($(".detailScrollableFamilyDiv").length > 0) {        
+        totalheight = totalheight - 81 + 30;
     }
     
     $(".detailScrollableDiv").css("max-height", totalheight + "px");
@@ -358,17 +358,7 @@ $(document).on("change", ".marketplace_image_input", function () {
         $(imageDivClone).addClass('docDiv');
         $('.parentdoc').append(imageDivClone);
     }
-    else { }
-
-    //full section max-height set in listing page - all sections except advanced filter
-    var fullCardMaxHeight = detailheight - 216 - 120;
-    $(".listDiv").css("max-height", fullCardMaxHeight + "px");
-    $(".listDiv").css("overflow-y", "scroll");
-    $(".listDiv").css("overflow-x", "hidden");
-    
-    //full section min-height set in business detail, family detail & listing page - advanced filter  
-    var fullCardMinHeight = detailheight - 216 - 120;
-    $(".fullSectionHeight").css("min-height", fullCardMinHeight + "px");    
+    else { }     
     
 });
 

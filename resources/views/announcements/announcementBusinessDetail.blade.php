@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "8.5" ?>
+<?php $v = "9.5" ?>
 <title>Announcement Business Detail</title>
 @section('content')
 @section('css')

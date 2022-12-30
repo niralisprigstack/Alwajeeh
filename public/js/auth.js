@@ -583,7 +583,7 @@ $('.otpLoader').removeClass('d-none');
               $('.register_cont').removeClass('full_logo2');
               }
               else{
-                  alert('Something went wrong please try again');
+                //   alert('Something went wrong please try again');
                   return;
               }
               $('.registerLoader').addClass('d-none');

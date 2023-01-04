@@ -81,7 +81,8 @@ background-image: linear-gradient(to bottom,    rgb(10 10 10 / 40%),    rgb(24 2
 .commonheadertext{
     padding-left: 10px;
     padding-bottom: 10px;
-    padding-top: 65px;
+    /* padding-top: 65px; */
+    padding-top: 50px;
 }
 .announcementText{    
     font-weight: 700;
@@ -450,25 +451,25 @@ color: #F5F5F5;
 
 
 .filtersecstatic{
-    top: 120px;
+    top: 105px;
     position: fixed;
     z-index: 1;
 }
 .listpagestaticbtn{
-    top: 193px;
+    top: 177px;
     position: fixed;
     z-index: 1;
 }
 .announcementlistscrollbody{
     overflow: hidden scroll;
-    padding-top: 230px !important;
+    padding-top: 215px !important;
     padding-bottom: 150px;
     z-index: 0;
 }
 .advancedFilterDiv{
-    padding-top: 130px !important;
+    padding-top: 110px !important;
     padding-bottom: 65px;
 }
 .ifbusinessdiv{   
-    padding-top: 130px !important;
+    padding-top: 110px !important;
 }

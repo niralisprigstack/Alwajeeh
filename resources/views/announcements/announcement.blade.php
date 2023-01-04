@@ -5,7 +5,7 @@
 @section('css')
 <style>
     .announcementContainer {
-        padding-top: 140px;
+        padding-top: 120px;
     }
 </style>
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">

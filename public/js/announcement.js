@@ -732,9 +732,16 @@ function showfooterfilterresult(element) {
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
     if ($(element).data("attr") == "sortFilter") {
-        $(".businessprofile").addClass("d-none");
-        $(".resetFilterDiv").removeClass("d-none");
-        $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
+        // $(".businessprofile").addClass("d-none");
+        if($(".businessprofile").hasClass("d-none")){
+            $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
+            $(".resetFilterDiv").removeClass("d-none");
+        }else{
+            $(".announcementlistscrollbody").addClass("ifbusinessdiv");
+            $(".resetFilterDiv").addClass("d-none");
+        }
+       
+       
         //$(".filtered").removeClass("active");
         $(".footerfiltered").removeClass("active");
         $('.footerFilterImg').removeClass("show");

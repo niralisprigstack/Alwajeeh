@@ -20,7 +20,8 @@
     display: none !important;
 }
 .detailpagecontainer{
- margin-top:112px;
+ /* margin-top:112px; */
+ padding-top: 94px;
 }
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">

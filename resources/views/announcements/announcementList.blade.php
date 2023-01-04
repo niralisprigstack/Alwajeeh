@@ -158,7 +158,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     ?>
                      
                      
-                        <span class="announcementList d-block"><span class="createdDate">{{$date}}</span> <br/> <span class="createdyr">{{$year}}</span></span>
+                        <span class="announcementList d-block"><span class="createdDate">{{$date}}</span> <span class="createdyr">'{{$year}}</span></span>
                        
                     
                     

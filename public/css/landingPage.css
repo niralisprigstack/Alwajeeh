@@ -78,6 +78,9 @@ body {
 }
 
 /*dashboard page ui*/
+.dashboardCard img{
+    width: 70px; height: 70px;
+}
 .dashboardTitle{
     font-weight: 600;
     font-size: 20px;

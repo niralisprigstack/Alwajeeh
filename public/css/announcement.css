@@ -61,6 +61,7 @@ body {
     width: 100%;
     justify-content: center;
     display: flex;
+    z-index:1;
 }
 .footerfilterblackbg{
     background: rgba(0, 0, 0, 0.7);
@@ -441,4 +442,28 @@ color: #F5F5F5;
     backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, 0.6);   
     box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);
+}
+
+
+
+
+.filtersecstatic{
+    top: 120px;
+    position: fixed;
+    z-index: 1;
+}
+.myannbtnstatic{
+    top: 190px;
+    position: fixed;
+    z-index: 1;
+}
+.announcementlistscrollbody{
+    overflow: hidden scroll;
+    padding-top: 230px !important;
+    padding-bottom: 150px;
+    z-index: 0;
+}
+.advancedFilterDiv{
+    padding-top: 145px !important;
+    padding-bottom: 45px;
 }

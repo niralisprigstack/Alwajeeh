@@ -727,7 +727,7 @@ function showFilteredresult(element) {
 }
 
 function showfooterfilterresult(element) {
-    $(".footerfiltersortdiv").addClass("d-none");
+ 
     $('.activeFooterFilterImg').addClass("d-none");
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
@@ -737,7 +737,12 @@ function showfooterfilterresult(element) {
         $('.footerFilterImg').removeClass("show");
         //$('.nav-text').removeClass("showtext");
         $('.footerFilterTxt').removeClass("showtext");
-        $(".footerfiltersortdiv").toggleClass("d-none");
+        if($(".footerfiltersortdiv").hasClass("d-none")){
+            $(".footerfiltersortdiv").removeClass("d-none");
+        }else{
+            $(".footerfiltersortdiv").addClass("d-none");
+        }
+        // $(".footerfiltersortdiv").toggleClass("d-none");
 
         $(element).addClass("active");
         $(element).closest(".parent").find('.nav-img').addClass("show");
@@ -749,6 +754,7 @@ function showfooterfilterresult(element) {
             $(element).closest(".parent").find('.activeFooterFilterImg').removeClass("d-none");
         }   
     } else if ($(element).data("attr") == "businessFilter") {
+        $(".footerfiltersortdiv").addClass("d-none");
         //$(".filtered").removeClass("active");
          $(".footerfiltered").removeClass("active");
         $('.nav-img').removeClass("show");
@@ -798,6 +804,7 @@ function showfooterfilterresult(element) {
     });
     
 }else if($(element).data("attr")=="Filter"){
+    $(".footerfiltersortdiv").addClass("d-none");
     $(".businessprofiletext").addClass("d-none");
     $(".resetFilterDiv").addClass("d-none");
     $(".announcementListPageSection").addClass("d-none");

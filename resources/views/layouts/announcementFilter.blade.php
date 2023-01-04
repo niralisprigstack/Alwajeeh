@@ -1,5 +1,5 @@
 
-<div class="col-12 m-auto filtersection" style="">
+<div class="col-12 m-auto filtersection filtersecstatic" style="">
 
 @php
  $defaultSelectd = ( (app('request')->input('seating-types') != 3) &&  (app('request')->input('seating-types') != 6) ) ;

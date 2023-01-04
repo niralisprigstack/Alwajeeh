@@ -8,7 +8,7 @@
     padding-left: 10px !important;
 }
 .filtersection{
-    padding-top: 120px !important;
+    /* padding-top: 120px !important; */
 }
 .announcementListPageSection{
     /* padding-top: 0px; */
@@ -49,7 +49,7 @@
         </div>        
     </div>
     @else
-    <div class="col-12 row pr-0 resetFilterDiv myanndiv">
+    <div class="col-12 row pr-0 resetFilterDiv myanndiv myannbtnstatic">
         <div class="col-4"></div>
         <div class="col-8 pr-0">
             <a href="{{url('myannouncement')}}"><button type="button" class="buttonCss buttonCss button_text col-12 p-2">My Announcements</button></a>
@@ -57,7 +57,7 @@
     </div>
     @endif
     
-    <div class="fluid-container announcementListPageSection listDiv">
+    <div class="fluid-container announcementListPageSection  announcementlistscrollbody">
 
     @if(count($announcementlists) > 0)
         @php $showHideSection = "d-none"; @endphp

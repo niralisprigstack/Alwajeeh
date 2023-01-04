@@ -11,7 +11,7 @@
 <input type="hidden" class="getchar" value="">
     <div class="contactSectionDiv mt-3 mb-3 ml-2 mr-2">
         <div class="d-flex w-100 col-12 p-0 m-0">
-            <div class="col-10 pl-0 pr-2 contactdivcol" style="">
+            <div class="col-10 pl-0 pr-0 contactdivcol" style="">
                 <div class="contactDiv pt-3 pb-3">
                     @foreach($allcontacts as $allcontact)
 
@@ -33,7 +33,7 @@
                     
                 </div>
             </div>
-            <div class="col-2 p-0 fixedsec">
+            <div class="col-2 fixedsec">
                 <div class="alphabetdiv pt-2 pb-2">
                <?php $a=range("A","Z");
                 foreach($a as $alphabet){?>

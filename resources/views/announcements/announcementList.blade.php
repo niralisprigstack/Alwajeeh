@@ -221,7 +221,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
     </div>
     
     <!--advance filter div-->
-    <section class="mb-5 advancedFilterDiv d-none">
+    <section class="advancedFilterDiv d-none">
         <input type="hidden" class="announcementList" value="{{url('announcementList')}}">
         <h5 class="ml-3 filterCss mt-4">ADVANCED FILTER</h5>
         <div class="submissionDiv fullSectionHeight mt-3 mb-3 ml-2 mr-2 pt-5 pb-5">

@@ -22,7 +22,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- <link href="https://fonts.cdnfonts.com/css/el-messiri" rel="stylesheet"> -->
     <link href="//db.onlinewebfonts.com/c/412e3116dc337076dcca9bf117952b24?family=El+Messiri" rel="stylesheet" type="text/css"/>

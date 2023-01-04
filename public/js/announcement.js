@@ -732,6 +732,9 @@ function showfooterfilterresult(element) {
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
     if ($(element).data("attr") == "sortFilter") {
+        $(".businessprofile").addClass("d-none");
+        $(".resetFilterDiv").removeClass("d-none");
+        $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
         //$(".filtered").removeClass("active");
         $(".footerfiltered").removeClass("active");
         $('.footerFilterImg').removeClass("show");
@@ -786,7 +789,12 @@ function showfooterfilterresult(element) {
                     // $(this).closest(".announcementDiv").find(".remainingDiv").addClass("d-none");    
 
                     $(".filtersectiondiv").addClass("d-none");
+                    $(".businessprofile").removeClass("d-none");
                     $(".businessprofiletext").removeClass("d-none");
+                    $(".resetFilterDiv").addClass("d-none");
+                    $(".announcementlistscrollbody").addClass("ifbusinessdiv");
+                    $(".resetFilterDiv")
+                  
                 } else {
                     $(this).addClass("d-none");
                     // $(this).closest(".announcementDiv").find(".submitDiv").addClass("d-none");  
@@ -805,7 +813,10 @@ function showfooterfilterresult(element) {
     
 }else if($(element).data("attr")=="Filter"){
     $(".footerfiltersortdiv").addClass("d-none");
+    $(".businessprofile").addClass("d-none");
     $(".businessprofiletext").addClass("d-none");
+    $(".resetFilterDiv").removeClass("d-none");
+    $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
     $(".resetFilterDiv").addClass("d-none");
     $(".announcementListPageSection").addClass("d-none");
     $(".filtersectiondiv").addClass("d-none");

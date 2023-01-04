@@ -3,8 +3,8 @@ body {
     font-family: 'Montserrat';
     font-style: normal; 
     /* margin-top: 70px; */
-    background-image: url(/assests/images/announcement/announcementBgImg.jpg);
-
+    /* background-image: url(/assests/images/announcement/announcementBgImg.jpg); */
+background-image: linear-gradient(to bottom,    rgb(10 10 10 / 40%),    rgb(24 24 24 / 40%)  ),url(/assests/images/announcement/announcementBgImg.jpg);
 
     width: -webkit-fill-available;
     -webkit-background-size: cover;
@@ -466,6 +466,9 @@ color: #F5F5F5;
     z-index: 0;
 }
 .advancedFilterDiv{
-    padding-top: 145px !important;
+    padding-top: 130px !important;
     padding-bottom: 65px;
+}
+.ifbusinessdiv{   
+    padding-top: 130px !important;
 }

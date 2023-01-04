@@ -110,6 +110,10 @@
                         <a class="headfont pageurl navSvg" href="{{url('announcementList')}}">
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/bell-Icon.svg') }}" alt="">
                             <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/bell-IconActive.svg') }}" alt="">
+                           
+                          @if($unreadcount>0)
+                            <span class="rednotifydot"></span>      
+                          @endif                   
                         </a>
 
                     </div>

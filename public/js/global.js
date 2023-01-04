@@ -8,7 +8,7 @@ $(document).ready(function() {
             $(this).find('.activeImg').removeClass("d-none");
         }
     });
-    
+
 });
 
 function findParent(element) {

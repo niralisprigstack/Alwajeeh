@@ -42,14 +42,14 @@
     @include('layouts.announcementFilter', ['hideSection' => $hideSection, 'showSection' => $showSection])
     
     @if(isset($_GET['k']) || isset($_GET['m']) || isset($_GET['y']))
-    <div class="col-12 row pr-0 resetFilterDiv">
+    <div class="col-12 row pr-0 resetFilterDiv listpagestaticbtn">
         <div class="col-6"></div>
         <div class="col-6 pr-0">
             <a href="{{url('announcementList')}}"><button type="button" class="buttonCss buttonCss button_text col-12 p-2">Reset Filters</button></a>
         </div>        
     </div>
     @else
-    <div class="col-12 row pr-0 resetFilterDiv myanndiv myannbtnstatic">
+    <div class="col-12 row pr-0 resetFilterDiv myanndiv listpagestaticbtn">
         <div class="col-4"></div>
         <div class="col-8 pr-0">
             <a href="{{url('myannouncement')}}"><button type="button" class="buttonCss buttonCss button_text col-12 p-2">My Announcements</button></a>

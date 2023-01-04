@@ -785,6 +785,15 @@ a{
     color: transparent !important;
     text-decoration: none !important;
   }
+  .rednotifydot{
+    top: 5px;
+    height: 12px;
+    width: 12px;
+    background-color: #FF0101;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+  }
 @media (max-width:768px) {
     .bottomsmbalheader{
         position: fixed !important;

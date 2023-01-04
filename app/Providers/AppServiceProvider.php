@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\Announcement;
+use App\Models\AnnouncementFiles;
+use App\Models\AnnouncementView;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,5 +29,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        view()->composer('layouts.app', function($view) {
+            $annoncementcount=Announcement::count();
+            $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();    
+            $unreadcount= $annoncementcount-$viewcount;
+            $view->with('unreadcount', $unreadcount);                  
+        });
     }
 }

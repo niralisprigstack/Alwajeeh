@@ -732,7 +732,7 @@ function showfooterfilterresult(element) {
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
     if ($(element).data("attr") == "sortFilter") {
-        $(".businessprofile").addClass("d-none");
+        //$(".businessprofile").addClass("d-none");
         $(".resetFilterDiv").removeClass("d-none");
         $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
         //$(".filtered").removeClass("active");

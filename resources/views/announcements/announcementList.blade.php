@@ -59,6 +59,11 @@
     
     <div class="fluid-container announcementListPageSection  announcementlistscrollbody">
 
+
+    <div class="col-12 m-auto businessprofile {{$showSection}}" style="">
+    <span class="businessprofiletext mt-4 mb-3">My Business Profile</span>
+    </div>
+
     @if(count($announcementlists) > 0)
         @php $showHideSection = "d-none"; @endphp
     @else

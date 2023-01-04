@@ -58,7 +58,7 @@
 
 
 
-    <span class="businessprofiletext mt-4 {{$showSection}}">My Business Profile</span>
+    <span class="businessprofiletext mt-4 {{$showSection}}"></span>
 
 
     </div>

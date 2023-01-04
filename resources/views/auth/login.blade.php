@@ -3,7 +3,7 @@
 <title>Login</title>
 @section('content')
 
-<div class="fluid-container row heightmobileview ml-0 mr-0" style="height:100vh">
+<div class="fluid-container row heightmobileview ml-0 mr-0" style="">
 
     <img class="img-fluid" style="position: absolute;top: 0px;left: 0px;"  src="{{ asset('assests/images/alwajeehpillar.svg') }}" alt="">
     <?php if (isset($_COOKIE['user_name']) && isset($_COOKIE['login_pass'])) {

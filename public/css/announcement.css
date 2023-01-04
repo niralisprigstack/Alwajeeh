@@ -15,6 +15,10 @@ body {
     max-width: 100%;
     background-position: center;
     background-repeat: no-repeat;
+    
+    height: auto;
+    min-height: 100%;
+
 }
 .fixed-header{
     width: 100%;

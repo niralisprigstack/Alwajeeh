@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\FoundationController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -69,6 +70,17 @@ Route::get('/dashboard', function () {
 
 //contacts
 Route::get('/allcontacts', [HomeController::class, 'showAllContacts']);
+
+
+
+//foundation
+Route::get('/foundation', [FoundationController::class, 'foundationpage']);
+Route::get('/aboutfoundation', function () { 
+    return view('foundation.aboutFoundation');
+});
+Route::get('/mediaarchive', function () { 
+    return view('foundation.mediaArchive');
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

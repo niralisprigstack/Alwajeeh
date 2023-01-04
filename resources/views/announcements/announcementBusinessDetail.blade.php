@@ -53,8 +53,52 @@
                     ?>
                         <span class="announcementList">{{ $date}} <br /> {{$year}}</span>
                     </div>
-                    <div class="col-7 row pl-0 pr-0">                                          
-                        
+                    <?php
+                    $showdot="";
+                    $showtime="";
+                    $remainingTime="";
+                    $showtimecss="";
+                      if(isset($announcementdetail->closing_date)){
+                        date_default_timezone_set('Asia/Dubai');
+                        $edStamp = strtotime(now());
+                        $todaydate = date("Y-m-d H:i:s", $edStamp);
+                        // echo $todaydate;
+                        // $todaydate = date('Y-m-d H:i:s');
+                        if($todaydate<=$announcementdetail->closing_date){
+                            //echo $todaydate;
+                            
+                            // echo $announcementlist->closing_date;
+                            $today = new DateTime($todaydate);
+                            $closedate = new DateTime($announcementdetail->closing_date);
+            
+                            // The diff-methods returns a new DateInterval-object...
+                            $diff =  $today->diff($closedate);
+            
+                            // Call the format method on the DateInterval-object
+                            $remainingTime= $diff->format('%ad %hh');
+                            //remainingtime = date_diff($today ,$closedate);
+                            //$remainingTime=$remainingtime->format('%ad');
+            
+            
+                            //                 date_default_timezone_set('UTC');
+            
+                            // $datetime = new DateTime();
+                            // echo $datetime->format('Y-m-d H:i:s');
+                           
+            
+            
+                        }
+                        else{
+                            $showtime="";
+                            $showtimecss="visibility:hidden";
+                        }
+                    }
+                    ?>
+                    <div class="col-7  pl-0 pr-0">                                          
+                    <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
+                            
+                            <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -131,12 +175,17 @@
                         <span class="announcementList">Project Location</span>                                      
                     </div>
                     
-                    <div class="col-12 mt-1 pl-0 pr-0">                   
-                        <span class="announcementDesc">{{$announcementdetail->announcement_location}}</span> 
+                    <div class="col-12 mt-1 pl-0 pr-0">  
+                        <?php if(isset($announcementdetail->announcement_location))  { ?>
+                            <span class="announcementDesc">{{$announcementdetail->announcement_location}}</span> 
                         <?php  $location = str_replace(", ","+",$announcementdetail->announcement_location); ?>
                          <iframe width="100%" height="300" class="mb-4 mb-lg-0" style="border-radius: 10px;border: 0;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{$location}}&key=AIzaSyDuE8EjBUwioEucWmYupCzboXrSry8F2aw
                         &q={{$location}}">
                     </iframe> 
+                      <?php  }    else{?>
+                        <span class="announcementDesc">No Location added.</span> 
+                    <?php  }      ?> 
+                     
 
 
                     </div>

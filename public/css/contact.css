@@ -43,7 +43,7 @@ body {
 }
 .announcementText{    
     font-weight: 700;
-font-size: 30px;
+font-size: 26px;
 line-height: 37px;
 display: flex;
 align-items: center;
@@ -80,6 +80,7 @@ color: #F5F5F5;
     border-radius: 10px;
     width: 100%;    
     margin-bottom: 90px;
+    /* height: 100vh; */
 }
 .alphabetDiv{
     padding-left: 20px;

@@ -681,7 +681,7 @@ text-align: center;
 color: #A4894B;
       }
       .heightmobileview{
-        height: unset !important;
+        /* height: unset !important; */
         width: 100%;
         overflow-x: hidden;
       }

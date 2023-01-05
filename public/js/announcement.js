@@ -18,8 +18,8 @@ $(document).ready(function () {
     });    
     
     //height set for scrollable div in business detail & listing page
-    var detailheight = window.innerHeight; //240
-    var totalheight = detailheight - 126 - 190 - 135;    
+    var detailheight = window.innerHeight;
+    var totalheight = detailheight - 126 - 190 - 135 + 40;    
     
     if ($(".detailScrollableFamilyDiv").length > 0) {        
         totalheight = totalheight - 81 +30;

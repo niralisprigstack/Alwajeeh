@@ -31,9 +31,9 @@
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
     
-    @php $hideSection = ""; $showSection = ""; @endphp
+    @php $hideSection = ""; $showSection = ""; $ifbusinessdiv = ''; @endphp
     @if(isset($_GET['s']))
-        @php $hideSection = "d-none"; @endphp
+        @php $hideSection = "d-none"; $ifbusinessdiv = 'ifbusinessdiv'; @endphp
     @else
         @php $showSection = "d-none"; @endphp
     @endif
@@ -49,7 +49,7 @@
         </div>        
     </div>
     @else
-    <div class="col-12 row pr-0 resetFilterDiv myanndiv listpagestaticbtn">
+    <div class="col-12 row pr-0 resetFilterDiv myanndiv listpagestaticbtn d-none">
         <div class="col-4"></div>
         <div class="col-8 pr-0">
             <a href="{{url('myannouncement')}}"><button type="button" class="buttonCss buttonCss button_text col-12 p-2">My Announcements</button></a>
@@ -57,7 +57,7 @@
     </div>
     @endif
     
-    <div class="fluid-container announcementListPageSection  announcementlistscrollbody">
+    <div class="fluid-container announcementListPageSection  announcementlistscrollbody {{$ifbusinessdiv}}">
 
 
     <div class="col-12 m-auto businessprofile {{$showSection}}" style="">
@@ -73,12 +73,12 @@
     @foreach($announcementlists as $announcementlist)
     <?php 
     $created_by=$announcementlist->created_by;
-    $showdot="d-none";
+    //$showdot="d-none";
     $showtime="d-none";
     $remainingTime="";
     $showtimecss="";
     if($created_by=="4"){
-        $showdot="";
+        //$showdot="";
         $showtime="";
         if(isset($announcementlist->closing_date)){
             date_default_timezone_set('Asia/Dubai');
@@ -158,17 +158,23 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     ?>
                      
                      
-                        <span class="announcementList d-block"><span class="createdDate">{{$date}}</span> <span class="createdyr">'{{$year}}</span></span>
+                        <span class="announcementList d-block col-4 pl-0 pr-0"><span class="createdDate">{{$date}}</span> <span class="createdyr">'{{$year}}</span></span>
                        
-                    
+                    <?php if($checkUnread == '1') {
+                        $showdot = '';
+                    } else {
+                        $showdot = 'd-none';
+                    } ?>
                     
                     <span class="ongoingdot mt-2 {{$showdot}}"></span>
                 
-                    
+                    <div class='col-7 pl-0 pr-0'>
                         <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>
+                    </div>
+                        
 
 
                         <div class="submitDiv {{$submittedLabel}} d-none">

@@ -33,10 +33,15 @@
                         <span class="announcementList">{{ $date}} '{{$year}}</span>
                     </div>
                     <?php
+ $created_by=$announcementdetail->created_by;
+ //$showdot="d-none";
+ $showtime="d-none";
+ $remainingTime="";
+ $showtimecss="";
+
+
                     $showdot="";
-                    $showtime="";
-                    $remainingTime="";
-                    $showtimecss="";
+                   
                       if(isset($announcementdetail->closing_date)){
                         date_default_timezone_set('Asia/Dubai');
                         $edStamp = strtotime(now());
@@ -47,6 +52,7 @@
                             //echo $todaydate;
                             
                             // echo $announcementlist->closing_date;
+                            $showtime="";
                             $today = new DateTime($todaydate);
                             $closedate = new DateTime($announcementdetail->closing_date);
             

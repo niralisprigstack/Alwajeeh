@@ -28,7 +28,7 @@
             </span>
            
 
-
+            <div class="vertical-seperator"></div>
             <span class="parent">
             <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="4">
                 <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/business.svg') }}" alt="">
@@ -44,8 +44,10 @@
             </a>
             </span>
 
+            <div class="vertical-seperator"></div>
+
             <span class="parent">
-            <a style="display: grid;" class="mt-2 mb-2 ml-3 filtered"  href="{{url('announcement')}}">
+            <a style="display: grid;" class="mt-2 mb-2 ml-2 filtered"  href="{{url('announcement')}}">
                 <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/createnew.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text">Create New</span> </i>
             </a>

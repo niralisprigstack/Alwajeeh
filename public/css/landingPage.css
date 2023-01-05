@@ -83,7 +83,7 @@ body {
 
 /*dashboard page ui*/
 .dashboardCard img{
-    width: 70px; height: 70px;
+    /* width: 70px; height: 70px; */
 }
 .dashboardTitle{
     font-weight: 600;

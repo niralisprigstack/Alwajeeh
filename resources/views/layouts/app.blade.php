@@ -87,28 +87,28 @@
 
 
                         <a class="headfont pageurl " href="{{url('home')}}">                            
-                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/homeIcon.svg') }}" alt="">
+                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/homeIcon.png') }}" alt="">
                             <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/homeIconActive.svg') }}" alt="">
                         </a>
 
 
 
                         <a class="headfont pageurl " href="{{url('dashboard')}}" class="navSvg" >
-                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/dashboardIcon.svg') }}" alt="">
+                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/dashboardIcon.png') }}" alt="">
                             <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/dashboardIconActive.svg') }}" alt="">
                         </a>
 
                         <a class="headfont pageurl " class="navSvg" >
-                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/mobileIcon.svg') }}" alt="">
+                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/mobileIcon.png') }}" alt="">
                         </a>
 
                         <a class="headfont pageurl " class="navSvg" >
-                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/msgIcon.svg') }}" alt="">
+                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/msgIcon.png') }}" alt="">
                             <!--<img class="img-fluid m-auto activeImg nav-img d-none" style="" src="{{ asset('assests/images/msgIcon.svg') }}" alt="">-->
                         </a>
 
                         <a class="headfont pageurl navSvg" href="{{url('announcementList')}}">
-                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/bell-Icon.svg') }}" alt="">
+                            <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/bell-Icon.png') }}" alt="">
                             <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/bell-IconActive.svg') }}" alt="">
                            
                           @if($unreadcount>0)

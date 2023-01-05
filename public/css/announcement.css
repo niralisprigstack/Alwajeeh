@@ -462,7 +462,7 @@ color: #F5F5F5;
 }
 .announcementlistscrollbody{
     overflow: hidden scroll;
-    padding-top: 215px !important;
+    padding-top: 180px !important;
     padding-bottom: 150px;
     z-index: 0;
 }

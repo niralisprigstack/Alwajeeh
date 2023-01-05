@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
-    @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
+    @include('layouts.detailHeader', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS', 'announcementdetail' => $announcementdetail])
 
     <?php 
                 $showBtn="";
@@ -40,80 +40,12 @@
                 }
                 
                 ?>
-    <div class="fluid-container detailpagecontainer">
-
-        <div class="announcementListMainDiv" style="border-radius: 0px;backdrop-filter: blur(5px);background: rgba(0, 0, 0, 0.6);    box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);">
-            <div class="announcementDiv pt-3 pb-3">
-                <div class="row">
-                    <div class="col-5 pr-0">
-                    <?php
-                        $carbon_date = \Carbon\Carbon::parse($announcementdetail->created_at);
-                        $carbon_date = $carbon_date->addHours(4);
-                        $date =  $carbon_date->format('M d');
-                        $year =  $carbon_date->format('y');                    
-                    ?>
-                        <span class="announcementList">{{ $date}} '{{$year}}</span>
-                    </div>
-                    <?php
-                    $showdot="";
-                    $showtime="";
-                    $remainingTime="";
-                    $showtimecss="";
-                      if(isset($announcementdetail->closing_date)){
-                        date_default_timezone_set('Asia/Dubai');
-                        $edStamp = strtotime(now());
-                        $todaydate = date("Y-m-d H:i:s", $edStamp);
-                        // echo $todaydate;
-                        // $todaydate = date('Y-m-d H:i:s');
-                        if($todaydate<=$announcementdetail->closing_date){
-                            //echo $todaydate;
-                            
-                            // echo $announcementlist->closing_date;
-                            $today = new DateTime($todaydate);
-                            $closedate = new DateTime($announcementdetail->closing_date);
-            
-                            // The diff-methods returns a new DateInterval-object...
-                            $diff =  $today->diff($closedate);
-            
-                            // Call the format method on the DateInterval-object
-                            $remainingTime= $diff->format('%ad %hh');
-                            //remainingtime = date_diff($today ,$closedate);
-                            //$remainingTime=$remainingtime->format('%ad');
-            
-            
-                            //                 date_default_timezone_set('UTC');
-            
-                            // $datetime = new DateTime();
-                            // echo $datetime->format('Y-m-d H:i:s');
-                           
-            
-            
-                        }
-                        else{
-                            $showtime="";
-                            $showtimecss="visibility:hidden";
-                        }
-                    }
-                    ?>
-                    <div class="col-7  pl-0 pr-0">                                          
-                    <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
-                            
-                            <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col-12 pl-0 pr-0 pb-3">                   
-                    <span class="announcementDesc">{{$announcementdetail->title}}</span>                                       
-                </div>               
-            </div>            
-        </div>
+    
 
     <div class="announcementListMainDiv fullSectionHeight mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
-                <div class="closeBtn text-right d-none">
-                    <a onclick="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
+                <div class="closeBtn text-right">
+                    <a href="{{url('announcementList')}}"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
                 </div>
                 
                 <div class="detailScrollableDiv">

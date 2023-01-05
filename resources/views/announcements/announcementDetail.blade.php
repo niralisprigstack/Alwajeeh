@@ -29,37 +29,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
-    @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
-    <div class="fluid-container detailpagecontainer">
-
-        <div class="announcementListMainDiv" style="border-radius: 0px;backdrop-filter: blur(5px);background: rgba(0, 0, 0, 0.6);    box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);">
-            <div class="announcementDiv pt-3 pb-3">
-                <div class="row">
-                    <div class="col-5 pr-0">
-                    <?php
-                        $carbon_date = \Carbon\Carbon::parse($announcementdetail->created_at);
-                        $carbon_date = $carbon_date->addHours(4);
-                        $date =  $carbon_date->format('M d');
-                        $year =  $carbon_date->format('y');                    
-                    ?>
-                        <span class="announcementList">{{ $date}} '{{$year}}</span>
-                    </div>
-                    <div class="col-7 row pl-0 pr-0">
-                        
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col-12 pl-0 pr-0 pb-3">                   
-                    <span class="announcementDesc">{{$announcementdetail->title}}</span>                                       
-                </div>               
-            </div>            
-        </div>
+    @include('layouts.detailHeader', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS', 'announcementdetail' => $announcementdetail])
+    
 
         <div class="announcementListMainDiv fullSectionHeight mt-2 mb-2 ml-2 mr-2">
             <div class="announcementDiv detailDiv pt-1 pb-3">
-                <div class="closeBtn text-right d-none">
-                    <a onclick="backToDetailSection();"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
+                <div class="closeBtn text-right">
+                    <a href="{{url('announcementList')}}"><img class="img-fluid m-auto" style="" src="{{ asset('assests/images/announcement/closeBtn.svg') }}" alt="" /></a>
                 </div>
                 
                 <div class="detailScrollableDiv detailScrollableFamilyDiv">

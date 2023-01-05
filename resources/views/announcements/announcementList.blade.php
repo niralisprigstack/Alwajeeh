@@ -173,13 +173,14 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>
+                        <div class="submitDiv {{$submittedLabel}} d-none">
+                            <span class="submitText justify-content-center">Submitted</span>
+                        </div>
                     </div>
                         
 
 
-                        <div class="submitDiv {{$submittedLabel}} d-none">
-                            <span class="submitText justify-content-center">Submitted</span>
-                        </div>
+                        
 
                    
                 </div>

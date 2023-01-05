@@ -42,7 +42,7 @@
                         $date =  $carbon_date->format('M d');
                         $year =  $carbon_date->format('y');                    
                     ?>
-                        <span class="announcementList">{{ $date}} <br /> {{$year}}</span>
+                        <span class="announcementList">{{ $date}} '{{$year}}</span>
                     </div>
                     <div class="col-7 row pl-0 pr-0">
                         

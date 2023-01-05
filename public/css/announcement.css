@@ -185,6 +185,7 @@ background-image: linear-gradient(to bottom,    rgb(10 10 10 / 40%),    rgb(24 2
     border-radius: 10px;
     border-radius: 10px;
     height: fit-content;
+    float: right;
 }
 .submitText{
     font-weight: 600;

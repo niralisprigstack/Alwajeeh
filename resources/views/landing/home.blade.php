@@ -11,20 +11,20 @@
 <div class="fluid-container homePageContainer">
     <div class="homePageSection m-2 p-3">
         <div class="p-2">
-            <h4 class="homePageTitle">Sheikh Mostafa Bin Abdullatif<br>
+            <h4 class="homePageTitle mb-0">Sheikh Mostafa Bin Abdullatif<br>
              Foundation</h4>
         </div>                
     </div>
     
     <div class="homePageSection m-2 p-3">
-        <div class="p-2 pt-4">
-            <h4 class="homePageTitle">MBAL Investments</h4>
+        <div class="p-2 ">
+            <h4 class="homePageTitle mb-0">MBAL Investments</h4>
         </div>                
     </div>
     
     <a href="{{url('announcementList')}}">
         <div class="homePageSection m-2 p-3">
-            <div class="p-2 pt-3">
+            <div class="p-2 ">
                 <h4 class="homePageTitle mb-0">Announcements</h4>
                 <span class="unreadText">{{$unreadcount}} Unread</span>
             </div>                
@@ -32,8 +32,8 @@
     </a>    
     
     <div class="homePageSection m-2 p-3">
-        <div class="p-2 pt-4">
-            <h4 class="homePageTitle">Family Shop</h4>
+        <div class="p-2 ">
+            <h4 class="homePageTitle mb-0">Family Shop</h4>
         </div>                
     </div>
 

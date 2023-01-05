@@ -61,7 +61,7 @@
 
 
     <div class="col-12 m-auto businessprofile {{$showSection}}" style="">
-    <span class="businessprofiletext mt-4 mb-3">My Business Profile</span>
+    <span class="businessprofiletext  mb-3">My Business <br>Profile</span>
     </div>
 
     @if(count($announcementlists) > 0)

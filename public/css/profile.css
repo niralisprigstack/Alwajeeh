@@ -28,6 +28,9 @@ color: #A4894B;
     box-shadow: 0px 5px 10px rgb(0 0 0 / 50%);
     backdrop-filter: blur(5px);
     z-index:1;
+
+    display: flex;
+    align-items: center;
 }
 /* .static-bottom-bg{
     position: fixed;
@@ -62,6 +65,8 @@ backdrop-filter: blur(5px);
     max-height: stretch;
     max-height: -webkit-fill-available;
     height: 70%;
+
+    padding-bottom: 100px;
 }
 
 
@@ -132,10 +137,10 @@ align-items: center;
 
 color: #A4894B;
 padding-left: 10px;
-padding-top: 30px;
+/* padding-top: 30px; */
 
 position: absolute;
-    top: 30%;
+    /* top: 30%; */
 }
 .profabsolute{
     top: 19%;

@@ -193,7 +193,7 @@ background-image: linear-gradient(to bottom,    rgb(10 10 10 / 40%),    rgb(24 2
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 3px;
+    padding: 4px;
     color: #14FF00;
 }
 .businessprofiletext {

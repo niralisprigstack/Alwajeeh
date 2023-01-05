@@ -739,6 +739,7 @@ function showfooterfilterresult(element) {
         }else{
             $(".announcementlistscrollbody").addClass("ifbusinessdiv");
             $(".resetFilterDiv").addClass("d-none");
+            $(".viewersClick").css("visibility","hidden");
         }
        
        
@@ -800,7 +801,7 @@ function showfooterfilterresult(element) {
                     $(".businessprofiletext").removeClass("d-none");
                     $(".resetFilterDiv").addClass("d-none");
                     $(".announcementlistscrollbody").addClass("ifbusinessdiv");
-                    $(".resetFilterDiv")
+                    $(".viewersClick").css("visibility","hidden");
                   
                 } else {
                     $(this).addClass("d-none");

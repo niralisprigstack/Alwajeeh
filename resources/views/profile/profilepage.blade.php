@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php  $v = "10.5" ?>
+<?php  $v = "11.5" ?>
 <title>My Profile</title>
 @section('content')
 @section('css')
@@ -8,9 +8,9 @@
 @endsection
 <div class="fluid-container profile_container " style="">
     <div class="static-black-bg">
-    <img class="img-fluid " style="width: 100px;height: 104.39px;float: right; position: absolute;
+    <img class="img-fluid " style="width: auto;height: 85px;float: right; position: absolute;
     right: 0;
-    top: 0;" src="{{ asset('assests/images/register_logo.svg') }}" alt="">
+    top: 0;" src="{{ asset('assests/images/register_logo.png') }}" alt="">
     <span class="myprofiletext">My Profile</span>    
 </div>
     <img class="img-fluid profile_headerimg" style="" src="{{ asset('assests/images/profile/bgimg.png') }}" alt="">

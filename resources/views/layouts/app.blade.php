@@ -1,5 +1,5 @@
 <!doctype html>
-<?php $v = "10.5" ?>
+<?php $v = "11.5" ?>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -88,14 +88,14 @@
 
                         <a class="headfont pageurl " href="{{url('home')}}">                            
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/homeIcon.png') }}" alt="">
-                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/homeIconActive.svg') }}" alt="">
+                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/homeIconActive.png') }}" alt="">
                         </a>
 
 
 
                         <a class="headfont pageurl " href="{{url('dashboard')}}" class="navSvg" >
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/dashboardIcon.png') }}" alt="">
-                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/dashboardIconActive.svg') }}" alt="">
+                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/dashboardIconActive.png') }}" alt="">
                         </a>
 
                         <a class="headfont pageurl " class="navSvg" >
@@ -109,7 +109,7 @@
 
                         <a class="headfont pageurl navSvg" href="{{url('announcementList')}}">
                             <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/bell-Icon.png') }}" alt="">
-                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/bell-IconActive.svg') }}" alt="">
+                            <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/bell-IconActive.png') }}" alt="">
                            
                           @if($unreadcount>0)
                             <span class="rednotifydot"></span>      

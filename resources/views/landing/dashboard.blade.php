@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "10.5" ?>
+<?php $v = "11.5" ?>
 <title>Dashboard</title>
 @section('content')
 @section('css')
@@ -14,7 +14,7 @@
             <div class="dashboardCard m-2">
                 <a href="{{url('profile')}}">
                     <div class="p-3">
-                        <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/profile.svg') }}" alt="">
+                        <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/profile.png') }}" alt="">
                         <h4 class="dashboardTitle d-block text-center mt-2">My Profile</h4>
                     </div>
                 </a>                                
@@ -24,7 +24,7 @@
             <div class="dashboardCard m-2">
             <a href="{{url('allcontacts')}}">
                 <div class="p-3">
-                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/contacts.svg') }}" alt="">
+                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/contacts.png') }}" alt="">
                     <h4 class="dashboardTitle d-block text-center mt-2">Contacts</h4>
                 </div> 
             </a>               
@@ -36,7 +36,7 @@
         <div class="col-6 pr-0">
             <div class="dashboardCard m-2">
                 <div class="p-3">
-                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/storage.svg') }}" alt="">
+                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/storage.png') }}" alt="">
                     <h4 class="dashboardTitle d-block text-center mt-2">My Storage</h4>
                 </div>                
             </div>
@@ -44,7 +44,7 @@
         <div class="col-6 pl-0">
             <div class="dashboardCard m-2">
                 <div class="p-3">
-                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/media.svg') }}" alt="">
+                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/media.png') }}" alt="">
                     <h4 class="dashboardTitle d-block text-center mt-2">My Media</h4>
                 </div>                
             </div>
@@ -56,7 +56,7 @@
             <div class="dashboardCard m-2">
                 <a href="{{url('announcementList?s=business')}}">
                     <div class="p-3">
-                        <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/businessProfile.svg') }}" alt="">
+                        <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/businessProfile.png') }}" alt="">
                         <h4 class="dashboardTitle d-block text-center mt-2">Business Profile</h4>
                     </div>
                 </a>                                
@@ -65,7 +65,7 @@
         <div class="col-6 pl-0">
             <div class="dashboardCard m-2">
                 <div class="p-3">
-                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/support.svg') }}" alt="">
+                    <img class="img-fluid m-auto d-flex justify-content-center" src="{{ asset('assests/images/landing/support.png') }}" alt="">
                     <h4 class="dashboardTitle d-block text-center pb-4 mt-2">Support</h4>
                 </div>                
             </div>

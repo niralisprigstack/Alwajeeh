@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "10.5" ?>
+<?php $v = "11.5" ?>
 <title>All Contacts</title>
 @section('content')
 @section('css')
@@ -33,7 +33,7 @@
                     
                 </div>
             </div>
-            <div class="col-2 fixedsec">
+            <div class="col-2 pr-0 fixedsec">
                 <div class="alphabetdiv pt-2 pb-2">
                <?php $a=range("A","Z");
                 foreach($a as $alphabet){?>

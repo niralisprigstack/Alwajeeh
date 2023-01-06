@@ -1,5 +1,5 @@
 <!doctype html>
-<?php   $v = "9.5" ?>
+<?php   $v = "10.5" ?>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>

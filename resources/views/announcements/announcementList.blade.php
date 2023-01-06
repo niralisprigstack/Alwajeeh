@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<?php $v = "9.5" ?>
+<?php $v = "10.5" ?>
 <title>Announcement List</title>
 @section('content')
 @section('css')
@@ -41,7 +41,15 @@
     @include('layouts.header', ['headtext' => '','subheadtext'=> 'ANNOUNCEMENTS'])
     @include('layouts.announcementFilter', ['hideSection' => $hideSection, 'showSection' => $showSection])
     
+    <?php 
+        $scrollbody="";
+    ?>
+
+
     @if(isset($_GET['k']) || isset($_GET['m']) || isset($_GET['y']))
+    <?php 
+    $scrollbody="addpaddingforfilter";
+    ?>
     <div class="col-12 row pr-0 resetFilterDiv listpagestaticbtn">
         <div class="col-6"></div>
         <div class="col-6 pr-0">
@@ -57,7 +65,7 @@
     </div>
     @endif
     
-    <div class="fluid-container announcementListPageSection  announcementlistscrollbody {{$ifbusinessdiv}}">
+    <div class="fluid-container announcementListPageSection  announcementlistscrollbody {{$ifbusinessdiv}} {{$scrollbody}}">
 
 
     <div class="col-12 m-auto businessprofile {{$showSection}}" style="">

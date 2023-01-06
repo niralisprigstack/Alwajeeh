@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         $userid = Auth::id();
         // $contactCount = User::count();
-        $annoncementcount=Announcement::count();
+        $annoncementcount=Announcement::where("status",'2')->count();
         $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();    
         $unreadcount= $annoncementcount-$viewcount;
         // return $co;

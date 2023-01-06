@@ -97,4 +97,9 @@ body {
 .dashboardCard{
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

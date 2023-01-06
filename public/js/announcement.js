@@ -670,52 +670,241 @@ function showFilteredresult(element) {
     $(".footerfiltersortdiv").addClass("d-none");
     $(".footerfiltered").removeClass("active");
     
-    $(".filtered").removeClass("active");
-    $('.nav-img').removeClass("show");
-    $('.nav-img').removeClass("d-none");
-    $('.activeImg').addClass("d-none");
-    $('.nav-text').removeClass("showtext");    
 
-    var data_click = $(element).data('click');
-    $(element).addClass("active");
-    $(element).closest(".parent").find('.nav-img').addClass("show");
-    $(element).closest(".parent").find('.nav-text').addClass("showtext");
+
+
+     //
+     var data_click = $(element).data('click');
+     if(data_click=="3"){
+        $(".businessfamilydiv").find(".parent").find(".filtered").removeClass("active");
+        $(".businessfamilydiv").find(".parent").find(".nav-img").removeClass("show");
+        $(".businessfamilydiv").find(".parent").find(".nav-text").removeClass("showtext");
+        $(element).addClass("active");
+        $(".businessfamilydiv").find(".parent").find(".filtered").removeClass("businessClicked");
+        $(element).addClass("famClicked");
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+     }
+     else if(data_click=="4"){
+        $(".businessfamilydiv").find(".parent").find(".filtered").removeClass("active");
+        $(".businessfamilydiv").find(".parent").find(".nav-img").removeClass("show");
+        $(".businessfamilydiv").find(".parent").find(".nav-text").removeClass("showtext");
+        $(element).addClass("active");
+        $(".businessfamilydiv").find(".parent").find(".filtered").removeClass("famClicked");
+        $(element).addClass("businessClicked");
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+     }else if(data_click=="2"){
+        $(".unreadalldiv").find(".parent").find(".filtered").removeClass("active");
+        $(".unreadalldiv").find(".parent").find(".nav-img").removeClass("show");
+        $(".unreadalldiv").find(".parent").find(".nav-text").removeClass("showtext");
+        $(".unreadalldiv").find(".parent").find('.activeImg').addClass("d-none");
+        $(".unreadalldiv").find(".parent").find('.nav-img').removeClass("d-none");
+        $(".unreadalldiv").find(".parent").find(".filtered").removeClass("allfiltClicked");
+        $(element).addClass("active");
+        $(element).addClass("unreadClicked");
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+     }else if(data_click=="1"){
+        $(".unreadalldiv").find(".parent").find(".filtered").removeClass("active");
+        $(".unreadalldiv").find(".parent").find(".nav-img").removeClass("show");
+        $(".unreadalldiv").find(".parent").find(".nav-text").removeClass("showtext");
+        $(".unreadalldiv").find(".parent").find('.activeImg').addClass("d-none");
+        $(".unreadalldiv").find(".parent").find('.nav-img').removeClass("d-none");
+        $(".unreadalldiv").find(".parent").find(".filtered").removeClass("unreadClicked");
+        $(element).addClass("active");
+        $(element).addClass("allfiltClicked");
+        $(element).closest(".parent").find('.nav-img').addClass("show");
+        $(element).closest(".parent").find('.nav-text').addClass("showtext");
+     }
+     // 
+
+
+    // $(".filtered").removeClass("active");
+    // $('.nav-img').removeClass("show");
+    // $('.nav-img').removeClass("d-none");
+    // $('.activeImg').addClass("d-none");
+    // $('.nav-text').removeClass("showtext");    
+
+   
+   
+
+    // $(element).addClass("active");
+    // $(element).closest(".parent").find('.nav-img').addClass("show");
+    // $(element).closest(".parent").find('.nav-text').addClass("showtext");
     
-    var checkActiveClass = $(element).closest(".parent");
-    if($(checkActiveClass).find("img").hasClass("activeImg")){
-        $(element).closest(".parent").find('.nav-img').addClass("d-none");
-        $(element).closest(".parent").find('.activeImg').removeClass("d-none");
-    }    
+    // var checkActiveClass = $(element).closest(".parent");
+    // if($(checkActiveClass).find("img").hasClass("activeImg")){
+    //     $(element).closest(".parent").find('.nav-img').addClass("d-none");
+    //     $(element).closest(".parent").find('.activeImg').removeClass("d-none");
+    // }  
+    
+    
+    
 
     var cnt = 0;
     closeViewers(this);
     $('.announcementListMainDiv').each(function () {
         var selectedVal = $(this).data('user');
         if (data_click == "3") {
-            if (data_click == selectedVal) {
-                $(this).removeClass("d-none");
-                cnt++;
-            } else {
-                $(this).addClass("d-none");
-            }
+            // if (data_click == selectedVal) {
+            //     $(this).removeClass("d-none");
+            //     cnt++;
+            // } else {
+            //     $(this).addClass("d-none");
+            // }
+
+
+            //newcode
+            var checkUnread = $(this).data('unread');
+            if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("active")){
+                if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("unreadClicked")){          
+                      //unread
+                  var ImageActiveclick=$(".unreadalldiv").find(".parent").find(".unreadClicked").data("click");
+                  if (data_click == selectedVal && checkUnread == "1") {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+                }else if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("allfiltClicked")){
+                  //all
+                  var ImageActiveclick=$(".unreadalldiv").find(".parent").find(".allfiltClicked").data("click");
+                  if (data_click == selectedVal ) {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+              }
+                            
+              }else{
+                if (data_click == selectedVal) {
+                    $(this).removeClass("d-none");
+                    cnt++;
+                } else {
+                    $(this).addClass("d-none");
+                }
+              }
+              console.log(cnt);
+            //endnewcode
+
         }
         else if (data_click == "4") {
-            if (data_click == selectedVal) {
-                $(this).removeClass("d-none");
-                cnt++;
-            } else {
-                $(this).addClass("d-none");
-            }
+            // if (data_click == selectedVal) {
+            //     $(this).removeClass("d-none");
+            //     cnt++;
+            // } else {
+            //     $(this).addClass("d-none");
+            // }
+            var checkUnread = $(this).data('unread');
+            if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("active")){
+                if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("unreadClicked")){          
+                      //unread
+                  var ImageActiveclick=$(".unreadalldiv").find(".parent").find(".unreadClicked").data("click");
+                  if (data_click == selectedVal && checkUnread == "1") {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+                }else if($(".unreadalldiv").find(".parent").find(".filtered").hasClass("allfiltClicked")){
+                  //all
+                  var ImageActiveclick=$(".unreadalldiv").find(".parent").find(".allfiltClicked").data("click");
+                  if (data_click == selectedVal ) {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+              }
+                            
+              }else{
+                if (data_click == selectedVal) {
+                    $(this).removeClass("d-none");
+                    cnt++;
+                } else {
+                    $(this).addClass("d-none");
+                }
+              }
         } else if (data_click == "2") {
             var checkUnread = $(this).data('unread');
-            if (checkUnread == "1") {
+            // if (checkUnread == "1") {
+            //     $(this).removeClass("d-none");
+            //     cnt++;
+            // } else {
+            //     $(this).addClass("d-none");
+            // }
+
+
+            if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("active")){
+                if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("famClicked")){          
+                      //fam
+                  var ImageActiveclick=$(".businessfamilydiv").find(".parent").find(".famClicked").data("click");
+                  if (ImageActiveclick == selectedVal && checkUnread == "1") {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+                }else if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("businessClicked")){
+                  //busi
+                  var ImageActiveclick=$(".businessfamilydiv").find(".parent").find(".businessClicked").data("click");
+                  if (ImageActiveclick == selectedVal && checkUnread == "1") {
+                      $(this).removeClass("d-none");
+                      cnt++;
+                  } else {
+                      $(this).addClass("d-none");
+                  }
+              }
+                            
+              }else{
+                 if (checkUnread == "1") {
                 $(this).removeClass("d-none");
-                cnt++;
-            } else {
+                    cnt++;
+                } else {
+                    $(this).addClass("d-none");
+                }
+              }
+
+
+
+        } else {
+
+            //newcode
+            // $('.businessfamilydiv span').each(function () {
+            //     var ii=$(this).find(".active").data("click");
+            // });
+
+            if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("active")){
+              if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("famClicked")){          
+                    //fam
+                var ImageActiveclick=$(".businessfamilydiv").find(".parent").find(".famClicked").data("click");
+                if (ImageActiveclick == selectedVal) {
+                    $(this).removeClass("d-none");
+                    cnt++;
+                } else {
+                    $(this).addClass("d-none");
+                }
+              }else if($(".businessfamilydiv").find(".parent").find(".filtered").hasClass("businessClicked")){
+                //busi
+                var ImageActiveclick=$(".businessfamilydiv").find(".parent").find(".businessClicked").data("click");
+                if (ImageActiveclick == selectedVal) {
+                    $(this).removeClass("d-none");
+                    cnt++;
+                } else {
+                    $(this).addClass("d-none");
+                }
+            }else{
+                console.log("else");
                 $(this).addClass("d-none");
             }
-        } else {
-            $(this).removeClass("d-none");
+                          
+            }
+            //newcodend
+
+
+            // $(this).removeClass("d-none");
             cnt++;
         }
     });    
@@ -735,7 +924,7 @@ function showfooterfilterresult(element) {
         // $(".businessprofile").addClass("d-none");
         if($(".businessprofile").hasClass("d-none")){
             $(".announcementlistscrollbody").removeClass("ifbusinessdiv");
-            $(".resetFilterDiv").removeClass("d-none");
+            // $(".resetFilterDiv").removeClass("d-none");
         }else{
             $(".announcementlistscrollbody").addClass("ifbusinessdiv");
             $(".resetFilterDiv").addClass("d-none");

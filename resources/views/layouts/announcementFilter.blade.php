@@ -11,6 +11,7 @@
         <!-- <img class="img-fluid" style="width: 100px;height: 104.39px;float: right;" src="{{ asset('assests/images/register_logo.svg') }}" alt=""> -->
         <div class="d-flex justify-content-between align-items-center w-100 ">
   
+        <div class="unreadalldiv" style="display: contents;">
         <span class="parent">
             <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="2">
                 <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/unreadmsg.svg') }}" alt="">
@@ -20,29 +21,33 @@
 
             <!-- <a style="display: grid;" class="mt-2 mb-2 active show"  id="nav-upcming-tab" aria-selected="{{$defaultSelectd ? 'true' : 'false'}}"> -->
             <span class="parent">
-            <a style="display: grid;" class="mt-2 mb-2 filtered active" onclick="showFilteredresult(this);" data-click="1">   
+            <a style="display: grid;" class="mt-2 mb-2 filtered active allfiltClicked" onclick="showFilteredresult(this);" data-click="1">   
                 <img class="img-fluid m-auto nav-img show d-none" style="" src="{{ asset('assests/images/announcement/emails.svg') }}" alt="">
-                <img class="img-fluid m-auto activeImg" style="" src="{{ asset('assests/images/announcement/emailsActive.svg') }}" alt="">
+                <img class="img-fluid m-auto activeImg " style="" src="{{ asset('assests/images/announcement/emailsActive.svg') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text showtext">All</span> </i>
             </a>
             </span>
+                </div>
            
 
             <div class="vertical-seperator"></div>
-            <span class="parent">
-            <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="4">
-                <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/business.svg') }}" alt="">
-                <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/businessActive.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto nav-text">Business</span> </i>
-            </a>
-            </span>
+            <div class="businessfamilydiv" style="display: contents;">
+                <span class="parent">
+                <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="4">
+                    <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/business.svg') }}" alt="">
+                    <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/businessActive.svg') }}" alt="">
+                    <span class="fonthead filtertext navText m-auto nav-text">Business</span> </i>
+                </a>
+                </span>
 
-            <span class="parent">
-            <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="3">
-                <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/family.svg') }}" alt="">
-                <span class="fonthead filtertext navText m-auto nav-text">Family</span> </i>
-            </a>
-            </span>
+                <span class="parent">
+                <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="3">
+                    <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/family.svg') }}" alt="">
+                    <span class="fonthead filtertext navText m-auto nav-text">Family</span> </i>
+                </a>
+                </span>
+            </div>
+           
 
             <div class="vertical-seperator"></div>
 

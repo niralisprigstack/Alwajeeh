@@ -343,4 +343,32 @@ if($request->status=='3'){
       return  $announcementComment;
     }
   }
+
+
+  public function publishUnpublishAnnouncement(Request $request)
+  {
+    $status = $request->status;
+    $announcementId = $request->announcement_id;
+
+
+
+    try {
+      if ($status == "1") {
+        //approve means published
+        Announcement::where('id', $announcementId)->update(['status' => 2]);
+      } else if ($status == "0") {
+        //reject
+        Announcement::where('id', $announcementId)->update(['status' => 3]);
+      }
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+
+   
+  }
+
+
+
+
+
 }

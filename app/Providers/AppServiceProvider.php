@@ -31,9 +31,12 @@ class AppServiceProvider extends ServiceProvider
         //
 
         view()->composer('layouts.app', function($view) {
-            $annoncementcount=Announcement::count();
+            $annoncementcount=Announcement::where("status",'2')->count();
             $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();    
             $unreadcount= $annoncementcount-$viewcount;
+            if($unreadcount<0){
+                $unreadcount=0;
+            }
             $view->with('unreadcount', $unreadcount);                  
         });
     }

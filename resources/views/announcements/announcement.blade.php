@@ -21,10 +21,18 @@ if ($usertype == "4") {
     $required = "required";
     $otherrequired = "required";
     $showdiv = "";
+    $btntext="Published";
+    $btnvalue="2";
+    $btnpublish="btnpublish";
+    $pagename = 'Create Announcement';
 } else {
     $required = "required";
     $otherrequired = "";
     $showdiv = "d-none";
+    $btntext="Submit";
+    $btnvalue="4";
+    $btnpublish="btnmembersubmit";
+    $pagename = 'Submit Announcement';
 }
 
 
@@ -34,7 +42,7 @@ $project_value = "";
 $location = "";
 $closingdate = "";
 $announcementid = "";
-$pagename = 'Create Announcement';
+
 $id = "";
 $showThis="d-none";
 if (isset($announcement)) {
@@ -68,6 +76,7 @@ if (isset($announcement)) {
                 <input type="hidden" name="status" class='statuscheck' value="">
                 <input type="hidden" name="removedImageIds" class="removedImageIds" value=''>
                 <input type="hidden" name="addedimageArr" class="addedimageArr" value=''>
+                <!-- <input type="hidden" name="" class='publishUnpublishAnnUrl' value="{{url('publishAnnouncementUrl')}}"> -->
 
 
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">
@@ -274,7 +283,7 @@ if (isset($announcement)) {
 
                     <div class="row col-12 justify-content-between mb-3 pl-0 pr-0 mr-0 ml-0">
                         <div class="col-6 col-lg-6 col-md-6 pl-0">
-                            <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus btnpublish" value="2">Publish</button>
+                            <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus {{$btnpublish}}" value="{{$btnvalue}}">{{$btntext}}</button>
                         </div>
 
                         <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 ">

@@ -36,8 +36,15 @@ class HomeController extends Controller
         $userid = Auth::id();
         // $contactCount = User::count();
         $annoncementcount=Announcement::where("status",'2')->count();
-        $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();    
+        $viewcount=AnnouncementView::where('user_id' , Auth::id())->count();   
+      //   echo $annoncementcount;
+      //   echo "/n";
+      //   echo $viewcount; 
+      //   return;
         $unreadcount= $annoncementcount-$viewcount;
+        if($unreadcount<0){
+            $unreadcount="00";
+        }
         // return $co;
         // $allcontacts= User::orderBy('id','desc')->get()->except(Auth::id());
 

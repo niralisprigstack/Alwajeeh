@@ -12,11 +12,21 @@ $(document).ready(function () {
     $('form .btndelete').click(function () {
         $('form .statuscheck').val(3);
     });
+    $('form .btnmembersubmit').click(function () {
+        $('form .statuscheck').val(4);
+    });
 
     $('.closeviewersBtn').click(function () {
         closeViewers(this);
     });    
     
+
+    $('.acceptOrRejectAnnouncement').on('click', function (e){
+        e.stopImmediatePropagation();
+        publishUnPublishAnnouncement(this);
+      });
+
+
     //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight;
     var totalheight = detailheight - 126 - 190 - 135 + 10;    
@@ -1284,3 +1294,33 @@ function removeMarketPlaceImage(element){
 function multipleimageUpload(input, deg) {
 
 }
+
+
+
+
+function publishUnPublishAnnouncement(element){
+    var parent = findParent(element);
+    let CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
+    let url = $('.publishUnpublishAnnUrl').val();
+    let status = $(element).data('check');
+    let announcement_id=$(element).data('id');
+ 
+      $('.loading').removeClass('d-none');
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: {_token: CSRF_TOKEN, status:status,announcement_id:announcement_id},
+          success: function (response) {
+            console.log(response);
+            $('.loading').addClass('d-none');
+        //    $(element).closest('.blogDiv').addClass('d-none');
+        //     $(parent).find('.closed').click();
+          },error: function (err) {
+            $('.loading').addClass('d-none');
+              console.log(err);
+              alert('Something went wrong.')
+          }
+      });
+    
+    
+  }

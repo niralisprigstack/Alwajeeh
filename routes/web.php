@@ -44,6 +44,7 @@ Route::get('/announcement', function () {
 // });
 Route::get('/announcementList', [AnnouncementController::class, 'showAnnouncement']);
 Route::get('/myannouncement', [AnnouncementController::class, 'myAnnouncement']);
+Route::get('/memberAnnouncements', [AnnouncementController::class, 'memberAnnouncements']);
 
 
 Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addoreditAnnouncement']);

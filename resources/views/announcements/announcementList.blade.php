@@ -176,7 +176,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     
                     <span class="ongoingdot mt-2 {{$showdot}}"></span>
                 
-                    <div class='col-7 pl-0 pr-0'>
+                    <div class='col-6 pl-0 pr-0'>
                         <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>

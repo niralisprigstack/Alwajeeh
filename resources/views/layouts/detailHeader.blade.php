@@ -23,7 +23,7 @@
         <div class="" style="">
             <div class="announcementDiv pt-3 pb-3">
                 <div class="row">
-                    <div class="col-5 pr-0">
+                    <div class="col-6 pr-0">
                     <?php
                         $carbon_date = \Carbon\Carbon::parse($announcementdetail->created_at);
                         $carbon_date = $carbon_date->addHours(4);
@@ -79,7 +79,7 @@
                         }
                     }
                     ?>
-                    <div class="col-7  pl-0 pr-0">                                          
+                    <div class="col-6  pl-0 pr-0">                                          
                     <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>

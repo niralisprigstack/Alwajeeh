@@ -484,3 +484,16 @@ color: #F5F5F5;
 .addpaddingforfilter{
     padding-top: 215px !important;
 }
+
+/*member announcement ui*/
+.approveRejectDropdown{
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+}
+.approveRejectDropdown .option--dropdown-item{
+    font-size: 15px;
+    height: 30px;
+    color: white;
+    font-weight: 700;
+}

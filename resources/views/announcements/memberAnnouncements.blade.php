@@ -177,9 +177,21 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     <span class="ongoingdot mt-2 {{$showdot}}"></span>
                 
                     <div class='col-6 pl-0 pr-0'>
-                        <div class="remainingDiv {{$showtime}}" style="{{$showtimecss}}">
+                        <div class="remainingDiv {{$showtime}} d-none" style="{{$showtimecss}}">
                             
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
+                        </div>
+                        <div class="float-right">
+                            <div class="btn-group dropleft optionicon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                    
+                                <i class="fas fa-ellipsis-v c-pointer f-s-21 text-white"></i>
+                                <div class="dropdown-menu approveRejectDropdown">
+                                    <!-- Dropdown menu links -->
+                                    <div class="text-center">                      
+                                        <div class="option--dropdown-item themefont align-items-center" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Approve</div>
+                                        <div class="option--dropdown-item themefont align-items-center" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Reject</div>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
                         <div class="submitDiv {{$submittedLabel}} d-none">
                             <span class="submitText justify-content-center">Submitted</span>
@@ -212,7 +224,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                 <div class="col-12 d-flex justify-content-end pl-0 pr-0  " > 
                 <input type="hidden" name="" class='announcementViewers' value="{{url('checkAnnouncementViewers')}}">
                 <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">                  
-                    <span class="viewersSpan viewersClick {{$hideSection}}">Viewers</span>                                         
+                    <span class="viewersSpan viewersClick">Viewers</span>                                         
                 </div>
             </div>
             </div>            

@@ -343,4 +343,27 @@ if($request->status=='3'){
       return  $announcementComment;
     }
   }
+  
+  public function memberAnnouncements()
+  {
+    $announcementlistsQuery = Announcement::with('announcement_views')
+      ->where("status", '4');
+
+    if (isset($_GET['k']) && $_GET['k'] != '') {
+      $getTitle = $_GET['k'];
+      $announcementlistsQuery->where("title", "LIKE", '%' . $getTitle . '%');
+    }
+    if (isset($_GET['m']) && $_GET['m'] != '') {
+      $getMonth = $_GET['m'];
+      $announcementlistsQuery->whereMonth("created_at", $getMonth);
+    }
+    if (isset($_GET['y']) && $_GET['y'] != '') {
+      $getYear = $_GET['y'];
+      $announcementlistsQuery->whereYear("created_at", $getYear);
+    }
+
+    $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();
+    return view('announcements.memberAnnouncements', compact('announcementlists'));
+  }
+  
 }

@@ -207,12 +207,12 @@ background-image: linear-gradient(to bottom,    rgb(10 10 10 / 40%),    rgb(24 2
 }
 .remainingText{    
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 22px;
     display: flex;
     align-items: center;
     color: #FF0000;
-    padding: 3px;
+    /*padding: 3px;*/
 }
 .announcementDesc{    
     font-weight: 500;

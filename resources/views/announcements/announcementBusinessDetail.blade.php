@@ -129,10 +129,10 @@
                 <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">
                 
                     <div class="col-6 col-lg-6 submitInterestDiv {{$showBtn}}">
-                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your interest</button>
+                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0" onclick="showAnnouncementInterest(this);" data-id="{{$announcementdetail->id}}">Submit your <br /> interest</button>
                     </div>
                     <div class="col-6 col-lg-6">
-                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Need more details</button>
+                        <button type="button" class="mt-4 buttonCss buttonCss button_text col-12 p-0">Need more <br /> details</button>
                     </div>
                 </div>
                

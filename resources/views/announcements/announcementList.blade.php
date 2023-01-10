@@ -166,7 +166,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     ?>
                      
                      
-                        <span class="announcementList d-block col-4 pl-0 pr-0"><span class="createdDate">{{$date}}</span> <span class="createdyr">'{{$year}}</span></span>
+                        <span class="announcementList d-block col-4 pl-0 pr-0"><span class="createdDate">{{$date}}</span> <br><span class="createdyr">{{$year}}</span></span>
                        
                     <?php if($checkUnread == '1') {
                         $showdot = '';

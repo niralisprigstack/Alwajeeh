@@ -3,7 +3,7 @@ body {
     font-family: 'Montserrat';
     font-style: normal; 
     /* margin-top: 70px; */
-    background-image: url(/assests/images/foundation/foundationbg.jpg);
+    background-image:linear-gradient(to bottom,    rgb(30 10 10 / 50%),    rgb(30 10 30 / 30%)  ),url(/assests/images/foundation/foundationbg.jpg);
 
 
     width: -webkit-fill-available;
@@ -39,11 +39,11 @@ body {
 .commonheadertext{
     padding-left: 10px;
     padding-bottom: 10px;
-    padding-top: 65px;
+    padding-top: 50px;
 }
 .announcementText{    
     font-weight: 700;
-    font-size: 26px;
+    font-size: 25px;
     line-height: 37px;
 display: flex;
 align-items: center;
@@ -53,7 +53,7 @@ color: #A4894B;
 text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
 }
 .foundationContainer {
-    padding-top: 145px;
+    padding-top: 130px;
     padding-bottom: 80px;
 }
 
@@ -98,12 +98,12 @@ text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
 
 /* about page css */
 .aboutfounPageSection{
-    background: rgba(0, 0, 0, 0.7);
+    /* background: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-left: 20px !important;
     margin-right: 20px !important;
-    padding-bottom: 70px;
+    padding-bottom: 70px; */
 }
 .aboutpagetext{
     font-weight: 600;
@@ -118,6 +118,124 @@ color: #F5F5F5;
     font-weight: 600;
 font-size: 28px;
 line-height: 39px;
+display: flex;
+align-items: center;
+
+color: #F5F5F5;
+}
+
+
+
+/* media archive */
+.archive-slides{
+    /* background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    padding-bottom: 70px; */
+}
+  
+.belowstaticcardbgtext{
+    background: rgba(0, 0, 0, 0.65);
+box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(10px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 0px 0px 10px 10px;
+font-weight: 600;
+font-size: 22px;
+line-height: 29px;
+display: flex;
+align-items: center;
+text-align: center;
+position: absolute;
+bottom: 0px;
+display: block;
+padding: 10px;
+width: 100%;
+color: #F5F5F5;
+
+}
+  .mediaarchiveslider.slick-initialized .slick-slide{
+
+    color: #FFF;
+    height: auto;
+    margin: 0 5px 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    
+  }
+  .staticarchivebtn{
+    position: absolute;
+    width: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .slick-prev, .slick-next{
+    display: none !important;
+  }
+  
+ 
+
+
+
+  /* footer css */
+  .filterblackbg{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.filtertext{
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #A4894B;
+}
+.filtersection{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.footerfiltersection{
+    bottom: 70px;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    z-index:1;
+}
+.footerfilterblackbg{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.footerfiltersortdiv{
+    bottom: 140px;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.footersortbg{
+    background: rgba(0, 0, 0, 0.9);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+.footerfilteredtext{
+    font-weight: 500;
+font-size: 15px;
+line-height: 18px;
 display: flex;
 align-items: center;
 

@@ -30,7 +30,8 @@
     
    
         <div class="founPageSection m-2 mb-3 ">
-        <img class="img-fluid " style="width: 100%;height: auto" src="{{ asset('assests/images/foundation/timelinecard.svg') }}" alt="">
+        <img class="img-fluid " style="width: 100%;height: auto;object-fit: none;
+    border-radius: 10px;" src="{{ asset('assests/images/foundation/timelinecard.svg') }}" alt="">
         <div class="belowstaticcardbg">
    The Timeline 
     </div>    

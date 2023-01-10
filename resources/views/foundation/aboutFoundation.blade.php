@@ -11,7 +11,7 @@ body {
     font-family: 'Montserrat';
     font-style: normal; 
     /* margin-top: 70px; */
-    background-image: url(/assests/images/foundation/aboutfounbg.jpg);
+    background-image: url(/assests/images/foundation/foundationbg.jpg);
 
 
     width: -webkit-fill-available;

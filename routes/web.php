@@ -83,6 +83,12 @@ Route::get('/aboutfoundation', function () {
 Route::get('/mediaarchive', function () { 
     return view('foundation.mediaArchive');
 });
+Route::get('/createMediaArchive', function () { 
+    return view('foundation.createMediaArchive');
+});
+Route::get('/filter', function () { 
+    return view('foundation.filter');
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

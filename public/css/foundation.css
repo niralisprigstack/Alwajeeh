@@ -123,3 +123,94 @@ align-items: center;
 
 color: #F5F5F5;
 }
+
+/*create media archive*/
+.createMediaArchiveSection{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;    
+}
+.inputSpanText{    
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.inputTextClass{
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    height: 70px;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    border:none;
+}
+.inputTextClass:focus, .inputTextAreaClass:focus{
+    background: black;
+    color: white;
+    font-size: 20px;
+    border-color: inherit;
+}
+.mediaCategory, .mediaCategory:focus{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%) !important;
+    border-radius: 10px;
+    width: 100%;
+    height: 70px;
+    color: white;
+    font-size: 18px;
+    padding: 2px;
+    border: none;
+}
+.mediaCategory option{    
+    color: white;
+    font-size: 14px;
+    padding: 2px 0;    
+}
+
+/* datetimepicker */
+.datepicker.datepicker-dropdown.dropdown-menu{
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+}
+.datepicker th,td,tr{
+    color:white;
+}
+
+/*filter page ui*/
+.filterCss {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.filterPerYearDropdown, .filterPerYearDropdown:focus, .filterPerMonthDropdown, .filterPerMonthDropdown:focus{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%) !important;
+    border-radius: 10px;
+    width: 100%;
+    height: 70px;
+    color: white;
+    font-size: 18px;
+    padding: 2px;
+    border: none;
+}
+.filterPerYearDropdown option, .filterPerMonthDropdown option{    
+    color: white;
+    font-size: 14px;
+    padding: 2px 0;    
+}
+.keywordInput::placeholder{
+    color: white;
+}
+.applyFilter {
+    background: rgba(164, 137, 75, 0.8);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}

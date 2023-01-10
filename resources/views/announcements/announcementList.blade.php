@@ -145,7 +145,7 @@
     
     @if($getUnreadCount == 0)
         @php $checkUnread = "1"; @endphp
-    @endif
+    @endif        
                  
     <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
     <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">    

@@ -89,6 +89,9 @@ Route::get('/createMediaArchive', function () {
 Route::get('/filter', function () { 
     return view('foundation.filter');
 });
+Route::get('/mediaViewer', function () { 
+    return view('foundation.mediaViewer');
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/members.php';

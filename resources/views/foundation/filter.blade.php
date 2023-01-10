@@ -23,7 +23,7 @@
 @endsection
 
 @include('layouts.header', ['headtext' => 'MEDIA ARCHIVE','subheadtext'=> ''])    
-<div class="fluid-container foundationContainer">
+<div class="advancedfilterfoundiv d-none">
     <h5 class="ml-3 filterCss mt-4">ADVANCED FILTER</h5>
 
     <div class="createMediaArchiveSection m-2 mb-3">

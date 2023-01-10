@@ -148,6 +148,7 @@
     @endif
                  
     <input type="hidden" name="" class='checkedAnnouncement' value="{{url('checkedAnnouncement')}}">
+     <input type="hidden" name="" class='publishUnpublishAnnUrl' value="{{url('publishAnnouncementUrl')}}">
     <input class="csrf-token" type="hidden" value="{{ csrf_token() }}">    
     <div class="announcementListMainDiv "></div>
 
@@ -182,13 +183,13 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                             <span class="remainingText justify-content-center">Remaining {{$remainingTime}}</span>
                         </div>
                         <div class="float-right">
-                            <div class="btn-group dropleft optionicon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                    
+                            <div class="btn-group dropleft optionicon approverejecticondiv" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                    
                                 <i class="fas fa-ellipsis-v c-pointer f-s-21 text-white"></i>
-                                <div class="dropdown-menu approveRejectDropdown">
+                                <div class="dropdown-menu mt-3 approveRejectDropdown ellipsisbtn">
                                     <!-- Dropdown menu links -->
                                     <div class="text-center">                      
-                                        <div class="option--dropdown-item themefont align-items-center" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Approve</div>
-                                        <div class="option--dropdown-item themefont align-items-center" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Reject</div>
+                                        <div class="option--dropdown-item themefont align-items-center acceptOrRejectAnnouncement" data-check="1" data-id="{{$announcementlist->id}}" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Approve</div>
+                                        <div class="option--dropdown-item themefont align-items-center acceptOrRejectAnnouncement" data-check="0" data-id="{{$announcementlist->id}}" data-toggle="modal" class='m-1 c-pointer' alt="folder" srcset="">Reject</div>
                                     </div>
                                 </div>
                             </div>                            

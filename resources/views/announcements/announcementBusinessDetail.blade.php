@@ -84,11 +84,12 @@
                                     @php $showHide = "d-none"; @endphp
                                 @endif
                                 <a href="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" data-fancybox="videos">
-                                    <video style="height: 100px;" class="w-100 {{$showHide}}">
-                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/mp4">
-                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                                
+                                    <video  style="height: 100px;" class="w-100 {{$showHide}}" autoplay playsinsline loop muted>
+                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}"  type="video/mp4">
+                                        <source src="{{Storage::disk('s3')->url($announcementVideo->media_location)}}" type="video/ogg">                          
                                     </video>
-                                </a>
+                                    <a>
+                               
                                 @php $cnt++; @endphp
                             @endforeach
                             <span>Videos</span>

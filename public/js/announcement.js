@@ -21,10 +21,27 @@ $(document).ready(function () {
     });    
     
 
+
+    //approve reject dropdown
+    $(".approverejecticondiv").on('click', function (e){
+        e.stopImmediatePropagation();
+        stopPropo(this);
+    });
+    $('html').click(function() {
+        $('.approveRejectDropdown').css('display','none');
+        //  Hide the dropdown
+    });
+    $('.approveRejectDropdown').click(function(event){
+        event.stopPropagation(); // prevents executing the above event
+    });
+    $('.approverejecticondiv ').click(function(event){
+        event.stopPropagation();
+        });
     $('.acceptOrRejectAnnouncement').on('click', function (e){
         e.stopImmediatePropagation();
         publishUnPublishAnnouncement(this);
       });
+    //   end approve reject dropdown
 
 
     //height set for scrollable div in business detail & listing page
@@ -1296,7 +1313,13 @@ function multipleimageUpload(input, deg) {
 }
 
 
+function stopPropo(element) {
+    // $('.respeditdropdown').click();
+    var parent = findParent(element);
+    $(parent).find('.ellipsisbtn').css('display', 'block');
 
+
+}
 
 function publishUnPublishAnnouncement(element){
     var parent = findParent(element);
@@ -1313,10 +1336,12 @@ function publishUnPublishAnnouncement(element){
           success: function (response) {
             console.log(response);
             $('.loading').addClass('d-none');
+            $('.ellipsisbtn').css('display', 'none');
         //    $(element).closest('.blogDiv').addClass('d-none');
         //     $(parent).find('.closed').click();
           },error: function (err) {
             $('.loading').addClass('d-none');
+            $('.ellipsisbtn').css('display', 'none');
               console.log(err);
               alert('Something went wrong.')
           }

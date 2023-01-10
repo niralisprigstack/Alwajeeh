@@ -372,7 +372,7 @@ if($request->status=='3'){
 
 
   
-  public function memberAnnouncements()
+  public function reviewAnnouncements()
   {
     $announcementlistsQuery = Announcement::with('announcement_views')
       ->where("status", '4');
@@ -391,7 +391,7 @@ if($request->status=='3'){
     }
 
     $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();
-    return view('announcements.memberAnnouncements', compact('announcementlists'));
+    return view('announcements.reviewMemberAnnouncements', compact('announcementlists'));
   }
   
 }

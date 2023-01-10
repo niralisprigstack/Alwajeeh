@@ -419,7 +419,8 @@ color: #000000;
     /* width: 175px;
     height: 100px; */
     width: 200px;
-    height: 208.79px;
+    height:auto;
+    max-height: 208.79px;
   }
   .headtext{
 font-style: normal;

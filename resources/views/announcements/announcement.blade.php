@@ -76,7 +76,7 @@ if (isset($announcement)) {
                 <input type="hidden" name="status" class='statuscheck' value="">
                 <input type="hidden" name="removedImageIds" class="removedImageIds" value=''>
                 <input type="hidden" name="addedimageArr" class="addedimageArr" value=''>
-                <!-- <input type="hidden" name="" class='publishUnpublishAnnUrl' value="{{url('publishAnnouncementUrl')}}"> -->
+               
 
 
                 <div class="col-12 justify-content-between mb-3 pl-0 pr-0 pt-3">

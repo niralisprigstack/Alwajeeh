@@ -14,7 +14,7 @@
 
     </div>
     <div class="col-lg-6  d-lg-none col-lg-6   pt-2 pl-0 mobileView ">
-        <img class="img-fluid mb-3 img_logo step-1-logo deskauth_img" src="{{ asset('assests/images/logo_auth.svg') }}" alt="">
+        <img class="img-fluid mb-3 img_logo step-1-logo deskauth_img" src="{{ asset('assests/images/logo_auth.png') }}" alt="">
     </div>
 
 

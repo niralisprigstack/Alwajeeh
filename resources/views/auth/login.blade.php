@@ -23,7 +23,7 @@
 
     </div> -->
     <div class="col-lg-6  d-lg-none col-lg-6   pt-2 pr-0 mobileView ">
-        <img class="img-fluid mb-3 img_logo step-1-logo deskauth_img" src="{{ asset('assests/images/logo_auth.svg') }}" alt="">
+        <img class="img-fluid mb-3 img_logo step-1-logo deskauth_img" src="{{ asset('assests/images/logo_auth.png') }}" alt="">
     </div>
     <div class="col-lg-10 col-10 centerBoth mobilestepdiv flex-column pr-0 mb-4  m-auto">
         

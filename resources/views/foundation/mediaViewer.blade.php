@@ -21,13 +21,9 @@
     }
 </style>
 @endsection    
-<div class="fluid-container foundationContainer">    
+<div class="fluid-container">    
 
-    <div class="mediaViewerSection m-2 mb-3">
-
-        
-
-    </div>        
+          
 
 </div>
 @endsection

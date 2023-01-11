@@ -12,7 +12,7 @@ body {
     font-family: 'Montserrat';
     font-style: normal; 
     /* margin-top: 70px; */
-    background-image: url(/assests/images/foundation/mediaarchivebg.jpg);
+    background-image: linear-gradient(to bottom,    rgb(30 10 10 / 50%),    rgb(30 20 30 / 30%)  ),url(/assests/images/foundation/mediaarchivebg.jpg);
 
 
     width: -webkit-fill-available;
@@ -25,13 +25,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+.foundationContainer {
+    padding-top: 130px;
+    padding-bottom: 80px;
+    height: 100%;
+}
 </style>
 @endsection
 
 @include('layouts.header', ['headtext' => 'THE FOUNDATION','subheadtext'=> ''])    
 <div class="fluid-container foundationContainer">
 
-<div class="aboutfounPageSection m-2 mb-3 ">
+<div class="mediaPageSection m-2 mb-3 ">
     
 
 <div class="wrapper">
@@ -46,7 +51,7 @@ body {
 
 
             <div class="staticarchivebtn">
-                <button type="button" class="mt-4 buttonCss button_text p-3 " >Explore</button>
+                <button type="button" class="buttonCss button_text p-3 explorebtn" >Explore</button>
             </div>
       </div>
       <div class="archive-slides">
@@ -57,7 +62,7 @@ body {
             </div>
             </div>
             <div class="staticarchivebtn">
-                <button type="button" class="mt-4 buttonCss button_text  p-3 " >Explore</button>
+                <button type="button" class=" buttonCss button_text  p-3 explorebtn" >Explore</button>
             </div>
       </div>
       <div class="archive-slides">
@@ -68,7 +73,7 @@ body {
             </div>
             </div>
             <div class="staticarchivebtn">
-                <button type="button" class="mt-4 buttonCss button_text  p-3 " >Explore</button>
+                <button type="button" class="buttonCss button_text  p-3 explorebtn" >Explore</button>
             </div>
       </div>
     </div>

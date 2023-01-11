@@ -136,18 +136,12 @@ color: #F5F5F5;
     padding-bottom: 70px; */
 }
 .mediaPageSection{
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    width: 100px;
-    height: 100px; */
+   
 }
   
 .belowstaticcardbgtext{
     background: rgba(0, 0, 0, 0.65);
-box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.25);
+/* box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.25); */
 backdrop-filter: blur(10px);
 /* Note: backdrop-filter has minimal browser support */
 
@@ -170,41 +164,49 @@ color: #F5F5F5;
     /* padding-top: 30px; */
    
 }
-.explorebtn{    
-    position: absolute;
-    margin: auto;
+
+.staticarchivebtn{
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+  }
+  .carouselslider{
+
+    padding: 15px;
+  }
+  .explorebtn{
+    position: absolute;
+    bottom: 0;
+    
     width: 181px;
     height: 60px;
-    bottom: 50px;
     background: #A4894B;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
-}
-  .mediaarchiveslider.slick-initialized .slick-slide{
-
+  }
+  .ArchiveimgDiv{
+    position: relative;
+  }
+  .Mediacard{
     color: #FFF;
     height: auto;
     margin: 0 5px 0 4px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    padding: 20px;
-    
+    padding: 40px 30px;
+
   }
-  .staticarchivebtn{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .slick-prev, .slick-next{
-    display: none !important;
-  }
+  .footerimg{
+    height: 40px;
+    width: 40px;
+}
+ .mediacardimgs{
+    width:270px;
+    height: 240px;
+    border-radius: 10px;
+ } 
+ 
   
  
 
@@ -362,3 +364,40 @@ color: #F5F5F5;
     margin-left: 20px !important;
     margin-right: 20px !important;    
 }
+
+
+
+
+
+
+
+
+.container {
+    max-width: 75rem;
+    width: 100%;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+  }
+  
+ 
+            .card-image {
+              background: black;
+              border: none;
+              outline: none;
+              box-shadow:  0px -3px 4px rgba(0, 0, 0, 0.25);
+              border-radius: 2px;
+            }
+  
+              img {
+                display: block;
+                position: relative;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+              }
+           
+    
+
+  

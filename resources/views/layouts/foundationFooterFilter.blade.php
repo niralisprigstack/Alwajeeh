@@ -9,7 +9,7 @@
   
         <span class="parent col-4">
             <a style="display: grid;" class="mt-2 mb-2 footerfiltered" onclick="showfoundationfooterfilter(this)" data-attr="sortFilter">
-                <img class="img-fluid m-auto footerFilterImg" style="" src="{{ asset('assests/images/announcement/sortby.png') }}" alt="">
+                <img class="img-fluid m-auto footerFilterImg footerimg" style="" src="{{ asset('assests/images/announcement/sortby.png') }}" alt="">
                 <img class="img-fluid m-auto activeFooterFilterImg d-none" style="" src="{{ asset('assests/images/announcement/sortbyActive.png') }}" alt="">
                 <span class="fonthead filtertext navText m-auto footerFilterTxt">Sort by</span> </i>
             </a>
@@ -18,7 +18,7 @@
 
             <span class="parent col-4">
             <a style="display: grid;" class="mt-2 mb-2 footerfiltered"  onclick="showfoundationfooterfilter(this)" data-attr="Filter">
-                <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/filter.png') }}" alt="">
+                <img class="img-fluid m-auto nav-img footerimg" style="" src="{{ asset('assests/images/announcement/filter.png') }}" alt="">
                 <span class="fonthead filtertext navText m-auto nav-text">Filter</span> </i>
             </a>
             </span>
@@ -26,7 +26,7 @@
 
             <span class="parent col-4 pl-0 pr-0">
             <a style="display: grid;" class="mt-2 mb-2 footerfiltered " onclick="showfoundationfooterfilter(this)" data-attr="businessFilter" data-click="1">
-                <img class="img-fluid m-auto footerFilterImg " style="" src="{{ asset('assests/images/foundation/shareus.png') }}" alt="">
+                <img class="img-fluid m-auto footerFilterImg footerimg" style="" src="{{ asset('assests/images/foundation/shareus.png') }}" alt="">
                 <img class="img-fluid m-auto activeFooterFilterImg d-none" style="" src="{{ asset('assests/images/announcement/shareus.png') }}" alt="">
                 <span class="fonthead filtertext navText m-auto footerFilterTxt ">Share with us</span> </i>
             </a>

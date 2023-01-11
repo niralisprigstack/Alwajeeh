@@ -1,7 +1,7 @@
 function showfoundationfooterfilter(element) {
  
     $(".advancedfilterfoundiv").removeClass("d-none");
-    $(".aboutfounPageSection").addClass("d-none");
+    $(".mediaPageSection").addClass("d-none");
     $(".footerfiltersection").addClass("d-none");
    
 

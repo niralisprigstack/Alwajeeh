@@ -28,7 +28,7 @@ body {
 .foundationContainer {
     padding-top: 130px;
     padding-bottom: 80px;
-    height: 100%;
+    /* height: 100%; */
 }
 </style>
 @endsection

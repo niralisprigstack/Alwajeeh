@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     //height set for scrollable div in business detail & listing page
     var detailheight = window.innerHeight;
-    var totalheight = detailheight - 126 - 190 - 135 + 10;    
+    var totalheight = detailheight - 126 - 190 - 135 - 45;    
     
     if ($(".detailScrollableFamilyDiv").length > 0) {        
         totalheight = totalheight - 81 +30;
@@ -943,7 +943,7 @@ function showFilteredresult(element) {
 }
 
 function showfooterfilterresult(element) {
- 
+    $(".createAnnouncementText").text("");
     $('.activeFooterFilterImg').addClass("d-none");
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
@@ -982,6 +982,7 @@ function showfooterfilterresult(element) {
             $(element).closest(".parent").find('.activeFooterFilterImg').removeClass("d-none");
         }   
     } else if ($(element).data("attr") == "businessFilter") {
+        $(".createAnnouncementText").text("My Business Profile");
         $(".footerfiltersortdiv").addClass("d-none");
         //$(".filtered").removeClass("active");
          $(".footerfiltered").removeClass("active");

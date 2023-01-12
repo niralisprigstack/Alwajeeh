@@ -5,7 +5,8 @@
 @section('css')
 <style>
     .announcementContainer {
-        padding-top: 120px;
+        /*padding-top: 120px;*/
+        padding-top: 150px;
     }
 </style>
 <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
@@ -21,7 +22,7 @@ if ($usertype == "4") {
     $required = "required";
     $otherrequired = "required";
     $showdiv = "";
-    $btntext="Published";
+    $btntext="Publish";
     $btnvalue="2";
     $btnpublish="btnpublish";
     $pagename = 'Create Announcement';
@@ -69,7 +70,7 @@ if (isset($announcement)) {
 
     <!--<div>-->
     <div class="announcementSection mt-3 mb-3 ml-2 mr-3">
-        <div class="announcementDiv mb-4 mt-4 pb-4">
+        <div class="announcementDiv mb-4 mt-4 pb-2">
             <form action="{{url('createannouncement')}}{{$id}}" id="createAnnouncementForm" method="POST"  onsubmit="return createannouncement(this);" enctype="multipart/form-data">
                 @csrf
 
@@ -281,7 +282,7 @@ if (isset($announcement)) {
                         </span>
                     </div>
 
-                    <div class="row col-12 justify-content-between mb-3 pl-0 pr-0 mr-0 ml-0">
+                    <div class="row col-12 justify-content-between pl-0 pr-0 mr-0 ml-0">
                         <div class="col-6 col-lg-6 col-md-6 pl-0">
                             <button type="submit" class="mt-4 buttonCss button_text col-12 p-0 btnstatus {{$btnpublish}}" value="{{$btnvalue}}">{{$btntext}}</button>
                         </div>

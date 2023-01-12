@@ -25,15 +25,15 @@
     width:auto !important;
 }
 .announcementText{
-    display: none !important;
+    /*display: none !important;*/
 }
   </style>
 <link href="{{ asset('css/announcement.css?v='.$v) }}" rel="stylesheet">
 @endsection
     
-    @php $hideSection = ""; $showSection = ""; $ifbusinessdiv = ''; @endphp
+    @php $hideSection = ""; $showSection = ""; $ifbusinessdiv = ''; $subheadtext = ''; @endphp
     @if(isset($_GET['s']))
-        @php $hideSection = "d-none"; $ifbusinessdiv = 'ifbusinessdiv'; @endphp
+        @php $hideSection = "d-none"; $ifbusinessdiv = 'ifbusinessdiv'; $subheadtext = 'My Business Profile'; @endphp
     @else
         @php $showSection = "d-none"; @endphp
     @endif
@@ -68,9 +68,9 @@
     <div class="fluid-container announcementListPageSection  announcementlistscrollbody {{$ifbusinessdiv}} {{$scrollbody}}">
 
 
-    <div class="col-12 m-auto businessprofile {{$showSection}}" style="">
+<!--    <div class="col-12 m-auto businessprofile {{$showSection}}" style="">
     <span class="businessprofiletext  mb-3">My Business <br>Profile</span>
-    </div>
+    </div>-->
 
     @if(count($announcementlists) > 0)
         @php $showHideSection = "d-none"; @endphp
@@ -243,7 +243,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
     <!--advance filter div-->
     <section class="advancedFilterDiv d-none">
         <input type="hidden" class="announcementList" value="{{url('announcementList')}}">
-        <h5 class="ml-3 filterCss mt-4">ADVANCED FILTER</h5>
+        <h5 class="ml-3 filterCss mt-5">ADVANCED FILTER</h5>
         <div class="submissionDiv fullSectionHeight mt-3 mb-3 ml-2 mr-2 pt-5 pb-5">
             <div class="row col-12 justify-content-between mb-3">
                 <div class="col-6 col-lg-6 col-md-6 mt-3 pr-0">

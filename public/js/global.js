@@ -1,11 +1,15 @@
 $(document).ready(function() {    
-     //current webpage indication     
+     //current webpage indication
+     console.log(this.href + "  " + window.location.href.split('?')[0]);
      $("[href]").each(function() {         
         if (this.href == window.location.href.split('?')[0]) {
             $(this).find('.nav-img').addClass("active");
             $(this).find('.nav-img').addClass("show");
             $(this).find('.nav-img').addClass("d-none");
             $(this).find('.activeImg').removeClass("d-none");
+        } else if ((window.location.href.split('?')[0]).indexOf("announcement") !== -1){            
+            $('.navSvg').find('.nav-img').addClass("d-none");
+            $('.navSvg').find('.activeImg').removeClass("d-none");
         }
     });
 

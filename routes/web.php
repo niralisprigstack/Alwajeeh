@@ -38,10 +38,6 @@ Route::post('/checkuniqueness', [RegisteredUserController::class, 'checkUsername
 Route::get('/announcement', function () { 
     return view('announcements.announcement');
 });
-
-// Route::get('/announcementList', function () { 
-//     return view('announcements.announcementList');
-// });
 Route::get('/announcementList', [AnnouncementController::class, 'showAnnouncement']);
 Route::get('/myannouncement', [AnnouncementController::class, 'myAnnouncement']);
 Route::get('/reviewAnnouncements', [AnnouncementController::class, 'reviewAnnouncements']);
@@ -51,7 +47,7 @@ Route::get('/createannouncement/{id?}', [AnnouncementController::class, 'addored
 Route::post('/createannouncement/{id?}', [AnnouncementController::class, 'createAnnouncement']);
 
 Route::get('/announcementDetail/{id?}', [AnnouncementController::class, 'announcementDetail']);
-//Route::get('/announcementBusinessDetail/{id?}', [AnnouncementController::class, 'announcementBusinessDetail']);
+
 Route::post('/checkedAnnouncement', [AnnouncementController::class, 'announcementViewed']);
 Route::post('/checkAnnouncementViewers', [AnnouncementController::class, 'checkAnnouncementViewers']);
 
@@ -69,11 +65,8 @@ Route::get('/dashboard', function () {
     return view('landing.dashboard');
 });
 
-
 //contacts
 Route::get('/allcontacts', [HomeController::class, 'showAllContacts']);
-
-
 
 //foundation
 Route::get('/foundation', [FoundationController::class, 'foundationpage']);

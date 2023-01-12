@@ -244,9 +244,9 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
     <section class="advancedFilterDiv d-none">
         <input type="hidden" class="announcementList" value="{{url('announcementList')}}">
         <h5 class="ml-3 filterCss mt-5">ADVANCED FILTER</h5>
-        <div class="submissionDiv fullSectionHeight mt-3 mb-3 ml-2 mr-2 pt-5 pb-5">
+        <div class="submissionDiv mt-3 mb-3 ml-2 mr-2 pt-5 pb-5" style="height: 400px;">
             <div class="row col-12 justify-content-between mb-3">
-                <div class="col-6 col-lg-6 col-md-6 mt-3 pr-0">
+                <div class="col-6 col-lg-6 col-md-6 pr-0">
                     <?php 
                         $year_start  = 2000;
                         $year_end = date('Y');
@@ -259,7 +259,7 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                     ?>
                 </div>
 
-                <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0 pb-3 mt-3">
+                <div class="col-6 col-lg-6 col-md-6 pl-0 pr-0">
                     <select class="form-control filterPerMonthDropdown ml-3" id="filterPerMonth" name="filterPerMonth">
                         <option value="" disabled selected>Filter Per Month</option>
                         <option value="1">Jan</option>
@@ -278,12 +278,21 @@ data-unread="{{$checkUnread}}" data-user="{{$created_by}}" data-interested="{{$a
                 </div>
             </div>
             
-            <div class="col-12 justify-content-between mb-3">
+            <div class="row col-12 justify-content-between mb-4">
+                <div class="col-6 col-lg-6 col-md-6 mt-3 pr-0">
+                    <span class="announcementTypeText ml-2">Business <input class="ml-4 checkboxInput" type="checkbox" id="businessChk" name="businessChk" /></span>
+                </div>
+                <div class="col-6 col-lg-6 col-md-6 mt-3 pr-0">
+                    <span class="announcementTypeText ml-2">Family<input class="ml-4 checkboxInput" type="checkbox" id="familyChk" name="familyChk" /></span>
+                </div>
+            </div>
+            
+            <div class="col-12 justify-content-between mb-3 pt-2">
                 <input style="font-size: 18px;" type="text" class="inputTextClass form-control keywordInput" name="keywords" placeholder="Keywords" />
             </div>
         </div>
         
-        <div class="submittedbtnidv col-7 m-auto mb-5 ">
+        <div class="submittedbtnidv col-7 m-auto mb-5 pb-2">
             <button onclick="applyFilter();" type="button" class="mt-3 buttonCss button_text col-12 p-2 applyFilter">Apply Filter</button>
         </div>
     </section>

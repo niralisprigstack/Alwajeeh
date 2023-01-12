@@ -390,7 +390,10 @@ color: #F5F5F5;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
 }
-.respondcomment{width: 130px;height: 40px;}
+.respondcomment{
+width: 130px;
+height: 40px;
+}
 
 /*advance filter page ui*/
 .filterCss{
@@ -475,7 +478,7 @@ color: #F5F5F5;
 }
 .ifbusinessdiv{   
     /*padding-top: 110px !important;*/
-    padding-top: 140px !important;
+    padding-top: 190px !important;
 }
 
 
@@ -486,6 +489,23 @@ color: #F5F5F5;
 
 .addpaddingforfilter{
     padding-top: 215px !important;
+}
+
+.announcementTypeText{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F5;
+}
+.checkboxInput{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+    width: 33px;
+    height: 30px;
 }
 
 /*member announcement ui*/

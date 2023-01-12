@@ -94,7 +94,7 @@
 
 
 
-        <div class="detailwholesection mt-3  mb-5">
+        <div class="detailwholesection   mb-5">
         <div class="edit-div d-none">
             <span class="edit-text">Edit Profile</span>
         </div>

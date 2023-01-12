@@ -943,7 +943,7 @@ function showFilteredresult(element) {
 }
 
 function showfooterfilterresult(element) {
-    $(".createAnnouncementText").text("");
+    //$(".createAnnouncementText").text("");
     $('.activeFooterFilterImg').addClass("d-none");
     $('.footerFilterImg').removeClass("d-none");
     var checkActiveClass = $(element).closest(".parent");
@@ -982,7 +982,7 @@ function showfooterfilterresult(element) {
             $(element).closest(".parent").find('.activeFooterFilterImg').removeClass("d-none");
         }   
     } else if ($(element).data("attr") == "businessFilter") {
-        $(".createAnnouncementText").text("My Business Profile");
+        //$(".createAnnouncementText").text("My Business Profile");
         $(".footerfiltersortdiv").addClass("d-none");
         //$(".filtered").removeClass("active");
          $(".footerfiltered").removeClass("active");

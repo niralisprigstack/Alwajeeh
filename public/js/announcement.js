@@ -812,8 +812,7 @@ function showFilteredresult(element) {
                 } else {
                     $(this).addClass("d-none");
                 }
-              }
-              console.log(cnt);
+              }              
             //endnewcode
 
         }
@@ -922,8 +921,7 @@ function showFilteredresult(element) {
                 } else {
                     $(this).addClass("d-none");
                 }
-            }else{
-                console.log("else");
+            }else{                
                 $(this).addClass("d-none");
             }
                           
@@ -932,7 +930,7 @@ function showFilteredresult(element) {
 
 
             // $(this).removeClass("d-none");
-            cnt++;
+            //cnt++;
         }
     });    
     if (cnt == 0) {
@@ -1128,9 +1126,9 @@ function applyFilter() {
     var announcementList = $(".announcementList").val();
     var getKeywords = $(".keywordInput").val();
     var getMonth = $('#filterPerMonth').val();
-    var getYear = $('#filterPerYear').val();
+    var getYear = $('#filterPerYear').val();    
 
-    if (getKeywords == '' && getMonth == null && getYear == null) {
+    if (getKeywords == '' && getMonth == null && getYear == null && $("#businessChk").prop('checked') == false && $("#familyChk").prop('checked') == false) {
         alert("Please add one filter");
         return true;
     }
@@ -1144,6 +1142,13 @@ function applyFilter() {
     }
     if (getYear !== '' && getYear !== null) {
         url += "&y=" + getYear;
+    }
+    if($("#businessChk").prop('checked') == true && $("#familyChk").prop('checked') == true){
+        url += "&t=all";
+    } else if ($("#businessChk").prop('checked') == true) {
+        url += "&t=business";
+    } else if ($("#familyChk").prop('checked') == true) {
+        url += "&t=family";
     }
     window.location.href = url;
 }

@@ -273,6 +273,14 @@ if($request->status=='3'){
       $getYear = $_GET['y'];
       $announcementlistsQuery->whereYear("created_at", $getYear);
     }
+    if (isset($_GET['t']) && $_GET['t'] != '') {
+      $getTitle = $_GET['t'];
+      if($_GET['t'] == 'business'){
+        $announcementlistsQuery->where("created_by", 4);
+      } else if($_GET['t'] == 'family'){
+        $announcementlistsQuery->where("created_by", 3);
+      }       
+    }
 
     $announcementlists = $announcementlistsQuery->orderBy('id', 'DESC')->get();
     return view('announcements.announcementList', compact('announcementlists'));

@@ -441,10 +441,17 @@
                     </h3>
                 </div>
 
-                <div class="sucessfull-msg justify-content-center " style="height: 40vh;">
+                <div class="sucessfull-msg mt-5 justify-content-center " style="">
+                    <!--height: 40vh;-->
                     Verification<br>
                     Unsuccesfull
                 </div>
+                
+                <div class="" style="margin-bottom: 150px;">
+                    <button class="otp-submit verifyOtp font-weight-bold mt-4 centerloader authButton button_text col-12">
+                        <span>Verify Later</span>                    
+                    </button>
+                </div>                
 
                 <div class="col-md-12 row justify-content-between p-0 m-0 mt-5 mb-4">
                     <div class="col-6 row justify-content-start  p-0 m-0">

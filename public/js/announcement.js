@@ -812,8 +812,7 @@ function showFilteredresult(element) {
                 } else {
                     $(this).addClass("d-none");
                 }
-              }
-              console.log(cnt);
+              }              
             //endnewcode
 
         }
@@ -922,8 +921,7 @@ function showFilteredresult(element) {
                 } else {
                     $(this).addClass("d-none");
                 }
-            }else{
-                console.log("else");
+            }else{                
                 $(this).addClass("d-none");
             }
                           
@@ -932,7 +930,7 @@ function showFilteredresult(element) {
 
 
             // $(this).removeClass("d-none");
-            cnt++;
+            //cnt++;
         }
     });    
     if (cnt == 0) {

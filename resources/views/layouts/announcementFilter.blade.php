@@ -33,17 +33,17 @@
             <div class="vertical-seperator"></div>
             <div class="businessfamilydiv" style="display: contents;">
                 <span class="parent">
-                <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="4">
-                    <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/business.png') }}" alt="">
+                <a style="display: grid;" class="mt-2 mb-2 filtered {{(isset($_GET['t']) && $_GET['t'] == 'business') ? 'active' : ''}}" onclick="showFilteredresult(this);" data-click="4">                    
+                    <img class="img-fluid m-auto nav-img {{(isset($_GET['t']) && $_GET['t'] == 'business') ? 'show' : ''}}" style="" src="{{ asset('assests/images/announcement/business.png') }}" alt="">
                     <img class="img-fluid m-auto activeImg d-none" style="" src="{{ asset('assests/images/announcement/businessActive.png') }}" alt="">
-                    <span class="fonthead filtertext navText m-auto nav-text">Business</span> </i>
+                    <span class="fonthead filtertext navText m-auto nav-text {{(isset($_GET['t']) && $_GET['t'] == 'business') ? 'showtext' : ''}}">Business</span> </i>
                 </a>
                 </span>
 
                 <span class="parent">
-                <a style="display: grid;" class="mt-2 mb-2 filtered" onclick="showFilteredresult(this);" data-click="3">
-                    <img class="img-fluid m-auto nav-img" style="" src="{{ asset('assests/images/announcement/family.png') }}" alt="">
-                    <span class="fonthead filtertext navText m-auto nav-text">Family</span> </i>
+                <a style="display: grid;" class="mt-2 mb-2 filtered {{(isset($_GET['t']) && $_GET['t'] == 'family') ? 'active' : ''}}" onclick="showFilteredresult(this);" data-click="3">
+                    <img class="img-fluid m-auto nav-img {{(isset($_GET['t']) && $_GET['t'] == 'family') ? 'show' : ''}}" style="" src="{{ asset('assests/images/announcement/family.png') }}" alt="">
+                    <span class="fonthead filtertext navText m-auto nav-text {{(isset($_GET['t']) && $_GET['t'] == 'family') ? 'showtext' : ''}}">Family</span> </i>
                 </a>
                 </span>
             </div>

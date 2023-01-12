@@ -1,6 +1,5 @@
 $(document).ready(function() {    
-     //current webpage indication
-     console.log(this.href + "  " + window.location.href.split('?')[0]);
+     //current webpage indication     
      $("[href]").each(function() {         
         if (this.href == window.location.href.split('?')[0]) {
             $(this).find('.nav-img').addClass("active");

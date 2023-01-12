@@ -30,10 +30,10 @@ if ($usertype == "4") {
     $required = "required";
     $otherrequired = "";
     $showdiv = "d-none";
-    $btntext="Submit";
+    $btntext="Publish";
     $btnvalue="4";
-    $btnpublish="btnmembersubmit";
-    $pagename = 'Submit Announcement';
+    $btnpublish="btnpublish";
+    $pagename = 'Create Announcement';
 }
 
 

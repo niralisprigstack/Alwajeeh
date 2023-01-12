@@ -464,7 +464,7 @@
                 </div>
                 
                 <div class="" style="margin-bottom: 150px;">
-                    <button class="otp-submit verifyOtp font-weight-bold mt-4 centerloader authButton button_text col-12">
+                    <button class="otp-submit goTostep2  font-weight-bold mt-4 centerloader authButton button_text col-12">
                         <span>Verify Later</span>                    
                     </button>
                 </div>                

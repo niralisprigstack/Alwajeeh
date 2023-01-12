@@ -8,7 +8,7 @@
 @endsection
 <div class="fluid-container profile_container " style="">
     <div class="static-black-bg">
-    <img class="img-fluid " style="width: auto;height: 85px;float: right; position: absolute;
+    <img class="img-fluid " style="width: auto;height: 104px;float: right; position: absolute;
     right: 0;
     top: 0;" src="{{ asset('assests/images/register_logo.png') }}" alt="">
     <span class="myprofiletext">My Profile</span>    

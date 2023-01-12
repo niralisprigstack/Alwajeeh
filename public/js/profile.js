@@ -105,7 +105,7 @@ $('.profile-click').on('click', function (){
     $('.profilewholesec').addClass('h-45');
     $('.profilewholesec').addClass('topSet');
 
-    $('.profilewholesec').addClass('pb-5');
+    // $('.profilewholesec').addClass('pb-5');
 
     // var detailheight = window.innerHeight;
     // var headerimgh=$('.profile_headerimg').height();

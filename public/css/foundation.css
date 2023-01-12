@@ -171,14 +171,14 @@ color: #F5F5F5;
   }
   .carouselslider{
 
-    padding: 15px;
+    padding: 10px;
   }
   .explorebtn{
     position: absolute;
     bottom: 0;
     
     width: 181px;
-    height: 60px;
+    height: 50px;
     background: #A4894B;
     border-radius: 10px;
   }
@@ -187,7 +187,7 @@ color: #F5F5F5;
   }
   .Mediacard{
     color: #FFF;
-    height: auto;
+    height: 344px;
     margin: 0 5px 0 4px;
     /* display: flex; */
     align-items: center;

@@ -21,7 +21,7 @@ color: #A4894B;
 .static-black-bg{
     position: fixed;
     width: 100%;
-    height: 18%;
+    height: 190px;
     left: 0px;
     top: 0px;
     background: rgba(0, 0, 0, 0.6);
@@ -49,7 +49,7 @@ backdrop-filter: blur(5px);
     height: 60%;
 } */
 .topSet{
-    top: 25%;
+    top: 35%;
 }
 .detailwholesection{
     overflow-y: scroll !important;
@@ -65,7 +65,7 @@ backdrop-filter: blur(5px);
     max-height: stretch;
     max-height: -webkit-fill-available;
     height: 70%;
-
+margin-top:0px;
     padding-bottom: 100px;
 }
 
@@ -76,7 +76,7 @@ backdrop-filter: blur(5px);
 .profile_headerimg{
     /* position: fixed; */
     top:0;
-    height: 250px;
+    height: auto;
     width: 100%;
 }
 .profile_footerimg{
@@ -144,7 +144,7 @@ position: absolute;
     /* top: 30%; */
 }
 .profabsolute{
-    top: 19%;
+    top: 207px;
     position: absolute;
     right: 25px;
 }
@@ -169,7 +169,7 @@ position: absolute;
     padding-left: 35px;
     padding-right: 35px;
     padding-bottom: 100px;
-    top: 30%;
+    top: 35%;
     max-height: -webkit-fill-available;
     max-height: -moz-available;
     max-height: stretch;
@@ -191,7 +191,7 @@ width: 100%;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0px 2px lightgrey;
     background: #B7B7B7;
     height:300px;
@@ -203,7 +203,7 @@ width: 100%;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0px 2px lightgrey;
     background: #B7B7B7;
     height: 100%;
@@ -216,7 +216,7 @@ width: 100%;
     max-width: 100%;
     max-height: 100px;
     display: inline;
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0px 2px lightgrey;
     background: #B7B7B7;
 }
@@ -240,7 +240,7 @@ max-width: fit-content; */
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0px 2px lightgrey;
     background: #B7B7B7;
     height:300px;
@@ -253,7 +253,7 @@ max-width: fit-content; */
     max-width: 100%;
     max-height: 300px;
     display: inline;
-    border-radius: 0px;
+    border-radius: 10px;
     height: 100%;
 }
 .edit-text{
@@ -277,7 +277,7 @@ object-fit: scale-down;
 max-width: 100%;
 max-height: 300px;
 display: inline;
-border-radius: 0px;
+border-radius: 10px;
 }
 
 
@@ -300,3 +300,14 @@ border-radius: 0px;
     background: #000000; 
     -webkit-overflow-scrolling: touch;
 }
+
+
+
+@media (max-width:320px) {
+    .detailwholesection{
+        padding-top:15px;
+        margin-top:20px;
+    }
+
+}
+

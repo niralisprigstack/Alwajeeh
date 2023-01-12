@@ -70,7 +70,7 @@
 
 
                 </div>
-                <div class="staticarchivebtn mt-4">
+                <div class="staticarchivebtn ">
                     <button type="button" class="buttonCss button_text  p-3 explorebtn" style="position: absolute;bottom:0">Explore</button>
                 </div>
             </div>

@@ -11,7 +11,7 @@
     <img class="img-fluid " style="width: auto;height: 104px;float: right; position: absolute;
     right: 0;
     top: 0;" src="{{ asset('assests/images/register_logo.png') }}" alt="">
-    <span class="myprofiletext">My Profile</span>    
+    <span class="myprofiletext mt-2">My Profile</span>    
 </div>
     <img class="img-fluid profile_headerimg" style="" src="{{ asset('assests/images/profile/bgimg.png') }}" alt="">
 
@@ -45,7 +45,7 @@
 
 
 
-        <div class="edit-profile-div  mb-5  d-none">
+        <div class="edit-profile-div    d-none">
             <span class="profile-head-text col-12 mb-25 p-0">My Profile Photo</span>
             <form class="" id="profilepicedit" action="{{url('editProfilePic')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -127,7 +127,7 @@
 
 
 
-            <div class="d-none editpersonaldet mb-5 pb-5">
+            <div class="d-none editpersonaldet  ">
                 <form class="" id="saveperdetail" action="{{url('personaldetails')}}" method="post" enctype="multipart/form-data" onsubmit="return showCustomLoader();">
                     @csrf
                     <input type="hidden" class="form-control email shadow-none " name="email" value="">
@@ -293,7 +293,7 @@
 
 
 
-            <div class="editcontactset d-none mb-5 pb-5">
+            <div class="editcontactset d-none  ">
                 <div style="margin-bottom: 30px;">
                     <h3 class="smbalglobal-color font-weight-bold mt-2 stepnumber" style="margin: auto;">Contact Info</h3>
                 </div>
@@ -425,7 +425,7 @@
 
 
 
-            <div class="editprofdet d-none mb-5 pb-5">
+            <div class="editprofdet d-none  ">
                 <div style="margin-bottom: 35px;">
                     <h3 class="smbalglobal-color font-weight-bold mt-2 stepnumber" style="margin: auto;">Business info</h3>
                 </div>

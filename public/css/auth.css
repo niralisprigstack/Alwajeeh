@@ -478,7 +478,7 @@ color: #000000;
     color: #B7B7B7;
 }
 .newacc_text{
-    font-weight: 800;
+    font-weight: 700;
     font-size: 36px;
     line-height: 42px;
     display: flex;
@@ -688,14 +688,16 @@ text-align: center;
 color: #000000;
       }
       .lastpagetext{
+        font-family: 'El Messiri';
+        font-style: normal;
         font-weight: 700;
-font-size: 32px;
-line-height: 39px;
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #A4894B;
+        font-size: 46px;
+        line-height: 55px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        
+        color: #A4894B;
       }
       .heightmobileview{
         /* height: unset !important; */

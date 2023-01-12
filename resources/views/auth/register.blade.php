@@ -61,8 +61,9 @@
                     <h4 class='auth-md-font  mb-4 mobileauthfont global-font-color'>Choose your username and email for login</h4>
                     <div class="form-group">
 
-                        <div class="input-group justify-content-center align-items-center">
-                            <input id="user_name" type="text" class="form-control auth-input  shadow-none " name="user_name" required placeholder="username">
+                        <div class="input-group ">
+                            <input id="user_name" type="text" class="form-control auth-input  shadow-none mr-1" name="user_name" required placeholder="username">
+                            <span class="requiredstar" >*</span>
                         </div>
                         <p class="error-username text-danger"></p>
                     </div>
@@ -70,7 +71,8 @@
                     <div class="form-group mb-5 ">
 
                         <div class="input-group">
-                            <input id="email" type="email" class="form-control auth-input  shadow-none " name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                            <input id="email" type="email" class="form-control auth-input  shadow-none mr-1" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                            <span class="requiredstar" >*</span>
                         </div>
                         <p class="error-email text-danger"> </p>
                     </div>
@@ -80,7 +82,10 @@
 
 
                         <div class="col-md-12">
-                            <input id="password" type="password" class="form-control auth-input  mb-2 shadow-none " name="password" required autocomplete="new-password" placeholder="Password">
+                        <div class="d-flex">
+                            <input id="password" type="password" class="form-control auth-input  mr-1 mb-2 shadow-none " name="password" required autocomplete="new-password" placeholder="Password">
+                            <span class="requiredstar" >*</span>
+                        </div>
                             <div id="popover-password">
                                 <span class='text-danger passwordError'></span>
                                 <p style='margin-bottom: 5px;'><span id="result"></span></p>
@@ -97,7 +102,10 @@
 
 
                         <div class="col-md-12">
-                            <input id="password-confirm" type="password" class="form-control  auth-input shadow-none" name="password_confirmation" required autocomplete="new-password" placeholder="Re-type Password">
+                        <div class="d-flex">
+                            <input id="password-confirm" type="password" class="form-control mr-1 auth-input shadow-none" name="password_confirmation" required autocomplete="new-password" placeholder="Re-type Password">
+                            <span class="requiredstar" >*</span>
+                        </div>
                             <!-- <p class="">  </p> -->
                             <span id="popover-cpassword" class="d-none text-danger "> Password and Confirm Password do not match.</span>
 
@@ -126,22 +134,25 @@
 
                     <div class="form-group row mt-5">
 
-                        <div class="col-md-12">
-                            <input id="first_name" type="text" class="form-control auth-input shadow-none " name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" placeholder="First Name">
+                        <div class="col-md-12 d-flex">
+                            <input id="first_name" type="text" class="form-control auth-input shadow-none mr-1" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" placeholder="First Name">
+                            <span class="requiredstar" >*</span>
                         </div>
                     </div>
 
                     <div class="form-group row">
 
-                        <div class="col-md-12">
-                            <input id="middle_name" type="text" class="form-control auth-input shadow-none " name="middle_name" value="{{ old('middle_name') }}" required autocomplete="middle_name" placeholder="Middle Name">
+                        <div class="col-md-12 d-flex">
+                            <input id="middle_name" type="text" class="form-control auth-input shadow-none mr-1" name="middle_name" value="{{ old('middle_name') }}" required autocomplete="middle_name" placeholder="Middle Name">
+                            <span class="requiredstar" >*</span>
                         </div>
                     </div>
 
                     <div class="form-group row">
 
-                        <div class="col-md-12">
-                            <input id="last_name" type="text" class="form-control auth-input shadow-none " name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" placeholder="Last Name">
+                        <div class="col-md-12 d-flex">
+                            <input id="last_name" type="text" class="form-control auth-input shadow-none mr-1" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" placeholder="Last Name">
+                            <span class="requiredstar" >*</span>
                         </div>
                     </div>
 
@@ -152,7 +163,7 @@
                         <div class="col-md-12">
                             <div class="">
                                 <div class="input-group-prepend authselect">
-                                    <select class=" form-control auth-input shadow-none" id="country_code" name="country_code" required>
+                                    <select class=" form-control auth-input shadow-none mr-1 " id="country_code" name="country_code" required>
                                         <option value="" disabled selected>Country</option>
 
                                         <option value='1'>UAE</option>
@@ -162,8 +173,10 @@
                                         <option value="5">Pakistan</option>
 
                                     </select>
+                                    <span class="requiredstar" >*</span>
 
                                 </div>
+                                
                             </div>
                         </div>
 
@@ -175,8 +188,8 @@
 
                         <div class="col-md-12">
                             <div class=" ">
-                                <div class="input-group-prepend authselect">
-                                    <select class=" form-control auth-input shadow-none" id="nationality" name="nationality" required>
+                                <div class="input-group-prepend authselect ">
+                                    <select class=" form-control auth-input shadow-none mr-1" id="nationality" name="nationality" required>
                                         <option value="" disabled selected>Nationality</option>
 
                                         <option value='Emirati'>Emirati</option>
@@ -186,7 +199,9 @@
                                         <option value='Pakistani'>Pakistani</option>
 
                                     </select>
+                                    <span class="requiredstar" >*</span>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -294,8 +309,9 @@
                             <input id="number_code" type="text" class="form-control auth-input shadow-none " name="phone_number_code" value="" required placeholder="Code">
                         </div>
 
-                        <div class="col-8">
-                            <input id="user_number" type="number" class="form-control auth-input shadow-none " name="user_number" value="{{ old('phone_number') }}" required placeholder="Mobile">
+                        <div class="col-8 d-flex">
+                            <input id="user_number" type="number" class="form-control auth-input shadow-none mr-1 " name="user_number" value="{{ old('phone_number') }}" required placeholder="Mobile">
+                            <span class="requiredstar" >*</span>
                         </div>
                         <span class='validPhoneNum text-danger col-12'></span>
                     </div>
@@ -580,7 +596,7 @@
             <div class="step-7 d-none text-center step respstep7" style="">
                 <input type="hidden" class="dashboardurl" value="{{url('home')}}">
                 <h2 class='newacc_text smbalglobal-color justify-content-center' style="">Account<br>Created !</h2>
-                <p class='lastpagetext mt-4 mb-4 p-0 mb-0 justify-content-center'> Welcome to Alwajeeh</p>
+                <p class='lastpagetext mt-5 mb-4 p-0 mb-0 justify-content-center'> Welcome to Alwajeeh</p>
                 <!-- <p class='lastpagetext justify-content-center p-0'>Alwajeeh</p> -->
                
 

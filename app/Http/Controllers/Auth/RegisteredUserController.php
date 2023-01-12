@@ -159,10 +159,10 @@ class RegisteredUserController extends Controller
 
         $request->validate([
             'first_name' => ['required', 'string'],
+            'middle_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'country_code' => ['required'],
             'nationality' => ['required'],
-            'birth_date' => ['required'],
            
         ]);
         return response()->json([
@@ -197,7 +197,6 @@ class RegisteredUserController extends Controller
 
         $data = $request->validate([
             'phone_number' => ['required'],
-            'wp_user_number' => ['required']
         ]);
 
         $full_phone_number=$request->phone_number_code .$data['phone_number'];
@@ -241,7 +240,7 @@ class RegisteredUserController extends Controller
         // b939ed58da9be1407bb06576c59042e1
         //5abf748bd07384c7b621956571311b12
 
-        $token = "786bea53879c6b0e5f37a42aef828d2b";
+        $token = "acd321bdd088788a53d1f6e33405ea09";
         
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
@@ -289,7 +288,7 @@ class RegisteredUserController extends Controller
             //     'message' =>  $phone_number,
             // ]);
 
-            $token = "786bea53879c6b0e5f37a42aef828d2b";
+            $token = "acd321bdd088788a53d1f6e33405ea09";
         $twilio_sid = "AC0ccb78d6f0281a135a79f75b3ae3a4ea";
         
         $twilio_verify_sid = "VAbeb356ac09d5f4cbc63fedcbc50e316c";
@@ -397,7 +396,7 @@ class RegisteredUserController extends Controller
             $user->email =$data['email'];   
             $user->user_name =$data['user_name'];   
             $user->country_id =$data['countryCode'];  
-            $user->business_country_id=$data['business_country_code'];
+            $user->business_country_id=$request->business_country_code;
             
             //adding bday
             $var =  $request->birth_date;
@@ -415,9 +414,9 @@ class RegisteredUserController extends Controller
             $user->password =  Hash::make($data['password']);
 
             //business info
-            $user->city = $data['city'];
-            $user->company =$data['company'];
-            $user->designation = $data['role'];
+            $user->city = $request->city;
+            $user->company =$request->company;
+            $user->designation = $request->role;
             //end
 
             $user->user_type = 3;

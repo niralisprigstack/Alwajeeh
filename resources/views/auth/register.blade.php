@@ -134,7 +134,7 @@
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="middle_name" type="text" class="form-control auth-input shadow-none " name="middle_name" value="{{ old('middle_name') }}" autocomplete="middle_name" placeholder="Middle Name">
+                            <input id="middle_name" type="text" class="form-control auth-input shadow-none " name="middle_name" value="{{ old('middle_name') }}" required autocomplete="middle_name" placeholder="Middle Name">
                         </div>
                     </div>
 
@@ -193,7 +193,7 @@
 
 
                     <div class="date align-items-center datetimepickerforfiles" id="">
-                        <input type="text" class="form-control auth-input shadow-none" autocomplete="false" value="" id="birth_date" name="birth_date" style="" placeholder="Birth Date DD/MM/YY" required>
+                        <input type="text" class="form-control auth-input shadow-none" autocomplete="false" value="" id="birth_date" name="birth_date" style="" placeholder="Birth Date DD/MM/YY" >
                         <span class="input-group-addon  birthdatepicker">
                             <!-- <i class="far fa-calendar calendar" style="font-size: 20px;"></i> -->
                         </span>
@@ -302,11 +302,11 @@
 
                     <div class="form-group row ">
                         <div class="col-4 pr-0">
-                            <input id="wp_number_code" type="text" class="form-control auth-input shadow-none " name="wpuser_number" value="" required placeholder="Code">
+                            <input id="wp_number_code" type="text" class="form-control auth-input shadow-none " name="wpuser_number" value=""  placeholder="Code">
                         </div>
 
                         <div class="col-8">
-                            <input id="wp_user_number" type="number" class="form-control auth-input shadow-none " name="wp_user_number" value="{{ old('whatsapp_number') }}" required placeholder="Whatsapp">
+                            <input id="wp_user_number" type="number" class="form-control auth-input shadow-none " name="wp_user_number" value="{{ old('whatsapp_number') }}"  placeholder="Whatsapp">
                         </div>
                         <span class='validwpPhoneNum text-danger col-12'></span>
                     </div>
@@ -498,21 +498,21 @@
                     <div class="form-group row  ">
 
                         <div class="col-md-12">
-                            <input id="company_name" type="text" class="form-control auth-input shadow-none " name="company" value="{{ old('company') }}" required autocomplete="company_name" placeholder="Company Name">
+                            <input id="company_name" type="text" class="form-control auth-input shadow-none " name="company" value="{{ old('company') }}"  autocomplete="company_name" placeholder="Company Name">
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="role" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}" required autocomplete="role" placeholder="Role">
+                            <input id="role" type="text" class="form-control auth-input shadow-none " name="role" value="{{ old('designation') }}"  autocomplete="role" placeholder="Role">
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="city" type="text" class="form-control auth-input shadow-none " name="city" value="{{ old('city') }}" required autocomplete="city" placeholder="City">
+                            <input id="city" type="text" class="form-control auth-input shadow-none " name="city" value="{{ old('city') }}"  autocomplete="city" placeholder="City">
                         </div>
                     </div>
 
@@ -522,7 +522,7 @@
                         <div class="col-md-12">
                             <div class="">
                                 <div class="input-group-prepend authselect">
-                                    <select class=" form-control auth-input shadow-none" id="bcountry_code" name="business_country_code" required>
+                                    <select class=" form-control auth-input shadow-none" id="bcountry_code" name="business_country_code" >
                                         <option value="" disabled selected>Country</option>
 
                                         <option value='1'>UAE</option>
@@ -541,11 +541,11 @@
 
                     <div class="form-group row mt-5">
                         <div class="col-4 pr-0">
-                            <input id="business_number_code" type="text" class="form-control auth-input shadow-none " name="business_number_code" value="" required placeholder="Code">
+                            <input id="business_number_code" type="text" class="form-control auth-input shadow-none " name="business_number_code" value=""  placeholder="Code">
                         </div>
 
                         <div class="col-8">
-                            <input id="business_user_number" type="number" class="form-control auth-input shadow-none " name="business_user_number" value="{{ old('business_number') }}" required placeholder="Mobile">
+                            <input id="business_user_number" type="number" class="form-control auth-input shadow-none " name="business_user_number" value="{{ old('business_number') }}"  placeholder="Mobile">
                         </div>
                         <span class='validPhoneNum text-danger col-12'></span>
                     </div>

@@ -329,20 +329,17 @@ class RegisteredUserController extends Controller
         //     'message' =>  "here",
         // ]);
         $data = $request->validate([
-
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required'],
-            'wpphone_number' => ['required'],
             'password' => ['required', 'string', 'min:5'],
             'email' =>['required','string'],
             'user_name'=>['required','string'],
+
+            'first_name' => ['required', 'string', 'max:255'],
+            'middle_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'countryCode'=>['required'],
-            'business_country_code'=>['required'],
-            'city' =>['required','string'],
-            'company' =>['required','string'],
-            'role' =>['required','string'],
             'nationality'=>['required'],
+
+            'phone_number' => ['required'],             
         ]);
 
 
@@ -390,9 +387,9 @@ class RegisteredUserController extends Controller
  
   $user = new User();
  $user->first_name = $data['first_name'];
-           if(!empty($request->middle_name)  && isset($request->middle_name) ){
-            $user->middle_name = $request->middle_name;
-           }
+           
+            $user->middle_name = $data['middle_name'];
+           
             $user->last_name = $data['last_name'];
             $user->phone_number = $phone_number;  
             $user->business_number = $business_number;   

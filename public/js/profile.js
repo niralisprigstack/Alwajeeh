@@ -282,7 +282,7 @@ function editpersonalDetail() {
         $('.detailwholesection').addClass('topSet');
 
 
-        $('.detailwholesection').addClass('pb-5');
+        // $('.detailwholesection').addClass('pb-5');
         // var headerimgheighht=$('.profile_headerimg').height();
         // var editsectiontop=headerimgheighht-110;
         // $('.detailwholesection').css("top",editsectiontop+"px");
@@ -310,7 +310,7 @@ function editcontactDetail(){
     $('.detailwholesection').addClass('h-45');
     $('.detailwholesection').addClass('topSet');
 
-    $('.detailwholesection').addClass('pb-5');
+    // $('.detailwholesection').addClass('pb-5');
 
     // var headerimgheighht=$('.profile_headerimg').height();
     //     var editsectiontop=headerimgheighht-110;
@@ -334,7 +334,7 @@ function editprofDetail() {
     $('.detailwholesection').addClass('h-45');
     $('.detailwholesection').addClass('topSet');
 
-    $('.detailwholesection').addClass('pb-5');
+    // $('.detailwholesection').addClass('pb-5');
     // var headerimgheighht=$('.profile_headerimg').height();
     //     var editsectiontop=headerimgheighht-110;
     //     $('.detailwholesection').css("top",editsectiontop+"px");

@@ -579,11 +579,10 @@
 
             <div class="step-7 d-none text-center step respstep7" style="">
                 <input type="hidden" class="dashboardurl" value="{{url('home')}}">
-                <h2 class='sucessfull-msg justify-content-center' style="font-size: 36px;
-    line-height: 44px;">Account<br>Created !</h2>
-                <p class='lastpagetext mt-2 p-0 mb-0 justify-content-center'> Welcome to</p>
-                <p class='lastpagetext justify-content-center p-0'>Alwajeeh</p>
-                <p class='lastpagetext mt-5 mb-4'>The Sheikh Mostafa Bin Abdullatif Foundation Application</p>
+                <h2 class='newacc_text smbalglobal-color justify-content-center' style="">Account<br>Created !</h2>
+                <p class='lastpagetext mt-4 mb-4 p-0 mb-0 justify-content-center'> Welcome to Alwajeeh</p>
+                <!-- <p class='lastpagetext justify-content-center p-0'>Alwajeeh</p> -->
+               
 
 
                 <img class="img-fluid full_logo mb-4" style="" src="{{ asset('assests/images/register_logo.svg') }}" alt="">

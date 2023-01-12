@@ -461,7 +461,7 @@ height: 40px;
     z-index: 1;
 }
 .listpagestaticbtn{
-    top: 177px;
+    top: 210px;
     position: fixed;
     z-index: 1;
 }
@@ -488,7 +488,7 @@ height: 40px;
 }
 
 .addpaddingforfilter{
-    padding-top: 215px !important;
+    padding-top: 245px !important;
 }
 
 .announcementTypeText{
